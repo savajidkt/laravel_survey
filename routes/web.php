@@ -17,18 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware(['auth'])->group(function () {
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function()
-{
-    Route::group(['namespace' => 'Dashboard'], function()
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function()
     {
-        Route::resource('/dashboard', 'DashboardController');
-    });
+        Route::group(['namespace' => 'Dashboard'], function()
+        {
+            Route::resource('/', 'DashboardController');
+        });
 
-    Route::group(['namespace' => 'User'], function()
-    {
-        Route::resource('/users', 'UsersController');
-      
+        Route::group(['namespace' => 'User'], function()
+        {
+            Route::resource('/users', 'UsersController');
+        
+        });
     });
 });
 
