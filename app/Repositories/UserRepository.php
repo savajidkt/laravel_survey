@@ -56,4 +56,22 @@ class UserRepository
 
         throw new Exception('User update failed.');
     }
+
+    /**
+     * Method delete
+     *
+     * @param User $user [explicite description]
+     *
+     * @return bool
+     * @throws Exception
+     */
+    public function delete(User $user): bool
+    {
+        if( $user->delete() )
+        {
+            return true;
+        }
+
+        throw new Exception('User delete failed.');
+    }
 }

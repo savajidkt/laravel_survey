@@ -121,8 +121,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $this->userRepository->delete($user);
+
+        return redirect()->route('users.index')->with('success', "User deleted successfully!");
     }
 }

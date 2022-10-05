@@ -26,6 +26,9 @@
     <!-- END: Theme JS-->
     <script src="{{asset('app-assets/js/scripts/components/components-bs-toast.js')}}"></script>
     <!-- BEGIN: Page JS-->
+    {{-- Sweet Alert --}}
+    <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
+
     @if(Route::is('admin.dashboard.*'))
     <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script>
     @endif

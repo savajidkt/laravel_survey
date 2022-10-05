@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -64,7 +65,17 @@ class User extends Authenticatable
     {
         $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
         $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
-        $deleteAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Delete</a>';
-        return $viewAction.' '.$editAction.' '.$deleteAction;
+        return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+    }
+
+    /**
+     * Get Delete Button Attribute
+     *
+     * @param string $class
+     * @return string
+     */
+    public function getDeleteButtonAttribute($class = '')
+    {
+        return '<a href="'.route('users.destroy', $this).'" class="edit btn btn-primary btn-sm delete_action" data-method="delete">Delete</a>';
     }
 }
