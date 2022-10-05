@@ -65,14 +65,14 @@ $(function () {
         //   inputGroupValidation(form);
         // }
       });
-      bootstrapForm.find('input, textarea').on('focusout', function () {
-        $(this)
-          .removeClass('is-valid is-invalid')
-          .addClass(this.checkValidity() ? 'is-valid' : 'is-invalid');
-        if (inputGroupValidation) {
-          inputGroupValidation(this);
-        }
-      });
+      // bootstrapForm.find('input, textarea').on('focusout', function () {
+      //   $(this)
+      //     .removeClass('is-valid is-invalid')
+      //     .addClass(this.checkValidity() ? 'is-valid' : 'is-invalid');
+      //   if (inputGroupValidation) {
+      //     inputGroupValidation(this);
+      //   }
+      // });
     });
   }
 
@@ -88,12 +88,12 @@ $(function () {
           required: true,
           email: true
         },
-        'basic-default-password': {
+        'password': {
           required: true
         },
         'confirm-password': {
           required: true,
-          equalTo: '#basic-default-password'
+          equalTo: '#password'
         },
         'select-country': {
           required: true
@@ -116,4 +116,9 @@ $(function () {
       }
     });
   }
+
+  // $("#user-save").click(function(){
+  //   alert('asdasdasd');
+  // });
+  
 });
