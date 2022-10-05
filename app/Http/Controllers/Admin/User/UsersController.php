@@ -16,6 +16,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
+        
         if ($request->ajax()) {
 
             $data = User::where('user_type',2);
@@ -57,6 +58,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**

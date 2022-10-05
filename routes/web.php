@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::middleware(['auth'])->group(function () {
 
-    Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function()
-    {
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+
+    
+    Route::get('/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
+    Route::post('/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+ 
+    Route::group(['middleware' => 'adminauth'], function () {
+        // Route::get('/', function () {
+        //     return view('welcome');
+        // })->name('Dashboard');
+
         Route::group(['namespace' => 'Dashboard'], function()
         {
             Route::resource('/', 'DashboardController');
@@ -28,12 +38,30 @@ Route::middleware(['auth'])->group(function () {
 
         Route::group(['namespace' => 'User'], function()
         {
+            
             Route::resource('/users', 'UsersController');
-        
         });
+ 
     });
 });
 
-Auth::routes();
+    // Route::middleware(['auth'])->group(function () {
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function()
+    // {
+    //     Route::group(['namespace' => 'Dashboard'], function()
+    //     {
+    //         Route::resource('/', 'DashboardController');
+    //     });
+
+    //     Route::group(['namespace' => 'User'], function()
+    //     {
+    //         Route::resource('/users', 'UsersController');
+        
+    //     });
+    // });
+    // });
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

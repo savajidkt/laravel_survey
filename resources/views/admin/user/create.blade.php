@@ -9,7 +9,7 @@
                     <h4 class="card-title">New User</h4>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate method="post" enctype="multipart/form-data" action="{{route('admin.users.store')}}">
+                    <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{route('users.store')}}">
                         @include('admin.user.form')
                         <div class="row">
                             <div class="col-12">

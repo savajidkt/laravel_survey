@@ -6,7 +6,7 @@
         <div class="card">
             <h5 class="card-header">Users</h5>
             <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-            <a href="{{route('admin.users.create')}}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
+            <a href="{{route('users.create')}}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
             </div>
         </div>
         <!-- users filter end -->
@@ -40,7 +40,7 @@
             var table = $('.user-list-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.users.index') }}",
+                ajax: "{{ route('users.index') }}",
                 columns: [
                     {
                         data: 'id',
