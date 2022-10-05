@@ -54,4 +54,17 @@ class User extends Authenticatable
         $status = strtolower($status) =='active'? 1 : 0;
         return $query->where('user_status', $status); 
     }
+
+    /**
+     * Method getActionAttribute
+     *
+     * @return string
+     */
+    public function getActionAttribute(): string
+    {
+        $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+        $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
+        $deleteAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">Delete</a>';
+        return $viewAction.' '.$editAction.' '.$deleteAction;
+    }
 }

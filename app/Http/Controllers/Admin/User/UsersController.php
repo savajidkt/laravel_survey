@@ -3,16 +3,22 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\CreateRequest;
+use App\Http\Requests\User\EditRequest;
 use App\Models\User;
-use Carbon\Carbon;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
-Use Image;
-use Intervention\Image\Exception\NotReadableException;
-use Illuminate\Support\Facades\File;
 class UsersController extends Controller
 {
+    /** \App\Repository\UserRepository $userRepository */
+    protected $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,18 +28,24 @@ class UsersController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = User::where('user_type', 2);
+            $data = User::select('*');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('user_status', function (User $user) {
                     return $user->status;
                 })
-                ->filterColumn('user_status', function ($query, $keyword) {
-                    $query->status($keyword);
+                ->filterColumn('first_name', function ($query, $keyword) {
+                    $query->orWhere('first_name', 'like', '%'.$keyword.'%');
                 })
+                ->filterColumn('last_name', function ($query, $keyword) {
+                    $query->orWhere('last_name', 'like', '%'.$keyword.'%');
+                })
+                // ->filterColumn('user_status', function ($query, $keyword) {
+                //     $status = strtolower($keyword) =='active'? 1 : 0;
+                //     return $query->orWhere('user_status', $status);
+                // })
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-                    return $btn;
+                    return $row->action;
                 })->rawColumns(['action'])->make(true);
         }
 
@@ -43,7 +55,7 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function create()
     {
@@ -56,41 +68,12 @@ class UsersController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-       
-        
-        
-        $user = new User;
-        $validationArr = array();
-        $validationArr['first_name'] = 'required';
-        $validationArr['last_name'] = 'required';
-        $validationArr['email'] = 'required|email|unique:users,email';
-        $validationArr['password'] = 'required|min:8|same:confirm-password';
-        $validationArr['confirm-password'] = 'required|min:8';
-       
+        $this->userRepository->create($request->all());
 
-
-        $validation = $this->validate($request, $validationArr,
-        [
-        'password.min' => 'Password minimum value should be 8.', 
-        'password.same' => 'Password does not match with confirm password.', 
-        'confirm_password.min' => 'Password minimum value should be 8.'
-        ]);
-
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->input('password'));
-        $user->user_type = 2;
-        $user->is_first_time_login = 2;
-        $user->user_status = 0;
-        $user->created_at = Carbon::now();
-        $user->updated_at = Carbon::now();
-        $user->save();
-        
         return redirect()->route('users.index')->with('success', "User created successfully!");
     }
 
@@ -108,24 +91,28 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\User $user [explicite description]
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', ['model' => $user]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Method update
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\User\EditRequest $request
+     * @param \App\Models\User $user
+     *
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(EditRequest $request, User $user)
     {
-        //
+        $this->userRepository->update($request->all(), $user);
+
+        return redirect()->route('users.index')->with('success', "User updated successfully!");
     }
 
     /**

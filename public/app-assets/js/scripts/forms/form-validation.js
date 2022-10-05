@@ -81,38 +81,23 @@ $(function () {
   if (jqForm.length) {
     jqForm.validate({
       rules: {
-        'basic-default-name': {
+        'first_name': {
           required: true
         },
-        'basic-default-email': {
+        'last_name': {
+          required: true
+        },
+        'email': {
           required: true,
           email: true
         },
-        'password': {
-          required: true
-        },
-        'confirm-password': {
-          required: true,
-          equalTo: '#password'
-        },
-        'select-country': {
-          required: true
-        },
-        dob: {
-          required: true
-        },
-        customFile: {
-          required: true
-        },
-        validationRadiojq: {
-          required: true
-        },
-        validationBiojq: {
-          required: true
-        },
-        validationCheck: {
-          required: true
-        }
+        // 'password': {
+        //   required: true
+        // },
+        // 'confirm-password': {
+        //   required: true,
+        //   equalTo: '#password'
+        // },
       }
     });
   }
