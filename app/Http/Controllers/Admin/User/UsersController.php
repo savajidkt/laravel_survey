@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
-
+Use Image;
+use Intervention\Image\Exception\NotReadableException;
+use Illuminate\Support\Facades\File;
 class UsersController extends Controller
 {
     /**
@@ -18,13 +22,13 @@ class UsersController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = User::where('user_type',2);
+            $data = User::where('user_type', 2);
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('user_status', function (User $user) {
                     return $user->status;
                 })
-                ->filterColumn('user_status', function($query, $keyword){
+                ->filterColumn('user_status', function ($query, $keyword) {
                     $query->status($keyword);
                 })
                 ->addColumn('action', function ($row) {
@@ -44,8 +48,8 @@ class UsersController extends Controller
     public function create()
     {
         //
-        return view('admin.user.create');
-    
+        $rawData = new User;
+        return view('admin.user.create', ['model' => $rawData]);
     }
 
     /**
@@ -56,7 +60,38 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        
+        
+        $user = new User;
+        $validationArr = array();
+        $validationArr['first_name'] = 'required';
+        $validationArr['last_name'] = 'required';
+        $validationArr['email'] = 'required|email|unique:users,email';
+        $validationArr['password'] = 'required|min:8|same:confirm-password';
+        $validationArr['confirm-password'] = 'required|min:8';
+       
+
+
+        $validation = $this->validate($request, $validationArr,
+        [
+        'password.min' => 'Password minimum value should be 8.', 
+        'password.same' => 'Password does not match with confirm password.', 
+        'confirm_password.min' => 'Password minimum value should be 8.'
+        ]);
+
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->input('password'));
+        $user->user_type = 2;
+        $user->is_first_time_login = 2;
+        $user->user_status = 0;
+        $user->created_at = Carbon::now();
+        $user->updated_at = Carbon::now();
+        $user->save();
+        
+        return redirect()->route('users.index')->with('success', "User created successfully!");
     }
 
     /**

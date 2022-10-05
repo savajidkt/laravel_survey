@@ -27,11 +27,11 @@ $(function () {
         $(element).valid();
       }, */
       rules: {
-        'login-email': {
+        'email': {
           required: true,
           email: true
         },
-        'login-password': {
+        'password': {
           required: true
         }
       }
