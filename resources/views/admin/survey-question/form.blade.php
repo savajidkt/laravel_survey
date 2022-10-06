@@ -30,6 +30,16 @@
                 @enderror
         </div>
     </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label class="form-label" for="address">Address</label>
+            <textarea name="address" id="address" class="form-control"  required>{{(isset($model->address))?$model->address:''}}</textarea>
+            <div class="valid-feedback">Looks good!</div>
+            @error('address')
+                <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                @enderror
+        </div>
+    </div>
     <div class="col-6">
         <div class="form-group">
             <label class="form-label" for="basic-default-password1">Password</label>

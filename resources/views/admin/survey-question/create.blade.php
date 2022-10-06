@@ -6,19 +6,19 @@
         <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">{{isset($model->id) && $model->id != ''?'Update':'Add'}} User</h4>
+                    <h4 class="card-title">New User</h4>
                 </div>
                 <div class="card-body">
-                    {{ Form::open(['route' => 'users.store', 'class' => 'needs-validation1', 'role' => 'form', 'method' => 'post', 'id' => 'jquery-val-form','enctype'=>'multipart/form-data']) }}
-                        {{ csrf_field() }}
-                        {{ Form::hidden('id', $model->id != ''?$model->id:'', ['id' => 'id']) }}
+                    <form id="jquery-val-form" class="needs-validation1" novalidate method="post" enctype="multipart/form-data" action="{{route('users.store')}}">
+                        <input type="hidden" name="id" value="{{$model->id}}">
+                        @csrf
                         @include('admin.user.form')
                         <div class="row">
                             <div class="col-12">
                                 <button type="submit" id="user-save" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
-                        {{ Form::close() }}
+                    </form>
                 </div>
             </div>
         </div>
