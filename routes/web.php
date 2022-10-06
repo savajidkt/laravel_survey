@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 #Admin Routes
+Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
 Route::get('admin/logout', [AdminAuthController::class, 'logout'])->name('adminLogout');
