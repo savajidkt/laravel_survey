@@ -4,23 +4,22 @@
     <section class="app-user-list">
         <!-- users filter start -->
         <div class="card">
-            <h5 class="card-header">Users</h5>
+            <h5 class="card-header">Survey Question</h5>
             <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-                <a href="{{ route('users.create') }}"><button type="reset"
-                        class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
+                <a href="{{ route('question.create') }}"><button type="reset"
+                        class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New Question</button></a>
             </div>
         </div>
         <!-- users filter end -->
         <!-- list section start -->
         <div class="card">
             <div class="card-datatable table-responsive pt-0">
-                <table class="user-list-table table">
+                <table class="question-list-table table">
                     <thead class="thead-light">
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
+                            <th>Question</th>
+                            <th>Type</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -35,33 +34,29 @@
 @endsection
 
 @section('extra-script')
-    <script src="{{ asset('app-assets/js/scripts/pages/app-user-list.js') }}"></script>
+    <!-- <script src="{{ asset('app-assets/js/scripts/pages/app-user-list.js') }}"></script> -->
     <script type="text/javascript">
         $(function() {
-            var table = $('.user-list-table').DataTable({
+            var table = $('.question-list-table').DataTable({
                 processing: true,
                 serverSide: true,
                 searching: false,
-                ajax: "{{ route('users.index') }}",
+                ajax: "{{ route('question.index') }}",
                 columns: [{
                         data: 'id',
                         name: 'id'
                     },
                     {
-                        data: 'full_name',
-                        name: 'full_name'
+                        data: 'question',
+                        name: 'question'
                     },
                     {
-                        data: 'address',
-                        name: 'address'
+                        data: 'type',
+                        name: 'type'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'user_status',
-                        name: 'user_status'
+                        data: 'status',
+                        name: 'status'
                     },
                     {
                         data: 'action',

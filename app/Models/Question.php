@@ -18,6 +18,14 @@ class Question extends Model
         self::INACTIVE => 'In Active'
     ];
 
+    const RADIO = 1;
+    const DRAG = 2;
+
+    const TYPE = [
+        self::RADIO => 'Radio',
+        self::DRAG => 'Drag'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -32,16 +40,38 @@ class Question extends Model
     {
         return $this->hasMany(QuestionOption::class,'question_id','id');
     }
+    /**
+     * Method getActionAttribute
+     *
+     * @return string
+     */
+    public function getActionAttribute(): string
+    {
+        $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+        $editAction = '<a href="'. route('question.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
+        return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+    }
+
+    /**
+     * Get Delete Button Attribute
+     *
+     * @param string $class
+     * @return string
+     */
+    public function getDeleteButtonAttribute($class = '')
+    {
+        return '<a href="'.route('question.destroy', $this).'" class="edit btn btn-primary btn-sm delete_action" data-method="delete">Delete</a>';
+    }
 
     /**
      * Method getStatusAttribute
      *
      * @return string
      */
-    public function getStatusAttribute(): string
+    public function getStatusNameAttribute(): string
     {
+       
         $status = self::ACTIVE;
-
         switch($this->status)
         {
             case self::INACTIVE:
@@ -53,5 +83,21 @@ class Question extends Model
         }
 
         return $status;
+    }
+    public function getTypeNameAttribute(): string
+    {
+        $type = self::RADIO;
+
+        switch($this->type)
+        {
+            case self::DRAG:
+                $type = self::TYPE[self::DRAG];
+                break;
+            default:
+                $type = self::TYPE[self::RADIO];
+                break;
+        }
+
+        return $type;
     }
 }

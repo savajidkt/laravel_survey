@@ -37,15 +37,10 @@
                 
             </li>
           
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">Users</span></a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ url('admin/users')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="View">View</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Edit</span></a>
-                    </li>
-                </ul>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/users')}}"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">Users</span></a>
+           
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/question')}}"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Questions</span></a>
             </li>
             
         </ul>
