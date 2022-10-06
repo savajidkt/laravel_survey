@@ -29,34 +29,16 @@ Route::get('admin/logout', [AdminAuthController::class, 'logout'])->name('adminL
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
     Route::resource('/users', UsersController::class);
-    
 });
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function()
-//     {
-//         Route::group(['namespace' => 'Dashboard'], function()
-//         {
-//             Route::resource('/', 'DashboardController');
-//         });
-
-//         Route::group(['namespace' => 'User'], function()
-//         {
-//             Route::resource('/users', 'UsersController');
-        
-//         });
-//     });
-// });
 
 Auth::routes();
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

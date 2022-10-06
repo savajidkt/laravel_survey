@@ -20,6 +20,7 @@ class AdminUserSeeder extends Seeder
         User::create([
             'first_name'=>'Savji',
             'last_name'=>'Rathod',
+            'address'=>'Dummy Address',
             'email'=>'savaji.dkt@gmail.com',
             'email_verified_at' => Carbon::now(),
             'password'=>Hash::make('123456'),

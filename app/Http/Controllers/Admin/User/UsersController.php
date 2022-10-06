@@ -31,15 +31,18 @@ class UsersController extends Controller
             $data = User::select('*');
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn('full_name', function(User $user){
+                    return $user->fullName;
+                })
                 ->editColumn('user_status', function (User $user) {
-                    return $user->status;
+                    return $user->status_name;
                 })
-                ->filterColumn('first_name', function ($query, $keyword) {
-                    $query->orWhere('first_name', 'like', '%'.$keyword.'%');
-                })
-                ->filterColumn('last_name', function ($query, $keyword) {
-                    $query->orWhere('last_name', 'like', '%'.$keyword.'%');
-                })
+                // ->filterColumn('first_name', function ($query, $keyword) {
+                //     $query->orWhere('first_name', 'like', '%'.$keyword.'%');
+                // })
+                // ->filterColumn('last_name', function ($query, $keyword) {
+                //     $query->orWhere('last_name', 'like', '%'.$keyword.'%');
+                // })
                 // ->filterColumn('user_status', function ($query, $keyword) {
                 //     $status = strtolower($keyword) =='active'? 1 : 0;
                 //     return $query->orWhere('user_status', $status);

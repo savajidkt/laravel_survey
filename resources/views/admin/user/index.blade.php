@@ -18,9 +18,9 @@
                     <thead class="thead-light">
                         <tr>
                             <th></th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Email</th>
+                            <th>Address</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -41,18 +41,19 @@
             var table = $('.user-list-table').DataTable({
                 processing: true,
                 serverSide: true,
+                searching: false,
                 ajax: "{{ route('users.index') }}",
                 columns: [{
                         data: 'id',
                         name: 'id'
                     },
                     {
-                        data: 'first_name',
-                        name: 'first_name'
+                        data: 'full_name',
+                        name: 'full_name'
                     },
                     {
-                        data: 'last_name',
-                        name: 'last_name'
+                        data: 'address',
+                        name: 'address'
                     },
                     {
                         data: 'email',

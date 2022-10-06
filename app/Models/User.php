@@ -13,6 +13,14 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
+    const ACTIVE = 1;
+    const INACTIVE = 0;
+
+    const STATUS = [
+        self::ACTIVE => 'Active',
+        self::INACTIVE => 'In Active'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +29,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'address',
         'user_type',
         'user_status',
         'is_first_login',
@@ -46,10 +55,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getStatusAttribute()
-    {
-        return $this->user_status == 0 ? 'Inactive' : 'Active';    
-    }
+
     public function scopeStatus($query, $status)
     {
         $status = strtolower($status) =='active'? 1 : 0;
@@ -77,5 +83,37 @@ class User extends Authenticatable
     public function getDeleteButtonAttribute($class = '')
     {
         return '<a href="'.route('users.destroy', $this).'" class="edit btn btn-primary btn-sm delete_action" data-method="delete">Delete</a>';
+    }
+
+    /**
+     * Method getFullNameAttribute
+     *
+     * @return string
+     */
+    public function getFullNameAttribute(): string
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
+    /**
+     * Method getStatusAttribute
+     *
+     * @return string
+     */
+    public function getStatusNameAttribute(): string
+    {
+        $status = self::ACTIVE;
+
+        switch($this->user_status)
+        {
+            case self::INACTIVE:
+                $status = self::STATUS[self::INACTIVE];
+                break;
+            default:
+                $status = self::STATUS[self::ACTIVE];
+                break;
+        }
+
+        return $status;
     }
 }
