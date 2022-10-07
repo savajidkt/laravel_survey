@@ -17,7 +17,6 @@ class CreateQuestionOptionsTable extends Migration
             $table->id();
             $table->string('option');
             $table->string('is_correct');
-            $table->string('correct_order');
             $table->unsignedBigInteger('question_id')->nullable();
             $table->tinyInteger('status')->default(1)->comment('0=Inactive, 1=Active');
             $table->timestamps();

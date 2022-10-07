@@ -3,7 +3,7 @@
 <section class="bs-validation">
     <div class="row">
         <!-- Bootstrap Validation -->
-        <div class="col-md-6 col-12">
+        <div class="col-md-8 col-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Update Question</h4>
@@ -24,4 +24,5 @@
         </div>
     </div>
 </section>
+@include('admin.survey-question.options-list')
 @endsection

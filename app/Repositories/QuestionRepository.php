@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Question;
+use App\Models\QuestionOption;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,15 +19,23 @@ class QuestionRepository
      */
     public function create(array $data): Question
     {
-        $data = [
-            'first_name'    => $data['first_name'],
-            'last_name'     => $data['last_name'],
-            'address'     => $data['address'],
-            'email'         => $data['email'],
-            'password'      => Hash::make($data['password']),
+        $questionData = [
+            'question'    => $data['question'],
+            'status'     => $data['status'],
+            'type'       => $data['type']
         ];
 
-        return Question::create($data);
+        $question = Question::create($questionData);
+
+        foreach ($data['options'] as $key => $option) {
+            $optionArr = [
+                'option'    => $option,
+                'is_correct' => (isset($data['correct_answer'][$key])) ? $data['correct_answer'][$key] : 0,
+            ];
+
+            $question->options()->save(new QuestionOption($optionArr));
+        }
+        return $question;
     }
 
     /**
@@ -40,18 +49,23 @@ class QuestionRepository
      */
     public function update(array $data, Question $question): Question
     {
-        $data = [
-            'first_name'    => $data['first_name'],
-            'last_name'     => $data['last_name'],
-            'address'       => $data['address'],
-            'email'         => $data['email']
+        $questionData = [
+            'question'    => $data['question'],
+            'status'     => $data['status'],
+            'type'       => $data['type']
         ];
 
-        if (isset($data['password'])) {
-            $data['password'] = Hash::make($data['password']);
-        }
+        if ($question->update($questionData)) {
+            $question->options()->delete();
+            foreach ($data['options'] as $key => $option) {
+                $optionArr = [
+                    'option'    => $option,
+                    'is_correct' => (isset($data['correct_answer'][$key])) ? $data['correct_answer'][$key] : 0,
+                ];
 
-        if ($question->update($data)) {
+                $question->options()->save(new QuestionOption($optionArr));
+            }
+
             return $question;
         }
 

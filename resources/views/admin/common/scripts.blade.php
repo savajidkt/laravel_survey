@@ -33,6 +33,8 @@
     <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script>
     @endif
     <!-- END: Page JS-->
+    <script src="{{asset('js/survey.common.js')}}"></script>
+
 
     <script>
         $(window).on('load', function() {

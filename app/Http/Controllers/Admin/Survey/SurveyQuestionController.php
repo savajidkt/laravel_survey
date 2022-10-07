@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Survey;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Question\CreateRequest;
 use App\Http\Requests\Question\EditRequest;
-use App\Http\Requests\Requests\Question\CreateRequest as QuestionCreateRequest;
 use App\Models\Question;
 use App\Repositories\QuestionRepository;
 use Illuminate\Http\Request;
@@ -31,7 +31,7 @@ class SurveyQuestionController extends Controller
             $data = Question::select('*');
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('question', function(Question $question){
+                ->addColumn('question', function (Question $question) {
                     return $question->question;
                 })
                 ->editColumn('status', function (Question $question) {
@@ -76,9 +76,9 @@ class SurveyQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
-    public function store(EditRequest $request)
+    public function store(CreateRequest $request)
     {
-        $this->userRepository->create($request->all());
+        $this->questionRepository->create($request->all());
 
         return redirect()->route('question.index')->with('success', "Question created successfully!");
     }
@@ -103,6 +103,7 @@ class SurveyQuestionController extends Controller
      */
     public function edit(Question $question)
     {
+        $question->loadMissing('options');
         return view('admin.survey-question.edit', ['model' => $question]);
     }
 
