@@ -2,6 +2,6 @@
 
 @section('content')
 <!-- Dashboard Ecommerce Starts -->
-<div>Welcome to Hello Admin</div>
+<div>Welcome to {{auth()->user()->name}}</div>
 <!-- Dashboard Ecommerce ends -->
 @endsection
