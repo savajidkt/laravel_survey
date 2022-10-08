@@ -47,7 +47,7 @@ class Question extends Model
      */
     public function getActionAttribute(): string
     {
-        $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+        $viewAction = '<a href="'. route('question.show', $this->id).'" class="edit btn btn-primary btn-sm">View</a>';
         $editAction = '<a href="'. route('question.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
         return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
     }
@@ -70,7 +70,6 @@ class Question extends Model
      */
     public function getStatusNameAttribute(): string
     {
-       
         $status = self::ACTIVE;
         switch($this->status)
         {
@@ -84,6 +83,7 @@ class Question extends Model
 
         return $status;
     }
+
     public function getTypeNameAttribute(): string
     {
         $type = self::RADIO;

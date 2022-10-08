@@ -79,7 +79,6 @@ class SurveyQuestionController extends Controller
     public function store(CreateRequest $request)
     {
         $this->questionRepository->create($request->all());
-
         return redirect()->route('question.index')->with('success', "Question created successfully!");
     }
 
@@ -89,9 +88,11 @@ class SurveyQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Question $question)
     {
         //
+        $question->loadMissing('options');
+        return view('admin.survey-question.view', ['model' => $question]);
     }
 
     /**

@@ -40,7 +40,9 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/users')}}"><i data-feather="user"></i><span class="menu-title text-truncate" data-i18n="User">Users</span></a>
            
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/question')}}"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Questions</span></a>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/question')}}"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Questions">Questions</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ url('admin/survey')}}"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Survey">Survey</span></a>
             </li>
             
         </ul>

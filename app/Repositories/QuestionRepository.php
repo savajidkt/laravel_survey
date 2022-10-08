@@ -24,7 +24,6 @@ class QuestionRepository
             'status'     => $data['status'],
             'type'       => $data['type']
         ];
-
         $question = Question::create($questionData);
 
         foreach ($data['options'] as $key => $option) {

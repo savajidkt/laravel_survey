@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Survey\SurveyController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Survey\SurveyQuestionController;
 use App\Models\Question;
@@ -34,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/users', UsersController::class);
     Route::resource('/question', SurveyQuestionController::class);
+    Route::resource('/survey', SurveyController::class);
 });
 
 Auth::routes();
