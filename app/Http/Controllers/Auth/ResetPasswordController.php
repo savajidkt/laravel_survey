@@ -27,4 +27,9 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function firstTimePasswordChange()
+    {
+        return view('auth.passwords.first-time-password-change');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Survey\SurveyController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Survey\SurveyQuestionController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Auth::routes();
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/first-time-password-change', [ResetPasswordController::class, 'firstTimePasswordChange'])->name('password.first-time-change');
 });
 
 
