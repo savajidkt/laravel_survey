@@ -35,7 +35,7 @@ class RedirectIfAuthenticated
                 return redirect(RouteServiceProvider::adminHOME);    
             }
         }
-
+        //dd(Auth::guard($guard)->check());
         return $next($request);
     }
 }
