@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Question;
 use App\Models\QuestionOption;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -87,4 +88,24 @@ class QuestionRepository
 
         throw new Exception('Question delete failed.');
     }
+     /**
+     * Method GetQuestion
+     *
+     * @param array $data [explicite description]
+     *
+     * @return Question
+     * @throws Exception
+     */
+    public function getQuestion(array $data): Question
+    {
+         $page = $data['page'] ;//$data['page'] == 0 ? 0 : $data['page'] - 1;
+         //DB::enableQueryLog();
+        $question = Question::with('options')->skip($page)->take(1)->get();
+        //dd(DB::getQueryLog());
+        if($question){
+            return $question[0];
+        }
+        throw new Exception('Question delete failed.');
+    }
 }
+
