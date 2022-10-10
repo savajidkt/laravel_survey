@@ -32,12 +32,13 @@ class SurveyController extends Controller
     public function getQuestion(Request $request)
     {
         $data = $request->all();
+        //dd($data);
         $question = $this->questionRepository->getQuestion($data);
-        if($data['type'] == 1){
+        if($data['type']==1){
 
             $page = $data['page'] == 0 ? 0 : $data['page'];
         }else{
-            $page = $data['page'] == 0 ? 0 : $data['page'];
+            $page = $data['page'] -1;
         }
         return response()->json([
             'status' => true,

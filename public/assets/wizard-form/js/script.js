@@ -73,7 +73,12 @@ function nextPrev(n) {
         document.getElementById("wizard").submit();
         return false;
     }*/
-   configData.type=n;
+    if(n =='-1'){
+      $('#page').val($('#page').val() - 1);
+    }else{
+
+    }
+   configData={url:configData.url,type:n};
     first_time_load(configData);
     // Otherwise, display the correct tab:
     //showTab(currentTab);
@@ -124,6 +129,7 @@ function fixStepIndicator(n) {
 }
 
 function first_time_load(configData){
+  console.log(configData);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

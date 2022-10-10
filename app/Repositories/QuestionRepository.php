@@ -98,7 +98,13 @@ class QuestionRepository
      */
     public function getQuestion(array $data): Question
     {
-         $page = $data['page'] ;//$data['page'] == 0 ? 0 : $data['page'] - 1;
+          ;//$data['page'] == 0 ? 0 : $data['page'] - 1;
+         if($data['type'] == 1){
+            $page = $data['page'];
+        }else{
+            $page = $data['page'] -1;
+        }
+
          //DB::enableQueryLog();
         $question = Question::with('options')->skip($page)->take(1)->get();
         //dd(DB::getQueryLog());

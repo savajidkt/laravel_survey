@@ -11,7 +11,7 @@
                     </div>
                     <div class="pc-tagline">Progress: <strong>40% Complete</strong></div>
                     <div class="question-listing"></div>
-                    <input type="hidden" name="page" id="page" value="0">
+                    <input type="hidden" name="page" id="page" value="1">
                     <div class="error-msg" style="color:red;"></div>
                     <div class="row mt-4">
                         <div class="col-lg-12">
