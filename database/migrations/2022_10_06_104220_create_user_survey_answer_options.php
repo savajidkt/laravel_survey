@@ -21,7 +21,7 @@ class CreateUserSurveyAnswerOptions extends Migration
             $table->string('correct_order');
             $table->timestamps();
 
-            $table->foreign('user_survey_answer_id')->references('id')->on('user_servey_answers')->onDelete('cascade');
+            $table->foreign('user_survey_answer_id')->references('id')->on('user_survey_answers')->onDelete('cascade');
             $table->foreign('question_option_id')->references('id')->on('question_options')->onDelete('cascade');
         });
     }

@@ -134,19 +134,27 @@ function first_time_load(configData){
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        }); 
-        var page = $('#page').val();       
+        });
+        var page = $('#page').val();
+        var question_id = $('#question_id').val();
+        var user_survey_id = $('#user_survey_id').val();
+        var option_id = $('input[name="options"]:checked').val();
         $.ajax({
            type:'POST',
            url:configData.url,
            dataType:'json',
-           data:{page:page,type:configData.type},
+           data:{
+              question_id:question_id,
+              user_survey_id:user_survey_id,
+              option_id:option_id,
+              page:page,
+              type:configData.type
+            },
            success:function(data){
-            $('#page').val(data.page);            
+            $('#page').val(data.page);
               $('.question-listing').html(data.data);
               $('.multisteps_form_panel').show();
            }
 
         });
-        
 }
