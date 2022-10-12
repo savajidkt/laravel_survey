@@ -72,7 +72,8 @@ class User extends Authenticatable
     {
         $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
         $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
-        return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+        //return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+        return $editAction.' '.$this->getDeleteButtonAttribute();
     }
 
     /**
