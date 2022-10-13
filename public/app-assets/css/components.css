@@ -1023,6 +1023,7 @@ footer.footer-border {
           align-items : center;
   margin-top : 1.35rem;
   font-size : inherit;
+  margin-right:0;
 }
 
 .main-menu .navbar-header .navbar-brand .brand-logo img {
@@ -1031,7 +1032,7 @@ footer.footer-border {
 
 .main-menu .navbar-header .navbar-brand .brand-text {
   color : #7367F0;
-  padding-left : 1rem;
+  padding-left : 0;
   margin-bottom : 0;
   font-weight : 600;
   letter-spacing : 0.01rem;
@@ -1039,6 +1040,7 @@ footer.footer-border {
   -webkit-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
           animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;
 }
+.main-menu .navbar-header .navbar-brand .brand-text img{height:40px;}
 
 .main-menu .navbar-header .modern-nav-toggle {
   -webkit-animation : 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s normal forwards 1 fadein;

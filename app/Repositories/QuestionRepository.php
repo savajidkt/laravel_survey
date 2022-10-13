@@ -32,8 +32,7 @@ class QuestionRepository
 
         foreach ($data['options'] as $key => $option) {
             $optionArr = [
-                'option'    => $option,
-                'is_correct' => (isset($data['correct_answer'][$key])) ? $data['correct_answer'][$key] : 0,
+                'option'    => $option
             ];
 
             $question->options()->save(new QuestionOption($optionArr));
@@ -62,8 +61,7 @@ class QuestionRepository
             $question->options()->delete();
             foreach ($data['options'] as $key => $option) {
                 $optionArr = [
-                    'option'    => $option,
-                    'is_correct' => (isset($data['correct_answer'][$key])) ? $data['correct_answer'][$key] : 0,
+                    'option'    => $option
                 ];
 
                 $question->options()->save(new QuestionOption($optionArr));
@@ -126,8 +124,7 @@ class QuestionRepository
      */
     public function questionAttempt(array $data): UserSurvey
     {
-        $question       = isset($data['question_id']) ? Question::find($data['question_id']) : null;
-        
+        $question       = isset($data['question_id']) ? Question::find($data['question_id']) : null;        
         $option_id         = isset($data['option_id']) ? $data['option_id'] : null;
         $userSurvey     = isset($data['user_survey_id']) ? UserSurvey::find($data['user_survey_id']) : null;
         $userId         = auth()->user()->id;
@@ -171,7 +168,6 @@ class QuestionRepository
                 $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
                     'user_survey_answer_id'=> $userSurveyQuestion->id,
                     'question_option_id'       =>$option->id,
-                    'is_correct'    => $option->id == $option_id ? 1 : 0,
                 ]);
             }
         }

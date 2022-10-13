@@ -57,19 +57,6 @@
                                                 <input type="text" class="form-control" name="options[{{ $key }}]" id="option_name{{$option->id}}" value="{{$option->option}}" />
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2 col-12">
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch custom-switch-success">
-                                                    <p class="mb-50">Correct Answer</p>
-                                                    <input type="checkbox" class="custom-control-input" name="correct_answer[{{ $key }}]" {{($option->is_correct == 1)? 'checked':''}} value="1" id="correct_answer{{$option->id}}" />
-                                                    <label class="custom-control-label" for="correct_answer{{$option->id}}">
-                                                        <span class="switch-icon-left"><i data-feather="check"></i></span>
-                                                        <span class="switch-icon-right"><i data-feather="x"></i></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="col-md-2 col-12 mb-50">
                                             <div class="form-group">
                                                 <button class="btn btn-outline-danger text-nowrap px-1 remove" data-repeater-delete type="button">

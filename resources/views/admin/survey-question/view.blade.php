@@ -29,14 +29,12 @@
                                         <thead>
                                             <tr>
                                                 <th>Option</th>
-                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($model->options as $key=> $option )
                                             <tr>
                                                 <td>{{$option->option}}</td>
-                                                <td>{{($option->status ==1)? 'Active' : 'Inactive'}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
