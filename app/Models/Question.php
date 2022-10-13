@@ -49,7 +49,7 @@ class Question extends Model
     {
         $viewAction = '<a href="'. route('question.show', $this->id).'" class="edit btn btn-primary btn-sm">View</a>';
         $editAction = '<a href="'. route('question.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
-        return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+        return $viewAction;
     }
 
     /**
