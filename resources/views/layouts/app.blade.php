@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    @if (!(Route::is('login') || Route::is('password.request')))
+    @if (!(Route::is('login') || Route::is('password.request') || Route::is('password.reset')))
         @include('common.header')
     @endif
 

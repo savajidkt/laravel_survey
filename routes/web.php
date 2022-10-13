@@ -26,9 +26,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-#Admin Routes
+
 Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgot-password');
 
+Route::post('web-reset-password', [ForgotPasswordController::class, 'submitBusinessResetPasswordForm'])->name('reset.password.web.post');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+
+#Admin Routes
 Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');

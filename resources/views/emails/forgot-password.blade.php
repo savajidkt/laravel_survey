@@ -116,7 +116,7 @@
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td style="text-align:center;"><img style="height:80px;" src="{{ asset('images/logo.png') }}" alt=""/></td>
+								<td style="text-align:center;"><img style="height:80px;" src="{{ asset('front/assets/img/logo.png') }}" alt=""/></td>
 							</tr>
 						</table>
 					</td>
@@ -127,11 +127,11 @@
 							<tr>
 								<td>
 									<div class="main_title" style="text-align:center;">
-										<h2>Welcome to Ariel App</h2>
+										<h2>Welcome to Bandelli Survey</h2>
 										<img src="{{ asset('images/graphic2.png') }}" alt=""/>
 										<p style="color:#7E888F;">Forgot your password? That’s ok, it happens. Click on the button below to reset your password.</p>
 										<a href="{{ $url }}" class="btn_custom">Reset Password</a>
-										<p style="color:#7E888F;">If you need help please reach out to us at <a href="mailto:{{ config('ariel.supportEmail') }}">support@ariel-app.com.au</a></p>
+										
 									</div>
 								</td>
 							</tr>
@@ -154,7 +154,7 @@
 									</div>
 								</td>
 							</tr>
-							@include('emails.partials.socials')
+							<!-- @include('emails.partials.socials') -->
 							<tr>
 								<td>&nbsp;</td>
 							</tr>
