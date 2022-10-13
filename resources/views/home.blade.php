@@ -6,7 +6,7 @@
             <div class="col-lg-12 general-card">
 
                 <div class="card">
-                    <img src="{{asset('assets/img/card.jpg')}}" class="card-img-top" alt="...">
+                    <img src="{{asset('front/assets/img/card.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-img-overlay">
                         <h5 class="card-title m-t-top80">Lorem ipsum dolor sit amet</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, ad probo bonorum accusam mea,

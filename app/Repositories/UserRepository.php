@@ -2,8 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Events\ForgotPasswordEvent;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository
@@ -75,5 +78,32 @@ class UserRepository
         }
 
         throw new Exception('User delete failed.');
+    }
+
+
+    public function forgotPassword(array $input)
+    {
+        $token = \Illuminate\Support\Str::random(64);
+        DB::table('password_resets')->insert([
+            'email' => $input['email'],
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+        $user = User::withTrashed()->where('email', $input['email'])->first();
+
+        // Event for forgot password
+        try
+        {
+            if($user->trashed())
+            {
+                $user->restore();
+            }
+
+            event(new ForgotPasswordEvent($user));
+        } catch (Exception $e)
+        {
+            // Failed to dispatch event
+            report($e);
+        }
     }
 }

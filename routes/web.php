@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Survey\SurveyController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Survey\SurveyQuestionController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +22,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 #Admin Routes
+Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgot-password');
+
 Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
@@ -42,7 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 Auth::routes();
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/first-time-password-change', [ResetPasswordController::class, 'firstTimePasswordChange'])->name('password.first-time-change');
     //Route::resource('/survey', SurveyController::class);
     Route::get('/take-survey', [App\Http\Controllers\SurveyController::class, 'index'])->name('take-survey');
