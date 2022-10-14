@@ -34,7 +34,7 @@ class SurveyController extends Controller
         $data = $request->all();
         $userSurvey = null;
         //dd($data);
-        $question = $this->questionRepository->getQuestion($data);        
+        $question = $this->questionRepository->getQuestion($data);
 
         if($data['type']==1){
             if(isset($data['question_id']) && isset($data['option_id'])){

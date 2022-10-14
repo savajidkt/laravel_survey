@@ -6,7 +6,7 @@
     <div class="card">
         <h5 class="card-header">Survey Question</h5>
         <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-            <a href="{{ route('question.create') }}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New Question</button></a>
+            <!-- <a href="{{ route('question.create') }}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New Question</button></a> -->
         </div>
     </div>
     <!-- users filter end -->

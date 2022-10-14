@@ -109,34 +109,5 @@ class ForgotPasswordController extends Controller
         return redirect('/login')->with('message', 'Your password has been changed!');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
-    public function firstPasswordChange(Request $request)
-    {
-        $request->validate([
-            'old-password' => 'required',
-            'password' => 'required|string|min:8|confirmed',
-            'password_confirmation' => 'required'
-        ]);
-
-        $updatePassword = DB::table('password_resets')
-            ->where([
-                'token' => $request->token
-            ])
-            ->first();
-
-        if (!$updatePassword) {
-            return back()->withInput()->with('error', 'Invalid token!');
-        }
-
-        $user = User::where('email', $updatePassword->email)
-            ->update(['password' => Hash::make($request->password)]);
-
-        DB::table('password_resets')->where(['email' => $request->email])->delete();
-
-        return redirect('/login')->with('message', 'Your password has been changed!');
-    }
+    
 }

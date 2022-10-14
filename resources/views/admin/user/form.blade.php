@@ -23,7 +23,7 @@
     <div class="col-12">
         <div class="form-group">
             <label class="form-label" for="basic-default-email1">Email</label>
-            <input type="email" name="email" id="basic-default-email1" value="{{(isset($model->email))?$model->email:''}}" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe@email.com" required />
+            <input type="email" name="email" id="basic-default-email1" value="{{(isset($model->email))?$model->email:''}}" class="form-control" placeholder="john.doe@email.com" aria-label="john.doe@email.com" {{(isset($model->email))? 'readonly' : ''}} required />
             <div class="valid-feedback">Looks good!</div>
             @error('email')
                 <div class="invalid-feedback" style="display: block;">{{ $message }}</div>

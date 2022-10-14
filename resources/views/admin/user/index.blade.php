@@ -2,19 +2,15 @@
 @section('content')
 <!-- users list start -->
 <section class="app-user-list">
-    <!-- users filter start -->
-    <div class="card">
-        <h5 class="card-header">Users</h5>
-        <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-            <a href="{{ route('users.create') }}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
-        </div>
-    </div>
     <!-- users filter end -->
     <!-- list section start -->
     <div class="card">
 
-        <hr class="my-0" />
-        <div class="card-datatable table-responsive pt-0">
+        <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+          <h4 class="card-title">Users</h4>
+          <a href="{{ route('users.create') }}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
+        </div>
+        <div class="card-datatable pt-0 table-responsive">
             <table class="user-list-table table">
                 <thead class="thead-light">
                     <tr>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Survey\SurveyQuestionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\UserController;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +32,7 @@ Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword
 
 Route::post('web-reset-password', [ForgotPasswordController::class, 'submitBusinessResetPasswordForm'])->name('reset.password.web.post');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-Route::post('first-password-change', [ForgotPasswordController::class, 'firstPasswordChange'])->name('first.password.change');
+Route::post('first-password-change', [UserController::class, 'changePassword'])->name('first.password.change');
 
 #Admin Routes
 Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');

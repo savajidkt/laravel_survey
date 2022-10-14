@@ -17,23 +17,28 @@
                                             @csrf
                                           <h1 class="card-title pt-0 pb-0 mb-0">{{ __('Password Change') }}</h1>
                                           <div class="col-12">
-                                          <input id="old-password" type="password" class="form-control @error('old-password') is-invalid @enderror" name="old-password" required autocomplete="new-password" placeholder="Old Password">
-                                            @error('password')
+                                          <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required autocomplete="current_password" placeholder="Current Password">
+                                            @error('current_password')
                                                 <span class="invalid-feedback" style="display: block;" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                           </div>
                                           <div class="col-12">
-                                          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="New Password">
-                                            @error('password')
+                                          <input id="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" required autocomplete="new_password" placeholder="New Password">
+                                            @error('new_password')
                                                 <span class="invalid-feedback" style="display: block;" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                           </div>
                                           <div class="col-12">
-                                          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                                          <input id="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="password_confirmation" placeholder="Confirm Password">
+                                          @error('password_confirmation')
+                                                <span class="invalid-feedback" style="display: block;" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                           </div>
                                           <div class="col-12">
                                              <button class="btn btn-primary w-100" type="submit">{{ __('Reset Password') }}</button>

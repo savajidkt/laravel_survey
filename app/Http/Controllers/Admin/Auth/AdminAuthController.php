@@ -59,10 +59,10 @@ class AdminAuthController extends Controller
         if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
         {
              auth()->guard('admin')->user();
-            return redirect()->route('dashboard')->with('success', trans('messages.login'));
+            return redirect()->route('dashboard')->with('success', 'You are logged in');
             
         } else {
-            return back()->with('error', trans('messages.password_incorrect'));
+            return back()->with('error', trans('Password Incorrect'));
         }
 
     }

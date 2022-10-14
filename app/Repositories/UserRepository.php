@@ -123,6 +123,8 @@ class UserRepository
         }
 
         $input['password'] = Hash::make($input['new_password']);
+        $input['is_first_time_login'] = 1;
+
         unset($input['current_password']);
         unset($input['new_password']);
         unset($input['password_confirmation']);
