@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Events\ForgotPasswordEvent;
+use App\Exceptions\GeneralException;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -105,5 +106,32 @@ class UserRepository
             // Failed to dispatch event
             report($e);
         }
+    }
+    /**
+     * Method changePassword
+     *
+     * @param User $user
+     * @param array $input
+     *
+     * @return void
+     */
+    public function changePassword(User $user, array $input)
+    {
+        if(!Hash::check($input['current_password'], $user->password))
+        {
+            throw new GeneralException('Entered current password is incorrect.');
+        }
+
+        $input['password'] = Hash::make($input['new_password']);
+        unset($input['current_password']);
+        unset($input['new_password']);
+        unset($input['password_confirmation']);
+
+        if($user->update($input))
+        {
+            return true;
+        }
+
+        throw new GeneralException('Change password failed.');
     }
 }

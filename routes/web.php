@@ -31,7 +31,7 @@ Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword
 
 Route::post('web-reset-password', [ForgotPasswordController::class, 'submitBusinessResetPasswordForm'])->name('reset.password.web.post');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
+Route::post('first-password-change', [ForgotPasswordController::class, 'firstPasswordChange'])->name('first.password.change');
 
 #Admin Routes
 Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
