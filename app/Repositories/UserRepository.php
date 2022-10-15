@@ -124,7 +124,7 @@ class UserRepository
 
         $data = [
             'password'                 => Hash::make($input['new_password']),
-            'is_first_time_login'     => 1,
+            'is_first_time_login'      => 1,
         ];
         //$input['password'] = Hash::make($input['new_password']);
         //$input['is_first_time_login'] = 1;

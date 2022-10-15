@@ -26,22 +26,18 @@ class QuestionSeeder extends Seeder
         $options = [
             [
                 'option' => 'What is Lorem Ipsum?',
-                'is_correct' => 0,
                 'status' => 1
             ],
             [
                 'option' => 'What is Lorem Ipsum2?',
-                'is_correct' => 0,
                 'status' => 1
             ],
             [
                 'option' => 'What is Lorem Ipsum3?',
-                'is_correct' => 0,
                 'status' => 1
             ],
             [
                 'option' => 'What is Lorem Ipsum4?',
-                'is_correct' => 0,
                 'status' => 1
             ]
         ];

@@ -29,6 +29,14 @@
 @section('page-script')
 <script type="text/javascript">
     $( document ).ready( function() {
+        setInterval(function(){
+            // call ajax for every seconds and update user survey time
+            /*$.ajax({
+                url: 
+            })*/
+
+            console.log('Hello');
+        }, 1000);
         first_time_load(configData);
     });
 </script>

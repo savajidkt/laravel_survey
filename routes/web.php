@@ -56,7 +56,7 @@ Route::group(['authGrouping' => 'users.auth'], function () {
     Route::post('/take-survey/store', [App\Http\Controllers\SurveyController::class, 'store'])->name('take-survey-store');
     Route::post('/get-question', [App\Http\Controllers\SurveyController::class, 'getQuestion'])->name('get-question');
 
-    Route::post('/start-survey', [App\Http\Controllers\SurveyController::class, 'startSurvey'])->name('start-survey');
+    Route::post('/update-survey-time', [App\Http\Controllers\SurveyController::class, 'updateSurveyTime'])->name('update-survey-time');
 });
 
 

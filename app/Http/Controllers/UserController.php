@@ -34,16 +34,8 @@ class UserController extends Controller
     {
         $user = auth()->user();
         $this->userRepository->changePassword($user, $request->except(['_token', '_method']));
-        
+
         return redirect()->route('home')->with('success','Your password changed successfully!');
-
-        //$this->userRepository->create($request->all());
-
-        //return redirect()->route('users.index')->with('success', "User created successfully!");
-        // return response()->json([
-        //     'status'  => true,
-        //     'message' => 'Password changed successfully!'
-        // ]);
     }
 
 }

@@ -7,11 +7,8 @@ use App\Models\QuestionOption;
 use App\Models\UserSurvey;
 use App\Models\UserSurveyAnswer;
 use App\Models\UserSurveyAnswerOption;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use PhpOption\Option;
 
 class QuestionRepository
 {
@@ -179,31 +176,29 @@ class QuestionRepository
     /**
      * Method questionAttempt
      *
-     * @param array $data [explicite description]
-     *
      * @return UserSurvey
      */
-    public function startSurvey(): UserSurvey
+    public function startSurvey($survey_id = null): UserSurvey
     {
-        $userSurvey     = isset($data['user_survey_id']) ? UserSurvey::find($data['user_survey_id']) : null;
+        $userSurvey     = isset($survey_id) ? UserSurvey::find($survey_id) : null;
         $userId         = auth()->user()->id;
 
         // save or create user survey
         if( isset($userSurvey->id) )
         {
             $userSurvey->update([
-                'user_id'   => auth()->user()->id,
-                'status'    => UserSurvey::INPROGRESS,
-                'auto_stop' => UserSurvey::NO
+                'user_id'       => auth()->user()->id,
+                'status'        => UserSurvey::INPROGRESS,
+                'survey_time'   => DB::raw('survey_time+1')
             ]);
         }
         else
         {
             $userSurvey = UserSurvey::create([
-                'user_id'   => $userId,
-                'status'    => UserSurvey::INPROGRESS,
-                'auto_stop' => UserSurvey::NO,
-                'survey_tie' =>1,
+                'user_id'       => $userId,
+                'status'        => UserSurvey::INPROGRESS,
+                'auto_stop'     => UserSurvey::NO,
+                'survey_time'   => 0,
             ]);
         }
 
