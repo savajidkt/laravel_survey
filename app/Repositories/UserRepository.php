@@ -122,14 +122,18 @@ class UserRepository
             throw new GeneralException('Entered current password is incorrect.');
         }
 
-        $input['password'] = Hash::make($input['new_password']);
-        $input['is_first_time_login'] = 1;
+        $data = [
+            'password'                 => Hash::make($input['new_password']),
+            'is_first_time_login'     => 1,
+        ];
+        //$input['password'] = Hash::make($input['new_password']);
+        //$input['is_first_time_login'] = 1;
 
-        unset($input['current_password']);
-        unset($input['new_password']);
-        unset($input['password_confirmation']);
+        //unset($input['current_password']);
+        //unset($input['new_password']);
+        //unset($input['password_confirmation']);
 
-        if($user->update($input))
+        if($user->update($data))
         {
             return true;
         }

@@ -150,3 +150,24 @@ function first_time_load(configData){
         });
         
 }
+
+jQuery("#start-survey").click(function(){
+  jQuery.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+      }
+  });
+  var page = jQuery('#page').val();
+  jQuery.ajax({
+     type:'POST',
+     url:configData.url,
+     dataType:'json',
+     data:{page:page},
+     success:function(data){
+      jQuery('#page').val(data.page);
+      jQuery('.question-listing').html(data.data);
+      jQuery('.multisteps_form_panel').show();
+     }
+
+  });
+});

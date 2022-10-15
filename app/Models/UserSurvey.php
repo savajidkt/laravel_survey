@@ -30,6 +30,7 @@ class UserSurvey extends Model
         'progress',
         'status',
         'auto_stop',
+        'survey_time',
     ];
 
     /**
@@ -51,4 +52,5 @@ class UserSurvey extends Model
     {
         return $this->hasMany(UserSurveyAnswer::class, 'user_survey_id', 'id');
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\User;
 use App\Repositories\QuestionRepository;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,11 @@ class SurveyController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
+        if($user->survey->count()){
+
+            $survey = $this->questionRepository->startSurvey();
+        }
         return view('survey.take-survey');
     }
     public function getQuestion(Request $request)
@@ -52,5 +58,14 @@ class SurveyController extends Controller
             'page' =>$page + 1,
             'data' => view('survey.question', ['model' => $question, 'user_survey' => $userSurvey,'attepmtQuestion'])->render()//$data
         ]);
+    }
+
+    public function startSurvey(Request $request)
+    {
+        $data = $request->all();
+        $userSurvey = null;
+        $survey = $this->questionRepository->startSurvey($data);
+        return view('survey.take-survey',['survey'=>$survey]);
+
     }
 }

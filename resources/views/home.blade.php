@@ -12,7 +12,7 @@
                         <p class="card-text">Lorem ipsum dolor sit amet, ad probo bonorum accusam mea,
                             erat tantas te sea. Oblique veritus volutpat vix no, cum tale
                             eruditi no. Ea usu rebum fuisset omnesque, est cu dolores efficiantur.</p>
-                        <p class="card-text"><a href="{{route('take-survey')}}" class="btn btn-primary">CLICK HERE TO START</a></p>
+                        <p class="card-text"><a href="javascript:void(0);" class="btn btn-primary" id="start-survey">CLICK HERE TO START</a></p>
 
                     </div>
                 </div>
@@ -20,4 +20,11 @@
         </div>
     </div>
 </section>
+@endsection
+@section('page-script')
+<script type="text/javascript">
+    $( document ).ready( function() {
+        configData={url:"{{route('start-survey')}}"};
+    });
+</script>
 @endsection

@@ -29,8 +29,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgot-password');
-
-Route::post('web-reset-password', [ForgotPasswordController::class, 'submitBusinessResetPasswordForm'])->name('reset.password.web.post');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 Route::post('first-password-change', [UserController::class, 'changePassword'])->name('first.password.change');
 
@@ -57,6 +55,8 @@ Route::group(['authGrouping' => 'users.auth'], function () {
     Route::get('/take-survey', [App\Http\Controllers\SurveyController::class, 'index'])->name('take-survey');
     Route::post('/take-survey/store', [App\Http\Controllers\SurveyController::class, 'store'])->name('take-survey-store');
     Route::post('/get-question', [App\Http\Controllers\SurveyController::class, 'getQuestion'])->name('get-question');
+
+    Route::post('/start-survey', [App\Http\Controllers\SurveyController::class, 'startSurvey'])->name('start-survey');
 });
 
 

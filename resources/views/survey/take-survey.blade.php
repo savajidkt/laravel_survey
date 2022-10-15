@@ -29,7 +29,6 @@
 @section('page-script')
 <script type="text/javascript">
     $( document ).ready( function() {
-        
         first_time_load(configData);
     });
 </script>
