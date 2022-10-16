@@ -4,14 +4,14 @@
         <input type="hidden" name="question_id" id="question_id" value="{{$model->id}}">
         <input type="hidden" name="user_survey_id" id="user_survey_id" value="{{ isset($survey->id) ? $survey->id : null }}">
         @if ($model->options->count())
+        <div id="sorting-list">
             @foreach ($model->options as $key=>$option)
-            <div class="form-check animate__animated animate__fadeInRight animate_25ms">
-                <input class="form-check-input" type="radio" name="options" id="q_{{$option->id}}" value="{{$option->id}}">
-                <label class="form-check-label" for="q_{{$option->id}}">
-                    {{$key+1}}. {{$option->option}}
-                </label>
+            <div class="customRadio">
+                <input type="hidden" name="options[]" value="{{$option->id}}">
+                <label for="radio1"> {{$key+1}}. {{$option->option}}</label>
             </div>
             @endforeach
+        </div>
         @endif
     </div>
 </div>

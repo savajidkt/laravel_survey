@@ -10,7 +10,7 @@
                         <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="pc-tagline">Progress: <strong>40% Complete</strong></div>
-                    <div class="question-listing"></div>
+                    <div class="question-listing" id="question-listing"></div>
                     <input type="hidden" name="page" id="page" value="1">
                     <div class="error-msg" style="color:red;"></div>
                     <div class="row mt-4">
@@ -38,7 +38,15 @@
             console.log('Hello');
         }, 1000);
         first_time_load(configData);
+       var slideInterval = setInterval(function(){
+            new Sortable(document.getElementById('sorting-list'));
+            console.log('ahisdhsihd');
+        }, 1000);
+        clearInterval(slideInterval); 
     });
+
+    
+
 </script>
 @endsection
 

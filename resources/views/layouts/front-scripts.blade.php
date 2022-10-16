@@ -9,3 +9,4 @@
 <script src="{{ asset('assets/wizard-form/js/jquery.validate.min.js')}}"></script>
 <!-- Custom-js include -->
 <script src="{{ asset('assets/wizard-form/js/script.js')}}"></script>
+<script src="{{ asset('front/assets/js/Sortable.js')}}"></script>
