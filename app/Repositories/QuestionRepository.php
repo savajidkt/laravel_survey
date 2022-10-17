@@ -165,7 +165,7 @@ class QuestionRepository
      *
      * @return UserSurvey
      */
-    public function startSurvey($survey_id = null): UserSurvey
+    public function startSurvey($survey_id = null)
     {
         $userSurvey     = isset($survey_id) ? UserSurvey::find($survey_id) : null;
         $userId         = auth()->user()->id;
@@ -188,8 +188,20 @@ class QuestionRepository
                 'survey_time'   => 0,
             ]);
         }
+        $user   = auth()->user();
+        $survey = $user->survey;
+        $init = $survey->survey_time;
 
-        return $userSurvey;
+        $minutes = floor(($init / 60) % 60);
+        $seconds = $init % 60;
+        if($minutes <40){
+            $status ='running';
+        }else{
+            $status ='timeout';
+        }
+
+       return response()->json(['status'=>$status,'minutes'=>$minutes,'seconds'=>$seconds], 200);
+        //return $userSurvey;
     }
 
 }

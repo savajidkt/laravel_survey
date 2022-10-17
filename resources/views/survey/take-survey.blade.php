@@ -12,7 +12,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="pc-tagline">Progress: <strong>40% Complete</strong></div>
                         <div class="timer-text">
-                            Time left : <span id="timer"></span>
+                         Time left : <span id="timer"></span>
                         </div>
                     </div>
                     <input type="hidden" name="survey_id" id="survey_id" value="{{ isset($survey->id) ? $survey->id : null }}">
@@ -40,8 +40,10 @@
         first_time_load(configData);
 
     });
+    let minutes = Math.floor('{{ $survey->survey_time}}' / 60);
+    //let seconds = ('{{ $survey->survey_time}}' % 60 ? '{{ $survey->survey_time}}' % 60 : '00');
 
-document.getElementById('timer').innerHTML =  40 + ":" + 00;
+    document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + 00;
 startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
@@ -63,16 +65,16 @@ function startTimer() {
         });
         var survey_id = $('#survey_id').val();
         console.log('Survey Id'+survey_id);
-        // $.ajax({
-        //    type:'POST',
-        //    url:"{{route('update-survey-time')}}",
-        //    dataType:'json',
-        //    data:{survey_id:survey_id},
-        //    success:function(data){
+        $.ajax({
+           type:'POST',
+           url:"{{route('update-survey-time')}}",
+           dataType:'json',
+           data:{survey_id:survey_id},
+           success:function(data){
            
-        //    }
+           }
 
-        // });
+        });
   setTimeout(startTimer, 1000);
 
 }

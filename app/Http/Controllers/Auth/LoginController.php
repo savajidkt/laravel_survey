@@ -93,7 +93,7 @@ class LoginController extends Controller
         // check user is first time logged in
         if( $this->guard()->user()->is_first_time_login === 0 )
         {
-            return redirect()->route('password.first-time-change');
+            return redirect()->route('change-password');
         }
 
         if ($response = $this->authenticated($request, $this->guard()->user())) {

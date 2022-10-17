@@ -109,5 +109,4 @@ class ForgotPasswordController extends Controller
         return redirect('/login')->with('message', 'Your password has been changed!');
     }
 
-    
 }

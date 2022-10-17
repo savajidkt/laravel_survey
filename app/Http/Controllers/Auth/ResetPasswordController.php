@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -30,6 +31,12 @@ class ResetPasswordController extends Controller
 
     public function firstTimePasswordChange()
     {
-        return view('auth.passwords.first-time-password-change');
+        $user = User::find(auth()->user()->id);
+        
+        if($user->is_first_time_login===0){
+            return view('auth.passwords.first-time-password-change');
+        }else{
+            return redirect()->route('home');
+        } 
     }
 }

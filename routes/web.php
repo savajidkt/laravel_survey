@@ -50,7 +50,7 @@ Auth::routes();
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/first-time-password-change', [ResetPasswordController::class, 'firstTimePasswordChange'])->name('password.first-time-change');
+    Route::get('/change-password', [ResetPasswordController::class, 'firstTimePasswordChange'])->name('change-password');
     //Route::resource('/survey', SurveyController::class);
     Route::get('/take-survey', [App\Http\Controllers\SurveyController::class, 'index'])->name('take-survey');
     Route::post('/take-survey/store', [App\Http\Controllers\SurveyController::class, 'store'])->name('take-survey-store');
