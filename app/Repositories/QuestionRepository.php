@@ -123,53 +123,40 @@ class QuestionRepository
     public function questionAttempt(array $data): UserSurvey
     {
         $question       = isset($data['question_id']) ? Question::find($data['question_id']) : null;
-        $option_id         = isset($data['option_id']) ? $data['option_id'] : null;
-        $userSurvey     = isset($data['user_survey_id']) ? UserSurvey::find($data['user_survey_id']) : null;
+        $options         = isset($data['options']) ? $data['options'] : null;
+        $userSurvey     = isset($data['survey_id']) ? UserSurvey::find($data['survey_id']) : null;
         $userId         = auth()->user()->id;
 
-        // save or create user survey
-        if( isset($userSurvey->id) )
-        {
-            $userSurvey->update([
-                'user_id'   => auth()->user()->id,
-                'status'    => UserSurvey::INPROGRESS,
-                'auto_stop' => UserSurvey::NO
-            ]);
-        }
-        else
-        {
-            $userSurvey = UserSurvey::create([
-                'user_id'   => $userId,
-                'status'    => UserSurvey::INPROGRESS,
-                'auto_stop' => UserSurvey::NO
-            ]);
-        }
-
         // delete user attempted question
-        $userSurveyAttempted = UserSurveyAnswer::where('user_id', $userId)->where('user_survey_id', $userSurvey->id)->where('question_id',$question->id)->delete();
+        $userSurveyAttempted = UserSurveyAnswer::where('user_id', $userId)->where('user_survey_id', $userSurvey->id);
+
+        if( isset($question->id) )
+        {
+            $userSurveyAttempted->where('question_id',$question->id)->delete();
+        }
         //$userSurveyAttempted->delete();
         // create user survey questions
-        $userSurveyQuestion = UserSurveyAnswer::create([
-            'user_survey_id'=> $userSurvey->id,
-            'user_id'       => $userId,
-            'question_id'    => $question->id,
-        ]);
-
-        // save question options
-        if( $question->options->count() )
-        {
-            // delete user  question options
-            $userSurveyAnswerOption = UserSurveyAnswerOption::where('user_survey_answer_id',$userSurveyQuestion->id)->delete();
-
-            foreach( $question->options as $option )
+        if(isset($question->id)){
+            $userSurveyQuestion = UserSurveyAnswer::create([
+                'user_survey_id'=> $userSurvey->id,
+                'user_id'       => $userId,
+                'question_id'    => $question->id,
+            ]);
+            // save question options
+            if( $question->options->count() )
             {
-                $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
-                    'user_survey_answer_id'=> $userSurveyQuestion->id,
-                    'question_option_id'       =>$option->id,
-                ]);
+                // delete user  question options
+                $userSurveyAnswerOption = UserSurveyAnswerOption::where('user_survey_answer_id',$userSurveyQuestion->id)->delete();
+
+                foreach( $question->options as $option )
+                {
+                    $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
+                        'user_survey_answer_id'=> $userSurveyQuestion->id,
+                        'question_option_id'       =>$option->id,
+                    ]);
+                }
             }
         }
-
         return $userSurvey;
     }
 

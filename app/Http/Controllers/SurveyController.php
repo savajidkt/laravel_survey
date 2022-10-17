@@ -17,7 +17,8 @@ class SurveyController extends Controller
     protected $questionRepository;
 
     public function __construct(QuestionRepository $questionRepository)
-    {   $this->middleware('auth');
+    {
+        $this->middleware('auth');
         $this->questionRepository = $questionRepository;
     }
 
@@ -30,9 +31,7 @@ class SurveyController extends Controller
     {
         $user   = auth()->user();
         $survey = $user->survey;
-
-        if(!isset($user->survey))
-        {
+        if (!isset($user->survey)) {
             $survey = $this->questionRepository->startSurvey();
         }
 
@@ -44,25 +43,26 @@ class SurveyController extends Controller
     public function getQuestion(Request $request)
     {
         $data = $request->all();
-        $userSurvey = null;
+        $userSurvey = auth()->user()->survey;
         //dd($data);
         $question = $this->questionRepository->getQuestion($data);
 
-        if($data['type']==1){
-            if(isset($data['question_id']) && isset($data['option_id'])){
+        if ($data['type'] == 1) {
+            if (isset($data['question_id']) && isset($data['option_id'])) {
                 $userSurvey = $this->questionRepository->questionAttempt($data);
-                $userSurvey->loadMissing(['questions','questions.options']);
-                $preQuestion = $userSurvey->questions()->where('question_id',$question->id)->first()->options()->first();
+                $userSurvey->loadMissing(['questions', 'questions.options']);
+                $preQuestion = $userSurvey->questions()->where('question_id', $question->id)->first()->options()->first();
             }
+
             $page = $data['page'] == 0 ? 0 : $data['page'];
-        }else{
-            $page = $data['page'] -1;
+        } else {
+            $page = $data['page'] - 1;
         }
         return response()->json([
             'status' => true,
             'message' => 'Request created successfully.',
-            'page' =>$page + 1,
-            'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey,'attepmtQuestion'])->render()//$data
+            'page' => $page + 1,
+            'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey, 'attepmtQuestion'])->render() //$data
         ]);
     }
 

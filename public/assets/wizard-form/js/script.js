@@ -145,10 +145,11 @@ function first_time_load(configData){
             $('#page').val(data.page);
               $('.question-listing').html(data.data);
               $('.multisteps_form_panel').show();
+              new Sortable(document.getElementById('sorting-list'));
+
            }
 
         });
-        
 }
 
 jQuery("#start-survey").click(function(){

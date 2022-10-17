@@ -320,9 +320,8 @@
 })();
 
 
-document.getElementById('timer').innerHTML =  40 + ":" + 05;
+document.getElementById('timer').innerHTML =  40 + ":" + 00;
 startTimer();
-
 
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
