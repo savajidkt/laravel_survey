@@ -32,8 +32,15 @@
                                                     @enderror
                                                 </div>
 
+                                               
                                                 <div class="col-12">
                                                     <button class="btn btn-primary w-100" type="submit">{{ __('Send Password Reset Link') }}</button>
+                                                </div>
+                                                <div class="col-12">
+                                                <a href="{{route('login')}}" class="logo d-flex align-items-center w-auto">
+                                                    <button class="btn btn-primary w-100" type="button">{{ __('Login') }}</button>
+                                                </a>
+
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-flex justify-content-center pt-3">

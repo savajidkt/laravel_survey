@@ -70,5 +70,7 @@ class SurveyController extends Controller
     {
         $data = $request->all();
         $survey = $this->questionRepository->startSurvey($data['survey_id']);
+
+        return response()->json(['status'=>$survey->status,'minutes'=>$minutes,'seconds'=>$seconds], 200);
     }
 }

@@ -200,8 +200,11 @@ class QuestionRepository
             $status ='timeout';
         }
 
-       return response()->json(['status'=>$status,'minutes'=>$minutes,'seconds'=>$seconds], 200);
-        //return $userSurvey;
+        return [
+            'status'=>$status,
+            'minutes'=>$minutes,
+            'seconds'=>$seconds
+        ];
     }
 
 }
