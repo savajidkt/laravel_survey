@@ -47,10 +47,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 });
 
 Auth::routes();
-// Route::post('/login', [
-//     'uses'          => 'Auth\LoginController@login',
-//     'middleware'    => 'checkstatus',
-// ]);
+Route::post('/login', [
+    'uses'          => 'App\Http\Controllers\Auth\LoginController@login',
+    'middleware'    => 'checkstatus',
+]);
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
