@@ -14,8 +14,18 @@
                                             <form class="row g-3 needs-validation p-3" method="POST" action="{{ route('login') }}">
                                                 @csrf
                                                 <h1 class="card-title pt-0 pb-0 mb-0">Survey Login</h1>
-                                                <p class="small pl-0 pr-0 mb-2">Lorem ipsum dolor sit amet,
-                                                    eum eu oblique menandri definitiones</p>
+                                                @if ($errors->any())
+                                                    @foreach ($errors->all() as $error)
+                                                        <div class="alert alert-danger" role="alert">
+                                                                {{ $error }}
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                                @if(session('statusError'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                    {{ session('statusError') }}
+                                                        </div>
+                                                @endif
                                                 <div class="col-12">
                                                     <div class="input-group has-validation">
                                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">

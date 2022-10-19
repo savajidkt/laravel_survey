@@ -62,7 +62,7 @@ function nextPrev(n) {
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("multisteps_form_panel");
     // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
+    //if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
@@ -136,11 +136,20 @@ function first_time_load(configData){
             }
         });
         var page = $('#page').val();
+        var question_id = $('#question_id').val();
+        var survey_id = $('#survey_id').val();
+        //var options = $('#sorting-list .options').val();
+        var options = [];
+                var form = $("#sorting-list .options");
+                $.each(form, function(e, textBox) {
+                  options.push($.trim(textBox.value));
+                });
+        
         $.ajax({
            type:'POST',
            url:configData.url,
            dataType:'json',
-           data:{page:page,type:configData.type},
+           data:{page:page,type:configData.type,question_id:question_id,survey_id:survey_id,options:options,questionCnt:configData.questionCnt},
            success:function(data){
             $('#page').val(data.page);
               $('.question-listing').html(data.data);

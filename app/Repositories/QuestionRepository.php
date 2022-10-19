@@ -97,11 +97,14 @@ class QuestionRepository
      */
     public function getQuestion(array $data): Question
     {
-          ;//$data['page'] == 0 ? 0 : $data['page'] - 1;
-         if($data['type'] == 1){
+          //$data['page'] == 0 ? 0 : $data['page'] - 1;
+        if($data['type'] == 1){
             $page = $data['page'];
         }else{
             $page = $data['page'] -1;
+        }
+        if(isset($data['questionCnt'])){
+            $page = $data['questionCnt'];
         }
 
          //DB::enableQueryLog();
@@ -148,11 +151,11 @@ class QuestionRepository
                 // delete user  question options
                 $userSurveyAnswerOption = UserSurveyAnswerOption::where('user_survey_answer_id',$userSurveyQuestion->id)->delete();
 
-                foreach( $question->options as $option )
+                foreach($options as $option )
                 {
                     $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
                         'user_survey_answer_id'=> $userSurveyQuestion->id,
-                        'question_option_id'       =>$option->id,
+                        'question_option_id'       =>$option
                     ]);
                 }
             }

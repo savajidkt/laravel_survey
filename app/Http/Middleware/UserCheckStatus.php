@@ -21,7 +21,7 @@ class UserCheckStatus
         //If the status is not approved redirect to login 
         if(Auth::check() && Auth::user()->user_status != 1){
             Auth::logout();
-            return redirect('/login')->with('error', 'Your account is not active');
+            return redirect('/login')->with('statusError', 'Your account is not activated');
         }
         return $response;
     }

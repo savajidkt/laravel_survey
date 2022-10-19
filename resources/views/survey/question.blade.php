@@ -7,7 +7,7 @@
         <div id="sorting-list">
             @foreach ($model->options as $key=>$option)
             <div class="customRadio">
-                <input type="hidden" name="options[]" value="{{$option->id}}">
+                <input type="hidden" class="options" name="options[]" value="{{$option->id}}">
                 <label for="radio1"> {{$key+1}}. {{$option->option}}</label>
             </div>
             @endforeach

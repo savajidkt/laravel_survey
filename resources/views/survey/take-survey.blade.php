@@ -17,7 +17,7 @@
                     </div>
                     <input type="hidden" name="survey_id" id="survey_id" value="{{ isset($survey->id) ? $survey->id : null }}">
                     <div class="question-listing" id="question-listing"></div>
-                    <input type="hidden" name="page" id="page" value="1">
+                    <input type="hidden" name="page" id="page" value="{{$questions}}">
                     <div class="error-msg" style="color:red;"></div>
                     <div class="row mt-4">
                         <div class="col-lg-12">
@@ -36,7 +36,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        configData = {url:configData.url,type:1}
+        configData = {url:configData.url,type:1,questionCnt:'{{$questions}}'}
         first_time_load(configData);
 
     });

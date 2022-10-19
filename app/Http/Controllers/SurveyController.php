@@ -33,11 +33,14 @@ class SurveyController extends Controller
         $survey = $user->survey;
         if (!isset($user->survey)) {
             $survey = $this->questionRepository->startSurvey();
+           
         }
+        $questions = $survey->questions()->count();
+        //$questions->loadMissing(['questions', 'questions.options']);
+           //dd($questions);
 
 
-
-        return view('survey.take-survey', ['survey' => $survey]);
+        return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions]);
     }
 
     public function getQuestion(Request $request)
@@ -48,21 +51,22 @@ class SurveyController extends Controller
         $question = $this->questionRepository->getQuestion($data);
 
         if ($data['type'] == 1) {
-            if (isset($data['question_id']) && isset($data['option_id'])) {
+            if (isset($data['question_id']) && isset($data['options'])) {
                 $userSurvey = $this->questionRepository->questionAttempt($data);
                 $userSurvey->loadMissing(['questions', 'questions.options']);
-                $preQuestion = $userSurvey->questions()->where('question_id', $question->id)->first()->options()->first();
+                //$preQuestion = $userSurvey->questions()->where('question_id', $question->id)->first()->options()->first();
             }
 
             $page = $data['page'] == 0 ? 0 : $data['page'];
         } else {
             $page = $data['page'] - 1;
         }
+        $questions = $userSurvey->questions()->count();
         return response()->json([
             'status' => true,
             'message' => 'Request created successfully.',
             'page' => $page + 1,
-            'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey, 'attepmtQuestion'])->render() //$data
+            'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey,'questions'=>$questions, 'attepmtQuestion'])->render() //$data
         ]);
     }
 
@@ -71,6 +75,6 @@ class SurveyController extends Controller
         $data = $request->all();
         $survey = $this->questionRepository->startSurvey($data['survey_id']);
 
-        return response()->json(['status'=>$survey->status,'minutes'=>$minutes,'seconds'=>$seconds], 200);
+        return response()->json(['status'=>$survey['status'],'minutes'=>$survey['minutes'],'seconds'=>$survey['seconds']], 200);
     }
 }
