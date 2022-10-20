@@ -48,7 +48,7 @@
     let seconds = Math.floor(survey_time % 60 ? survey_time % 60 : '00');
     document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + seconds;
 
-//startTimer();
+startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
   var timeArray = presentTime.split(/[:]+/);
@@ -67,7 +67,6 @@ function startTimer() {
             }
         });
         var survey_id = $('#survey_id').val();
-        
         $.ajax({
            type:'POST',
            url:"{{route('update-survey-time')}}",
