@@ -86,7 +86,7 @@ class SurveyController extends Controller
         {
             return response()->json([
                 'status'        => $questions === $allQuestionsCnt ? false : true,
-                'finish_button' => $questions === 4 ? true : false,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
+                'finish_button' => $questions === ($allQuestionsCnt - 1) ? true : false,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
                 'message'       => 'Request created successfully.',
                 'page'          => $page + 1,
                 'redirect_uri'  => route('home'),

@@ -171,7 +171,7 @@ class QuestionRepository
                 $surveyCount        = $userSurvey->questions()->count();
                 $allQuestionCount   = $this->getQuestionCount();
 
-                if( $surveyCount === 4 )        // todo need to replace 4 with $allQuestionCount
+                if( $surveyCount === $allQuestionCount )        // todo need to replace 4 with $allQuestionCount
                 {
                     $userSurvey->status = UserSurvey::COMPLETED;
                     $userSurvey->save();
