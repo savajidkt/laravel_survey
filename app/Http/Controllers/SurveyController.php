@@ -31,14 +31,11 @@ class SurveyController extends Controller
     {
         $user   = auth()->user();
         $survey = $user->survey;
-        if (!isset($user->survey)) {
-            $survey = $this->questionRepository->startSurvey();
-           
+        if (!isset($user->survey))
+        {
+            $survey = $this->questionRepository->saveSurvey();
         }
         $questions = isset($survey->questions) ? $survey->questions()->count() : 0;
-        //$questions->loadMissing(['questions', 'questions.options']);
-           //dd($questions);
-
 
         return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions]);
     }
@@ -47,11 +44,11 @@ class SurveyController extends Controller
     {
         $data = $request->all();
         $userSurvey = auth()->user()->survey;
-        //dd($data);
         $question = $this->questionRepository->getQuestion($data);
 
         if ($data['type'] == 1) {
-            if (isset($data['question_id']) && isset($data['options'])) {                
+            if (isset($data['question_id']) && isset($data['options']))
+            {
                 $userSurvey = $this->questionRepository->questionAttempt($data);
                 $userSurvey->loadMissing(['questions', 'questions.options']);
                 //$preQuestion = $userSurvey->questions()->where('question_id', $question->id)->first()->options()->first();
@@ -73,7 +70,6 @@ class SurveyController extends Controller
             return redirect()->route('home')->with('success','You have survey successfully completed!');
 
         }
-      
     }
 
     public function updateSurveyTime(Request $request)

@@ -175,27 +175,7 @@ class QuestionRepository
      */
     public function startSurvey($survey_id = null)
     {
-        $userSurvey     = isset($survey_id) ? UserSurvey::find($survey_id) : null;
-        $userId         = auth()->user()->id;
-
-        // save or create user survey
-        if( isset($userSurvey->id) )
-        {
-            $userSurvey->update([
-                'user_id'       => auth()->user()->id,
-                'status'        => UserSurvey::INPROGRESS,
-                'survey_time'   => DB::raw('survey_time+1')
-            ]);
-        }
-        else
-        {
-            $userSurvey = UserSurvey::create([
-                'user_id'       => $userId,
-                'status'        => UserSurvey::INPROGRESS,
-                'auto_stop'     => UserSurvey::NO,
-                'survey_time'   => 0,
-            ]);
-        }
+        $this->saveSurvey($survey_id);
         $user   = auth()->user();
         $survey = $user->survey;
         $init = $survey->survey_time ?? 0;
@@ -220,6 +200,40 @@ class QuestionRepository
             'minutes'=>$minutes,
             'seconds'=>$seconds
         ];
+    }
+
+    /**
+     * Method saveSurvey
+     *
+     * @param $survey_id $survey_id [explicite description]
+     *
+     * @return UserSurvey
+     */
+    public function saveSurvey($survey_id = null): UserSurvey
+    {
+        $userSurvey     = isset($survey_id) ? UserSurvey::find($survey_id) : null;
+        $userId         = auth()->user()->id;
+
+        // save or create user survey
+        if( isset($userSurvey->id) )
+        {
+            $userSurvey->update([
+                'user_id'       => auth()->user()->id,
+                'status'        => UserSurvey::INPROGRESS,
+                'survey_time'   => DB::raw('survey_time+1')
+            ]);
+        }
+        else
+        {
+            $userSurvey = UserSurvey::create([
+                'user_id'       => $userId,
+                'status'        => UserSurvey::INPROGRESS,
+                'auto_stop'     => UserSurvey::NO,
+                'survey_time'   => 0,
+            ]);
+        }
+
+        return $userSurvey;
     }
 
 }
