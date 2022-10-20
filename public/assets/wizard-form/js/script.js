@@ -150,6 +150,11 @@ function first_time_load(configData){
            dataType:'json',
            data:{page:page,type:configData.type,question_id:question_id,survey_id:survey_id,options:options,questionCnt:configData.questionCnt},
            success:function(data){
+              if( data.finish_button )
+              {
+                jQuery('#nextBtn').text('Finish');
+              }
+
               if( data.status === false )
               {
                 window.location = data.redirect_uri;

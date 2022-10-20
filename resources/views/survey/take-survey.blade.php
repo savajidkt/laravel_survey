@@ -34,6 +34,10 @@
 @endsection
 @section('page-script')
 <script type="text/javascript">
+    var moduleConfig = {
+        redirectUrl: "{!! route('home') !!}"
+    };
+
     $(document).ready(function() {
         configData = {url:configData.url,type:1,questionCnt:'{{$questions}}'}
         first_time_load(configData);
@@ -43,8 +47,7 @@
     let minutes = Math.floor(survey_time / 60);
     let seconds = Math.floor(survey_time % 60 ? survey_time % 60 : '00');
     document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + seconds;
-    
-    
+
 //startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
@@ -71,8 +74,11 @@ function startTimer() {
            dataType:'json',
            data:{survey_id:survey_id},
            success:function(data){
-
-           
+                var status = data.status
+                if( status == 'timeout' )
+                {
+                    window.location = moduleConfig.redirectUrl
+                }
            }
 
         });

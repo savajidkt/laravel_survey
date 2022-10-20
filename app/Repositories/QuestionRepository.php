@@ -142,14 +142,14 @@ class QuestionRepository
         }
         //$userSurveyAttempted->delete();
         // create user survey questions
-        
+
         if(isset($question->id)){
             $userSurveyQuestion = UserSurveyAnswer::create([
-                'user_survey_id'=> $userSurvey->id,
-                'user_id'       => $userId,
-                'question_id'    => $question->id,
+                'user_survey_id'    => $userSurvey->id,
+                'user_id'           => $userId,
+                'question_id'       => $question->id,
             ]);
-            
+
             // save question options
             if( $question->options->count() )
             {
@@ -159,9 +159,22 @@ class QuestionRepository
                 foreach($options as $option )
                 {
                     $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
-                        'user_survey_answer_id'=> $userSurveyQuestion->id,
-                        'question_option_id'       =>$option
+                        'user_survey_answer_id'     => $userSurveyQuestion->id,
+                        'question_option_id'        =>$option
                     ]);
+                }
+            }
+
+            // update finish status of user survey
+            if( isset( $userSurvey->id ) )
+            {
+                $surveyCount        = $userSurvey->questions()->count();
+                $allQuestionCount   = $this->getQuestionCount();
+
+                if( $surveyCount === 4 )        // todo need to replace 4 with $allQuestionCount
+                {
+                    $userSurvey->status = UserSurvey::COMPLETED;
+                    $userSurvey->save();
                 }
             }
         }
@@ -234,6 +247,16 @@ class QuestionRepository
         }
 
         return $userSurvey;
+    }
+
+    /**
+     * Method getQuestionCount
+     *
+     * @return int
+     */
+    public function getQuestionCount(): int
+    {
+        return Question::all()->count();
     }
 
 }
