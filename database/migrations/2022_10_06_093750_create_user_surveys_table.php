@@ -20,7 +20,7 @@ class CreateUserSurveysTable extends Migration
             $table->string('correct_answers')->nullable();
             $table->string('incorrect_answers')->nullable();
             $table->integer('progress')->nullable();
-            $table->integer('survey_time')->nullable();
+            $table->integer('survey_time')->default(0);
             $table->tinyInteger('status')->default(3)->comment('1=Completed, 2=Inprograss, 3=Pending');
             $table->integer('auto_stop')->default(0)->comment('0=No, 1=Yes');;
             $table->timestamps();

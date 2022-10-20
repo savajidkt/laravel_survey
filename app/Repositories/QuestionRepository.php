@@ -110,8 +110,11 @@ class QuestionRepository
          //DB::enableQueryLog();
         $question = Question::with('options')->skip($page)->take(1)->get();
         //dd(DB::getQueryLog());
-        if($question){
+        //dd($question);
+        if(isset($question[0])){
             return $question[0];
+        }else{
+            return new Question();
         }
         throw new Exception('Question delete failed.');
     }
@@ -139,12 +142,14 @@ class QuestionRepository
         }
         //$userSurveyAttempted->delete();
         // create user survey questions
+        
         if(isset($question->id)){
             $userSurveyQuestion = UserSurveyAnswer::create([
                 'user_survey_id'=> $userSurvey->id,
                 'user_id'       => $userId,
                 'question_id'    => $question->id,
             ]);
+            
             // save question options
             if( $question->options->count() )
             {
@@ -193,14 +198,22 @@ class QuestionRepository
         }
         $user   = auth()->user();
         $survey = $user->survey;
-        $init = $survey->survey_time;
+        $init = $survey->survey_time ?? 0;
+        dd($survey->questios);
+        $status ='running';
+        $minutes = 0;
+        $seconds = 0;
 
-        $minutes = floor(($init / 60) % 60);
-        $seconds = $init % 60;
-        if($minutes <40){
-            $status ='running';
-        }else{
-            $status ='timeout';
+        if( $init > 0 )
+        {
+            $minutes = floor(($init / 60) % 60);
+            $seconds = $init % 60;
+
+            if($minutes <40){
+                $status ='running';
+            }else{
+                $status ='timeout';
+            }
         }
 
         return [

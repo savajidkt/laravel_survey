@@ -35,16 +35,17 @@
 @section('page-script')
 <script type="text/javascript">
     $(document).ready(function() {
-
         configData = {url:configData.url,type:1,questionCnt:'{{$questions}}'}
         first_time_load(configData);
 
     });
-    let minutes = Math.floor('{{ $survey->survey_time}}' / 60);
-    //let seconds = ('{{ $survey->survey_time}}' % 60 ? '{{ $survey->survey_time}}' % 60 : '00');
-
-    document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + 00;
-startTimer();
+    let survey_time = '{{ isset($survey->survey_time) ? $survey->survey_time : 40 }}';
+    let minutes = Math.floor(survey_time / 60);
+    let seconds = Math.floor(survey_time % 60 ? survey_time % 60 : '00');
+    document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + seconds;
+    
+    
+//startTimer();
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
   var timeArray = presentTime.split(/[:]+/);
@@ -57,20 +58,20 @@ function startTimer() {
 
   document.getElementById('timer').innerHTML =
     m + ":" + s;
-  console.log(m);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
         var survey_id = $('#survey_id').val();
-        console.log('Survey Id'+survey_id);
+        
         $.ajax({
            type:'POST',
            url:"{{route('update-survey-time')}}",
            dataType:'json',
            data:{survey_id:survey_id},
            success:function(data){
+
            
            }
 

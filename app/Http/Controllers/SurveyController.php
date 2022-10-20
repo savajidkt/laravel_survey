@@ -35,7 +35,7 @@ class SurveyController extends Controller
             $survey = $this->questionRepository->startSurvey();
            
         }
-        $questions = $survey->questions()->count();
+        $questions = isset($survey->questions) ? $survey->questions()->count() : 0;
         //$questions->loadMissing(['questions', 'questions.options']);
            //dd($questions);
 
@@ -51,23 +51,29 @@ class SurveyController extends Controller
         $question = $this->questionRepository->getQuestion($data);
 
         if ($data['type'] == 1) {
-            if (isset($data['question_id']) && isset($data['options'])) {
+            if (isset($data['question_id']) && isset($data['options'])) {                
                 $userSurvey = $this->questionRepository->questionAttempt($data);
                 $userSurvey->loadMissing(['questions', 'questions.options']);
                 //$preQuestion = $userSurvey->questions()->where('question_id', $question->id)->first()->options()->first();
             }
-
             $page = $data['page'] == 0 ? 0 : $data['page'];
         } else {
             $page = $data['page'] - 1;
         }
+        $allQuestionsCnt = Question::all()->count();
         $questions = $userSurvey->questions()->count();
-        return response()->json([
-            'status' => true,
-            'message' => 'Request created successfully.',
-            'page' => $page + 1,
-            'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey,'questions'=>$questions, 'attepmtQuestion'])->render() //$data
-        ]);
+        if($question < $allQuestionsCnt){
+            return response()->json([
+                'status' => $questions<$allQuestionsCnt ? true : false,
+                'message' => 'Request created successfully.',
+                'page' => $page + 1,
+                'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey,'questions'=>$questions, 'attepmtQuestion'])->render() //$data
+            ]);
+        }else{
+            return redirect()->route('home')->with('success','You have survey successfully completed!');
+
+        }
+      
     }
 
     public function updateSurveyTime(Request $request)
