@@ -129,7 +129,6 @@ function fixStepIndicator(n) {
 }
 
 function first_time_load(configData){
-  console.log(configData);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -151,7 +150,11 @@ function first_time_load(configData){
            dataType:'json',
            data:{page:page,type:configData.type,question_id:question_id,survey_id:survey_id,options:options,questionCnt:configData.questionCnt},
            success:function(data){
-            $('#page').val(data.page);
+              if( data.status === false )
+              {
+                window.location = data.redirect_uri;
+              }
+              $('#page').val(data.page);
               $('.question-listing').html(data.data);
               $('.multisteps_form_panel').show();
               new Sortable(document.getElementById('sorting-list'));
@@ -160,24 +163,3 @@ function first_time_load(configData){
 
         });
 }
-
-jQuery("#start-survey").click(function(){
-  jQuery.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-      }
-  });
-  var page = jQuery('#page').val();
-  jQuery.ajax({
-     type:'POST',
-     url:configData.url,
-     dataType:'json',
-     data:{page:page},
-     success:function(data){
-      jQuery('#page').val(data.page);
-      jQuery('.question-listing').html(data.data);
-      jQuery('.multisteps_form_panel').show();
-     }
-
-  });
-});

@@ -57,19 +57,22 @@ class SurveyController extends Controller
         } else {
             $page = $data['page'] - 1;
         }
-        $allQuestionsCnt = Question::all()->count();
-        $questions = $userSurvey->questions()->count();
-        if($questions < $allQuestionsCnt){
+        $allQuestionsCnt    = Question::all()->count();
+        $questions          = $userSurvey->questions()->count();
+        if( $questions < ( $allQuestionsCnt+1 ) )
+        {
             return response()->json([
-                'status' => $questions<$allQuestionsCnt ? true : false,
+                'status' => $questions === $allQuestionsCnt ? false : true,
                 'message' => 'Request created successfully.',
                 'page' => $page + 1,
+                'redirect_uri' => route('home'),
                 'data' => view('survey.question', ['model' => $question, 'survey' => $userSurvey,'questions'=>$questions, 'attepmtQuestion'])->render() //$data
             ]);
-        }else{
-            return redirect()->route('home')->with('success','You have survey successfully completed!');
-
         }
+        // else{
+        //     return redirect()->route('home')->with('success','You have survey successfully completed!');
+
+        // }
     }
 
     public function updateSurveyTime(Request $request)
