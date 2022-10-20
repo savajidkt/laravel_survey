@@ -62,7 +62,7 @@ class SurveyController extends Controller
         }
         $allQuestionsCnt = Question::all()->count();
         $questions = $userSurvey->questions()->count();
-        if($question < $allQuestionsCnt){
+        if($questions < $allQuestionsCnt){
             return response()->json([
                 'status' => $questions<$allQuestionsCnt ? true : false,
                 'message' => 'Request created successfully.',

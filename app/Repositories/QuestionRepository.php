@@ -199,7 +199,6 @@ class QuestionRepository
         $user   = auth()->user();
         $survey = $user->survey;
         $init = $survey->survey_time ?? 0;
-        dd($survey->questios);
         $status ='running';
         $minutes = 0;
         $seconds = 0;
