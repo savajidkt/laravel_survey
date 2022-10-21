@@ -3,7 +3,7 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    @if(Route::is('admin.dashboard.*'))
+    @if(Route::is('dashboard'))
     <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
     @endif
     <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
@@ -29,7 +29,7 @@
     {{-- Sweet Alert --}}
     <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
 
-    @if(Route::is('admin.dashboard.*'))
+    @if(Route::is('dashboard'))
     <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script>
     @endif
     <!-- END: Page JS-->

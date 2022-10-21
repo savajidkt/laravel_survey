@@ -108,7 +108,7 @@ class SurveyController extends Controller
                 'finish_button' => $questions === ($allQuestionsCnt - 1) ? true : false,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
                 'message'       => 'Request created successfully.',
                 'page'          => $page + 1,
-                'redirect_uri'  => route('home'),
+                'redirect_uri'  => route('thank-you'),
                 'percentage'    => $percentage,
                 'data'          => view('survey.question', [
                     'model'         => $question,
