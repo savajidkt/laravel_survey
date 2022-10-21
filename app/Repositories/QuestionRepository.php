@@ -188,10 +188,10 @@ class QuestionRepository
      */
     public function startSurvey($survey_id = null)
     {
-        $this->saveSurvey($survey_id);
-        $user   = auth()->user();
-        $survey = $user->survey;
+        $survey = $this->saveSurvey($survey_id);
+        $survey->refresh();
         $init = $survey->survey_time ?? 0;
+
         $status ='running';
         $minutes = 0;
         $seconds = 0;
@@ -206,6 +206,12 @@ class QuestionRepository
             }else{
                 $status ='timeout';
             }
+        }
+        // update finish status of user survey
+        if(isset($survey->id) )
+        {   if($minutes >= 40)
+            $survey->auto_stop = UserSurvey::YES;
+            $survey->save();
         }
 
         return [

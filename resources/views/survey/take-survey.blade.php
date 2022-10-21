@@ -35,7 +35,7 @@
 @section('page-script')
 <script type="text/javascript">
     var moduleConfig = {
-        redirectUrl: "{!! route('home') !!}"
+        redirectUrl: "{!! route('time-out') !!}"
     };
 
     $(document).ready(function() {
@@ -44,9 +44,11 @@
 
     });
     let survey_time = '{{ isset($survey->survey_time) ? $survey->survey_time : 40 }}';
-    let minutes = Math.floor(survey_time / 60);
-    let seconds = Math.floor(survey_time % 60 ? survey_time % 60 : '00');
-    document.getElementById('timer').innerHTML =  (40 - minutes) + ":" + seconds;
+    let minutes = Math.floor( survey_time/60 );
+    let calculatedMinutes = Math.ceil( survey_time/60 );
+    let calculatedMinutesSeconds = calculatedMinutes * 60;
+    let remainingSeconds = Math.abs(parseInt(survey_time) - parseInt(calculatedMinutesSeconds));
+    document.getElementById('timer').innerHTML =  (40 - calculatedMinutes) + ":" + remainingSeconds;
 
 startTimer();
 function startTimer() {

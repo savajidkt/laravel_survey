@@ -34,7 +34,7 @@ class SurveyController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function index()
     {
@@ -42,16 +42,38 @@ class SurveyController extends Controller
         $survey = $user->survey;
         if (!isset($survey))
         {
-            // if( in_array($survey->status, [UserSurvey::COMPLETED]) )
-            // {
-            //     // todo redirect to other page as user already attempted survey and completed
-            //     // redirect();
-            // }
+            if( in_array($survey->status, [UserSurvey::COMPLETED]) )
+            {
+                // todo redirect to other page as user already attempted survey and completed
+                // redirect();
+                return redirect()->route('survey.thank-you')->with('success','Your survey is successfully complated!');
+            }
             $survey = $this->questionRepository->saveSurvey();
         }
         $questions = isset($survey->questions) ? $survey->questions()->count() : 0;
 
         return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions]);
+    }
+
+    /**
+     * Method thankYou
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function thankYou()
+    {
+        return view('survey.thank-you');
+    }
+
+    /**
+     * Method timeOut
+     *
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function timeOut()
+    {
+
+        return view('survey.time-out');
     }
 
     /**
