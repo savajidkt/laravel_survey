@@ -104,14 +104,14 @@ Author      : jthemes (https://themeforest.net/user/jthemes)
   margin-right: 5.176rem;
 }
 
-.progress {
+/* .progress {
   width: 85%;
   margin: 2.1875rem 0 1.25rem 3.75rem;
 }
 .progress .progress-bar {
   background: -webkit-gradient(linear, left top, right top, from(#36d1dc), to(#5b87e5));
   background: linear-gradient(to right, #36d1dc, #5b87e5);
-}
+} */
 
 h1 {
   color: #000a38;

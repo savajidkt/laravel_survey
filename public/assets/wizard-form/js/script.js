@@ -1,41 +1,3 @@
-$(function(){
-     // ========== Form-select-option ========== //
-  $(".step_1").on('click', function(){
-    $(".step_1").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".step_2").on('click', function(){
-    $(".step_2").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".step_3").on('click', function(){
-    $(".step_3").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".step_4").on('click', function(){
-    $(".step_4").removeClass("active");
-    $(this).addClass("active");
-  });
-  $(".step_5").on('click', function(){
-    $(".step_5").removeClass("active");
-    $(this).addClass("active");
-  });
-
-    // ================== CountDown function ================
-  $('.countdown_timer').each(function(){
-    $('[data-countdown]').each(function() {
-      var $this = $(this), finalDate = $(this).data('countdown');
-      $this.countdown(finalDate, function(event) {
-        var $this = $(this).html(event.strftime(''
-        + '<h3>%S</h3>'
-        + '<span class="text-uppercase">sec</span>'));
-      });
-    });
-  });
-
-});
-
-
 var currentTab = 0; // Current tab is set to be the first tab (0)
 //showTab(currentTab); // Display the current tab
 
@@ -143,7 +105,7 @@ function first_time_load(configData){
                 $.each(form, function(e, textBox) {
                   options.push($.trim(textBox.value));
                 });
-        
+
         $.ajax({
            type:'POST',
            url:configData.url,
@@ -161,6 +123,8 @@ function first_time_load(configData){
               }
               $('#page').val(data.page);
               $('.question-listing').html(data.data);
+              $('#progress-bar-percentage').text(data.percentage);
+              $('.progress-bar').css('width', data.percentage+"%").attr('aria-valuenow', data.percentage);
               $('.multisteps_form_panel').show();
               new Sortable(document.getElementById('sorting-list'));
 

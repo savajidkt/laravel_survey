@@ -42,17 +42,13 @@ class SurveyController extends Controller
         $survey = $user->survey;
         if (!isset($survey))
         {
-            if( in_array($survey->status, [UserSurvey::COMPLETED]) )
-            {
-                // todo redirect to other page as user already attempted survey and completed
-                // redirect();
-                return redirect()->route('survey.thank-you')->with('success','Your survey is successfully complated!');
-            }
+            
             $survey = $this->questionRepository->saveSurvey();
         }
         $questions = isset($survey->questions) ? $survey->questions()->count() : 0;
-
-        return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions]);
+        $allQuestionsCnt    = $this->questionRepository->getQuestionCount();
+        $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
+        return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions,'percentage'=>$percentage]);
     }
 
     /**
@@ -106,12 +102,14 @@ class SurveyController extends Controller
         $questions          = $userSurvey->questions()->count();
         if( $questions < ( $allQuestionsCnt+1 ) )
         {
+            $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
             return response()->json([
                 'status'        => $questions === $allQuestionsCnt ? false : true,
                 'finish_button' => $questions === ($allQuestionsCnt - 1) ? true : false,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
                 'message'       => 'Request created successfully.',
                 'page'          => $page + 1,
                 'redirect_uri'  => route('home'),
+                'percentage'    => $percentage,
                 'data'          => view('survey.question', [
                     'model'         => $question,
                     'survey'        => $userSurvey,

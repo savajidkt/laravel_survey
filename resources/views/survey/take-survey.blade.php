@@ -7,10 +7,14 @@
             <div class="col-lg-12 question-card">
                 <div class="card">
                     <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        @php
+                            $percentage = isset($percentage) ? $percentage : 0;
+                            $width = "width: ". $percentage."%";
+                        @endphp
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{$percentage}}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <div class="pc-tagline">Progress: <strong>40% Complete</strong></div>
+                        <div class="pc-tagline">Progress: <strong><span id="progress-bar-percentage">{{ isset($percentage) ? $percentage : 0 }}</span>% Complete</strong></div>
                         <div class="timer-text">
                          Time left : <span id="timer"></span>
                         </div>

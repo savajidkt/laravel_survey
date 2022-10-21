@@ -265,5 +265,18 @@ class QuestionRepository
         return Question::all()->count();
     }
 
+    /**
+     * Method getProgressBar
+     *
+     * @param int $questions [explicite description]
+     * @param int $totalQuestion [explicite description]
+     *
+     * @return int
+     */
+    public function getProgressBar(int $questions, int $totalQuestion): int
+    {
+        return (int) (100 * $questions) / $totalQuestion;
+    }
+
 }
 
