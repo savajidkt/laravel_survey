@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('page_title', 'Password Change')
 @section('content')
 
 <main class="login-bg">

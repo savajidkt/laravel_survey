@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page_title', 'Thank You')
 @section('content')
 <section class="section small-c">
     <div class="container">

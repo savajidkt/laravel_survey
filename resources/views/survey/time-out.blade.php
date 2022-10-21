@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page_title', 'Time Out')
 @section('content')
 <section class="section small-c">
     <div class="container">

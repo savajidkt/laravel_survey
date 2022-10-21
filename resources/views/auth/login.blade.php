@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('page_title', 'Login')
 @section('content')
 <main class="login-bg">
     <div class="container">
