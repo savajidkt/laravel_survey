@@ -7,6 +7,8 @@ use App\Http\Requests\User\CreateRequest;
 use App\Http\Requests\User\EditRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
+use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 class UsersController extends Controller
@@ -49,7 +51,7 @@ class UsersController extends Controller
                 // })
                 ->addColumn('action', function ($row) {
                     return $row->action;
-                })->rawColumns(['action'])->make(true);
+                })->rawColumns(['action','user_status'])->make(true);
         }
 
         return view('admin.user.index');
@@ -129,5 +131,27 @@ class UsersController extends Controller
         $this->userRepository->delete($user);
 
         return redirect()->route('users.index')->with('success', "User deleted successfully!");
+    }
+
+    /**
+     * Method changeStatus
+     *
+     * @param Request $request [explicite description]
+     *
+     * @return JsonResponse
+     */
+    public function changeStatus(Request $request): JsonResponse
+    {
+        $input = $request->all();
+        $user  = User::find($input['user_id']);
+        if($this->userRepository->changeStatus($input, $user))
+        {
+            return response()->json([
+                'status' => true,
+                'message'=> 'User status updated successfully.'
+            ]);
+        }
+
+        throw new Exception('User status does not change. Please check sometime later.');
     }
 }

@@ -140,4 +140,17 @@ class UserRepository
 
         throw new GeneralException('Change password failed.');
     }
+
+    /**
+     * Method changeStatus
+     *
+     * @param array $input [explicite description]
+     *
+     * @return bool
+     */
+    public function changeStatus(array $input, User $user): bool
+    {
+        $user->user_status = !$input['status'];
+        return $user->save();
+    }
 }

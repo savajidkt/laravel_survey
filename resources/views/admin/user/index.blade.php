@@ -90,6 +90,53 @@
                     $this.find("form").trigger('submit');
                 }
             });
+        }).on('click', '.status_update', function(e){
+            e.preventDefault();
+            var $this   = $(this),
+                userId  = $this.data('user_id'),
+                status  = $this.data('status'),
+                message = status == 1 ? 'Are you sure you want to deactivate user?' : 'Are you sure you want to activate user?';
+
+            console.log('User ID: ', userId);
+            console.log('Status to be updated: ', status);
+            console.log(message);
+
+            Swal.fire({
+                title: 'Update user status',
+                text: message,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-outline-danger ml-1'
+                },
+                buttonsStyling: false
+            }).then(function(result) {
+                if (result.value) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    var survey_id = $('#survey_id').val();
+                    $.ajax({
+                    type:'POST',
+                    url:"{{route('change-user-status')}}",
+                    dataType:'json',
+                    data:{user_id:userId, status: status},
+                    success:function(data){
+                        if(data.status)
+                        {
+                            table.ajax.reload();
+                        }
+                    }
+
+                    });
+                }
+            });
+
+            return false;
         });
     });
 </script>

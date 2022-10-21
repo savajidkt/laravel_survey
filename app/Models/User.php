@@ -108,16 +108,19 @@ class User extends Authenticatable
         switch($this->user_status)
         {
             case self::INACTIVE:
-                $status = self::STATUS[self::INACTIVE];
+                $status = '<a href="javascript:void(0)" class=""><span class="badge badge-danger status_update" data-user_id="'.$this->id.'" data-status="'.$this->user_status.'">'.self::STATUS[self::INACTIVE].'</span></a>';
                 break;
             default:
-                $status = self::STATUS[self::ACTIVE];
+                $status = '<a href="javascript:void(0)" class=""><span class="badge badge-success status_update" data-user_id="'.$this->id.'" data-status="'.$this->user_status.'">'.self::STATUS[self::ACTIVE].'</span></a>';
                 break;
         }
 
         return $status;
     }
-
+    // $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+    // $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
+    // //return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
+    // return $editAction.' '.$this->getDeleteButtonAttribute();
     /**
      * Get the user associated with the User
      *
