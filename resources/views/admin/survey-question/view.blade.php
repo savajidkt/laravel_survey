@@ -1,4 +1,5 @@
 @extends('admin.layout.app')
+@section('page_title','View Question')
 @section('content')
 <section id="card-actions">
     <div class="row">

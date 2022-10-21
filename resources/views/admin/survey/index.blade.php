@@ -1,4 +1,5 @@
 @extends('admin.layout.app')
+@section('page_title','Survey Question')
 @section('content')
 <!-- users list start -->
 <section class="app-user-list">

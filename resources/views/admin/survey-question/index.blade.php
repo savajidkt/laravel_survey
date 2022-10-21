@@ -1,4 +1,5 @@
 @extends('admin.layout.app')
+@section('page_title','Survey Question')
 @section('content')
 <!-- users list start -->
 <section class="app-user-list">
@@ -15,7 +16,6 @@
                     <tr>
                         <th></th>
                         <th>Question</th>
-                        <th>Type</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -45,10 +45,6 @@
                 {
                     data: 'question',
                     name: 'question'
-                },
-                {
-                    data: 'type',
-                    name: 'type'
                 },
                 {
                     data: 'status',

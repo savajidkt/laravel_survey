@@ -1,4 +1,5 @@
 @extends('admin.layout.app')
+@section('page_title','New Question')
 @section('content')
 <section class="bs-validation">
     <div class="row">
