@@ -42,7 +42,7 @@
             searching: false,
             ajax: "{{ route('users.index') }}",
             columns: [{
-                    data: 'id',
+                    data: 'DT_RowIndex',
                     name: 'id'
                 },
                 {
@@ -50,12 +50,12 @@
                     name: 'full_name'
                 },
                 {
-                    data: 'address',
-                    name: 'address'
-                },
-                {
                     data: 'email',
                     name: 'email'
+                },
+                {
+                    data: 'address',
+                    name: 'address'
                 },
                 {
                     data: 'user_status',

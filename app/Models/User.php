@@ -18,7 +18,7 @@ class User extends Authenticatable
 
     const STATUS = [
         self::ACTIVE => 'Active',
-        self::INACTIVE => 'In Active'
+        self::INACTIVE => 'Inactive'
     ];
 
     /**

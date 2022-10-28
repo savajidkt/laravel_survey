@@ -117,10 +117,10 @@ class UserRepository
      */
     public function changePassword(User $user, array $input)
     {
-        if(!Hash::check($input['current_password'], $user->password))
-        {
-            throw new GeneralException('Entered current password is incorrect.');
-        }
+        // if(!Hash::check($input['current_password'], $user->password))
+        // {
+        //     throw new GeneralException('Entered current password is incorrect.');
+        // }
 
         $data = [
             'password'                 => Hash::make($input['new_password']),

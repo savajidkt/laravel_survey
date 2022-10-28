@@ -16,14 +16,14 @@
                                        <form class="row g-3 needs-validation p-3" method="POST" action="{{ route('first.password.change') }}">
                                             @csrf
                                           <h1 class="card-title pt-0 pb-0 mb-0">{{ __('Password Change') }}</h1>
-                                          <div class="col-12">
+                                          <!-- <div class="col-12">
                                           <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required autocomplete="current_password" placeholder="Current Password">
                                             @error('current_password')
                                                 <span class="invalid-feedback" style="display: block;" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                          </div>
+                                          </div> -->
                                           <div class="col-12">
                                           <input id="new_password" type="password" class="form-control @error('new_password') is-invalid @enderror" name="new_password" required autocomplete="new_password" placeholder="New Password">
                                             @error('new_password')
