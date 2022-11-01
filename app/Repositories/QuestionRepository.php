@@ -4,10 +4,12 @@ namespace App\Repositories;
 
 use App\Models\Question;
 use App\Models\QuestionOption;
+use App\Models\User;
 use App\Models\UserSurvey;
 use App\Models\UserSurveyAnswer;
 use App\Models\UserSurveyAnswerOption;
 use Exception;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
 class QuestionRepository
@@ -276,6 +278,35 @@ class QuestionRepository
     public function getProgressBar(int $questions, int $totalQuestion): int
     {
         return (int) (100 * $questions) / $totalQuestion;
+    }
+
+    /**
+     * Method getTotalCompletedSurveys
+     *
+     * @return int
+     */
+    public function getTotalCompletedSurveys(): int
+    {
+        return UserSurvey::where('status', UserSurvey::COMPLETED)->count();
+    }
+
+    /**
+     * Method getTotalPendingSurveys
+     *
+     * @return int
+     */
+    public function getTotalPendingSurveys(): int
+    {
+        //DB::enableQueryLog();
+        $user = User::query()
+                    ->where('user_type', User::USER)
+                    ->whereHas('survey', function(Builder $query){
+                        return $query->whereIn('status', [UserSurvey::INPROGRESS, UserSurvey::PENDING, 0]);
+                    })
+                    ->orDoesntHave('survey')
+                    ->count();
+        //dd(DB::getQueryLog());
+        return $user;
     }
 
 }

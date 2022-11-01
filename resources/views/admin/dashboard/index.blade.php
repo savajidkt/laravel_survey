@@ -12,15 +12,15 @@
               <h4 class="card-title">Survey Results</h4>
           </div>
           <div class="card-body p-0">
-              <div id="goal-overview-radial-bar-chart" class="my-2"></div>
+              <div id="survey-results" class="my-2"></div>
               <div class="row border-top text-center mx-0">
                   <div class="col-6 border-right py-1">
                       <p class="card-text mb-0">Have taken the Survey</p>
-                      <h1 class="font-weight-bolder mb-0">60</h1>
+                      <h1 class="font-weight-bolder mb-0">{{$survey_results['completed']}}</h1>
                   </div>
                   <div class="col-6 py-1">
                       <p class="card-text mb-0">Have Not taken the Survey</p>
-                      <h1 class="font-weight-bolder mb-0">20</h1>
+                      <h1 class="font-weight-bolder mb-0">{{$survey_results['pending']}}</h1>
                   </div>
               </div>
           </div>
