@@ -43,7 +43,9 @@
             ajax: "{{ route('users.index') }}",
             columns: [{
                     data: 'DT_RowIndex',
-                    name: 'id'
+                    name: 'id',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'full_name',

@@ -30,7 +30,7 @@
     <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
 
     @if(Route::is('dashboard'))
-    <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script>
+    <!-- <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script> -->
     @endif
     <!-- END: Page JS-->
     <script src="{{asset('js/survey.common.js')}}"></script>

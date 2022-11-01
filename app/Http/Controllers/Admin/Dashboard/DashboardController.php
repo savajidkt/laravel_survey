@@ -36,7 +36,8 @@ class DashboardController extends Controller
             'percentage'    =>   (int) (100 * $completed) / ($completed + $pending)
         ];
         //dd($survey_results);
-        $recent_activity=[];
+        $recent_activity= $this->questionRepository->getSubmitedSurveys();
+        //dd($recent_activity);
         return view('admin.dashboard.index',['survey_results' => $survey_results,'recent_activity'=>$recent_activity]);
     }
 }

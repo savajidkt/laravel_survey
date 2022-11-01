@@ -9,6 +9,7 @@ use App\Models\UserSurvey;
 use App\Models\UserSurveyAnswer;
 use App\Models\UserSurveyAnswerOption;
 use Exception;
+use Faker\Provider\UserAgent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 
@@ -307,6 +308,20 @@ class QuestionRepository
                     ->count();
         //dd(DB::getQueryLog());
         return $user;
+    }
+
+    public function getSubmitedSurveys()
+    {
+        //DB::enableQueryLog();
+        // $user = User::query()
+        //             ->where('user_type', User::USER)
+        //             ->whereHas('survey', function(Builder $query){
+        //                 return $query->whereIn('status', [UserSurvey::COMPLETED]);
+        //             })->get();
+        //$userSurvey = UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->user()->get();
+        $userSurvey = UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
+        //dd(DB::getQueryLog());
+        return $userSurvey;
     }
 
 }

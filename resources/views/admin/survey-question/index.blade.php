@@ -39,22 +39,28 @@
             searching: false,
             ajax: "{{ route('question.index') }}",
             columns: [{
-                    data: 'id',
-                    name: 'id'
+                    data: 'DT_RowIndex',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'question',
-                    name: 'question'
+                    name: 'question',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'status',
-                    name: 'status'
+                    name: 'status',
+                    orderable: false,
+                    searchable: false
                 },
                 {
                     data: 'action',
                     name: 'action',
                     orderable: false,
-                    searchable: true
+                    searchable: false
                 },
             ],
             "createdRow": function(row, data, dataIndex) {
