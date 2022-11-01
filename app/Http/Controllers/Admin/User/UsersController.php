@@ -39,6 +39,9 @@ class UsersController extends Controller
                 ->editColumn('user_status', function (User $user) {
                     return $user->status_name;
                 })
+                ->orderColumn('full_name', function ($query, $order) {
+                    $query->orderByRaw('CONCAT_WS(\' \', first_name, last_name) '. $order);
+                })
                 // ->filterColumn('first_name', function ($query, $keyword) {
                 //     $query->orWhere('first_name', 'like', '%'.$keyword.'%');
                 // })

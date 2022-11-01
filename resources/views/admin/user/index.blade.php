@@ -12,7 +12,7 @@
           <a href="{{ route('users.create') }}"><button type="reset" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Add New User</button></a>
         </div>
         <div class="card-datatable pt-0 table-responsive">
-            <table class="user-list-table table">
+            <table class="user-list-table datatables-ajax table">
                 <thead class="thead-light">
                     <tr>
                         <th></th>
@@ -51,9 +51,7 @@
                 },
                 {
                     data: 'email',
-                    name: 'email',
-                    orderable: false,
-                    searchable: false,
+                    name: 'email'
                 },
                 {
                     data: 'address',
@@ -63,9 +61,7 @@
                 },
                 {
                     data: 'user_status',
-                    name: 'user_status',
-                    orderable: false,
-                    searchable: false,
+                    name: 'user_status'
                 },
                 {
                     data: 'action',
