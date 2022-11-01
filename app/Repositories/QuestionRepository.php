@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserSurvey;
 use App\Models\UserSurveyAnswer;
 use App\Models\UserSurveyAnswerOption;
+use Carbon\Carbon;
 use Exception;
 use Faker\Provider\UserAgent;
 use Illuminate\Database\Eloquent\Builder;
@@ -177,6 +178,7 @@ class QuestionRepository
                 if( $surveyCount === $allQuestionCount )        // todo need to replace 4 with $allQuestionCount
                 {
                     $userSurvey->status = UserSurvey::COMPLETED;
+                    $userSurvey->updated_at = Carbon::now();
                     $userSurvey->save();
                 }
             }
