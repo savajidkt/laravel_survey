@@ -29,7 +29,7 @@
                                                 @endif
                                                 <div class="col-12">
                                                     <div class="input-group has-validation">
-                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required  placeholder="Email">
                                                     </div>
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password">
                                                     @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-flex justify-content-center pt-3">
-                                                        <a href="#" class="logo d-flex align-items-center w-auto">
+                                                        <a href="{{ route('login') }}" class="logo d-flex align-items-center w-auto">
                                                             <img src="{{asset('front/assets/img/logo.png')}}" alt="">
                                                         </a>
                                                     </div>

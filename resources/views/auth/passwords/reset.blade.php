@@ -29,7 +29,7 @@
                                              </div>
                                           </div>
                                           <div class="col-12">
-                                          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="New Password">
+                                          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required  placeholder="New Password">
                                             @error('password')
                                                 <span class="invalid-feedback" style="display: block;" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -37,14 +37,14 @@
                                             @enderror
                                           </div>
                                           <div class="col-12">
-                                          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                                          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required  placeholder="Confirm Password">
                                           </div>
                                           <div class="col-12">
                                              <button class="btn btn-primary w-100" type="submit">{{ __('Reset Password') }}</button>
                                           </div>
                                           <div class="col-12">
                                              <div class="d-flex justify-content-center pt-3">
-                                                <a href="#" class="logo d-flex align-items-center w-auto">
+                                                <a href="{{ route('login') }}" class="logo d-flex align-items-center w-auto">
                                                 <img src="{{asset('front/assets/img/logo.png')}}" alt="">
                                                 </a>
                                              </div>

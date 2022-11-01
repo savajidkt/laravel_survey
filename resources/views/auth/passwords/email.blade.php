@@ -23,7 +23,7 @@
                                                 <h1 class="card-title pt-0 pb-0 mb-0">{{ __('Reset Password') }}</h1>
                                                 <div class="col-12">
                                                     <div class="input-group has-validation">
-                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('Email Address') }}">
+                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required  placeholder="{{ __('Email Address') }}">
                                                     </div>
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="d-flex justify-content-center pt-3">
-                                                        <a href="#" class="logo d-flex align-items-center w-auto">
+                                                        <a href="{{ route('login') }}" class="logo d-flex align-items-center w-auto">
                                                             <img src="{{asset('front/assets/img/logo.png')}}" alt="">
                                                         </a>
                                                     </div>

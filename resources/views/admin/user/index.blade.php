@@ -51,21 +51,27 @@
                 },
                 {
                     data: 'email',
-                    name: 'email'
+                    name: 'email',
+                    orderable: false,
+                    searchable: false,
                 },
                 {
                     data: 'address',
-                    name: 'address'
+                    name: 'address',
+                    orderable: false,
+                    searchable: false,
                 },
                 {
                     data: 'user_status',
-                    name: 'user_status'
+                    name: 'user_status',
+                    orderable: false,
+                    searchable: false,
                 },
                 {
                     data: 'action',
                     name: 'action',
                     orderable: false,
-                    searchable: true
+                    searchable: false
                 },
             ],
             "createdRow": function(row, data, dataIndex) {

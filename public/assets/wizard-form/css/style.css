@@ -211,8 +211,7 @@ body {
 }
 
 a,
-button,
-input {
+button {
   cursor: pointer;
   text-decoration: none;
 }

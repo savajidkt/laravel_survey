@@ -8,17 +8,7 @@
                 <div class="card-header">
                     <h4 class="card-title">{{$model->question}}</h4>
                     <div class="heading-elements">
-                        <ul class="list-inline mb-0">
-                            <li>
-                                <a data-action="collapse"><i data-feather="chevron-down"></i></a>
-                            </li>
-                            <li>
-                                <a data-action="reload"><i data-feather="rotate-cw"></i></a>
-                            </li>
-                            <li>
-                                <a data-action="close"><i data-feather="x"></i></a>
-                            </li>
-                        </ul>
+                       
                     </div>
                 </div>
                 <div class="card-content collapse show">
