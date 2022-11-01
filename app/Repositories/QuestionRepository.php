@@ -313,15 +313,8 @@ class QuestionRepository
     public function getSubmitedSurveys()
     {
         //DB::enableQueryLog();
-        // $user = User::query()
-        //             ->where('user_type', User::USER)
-        //             ->whereHas('survey', function(Builder $query){
-        //                 return $query->whereIn('status', [UserSurvey::COMPLETED]);
-        //             })->get();
-        //$userSurvey = UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->user()->get();
-        $userSurvey = UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
+        return UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
         //dd(DB::getQueryLog());
-        return $userSurvey;
     }
 
 }
