@@ -8,8 +8,8 @@
                 <div class="card">
                     <img src="{{asset('front/assets/img/card.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-img-overlay">
-                        <h5 class="card-title m-t-top80">Sorry, Time Out</h5>
-                        <p class="card-text">Sorry, Your time is finished,please contact to admin.</p>
+                        <h5 class="card-title">Session Timeout!</h5>
+                        <p class="card-text">You're being timed out. Please contact to administrator.</p>
                     </div>
                 </div>
             </div>

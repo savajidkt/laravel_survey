@@ -15,14 +15,16 @@
     <link href="{{ asset('front/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('front/assets/css/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+     <link rel="stylesheet" href="{{ asset('assets/wizard-form/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/wizard-form/css/style.css')}}">
     <link href="{{ asset('front/assets/css/style.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('assets/wizard-form/css/animate.min.css')}}">
+   
     <!-- Main-StyleSheet include -->
-    <link rel="stylesheet" href="{{ asset('assets/wizard-form/css/style.css')}}">
+    
 </head>
 
 <body>

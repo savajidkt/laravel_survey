@@ -8,8 +8,8 @@
                 <div class="card">
                     <img src="{{asset('front/assets/img/card.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-img-overlay">
-                        <h5 class="card-title m-t-top80">Thank You</h5>
-                        <p class="card-text">You have successfully completed your survey.</p>                        
+                        <h5 class="card-title">Thank you for completing the survey</h5>
+                        <p class="card-text">We appeciate your time and your answers.</p>                        
                     </div>
                 </div>
             </div>

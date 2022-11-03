@@ -315,7 +315,8 @@ class QuestionRepository
     public function getSubmitedSurveys()
     {
         //DB::enableQueryLog();
-        return UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
+       return UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
+           
         //dd(DB::getQueryLog());
     }
 
