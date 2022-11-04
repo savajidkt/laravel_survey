@@ -290,7 +290,7 @@ class QuestionRepository
      */
     public function getTotalCompletedSurveys(): int
     {
-        return UserSurvey::where('status', UserSurvey::COMPLETED)->count();
+        return UserSurvey::whereHas('user', function($query){})->where('status', UserSurvey::COMPLETED)->count();
     }
 
     /**
@@ -315,8 +315,7 @@ class QuestionRepository
     public function getSubmitedSurveys()
     {
         //DB::enableQueryLog();
-       return UserSurvey::whereIn('status', [UserSurvey::COMPLETED])->get();
-           
+       return UserSurvey::whereHas('user', function($query){})->whereIn('status', [UserSurvey::COMPLETED])->get();
         //dd(DB::getQueryLog());
     }
 
