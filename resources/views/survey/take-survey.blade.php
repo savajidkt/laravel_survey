@@ -6,23 +6,26 @@
         <div class="row">
             <div class="col-lg-12 question-card">
                 <div class="card">
-                    <div class="progress">
+
+                    <div class="justify-content-between">
+                        <div class="timer-text">
+                         Time left : <span id="timer"></span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="survey_id" id="survey_id" value="{{ isset($survey->id) ? $survey->id : null }}">
+                    <input type="hidden" name="question_sort" id="question_sort" value="no">
+                    <div class="error-msg" style="color:red;"></div>
+                    <div class="question-listing" id="question-listing"></div>
+					<div class="pc-tagline">Progress: <strong><span id="progress-bar-percentage">{{ isset($percentage) ? $percentage : 0 }}</span>% Complete</strong></div>
+					<div class="progress">
                         @php
                             $percentage = isset($percentage) ? $percentage : 0;
                             $width = "width: ". $percentage."%";
                         @endphp
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{$percentage}}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <div class="pc-tagline">Progress: <strong><span id="progress-bar-percentage">{{ isset($percentage) ? $percentage : 0 }}</span>% Complete</strong></div>
-                        <div class="timer-text">
-                         Time left : <span id="timer"></span>
-                        </div>
-                    </div>
-                    <input type="hidden" name="survey_id" id="survey_id" value="{{ isset($survey->id) ? $survey->id : null }}">
-                    <div class="question-listing" id="question-listing"></div>
                     <input type="hidden" name="page" id="page" value="{{$questions}}">
-                    <div class="error-msg" style="color:red;"></div>
+                    
                     <div class="row mt-4">
                         <div class="col-lg-12">
                             <!-- <button type="button" class="btn btn-light" id="prevBtn" onclick="nextPrev(-1)"><i class="bi bi-arrow-left me-1"></i> Back</button> -->
@@ -34,7 +37,23 @@
         </div>
     </div>
 </section>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Massage</h5>
+      </div>
+      <div class="modal-body">
+      You did not change your answers, are you sure you want to submit?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-primary" id="next_question">Next Question</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 @section('page-script')
 <script type="text/javascript">
@@ -73,20 +92,20 @@ function startTimer() {
             }
         });
         var survey_id = $('#survey_id').val();
-        $.ajax({
-           type:'POST',
-           url:"{{route('update-survey-time')}}",
-           dataType:'json',
-           data:{survey_id:survey_id},
-           success:function(data){
-                var status = data.status
-                if( status == 'timeout' )
-                {
-                    window.location = moduleConfig.redirectUrl
-                }
-           }
+        // $.ajax({
+        //    type:'POST',
+        //    url:"{{route('update-survey-time')}}",
+        //    dataType:'json',
+        //    data:{survey_id:survey_id},
+        //    success:function(data){
+        //         var status = data.status
+        //         if( status == 'timeout' )
+        //         {
+        //             window.location = moduleConfig.redirectUrl
+        //         }
+        //    }
 
-        });
+        // });
   setTimeout(startTimer, 1000);
 
 }

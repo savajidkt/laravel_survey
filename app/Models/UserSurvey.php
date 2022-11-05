@@ -22,6 +22,12 @@ class UserSurvey extends Model
     const YES   = 1;
     const NO    = 0;
 
+    const STATUS = [
+        self::COMPLETED => 'Completed',
+        self::INPROGRESS => 'Incomplete',
+        self::PENDING => 'Incomplete'
+    ];
+
     protected $fillable = [
         'user_id',
         'questions_attempted',
@@ -31,6 +37,7 @@ class UserSurvey extends Model
         'status',
         'auto_stop',
         'survey_time',
+        'start_time',
     ];
 
     /**
@@ -51,6 +58,30 @@ class UserSurvey extends Model
     public function questions(): HasMany
     {
         return $this->hasMany(UserSurveyAnswer::class, 'user_survey_id', 'id');
+    }
+
+    /**
+     * Method getStatusAttribute
+     *
+     * @return string
+     */
+    public function getSurveyStatusAttribute(): string
+    {
+        $status = self::PENDING;
+
+        switch($this->status)
+        {
+            case self::COMPLETED:
+                $status = '<a href="javascript:void(0)" class=""><span class="badge badge-success">'.self::STATUS[self::COMPLETED].'</span></a>';
+                break;
+            case self::INPROGRESS:
+                $status = '<a href="javascript:void(0)" class=""><span class="badge badge-danger">'.self::STATUS[self::INPROGRESS].'</span></a>';
+                break;
+            default:
+                $status = '<a href="javascript:void(0)" class=""><span class="badge badge-danger">'.self::STATUS[self::PENDING].'</span></a>';
+                break;
+        }
+        return $status;
     }
 
 }

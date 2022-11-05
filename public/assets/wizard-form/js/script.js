@@ -25,6 +25,7 @@ function nextPrev(n) {
     var x = document.getElementsByClassName("multisteps_form_panel");
     // Exit the function if any field in the current tab is invalid:
     //if (n == 1 && !validateForm()) return false;
+    if (!validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
@@ -65,21 +66,40 @@ function validateForm() {
             arr.push(1);
         }
     }
-
-    if( arr.includes(1) ){
+    var validDrag = $('#question_sort').val();
+    if(validDrag != 'yes'){
+        $('#exampleModalCenter').modal('show');
+        valid = false;
+        //$('.error-msg').html('Please select at least one option!');
+    }else{
         valid = true;
         $('.error-msg').html('');
-    }else{
-        valid = false;
-        $('.error-msg').html('Please select at least one option!');
     }
+    // if( arr.includes(1) ){
+    //     valid = true;
+    //     $('.error-msg').html('');
+    // }else{
+    //     valid = false;
+    //     $('.error-msg').html('Please select at least one option!');
+    // }
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
     }
     return valid; // return the valid status
 }
+$(document).ready(function() {
+    $('#close').click(function() {
+        $('#exampleModalCenter').modal('hide');
+    });
+    $('#next_question').click(function() {
+        $('#exampleModalCenter').modal('hide');
+        $('#question_sort').val('yes');
+        nextPrev(1);
 
+    });
+    
+  });
 function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
@@ -126,7 +146,14 @@ function first_time_load(configData){
               $('#progress-bar-percentage').text(data.percentage);
               $('.progress-bar').css('width', data.percentage+"%").attr('aria-valuenow', data.percentage);
               $('.multisteps_form_panel').show();
-              new Sortable(document.getElementById('sorting-list'));
+              $('#question_sort').val('no');
+              new Sortable(document.getElementById('sorting-list'),{
+                onUpdate: function (/**Event*/evt) {
+                    // same properties as onEnd
+                    $('#question_sort').val('yes');
+                    console.log('changes list');
+                }
+            });
 
            }
 

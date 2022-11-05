@@ -74,9 +74,10 @@ class User extends Authenticatable
     public function getActionAttribute(): string
     {
         $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-        $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
+        $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm" data-toggle="tooltip" data-original-title="User Edit" data-animation="false">Edit</a>';
+        $ResendAction = '<a href="javascript:void(0)" class="resend btn btn-primary btn-sm" data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Survey Time Reset" data-animation="false">Reset</a>';
         //return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
-        return $editAction.' '.$this->getDeleteButtonAttribute();
+        return $editAction.' '.$this->getDeleteButtonAttribute().' '.$ResendAction;
     }
 
     /**
@@ -87,7 +88,7 @@ class User extends Authenticatable
      */
     public function getDeleteButtonAttribute($class = '')
     {
-        return '<a href="'.route('users.destroy', $this).'" class="edit btn btn-primary btn-sm delete_action" data-method="delete">Delete</a>';
+        return '<a href="'.route('users.destroy', $this).'" class="btn btn-primary btn-sm delete_action" data-method="delete" data-toggle="tooltip" data-original-title="Delete" data-animation="false">Delete</a>';
     }
 
     /**

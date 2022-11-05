@@ -20,6 +20,7 @@
                         <th>Email</th>
                         <th>Address</th>
                         <th>Status</th>
+                        <th>Survey</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -66,6 +67,10 @@
                     name: 'user_status'
                 },
                 {
+                    data: 'survey_status',
+                    name: 'survey_status'
+                },
+                {
                     data: 'action',
                     name: 'action',
                     orderable: false,
@@ -94,9 +99,46 @@
                     $this.find("form").trigger('submit');
                 }
             });
+        }).on('click', '.resend', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            userId  = $this.data('user_id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Are you sure you want to survey time reset?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, reset it!',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-outline-danger ml-1'
+                },
+                buttonsStyling: false
+            }).then(function(result) {
+                if (result.value) {
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                    type:'POST',
+                    url:"{{route('reset-survey-time')}}",
+                    dataType:'json',
+                    data:{user_id:userId},
+                    success:function(data){
+                        if(data.status)
+                        {
+                            table.ajax.reload();
+                        }
+                    }
+
+                    });
+                }
+            });
         }).on('click', '.status_update', function(e){
             e.preventDefault();
-            var $this   = $(this),
+                var $this   = $(this),
                 userId  = $this.data('user_id'),
                 status  = $this.data('status'),
                 message = status == 1 ? 'Are you sure you want to deactivate user?' : 'Are you sure you want to activate user?';

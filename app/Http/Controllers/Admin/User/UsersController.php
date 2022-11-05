@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\CreateRequest;
 use App\Http\Requests\User\EditRequest;
 use App\Models\User;
+use App\Models\UserSurvey;
 use App\Repositories\UserRepository;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -39,22 +40,20 @@ class UsersController extends Controller
                 ->editColumn('user_status', function (User $user) {
                     return $user->status_name;
                 })
+                ->editColumn('survey_status', function (User $user) {
+                    if(isset($user->survey)){
+                        return $user->survey->survey_status;
+                    }else{
+                        return '<a href="javascript:void(0)" class=""><span class="badge badge-danger">Incomplete</span></a>';
+                    }
+
+                })
                 ->orderColumn('full_name', function ($query, $order) {
                     $query->orderByRaw('CONCAT_WS(\' \', first_name, last_name) '. $order);
                 })
-                // ->filterColumn('first_name', function ($query, $keyword) {
-                //     $query->orWhere('first_name', 'like', '%'.$keyword.'%');
-                // })
-                // ->filterColumn('last_name', function ($query, $keyword) {
-                //     $query->orWhere('last_name', 'like', '%'.$keyword.'%');
-                // })
-                // ->filterColumn('user_status', function ($query, $keyword) {
-                //     $status = strtolower($keyword) =='active'? 1 : 0;
-                //     return $query->orWhere('user_status', $status);
-                // })
                 ->addColumn('action', function ($row) {
                     return $row->action;
-                })->rawColumns(['action','user_status'])->make(true);
+                })->rawColumns(['action','user_status','survey_status'])->make(true);
         }
 
         return view('admin.user.index');
@@ -147,11 +146,28 @@ class UsersController extends Controller
     {
         $input = $request->all();
         $user  = User::find($input['user_id']);
+      // dd($user);
         if($this->userRepository->changeStatus($input, $user))
         {
             return response()->json([
                 'status' => true,
                 'message'=> 'User status updated successfully.'
+            ]);
+        }
+
+        throw new Exception('User status does not change. Please check sometime later.');
+    }
+
+    public function resetSurveyTime(Request $request): JsonResponse
+    {
+        $input = $request->all();
+        $userSurvey  = UserSurvey::where('user_id',$input['user_id'])->first();
+        //dd($userSurvey);
+        if($this->userRepository->resetSurveyTime($input, $userSurvey))
+        {
+            return response()->json([
+                'status' => true,
+                'message'=> 'User survey time reset successfully.'
             ]);
         }
 

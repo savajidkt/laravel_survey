@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Events\ForgotPasswordEvent;
 use App\Exceptions\GeneralException;
 use App\Models\User;
+use App\Models\UserSurvey;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -152,5 +153,12 @@ class UserRepository
     {
         $user->user_status = !$input['status'];
         return $user->save();
+    }
+
+    public function resetSurveyTime(array $input, UserSurvey $userSurvey): bool
+    {
+       
+        $userSurvey->start_time = null;
+        return $userSurvey->save();
     }
 }

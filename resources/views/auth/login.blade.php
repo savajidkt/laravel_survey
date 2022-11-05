@@ -3,15 +3,15 @@
 @section('content')
 <main class="login-bg">
     <div class="container">
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4 sm-py-2">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-9 d-flex flex-column align-items-center justify-content-center">
+                    <div class="col-lg-9 col-md-12 d-flex flex-column align-items-center justify-content-center">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="p-5">
+                                        <div class="inner-pad">
                                             <form class="row g-3 needs-validation p-3" method="POST" action="{{ route('login') }}">
                                                 @csrf
                                                 <h1 class="card-title pt-0 pb-0 mb-0">Survey Login</h1>
@@ -58,8 +58,8 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             @if (Route::has('password.request'))
-                                                            <p class="small small text-lg-end text-sm-center"><a class="btn btn-link" href="{{ route('password.request') }}">
-                                                                    {{ __('Forgot Your Password?') }}
+                                                            <p class="small text-lg-end text-sm-center"><a class="btn-link" href="{{ route('password.request') }}">
+                                                                    {{ __('Forgot Password?') }}
                                                                 </a></p>
                                                             @endif
                                                         </div>

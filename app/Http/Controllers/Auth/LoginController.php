@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
@@ -90,8 +91,12 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
+        $user = User::find($this->guard()->user()->id);
+        $user->user_status = 1;
+        $user->save();
+
         // check user is first time logged in
-        if( $this->guard()->user()->is_first_time_login === 0 )
+        if($this->guard()->user()->is_first_time_login === 0 )
         {
             return redirect()->route('change-password');
         }
