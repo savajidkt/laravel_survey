@@ -1,6 +1,5 @@
 <header class="header">
     <h1>Relational Intelligence Assessment</h1>
-
     @guest
                         @if (Route::has('login'))
                         
