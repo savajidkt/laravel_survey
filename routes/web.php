@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/users', UsersController::class);
     Route::post('/user/change-status', [UsersController::class, 'changeStatus'])->name('change-user-status');
-    Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');    
+    Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');
     Route::resource('/question', SurveyQuestionController::class);
     Route::resource('/survey', SurveyController::class);
     Route::resource('/company', CompanyController::class);

@@ -160,6 +160,7 @@
             }
 
         });
+
         jQuery('#create-company').on('click', function() {
             $.ajaxSetup({
                 headers: {
@@ -169,17 +170,36 @@
             var company_name  = $('#company_name').val();
             $.ajax({
                 type: 'POST',
-                url: "{{route('project.store')}}",
+                url: "{{route('company.store')}}",
                 dataType: 'json',
-                data: {
-                    name: company_name
+                data:{
+                    company_name: company_name
                 },
-                success: function(data) {
-                    
+                success: function(data)
+                {
+                    if( data.status === true )
+                    {
+                        $('#company_name').val('');
+                        $('#CompanyForm').modal('hide');
+
+                        // append company id in select options and selected
+                        var $company = $('#company');
+                        $company.find('option').each(function(index, elem){
+                            $(elem).removeAttr('selected');
+                        });
+                        $company.append(`<option value="${data.data.id}" selected>${data.data.name}</option>`);
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError)
+                {
+                    Survey.JQValidation.handleErrors(xhr);
                 }
-
             });
+        });
 
+        $('#CompanyForm').on('hide.bs.modal', function(){
+            // remove validation error messages
+            jQuery('.error').remove();
         });
     })
 </script>

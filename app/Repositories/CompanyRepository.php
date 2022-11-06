@@ -15,7 +15,7 @@ class CompanyRepository
     public function create(array $data): Company
     {
         $data = [
-            'name'    => $data['name'],
+            'name'    => $data['company_name'],
         ];
 
         return Company::create($data);

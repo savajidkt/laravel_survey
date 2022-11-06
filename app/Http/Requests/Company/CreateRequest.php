@@ -13,7 +13,7 @@ class CreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'company_name' => ['required']
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'company_name.required' => 'Company name field is required.'
         ];
     }
 }

@@ -64,7 +64,7 @@
                 },
             ],
             "createdRow": function(row, data, dataIndex) {
-                dtAnchorToForm(row);
+                Survey.Utils.dtAnchorToForm(row);
             }
         }).on('click', '.delete_action', function(e) {
             e.preventDefault();
