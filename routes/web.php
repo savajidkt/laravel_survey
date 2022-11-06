@@ -1,14 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
+use App\Http\Controllers\Admin\Company\CompanyController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Project\ProjectController;
 use App\Http\Controllers\Admin\Survey\SurveyController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Survey\SurveyQuestionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\UserController;
-use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,9 +44,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/users', UsersController::class);
     Route::post('/user/change-status', [UsersController::class, 'changeStatus'])->name('change-user-status');
-    Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');
+    Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');    
     Route::resource('/question', SurveyQuestionController::class);
     Route::resource('/survey', SurveyController::class);
+    Route::resource('/company', CompanyController::class);
+    Route::resource('/project', ProjectController::class);
+
 });
 
 Auth::routes();

@@ -33,6 +33,8 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
+        'company_id',
+        'project_id',
         'address',
         'user_type',
         'user_status',
@@ -126,6 +128,7 @@ class User extends Authenticatable
     // $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm">Edit</a>';
     // //return $viewAction.' '.$editAction.' '.$this->getDeleteButtonAttribute();
     // return $editAction.' '.$this->getDeleteButtonAttribute();
+
     /**
      * Get the user associated with the User
      *
@@ -134,6 +137,26 @@ class User extends Authenticatable
     public function survey(): HasOne
     {
         return $this->hasOne(UserSurvey::class, 'user_id', 'id');
+    }
+    
+    /**
+     * Method project
+     *
+     * @return HasOne
+     */
+    public function project(): HasOne
+    {
+        return $this->hasOne(Project::class, 'project_id', 'id');
+    }
+    
+    /**
+     * Method company
+     *
+     * @return HasOne
+     */
+    public function company(): HasOne
+    {
+        return $this->hasOne(Company::class, 'company_id', 'id');
     }
 
 }

@@ -91,6 +91,12 @@ $(function () {
           required: true,
           email: true
         },
+        'company': {
+          required: true,
+        },
+        'project_name': {
+          required: true,
+        },
         // 'password': {
         //   required: true
         // },

@@ -41,11 +41,8 @@ class UsersController extends Controller
                     return $user->status_name;
                 })
                 ->editColumn('survey_status', function (User $user) {
-                    if(isset($user->survey)){
-                        return $user->survey->survey_status;
-                    }else{
-                        return '<a href="javascript:void(0)" class=""><span class="badge badge-danger">Incomplete</span></a>';
-                    }
+
+                    return $user->survey ? $user->survey->survey_status :'<a href="javascript:void(0)" class=""><span class="badge badge-danger">Incomplete</span></a>'; 
 
                 })
                 ->orderColumn('full_name', function ($query, $order) {
