@@ -7,6 +7,8 @@ use App\Http\Requests\User\CreateRequest;
 use App\Http\Requests\User\EditRequest;
 use App\Models\User;
 use App\Models\UserSurvey;
+use App\Repositories\CompanyRepository;
+use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -16,10 +18,16 @@ class UsersController extends Controller
 {
     /** \App\Repository\UserRepository $userRepository */
     protected $userRepository;
+    /** \App\Repository\CompanyRepository $companyRepository */
+    protected $companyRepository;
+    /** \App\Repository\ProjectRepository $projectRepository */
+    protected $projectRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, CompanyRepository $companyRepository, ProjectRepository $projectRepository)
     {
-        $this->userRepository = $userRepository;
+        $this->userRepository       = $userRepository;
+        $this->companyRepository    = $companyRepository;
+        $this->projectRepository    = $projectRepository;
     }
 
     /**
@@ -64,8 +72,10 @@ class UsersController extends Controller
     public function create()
     {
         //
-        $rawData = new User;
-        return view('admin.user.create', ['model' => $rawData]);
+        $rawData    = new User;
+        $companies  = $this->companyRepository->getCompany();
+        $projects   = $this->projectRepository->getProject();
+        return view('admin.user.create', ['model' => $rawData, 'companies' => $companies, 'projects' => $projects]);
     }
 
     /**

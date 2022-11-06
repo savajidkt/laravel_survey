@@ -36,6 +36,11 @@
             <select name="company" class="form-control" id="company">
                 <option value="">Select Company</option>
                 <option value="add-company"> Add New Company</option>
+                @if ($companies->count())
+                    @foreach ($companies as $company)
+                        <option value="{{ $company->id }}"> {{ $company->name }}</option>
+                    @endforeach
+                @endif
             </select>
             <div class="valid-feedback">Looks good!</div>
             @error('company')
@@ -50,6 +55,11 @@
             <select name="project_name" class="form-control" id="project_name">
                 <option value="">Select Project</option>
                 <option value="add-project"> Add New Project</option>
+                @if ($projects->count())
+                    @foreach ($projects as $project)
+                        <option value="{{ $project->id }}"> {{ $project->name }}</option>
+                    @endforeach
+                @endif
             </select>
             <div class="valid-feedback">Looks good!</div>
             @error('last_name')

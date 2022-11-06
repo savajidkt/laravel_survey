@@ -2,6 +2,7 @@
 namespace App\Repositories;
 use App\Exceptions\GeneralException;
 use App\Models\Company;
+use Illuminate\Database\Eloquent\Collection;
 
 class CompanyRepository
 {
@@ -74,6 +75,16 @@ class CompanyRepository
     {
         $company->status = !$input['status'];
         return $company->save();
+    }
+
+    /**
+     * Method getCompany
+     *
+     * @return Collection
+     */
+    public function getCompany(): Collection
+    {
+        return Company::all();
     }
 
 

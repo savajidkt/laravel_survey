@@ -3,6 +3,7 @@
 namespace App\Repositories;
 use App\Exceptions\GeneralException;
 use App\Models\Project;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProjectRepository
 {
@@ -75,5 +76,15 @@ class ProjectRepository
     {
         $project->status = !$input['status'];
         return $project->save();
+    }
+
+    /**
+     * Method getProject
+     *
+     * @return Collection
+     */
+    public function getProject(): Collection
+    {
+        return Project::all();
     }
 }
