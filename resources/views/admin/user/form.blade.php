@@ -210,6 +210,8 @@
         $('#CompanyForm').on('hide.bs.modal', function(){
             // remove validation error messages
             jQuery('.error').remove();
+            var $company = $('#company');
+            $company.val('');
         });
     })
 </script>
