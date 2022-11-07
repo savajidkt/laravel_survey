@@ -25,7 +25,7 @@
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{$percentage}}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <input type="hidden" name="page" id="page" value="{{$questions}}">
-                    
+
                     <div class="row mt-4">
                         <div class="col-lg-12">
                             <!-- <button type="button" class="btn btn-light" id="prevBtn" onclick="nextPrev(-1)"><i class="bi bi-arrow-left me-1"></i> Back</button> -->
@@ -66,7 +66,8 @@
         first_time_load(configData);
 
     });
-    let survey_time = '{{ isset($survey->survey_time) ? $survey->survey_time : 40 }}';
+    console.log('{{$survey_time}}');
+    let survey_time = '{{ isset($survey_time) ? $survey_time : 40 }}';
     let minutes = Math.floor( survey_time/60 );
     let calculatedMinutes = Math.ceil( survey_time/60 );
     let calculatedMinutesSeconds = calculatedMinutes * 60;

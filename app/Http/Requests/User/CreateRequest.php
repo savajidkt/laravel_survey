@@ -29,6 +29,8 @@ class CreateRequest extends FormRequest
             'address'           => ['required'],
             'password'          => ['required', 'min:8', 'same:confirm-password'],
             'confirm-password'  => ['required', 'min:8'],
+            'company'           => ['required'],
+            'project'           => ['required'],
             'email'             => ['required', 'email', 'unique:users,email'],
         ];
 

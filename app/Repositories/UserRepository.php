@@ -23,6 +23,8 @@ class UserRepository
     public function create(array $data): User
     {
         $data = [
+            'company_id'    => $data['company'],
+            'project_id'     => $data['project'],
             'first_name'    => $data['first_name'],
             'last_name'     => $data['last_name'],
             'address'     => $data['address'],
@@ -45,7 +47,9 @@ class UserRepository
     public function update(array $data, User $user): User
     {
         $data = [
-            'first_name'    => $data['first_name'],
+            'company_id'    => $data['company'],
+            'project_id'     => $data['project'],
+            'last_name'     => $data['last_name'],
             'last_name'     => $data['last_name'],
             'address'       => $data['address'],
             'email'         => $data['email']
@@ -157,7 +161,7 @@ class UserRepository
 
     public function resetSurveyTime(array $input, UserSurvey $userSurvey): bool
     {
-       
+
         $userSurvey->start_time = null;
         return $userSurvey->save();
     }

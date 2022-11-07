@@ -6,6 +6,7 @@ use App\Models\Question;
 use App\Models\User;
 use App\Models\UserSurvey;
 use App\Repositories\QuestionRepository;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -42,13 +43,21 @@ class SurveyController extends Controller
         $survey = $user->survey;
         if (!isset($survey))
         {
-            
+
             $survey = $this->questionRepository->saveSurvey();
         }
         $questions = isset($survey->questions) ? $survey->questions()->count() : 0;
         $allQuestionsCnt    = $this->questionRepository->getQuestionCount();
         $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
-        return view('survey.take-survey', ['survey' => $survey,'questions'=>$questions,'percentage'=>$percentage]);
+
+        // check if time actual time is completed
+        $survey_time =  $this->questionRepository->checkTime($survey);
+        if(!$survey_time)
+        {
+            return redirect()->route('time-out');
+        }
+
+        return view('survey.take-survey', ['survey' => $survey,'survey_time'=>$survey_time,'questions'=>$questions,'percentage'=>$percentage]);
     }
 
     /**
@@ -83,6 +92,20 @@ class SurveyController extends Controller
     {
         $data       = $request->all();
         $userSurvey = auth()->user()->survey;
+        $survey_time =  $this->questionRepository->checkTime($userSurvey);
+       
+        if(!$survey_time)
+        {
+            return response()->json([
+                'status'        =>false,
+                'finish_button' => true,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
+                'message'       => 'Request created successfully.',
+                'page'          => 1,
+                'redirect_uri'  => route('time-out'),
+                'percentage'    => 0 //$data
+            ]);
+            
+        }
         $question   = $this->questionRepository->getQuestion($data);
 
         if ( $data['type'] == 1 )
@@ -101,7 +124,7 @@ class SurveyController extends Controller
         $allQuestionsCnt    = $this->questionRepository->getQuestionCount();
         $questions          = $userSurvey->questions()->count();
         if( $questions < ( $allQuestionsCnt+1 ) )
-        {
+        {   
             $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
             return response()->json([
                 'status'        => $questions === $allQuestionsCnt ? false : true,

@@ -79,6 +79,7 @@ $(function () {
   // jQuery Validation
   // --------------------------------------------------------------------
   if (jqForm.length) {
+
     jqForm.validate({
       rules: {
         'first_name': {
@@ -94,7 +95,7 @@ $(function () {
         'company': {
           required: true,
         },
-        'project_name': {
+        'project': {
           required: true,
         },
         // 'password': {
@@ -111,5 +112,5 @@ $(function () {
   // $("#user-save").click(function(){
   //   alert('asdasdasd');
   // });
-  
+
 });

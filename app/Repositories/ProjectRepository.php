@@ -17,7 +17,7 @@ class ProjectRepository
     public function create(array $data): Project
     {
         $data = [
-            'name'    => $data['name'],
+            'name'    => $data['project_name'],
         ];
 
         return Project::create($data);
@@ -35,7 +35,7 @@ class ProjectRepository
     public function update(array $data, Project $project): Project
     {
         $data = [
-            'name'    => $data['name'],
+            'name'    => $data['project_name'],
         ];
 
         if( $project->update($data) )

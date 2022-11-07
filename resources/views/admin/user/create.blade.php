@@ -10,8 +10,8 @@
                     <h4 class="card-title">New User</h4>
                 </div>
                 <div class="card-body">
-                    <form id="jquery-val-form" class="needs-validation1" novalidate method="post" enctype="multipart/form-data" action="{{route('users.store')}}">
-                        <input type="hidden" name="id" value="{{$model->id}}">
+                    <form class="needs-validation1" method="post" enctype="multipart/form-data" action="{{route('users.store')}}">
+                        <input type="hidden" name="id" value="{{ isset($model->id) ? $model->id : null }}">
                         @csrf
                         @include('admin.user.form')
                         <div class="row">

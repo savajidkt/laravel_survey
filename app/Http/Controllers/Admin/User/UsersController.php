@@ -85,7 +85,7 @@ class UsersController extends Controller
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
     public function store(CreateRequest $request)
-    {
+    {dd('Hello');
         $this->userRepository->create($request->all());
 
         return redirect()->route('users.index')->with('success', "User created successfully!");
@@ -110,8 +110,10 @@ class UsersController extends Controller
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function edit(User $user)
-    {
-        return view('admin.user.edit', ['model' => $user]);
+    {   
+        $companies  = $this->companyRepository->getCompany();
+        $projects   = $this->projectRepository->getProject();
+        return view('admin.user.edit', ['model' => $user,'companies' => $companies, 'projects' => $projects]);
     }
 
     /**

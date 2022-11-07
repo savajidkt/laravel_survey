@@ -226,6 +226,23 @@ class QuestionRepository
         ];
     }
 
+    public function checkTime($survey)
+    {
+        $surveyCreatedAt = $survey->created_at;
+        $surveyEndAt     = $surveyCreatedAt->clone()->addMinutes(40);
+        $totalDuration = $surveyCreatedAt->diffInRealSeconds(Carbon::now());
+        // dd($totalDuration);
+        $survey_time     = $totalDuration;
+        if($surveyEndAt->lt(Carbon::now()))
+        {
+            $survey->auto_stop = UserSurvey::YES;
+            $survey->save();
+            return false;
+        }
+        return  $survey_time;
+    }
+
+
     /**
      * Method saveSurvey
      *

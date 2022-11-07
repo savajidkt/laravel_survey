@@ -24,7 +24,19 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'project_name' => ['required']
+        ];
+    }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'project_name.required' => 'Project name field is required.'
         ];
     }
 }
