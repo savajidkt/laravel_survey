@@ -30,10 +30,11 @@ class DashboardController extends Controller
     public function index()
     {   $completed = $this->questionRepository->getTotalCompletedSurveys();
         $pending = $this->questionRepository->getTotalPendingSurveys();
+        $percentage = (int) (100 * $completed) / ($completed + $pending);
         $survey_results = [
             'completed'     =>   $completed,
             'pending'       =>   $pending,
-            'percentage'    =>   (int) (100 * $completed) / ($completed + $pending)
+            'percentage'    =>   number_format((float)$percentage, 2, '.', '')
         ];
         //dd($survey_results);
         $recent_activity= $this->questionRepository->getSubmitedSurveys();
