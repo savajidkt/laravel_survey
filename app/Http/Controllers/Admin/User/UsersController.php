@@ -172,13 +172,14 @@ class UsersController extends Controller
         $input = $request->all();
         $userSurvey  = UserSurvey::where('user_id',$input['user_id'])->first();
         //dd($userSurvey);
-        if($this->userRepository->resetSurveyTime($input, $userSurvey))
-        {
-            return response()->json([
-                'status' => true,
-                'message'=> 'User survey time reset successfully.'
-            ]);
+        if($userSurvey){
+            $this->userRepository->resetSurveyTime($input, $userSurvey);
+           
         }
+        return response()->json([
+            'status' => true,
+            'message'=> 'User survey time reset successfully.'
+        ]);
 
         throw new Exception('User status does not change. Please check sometime later.');
     }

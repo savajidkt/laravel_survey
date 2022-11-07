@@ -161,7 +161,6 @@ class UserRepository
 
     public function resetSurveyTime(array $input, UserSurvey $userSurvey): bool
     {
-        $userSurvey->delete();
-        return true;
+        return $userSurvey->delete();
     }
 }
