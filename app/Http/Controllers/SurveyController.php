@@ -41,7 +41,7 @@ class SurveyController extends Controller
     {
         $user   = auth()->user();
         $survey = $user->survey;
-        
+
         if (!isset($survey))
         {
 
@@ -58,6 +58,7 @@ class SurveyController extends Controller
         {
             return redirect()->route('time-out');
         }
+
 
         return view('survey.take-survey', ['survey' => $survey,'survey_time'=>$survey_time,'questions'=>$questions,'percentage'=>$percentage]);
     }
