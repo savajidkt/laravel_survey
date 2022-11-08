@@ -41,6 +41,7 @@ class SurveyController extends Controller
     {
         $user   = auth()->user();
         $survey = $user->survey;
+        
         if (!isset($survey))
         {
 
@@ -51,6 +52,7 @@ class SurveyController extends Controller
         $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
 
         // check if time actual time is completed
+        sleep(1);
         $survey_time =  $this->questionRepository->checkTime($survey);
         if(!$survey_time)
         {

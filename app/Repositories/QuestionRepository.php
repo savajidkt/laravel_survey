@@ -231,7 +231,6 @@ class QuestionRepository
         $surveyCreatedAt = $survey->created_at;
         $surveyEndAt     = $surveyCreatedAt->clone()->addMinutes(40);
         $totalDuration = $surveyCreatedAt->diffInRealSeconds(Carbon::now());
-        // dd($totalDuration);
         $survey_time     = $totalDuration;
         if($surveyEndAt->lt(Carbon::now()))
         {
