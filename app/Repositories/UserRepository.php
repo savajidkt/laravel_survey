@@ -6,6 +6,7 @@ use App\Events\ForgotPasswordEvent;
 use App\Exceptions\GeneralException;
 use App\Models\User;
 use App\Models\UserSurvey;
+use App\Notifications\RegisterdEmailNotification;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,7 @@ class UserRepository
      */
     public function create(array $data): User
     {
+        $password = $data['password'];
         $data = [
             'company_id'    => $data['company'],
             'project_id'     => $data['project'],
@@ -29,10 +31,12 @@ class UserRepository
             'last_name'     => $data['last_name'],
             'address'     => $data['address'],
             'email'         => $data['email'],
-            'password'      => Hash::make($data['password']),
+            'password'      => Hash::make($password),
         ];
 
-        return User::create($data);
+        $user =  User::create($data);
+        $user->notify(new RegisterdEmailNotification($password,$user));
+        return $user;
     }
 
     /**

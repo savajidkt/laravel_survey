@@ -126,11 +126,16 @@
 						<table align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto; background:#FFFFFF;">
 							<tr>
 								<td>
+									
 									<div class="main_title" style="text-align:center;">
 										<h2>Welcome to Bandelli Survey</h2>
 										<img src="{{ asset('images/graphic2.png') }}" alt=""/>
-										<p style="color:#7E888F;">Forgot your password? That’s ok, it happens. Click on the button below to reset your password.</p>
-										<a href="{{ $url }}" class="btn_custom">Reset Password</a>
+										<p style="color:#7E888F;">Welcome, {{$user->first_name}} {{$user->last_name}}</p>
+										<p style="color:#7E888F;">For reference here's your login information:</p>
+										<p style="color:#7E888F;">Uername: {{$user->email}}</p>
+										<p style="color:#7E888F;">Password: {{$password}}</p>
+
+										<a href="{{ $url }}" class="btn_custom">Login</a>
 										
 									</div>
 								</td>

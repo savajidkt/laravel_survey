@@ -72,6 +72,7 @@ class UsersController extends Controller
     public function create()
     {
         //
+
         $rawData    = new User;
         $companies  = $this->companyRepository->getCompany();
         $projects   = $this->projectRepository->getProject();

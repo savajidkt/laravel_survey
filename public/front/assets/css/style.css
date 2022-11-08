@@ -655,15 +655,18 @@ h6 {
   text-align: center;
   background: #224D5D url(../img/header-bg.png) no-repeat center bottom;
   background-size: cover;
-  padding-top: 20px;
   position:relative;
+  height: 23vh;
+  display: table;
+  width: 100%;
 }
 
 .header h1 {
   font-family: 'Poiret One', cursive;
   color: #ffffff;
-  margin-top: 32px;
   font-size: 48px;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .header h2 {
@@ -686,6 +689,8 @@ h6 {
   color: #ffffff;
   font-size: 72px;
 }
+
+.main{min-height: calc(77vh - 113px);}
 
 .general-card .card {
   padding: 0;
@@ -1373,6 +1378,7 @@ h6 {
 @media (max-width: 1024px) {
 .card-title{font-size: 28px;}
 .inner-pad{padding: 1rem;}
+.header h1{font-size: 28px;}
 }
 
 @media (max-width: 768px) {
@@ -1383,5 +1389,10 @@ h6 {
 @media (max-width: 767px) {
 .sm-py-2{padding-top: 10px!important; padding-bottom: 10px!important;}	
 .p-sm-4{padding: 20px!important;}
+.general-card .card{    margin: 20px;}
+.general-card .card .card-img-overlay{padding: 20px;}
+.general-card .card .card-title{    font-size: 18px;    padding: 0 10px;}
+.general-card .card .card-text{line-height: 18px;}
+.general-card .card img{    min-height: 364px;}
 
 }

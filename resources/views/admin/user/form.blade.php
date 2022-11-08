@@ -38,7 +38,14 @@
                 <option value="add-company"> Add New Company</option>
                 @if ($companies->count())
                     @foreach ($companies as $company)
-                        <option value="{{ $company->id }}" {{ isset($model->company_id) && $model->company_id == $company->id ? 'selected' : $company->id == old('company') ? 'selected' : '' }}> {{ $company->name }}</option>
+                    @php
+                        if(isset($model->company_id) && $model->company_id == $company->id){
+                           $selectedCom ='selected';
+                        }else{
+                          $selectedCom = $company->id == old('company') ? 'selected' : ''; 
+                        }
+                    @endphp
+                        <option value="{{ $company->id }}" {{ $selectedCom }} > {{ $company->name }}</option>
                     @endforeach
                 @endif
             </select>
@@ -57,7 +64,14 @@
                 <option value="add-project"> Add New Project</option>
                 @if ($projects->count())
                     @foreach ($projects as $project)
-                        <option value="{{ $project->id }}" {{ isset($model->project_id) && $model->project_id == $project->id ? 'selected' : $project->id == old('project') ? 'selected' : '' }}> {{ $project->name }}</option>
+                    @php
+                        if(isset($model->project_id) && $model->project_id == $project->id){
+                           $selectedPro ='selected';
+                        }else{
+                          $selectedPro = $project->id == old('project') ? 'selected' : '';
+                        }
+                    @endphp
+                        <option value="{{ $project->id }}" {{ $selectedPro }} > {{ $project->name }}</option>
                     @endforeach
                 @endif
             </select>
