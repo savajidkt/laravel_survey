@@ -261,7 +261,6 @@ class QuestionRepository
             $userSurvey->update([
                 'user_id'       => auth()->user()->id,
                 'status'        => UserSurvey::INPROGRESS,
-                'survey_time'   => DB::raw('survey_time+1')
             ]);
         }
         else
@@ -270,7 +269,6 @@ class QuestionRepository
                 'user_id'       => $userId,
                 'status'        => UserSurvey::INPROGRESS,
                 'auto_stop'     => UserSurvey::NO,
-                'survey_time'   => 0,
             ]);
         }
 
