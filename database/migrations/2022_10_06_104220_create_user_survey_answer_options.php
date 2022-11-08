@@ -17,8 +17,6 @@ class CreateUserSurveyAnswerOptions extends Migration
             $table->id();
             $table->unsignedBigInteger('user_survey_answer_id');
             $table->unsignedBigInteger('question_option_id')->nullable();
-            //$table->string('is_correct');
-            $table->string('correct_order');
             $table->timestamps();
 
             $table->foreign('user_survey_answer_id')->references('id')->on('user_survey_answers')->onDelete('cascade');
