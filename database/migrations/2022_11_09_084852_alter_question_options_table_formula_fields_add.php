@@ -16,8 +16,8 @@ class AlterQuestionOptionsTableFormulaFieldsAdd extends Migration
         Schema::table('question_options', function (Blueprint $table) {
             //
             $table->tinyInteger('order_sorting')->after('question_id')->nullable()->comment('1=Best Likely, 2=Least Likely');
-            $table->decimal('establishing_rapport')->after('order_sorting')->nullable();
-            $table->decimal('understanding_others')->after('establishing_rapport')->nullable();
+            $table->decimal('establishing_report')->after('order_sorting')->nullable();
+            $table->decimal('understanding_others')->after('establishing_report')->nullable();
             $table->decimal('embracing_individual_differences')->after('understanding_others')->nullable();
             $table->decimal('developing_trust')->after('embracing_individual_differences')->nullable();
             $table->decimal('cultivating_influence')->after('developing_trust')->nullable();

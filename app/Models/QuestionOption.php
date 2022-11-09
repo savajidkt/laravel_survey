@@ -18,6 +18,17 @@ class QuestionOption extends Model
     protected $fillable = [
         'option',
         'question_id',
+        'order_sorting',
+        'establishing_rapport',
+        'understanding_others',
+        'embracing_individual_differences',
+        'developing_trust',
+        'cultivating_influence',
+        'lacking_self_awareness',
+        'lacking_social_awareness',
+        'self_serving',
+        'breaking_trust',
+        'poor_management_of_emotions',
         'status'
     ];
     /**

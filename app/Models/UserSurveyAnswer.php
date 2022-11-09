@@ -15,6 +15,8 @@ class UserSurveyAnswer extends Model
         'user_survey_id',
         'user_id',
         'question_id',
+        'ri_points'
+
     ];
 
     /**

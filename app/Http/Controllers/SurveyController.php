@@ -96,18 +96,17 @@ class SurveyController extends Controller
         $data       = $request->all();
         $userSurvey = auth()->user()->survey;
         $survey_time =  $this->questionRepository->checkTime($userSurvey);
-       
         if(!$survey_time)
         {
             return response()->json([
                 'status'        =>false,
-                'finish_button' => true,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
+                'finish_button' => true, //$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
                 'message'       => 'Request created successfully.',
                 'page'          => 1,
                 'redirect_uri'  => route('time-out'),
                 'percentage'    => 0 //$data
             ]);
-            
+
         }
         $question   = $this->questionRepository->getQuestion($data);
 

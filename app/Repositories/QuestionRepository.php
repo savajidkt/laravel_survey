@@ -148,10 +148,49 @@ class QuestionRepository
         // create user survey questions
 
         if(isset($question->id)){
+            $preQuestionOption = QuestionOption::whereIn('order_sorting',[1,2])->where('question_id',$question->id)->orderBy('order_sorting', 'asc')->get();
+            foreach ($preQuestionOption as $optio){
+                $prequestOption[] =$optio->id;
+            }
+            // array:5 [
+            //     0 => "28"
+            //     1 => "25"
+            //     2 => "27"
+            //     3 => "29"
+            //     4 => "26"
+            //   ]
+              
+            //   array:2 [
+            //     0 => 28
+            //     1 => 26
+            //   ]
+              
+           $mostLike = array_search($prequestOption[0], $options);
+           $leasttLike = array_search($prequestOption[1], $options);
+            $riPoints=0;
+            $mostLikePoint= 0;
+            $leasttLikePoint= 0;
+            if(count($options) == ($leasttLike +1)){
+                $leasttLikePoint= 2;
+            }elseif(count($options) == ($leasttLike)){
+                $leasttLikePoint= 1;
+            }
+
+            if($mostLike == 0){
+                $mostLikePoint= 2;
+            }elseif($mostLike ==1){
+                $mostLikePoint= 1;
+            }
+            echo $mostLikePoint;
+            echo '<br>';
+            echo $leasttLikePoint;
+            echo '<br>';
+            echo $riPoints = $mostLikePoint + $leasttLikePoint;
+            die;
             $userSurveyQuestion = UserSurveyAnswer::create([
                 'user_survey_id'    => $userSurvey->id,
                 'user_id'           => $userId,
-                'question_id'       => $question->id,
+                'question_id'       => $question->id
             ]);
 
             // save question options

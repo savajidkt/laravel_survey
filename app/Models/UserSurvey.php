@@ -29,15 +29,9 @@ class UserSurvey extends Model
     ];
 
     protected $fillable = [
-        'user_id',
-        'questions_attempted',
-        'correct_answers',
-        'incorrect_answers',
-        'progress',
+        'user_id',        
         'status',
         'auto_stop',
-        'survey_time',
-        'start_time',
     ];
 
     /**
