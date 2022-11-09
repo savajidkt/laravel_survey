@@ -16,6 +16,15 @@
                     <input type="hidden" name="question_sort" id="question_sort" value="no">
                     <div class="error-msg" style="color:red;"></div>
                     <div class="question-listing" id="question-listing"></div>
+					
+					
+					<div class="row mt-4">
+					
+					<div class="col-lg-1">
+					
+					</div>
+					
+					<div class="col-lg-8">
 					<div class="pc-tagline">Progress: <strong><span id="progress-bar-percentage">{{ isset($percentage) ? $percentage : 0 }}</span>% Complete</strong></div>
 					<div class="progress">
                         @php
@@ -25,11 +34,11 @@
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{$percentage}}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <input type="hidden" name="page" id="page" value="{{$questions}}">
-
-                    <div class="row mt-4">
-                        <div class="col-lg-12">
+						</div>
+                    
+                        <div class="col-lg-3 text-right b-btn-sec">
                             <!-- <button type="button" class="btn btn-light" id="prevBtn" onclick="nextPrev(-1)"><i class="bi bi-arrow-left me-1"></i> Back</button> -->
-                            <button type="button" class="btn btn-primary pull-right" id="nextBtn" onclick="nextPrev(1)">Next Question <i class="bi bi-arrow-right me-1"></i></button>
+                            <button type="button" class="btn btn-transparent r-btn" id="nextBtn" onclick="nextPrev(1)">Next Question <img src="http://18.218.17.73/survey/public/front/assets/img/r-g-arrow.png" alt="arrow"></button>
                         </div>
                     </div>
                 </div>

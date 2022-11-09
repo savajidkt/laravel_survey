@@ -69,13 +69,15 @@ h6 {
   font-weight: 200;
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin-top: 15px;
+      margin-bottom: 15px;
+    text-align: center;
 }
 
 .pc-tagline strong {
   font-weight: 700;
   color: #224D5D;
 }
-
+.r-btn{margin-top:52px;}
 .sub-card {
   margin-top: 30px;
   padding: 0;
@@ -314,6 +316,7 @@ h6 {
   background-color: #ffffff;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.4);
   height: 40px;
+  border-radius: 15px;
 }
 
 .progress .bg-success {
@@ -392,6 +395,9 @@ h6 {
   font-weight: 600;
 }
 
+.b-btn-sec .btn-transparent{color: #224D5D!important;}
+.text-right{text-align:right;}
+
 .btn-transparent svg {
   width: 14px;
   margin-right: 10px;
@@ -411,12 +417,14 @@ h6 {
 
 
 .customRadio {
-  background-color: #fff;
+  background-color: #dae1e4;
   display: block;
   margin: 10px 0;
   position: relative;
   padding-left: 15px;
   border-radius: 50px;
+      width: 88%;
+    float: right;
 }
 
 .customRadio input {
@@ -437,11 +445,10 @@ h6 {
 }
 
 .customRadio label {
-  padding: 12px 20px 12px 50px;
+  padding:12px 60px 12px 45px;
   width: 100%;
   display: block;
   text-align: left;
-  color: #3C454C;
   cursor: pointer;
   position: relative;
   z-index: 2;
@@ -449,7 +456,8 @@ h6 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: #000000;
+  color: #242021;
+  line-height: 20px;
 }
 
 .customRadio input:checked~label:before {
@@ -494,10 +502,10 @@ h6 {
   transition: all 200ms ease-in;
 }
 
-.sortable-chosen{background-color: #224d5d;}
+.sortable-chosen .customRadio{background-color: #224d5d; background-image: url(../img/updown-arrow.png); background-repeat: no-repeat; background-position: top 20px right 40px; box-shadow: 0px 0 30px rgba(2, 14, 34, 0.5);}
 .sortable-chosen label{color:#ffffff; cursor:move;}
-
-
+.customRadio-l-tag{font-size:18px; color:#224D5D; font-weight:bold; float: left; width: 12%; margin-top: 25px;}
+.customRadio-sec{width:100%; float:left;}
 .login-bg .card {
   overflow: hidden;
   padding: 0;
@@ -1375,6 +1383,7 @@ h6 {
 .logout{position: absolute; z-index: 1; color: #fff; right: 60px; top: 44%;}
 .logout img{width: 18px; margin-top: -4px; margin-right: 2px;}
 .logout:hover{color:#68D0FA;}
+.text-primary{color:#68D0FA!important;}
 @media (max-width: 1024px) {
 .card-title{font-size: 28px;}
 .inner-pad{padding: 1rem;}
