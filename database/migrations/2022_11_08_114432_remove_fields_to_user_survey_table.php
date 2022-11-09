@@ -15,11 +15,11 @@ class RemoveFieldsToUserSurveyTable extends Migration
     {
         Schema::table('user_surveys', function (Blueprint $table) {
             //
-            $table->dropColumn('questions_attempted');
-            $table->dropColumn('correct_answers');
-            $table->dropColumn('incorrect_answers');
-            $table->dropColumn('progress');
-            $table->dropColumn('survey_time');
+            // $table->dropColumn('questions_attempted');
+            // $table->dropColumn('correct_answers');
+            // $table->dropColumn('incorrect_answers');
+            // $table->dropColumn('progress');
+            // $table->dropColumn('survey_time');
         });
     }
 
