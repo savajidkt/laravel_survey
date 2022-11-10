@@ -15,7 +15,17 @@ class UserSurveyAnswer extends Model
         'user_survey_id',
         'user_id',
         'question_id',
-        'ri_points'
+        'ri_points',        
+        'establishing_report_point',
+        'understanding_others_point',
+        'embracing_individual_differences_point',
+        'developing_trust_point',
+        'cultivating_influence_point',
+        'lacking_self_awareness_point',
+        'lacking_social_awareness_point',
+        'self_serving_point',
+        'breaking_trust_point',
+        'poor_management_of_emotions_point',
 
     ];
 

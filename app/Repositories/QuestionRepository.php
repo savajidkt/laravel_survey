@@ -152,45 +152,70 @@ class QuestionRepository
             foreach ($preQuestionOption as $optio){
                 $prequestOption[] =$optio->id;
             }
-            // array:5 [
-            //     0 => "28"
-            //     1 => "25"
-            //     2 => "27"
-            //     3 => "29"
-            //     4 => "26"
-            //   ]
-              
-            //   array:2 [
-            //     0 => 28
-            //     1 => 26
-            //   ]
-              
-           $mostLike = array_search($prequestOption[0], $options);
-           $leasttLike = array_search($prequestOption[1], $options);
+
+            // RI Points Login here
+            $mostLike = array_search($prequestOption[0], $options);
+            $leasttLike = array_search($prequestOption[1], $options);
             $riPoints=0;
             $mostLikePoint= 0;
             $leasttLikePoint= 0;
-            if(count($options) == ($leasttLike +1)){
+
+            if($leasttLike ==4){
                 $leasttLikePoint= 2;
-            }elseif(count($options) == ($leasttLike)){
+            }elseif($leasttLike == 3){
                 $leasttLikePoint= 1;
             }
-
             if($mostLike == 0){
                 $mostLikePoint= 2;
             }elseif($mostLike ==1){
                 $mostLikePoint= 1;
             }
-            echo $mostLikePoint;
-            echo '<br>';
-            echo $leasttLikePoint;
-            echo '<br>';
-            echo $riPoints = $mostLikePoint + $leasttLikePoint;
-            die;
+             $riPoints = $mostLikePoint + $leasttLikePoint;
+
+             //Other Report Login
+             $establishingSum=0;
+             $understandingSum=0;
+             $embracingSum=0;
+             $developingSum=0;
+             $cultivatingSum=0;
+             $lacking_selfSum=0;
+             $lacking_socialSum=0;
+             $self_servingSum=0;
+             $breakingSum=0;
+             $poor_managementSum=0;
+             $index = 5;
+             foreach($options as $key => $opt){
+                $QuestionOption = QuestionOption::find($opt);
+                $establishingSum = $establishingSum + ($QuestionOption->establishing_report * $index);
+                $understandingSum = $understandingSum + ($QuestionOption->understanding_others * $index);
+                $embracingSum = $embracingSum + ($QuestionOption->embracing_individual_differences * $index);
+                $developingSum = $developingSum + ($QuestionOption->developing_trust * $index);
+                $cultivatingSum = $cultivatingSum + ($QuestionOption->cultivating_influence * $index);
+                $lacking_selfSum = $lacking_selfSum + ($QuestionOption->lacking_self_awareness * $index);
+                $lacking_socialSum = $lacking_socialSum + ($QuestionOption->lacking_social_awareness * $index);
+                $self_servingSum = $self_servingSum + ($QuestionOption->self_serving * $index);
+                $breakingSum = $breakingSum + ($QuestionOption->breaking_trust * $index);
+                $poor_managementSum = $poor_managementSum + ($QuestionOption->poor_management_of_emotions * $index);
+
+
+                $index--;
+             }
+
             $userSurveyQuestion = UserSurveyAnswer::create([
-                'user_survey_id'    => $userSurvey->id,
-                'user_id'           => $userId,
-                'question_id'       => $question->id
+                'user_survey_id'                        => $userSurvey->id,
+                'user_id'                               => $userId,
+                'question_id'                           => $question->id,
+                'ri_points'                             => $riPoints,
+                'establishing_report_point'             => $establishingSum,
+                'understanding_others_point'            => $establishingSum,
+                'embracing_individual_differences_point'=> $establishingSum,
+                'developing_trust_point'                => $establishingSum,
+                'cultivating_influence_point'           => $establishingSum,
+                'lacking_self_awareness_point'          => $establishingSum,
+                ' lacking_social_awareness_point'         => $establishingSum,
+                'self_serving_point'         => $establishingSum,
+                'breaking_trust_point'         => $establishingSum,
+                'poor_management_of_emotions_point'         => $establishingSum
             ]);
 
             // save question options

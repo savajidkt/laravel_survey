@@ -17,7 +17,7 @@ class AlterUserSurveyAnswersTableFormulaFieldsAdd extends Migration
             //
             $table->tinyInteger('ri_points')->after('question_id')->nullable();
             $table->decimal('establishing_report_point')->after('ri_points')->nullable();
-            $table->decimal('understanding_others_point')->after('establishing_rapport_point')->nullable();
+            $table->decimal('understanding_others_point')->after('establishing_report_point')->nullable();
             $table->decimal('embracing_individual_differences_point')->after('understanding_others_point')->nullable();
             $table->decimal('developing_trust_point')->after('embracing_individual_differences_point')->nullable();
             $table->decimal('cultivating_influence_point')->after('developing_trust_point')->nullable();

@@ -13,16 +13,6 @@ class UserSurveyAnswerOption extends Model
     protected $fillable = [
         'user_survey_answer_id',
         'question_option_id',
-        'establishing_rapport_point',
-        'understanding_others_point',
-        'embracing_individual_differences_point',
-        'developing_trust_point',
-        'cultivating_influence_point',
-        'lacking_self_awareness_point',
-        'lacking_social_awareness_point',
-        'self_serving_point',
-        'breaking_trust_point',
-        'poor_management_of_emotions_point',
         'correct_order'
     ];
     /**

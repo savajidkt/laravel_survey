@@ -16,16 +16,16 @@ class AlterQuestionOptionsTableFormulaFieldsAdd extends Migration
         Schema::table('question_options', function (Blueprint $table) {
             //
             $table->tinyInteger('order_sorting')->after('question_id')->nullable()->comment('1=Best Likely, 2=Least Likely');
-            $table->decimal('establishing_report')->after('order_sorting')->nullable();
-            $table->decimal('understanding_others')->after('establishing_report')->nullable();
-            $table->decimal('embracing_individual_differences')->after('understanding_others')->nullable();
-            $table->decimal('developing_trust')->after('embracing_individual_differences')->nullable();
-            $table->decimal('cultivating_influence')->after('developing_trust')->nullable();
-            $table->decimal('lacking_self_awareness')->after('cultivating_influence')->nullable();
-            $table->decimal('lacking_social_awareness')->after('lacking_self_awareness')->nullable();
-            $table->decimal('self_serving')->after('lacking_social_awareness')->nullable();
-            $table->decimal('breaking_trust')->after('self_serving')->nullable();
-            $table->decimal('poor_management_of_emotions')->after('breaking_trust')->nullable();
+            $table->string('establishing_report')->after('order_sorting')->nullable();
+            $table->string('understanding_others')->after('establishing_report')->nullable();
+            $table->string('embracing_individual_differences')->after('understanding_others')->nullable();
+            $table->string('developing_trust')->after('embracing_individual_differences')->nullable();
+            $table->string('cultivating_influence')->after('developing_trust')->nullable();
+            $table->string('lacking_self_awareness')->after('cultivating_influence')->nullable();
+            $table->string('lacking_social_awareness')->after('lacking_self_awareness')->nullable();
+            $table->string('self_serving')->after('lacking_social_awareness')->nullable();
+            $table->string('breaking_trust')->after('self_serving')->nullable();
+            $table->string('poor_management_of_emotions')->after('breaking_trust')->nullable();
         });
     }
 
