@@ -8,23 +8,14 @@
         <div id="sorting-list">
 
             @foreach ($model->options as $key=>$option)
-            @php
-            if(($option->order_sorting ==1)){
-                $sorting ='Most Likely';
-            }elseif($option->order_sorting == 2){
-                $sorting ='Least Likely'; 
-            }else{
-                $sorting =''; 
-            }
-                
-            @endphp
-            <div class="customRadio-sec">
-                <div class="customRadio-l-tag">{{ $sorting }} </div>
-                <div class="customRadio">
-                    <input type="hidden" class="options" name="options[]" value="{{$option->id}}">
-                    <label for="radio1"> {{$option->option}}</label>
+            <div class="">
+                <div class="customRadio-l-tag op-100">Most Likely</div>
+                <div class="customRadio-sec">
+                    <div class="customRadio">
+                        <input type="hidden" class="options" name="options[]" value="{{$option->id}}">
+                        <label for="radio1"> {{$option->option}}</label>
+                    </div>
                 </div>
-
             </div>
             @endforeach
 

@@ -79,11 +79,11 @@ h6 {
 }
 .r-btn{margin-top:52px;}
 .sub-card {
-  margin-top: 30px;
+  margin-top: 0;
   padding: 0;
   border: none;
 }
-
+.question-card .question-listing{margin-top: -45px;}
 .sub-card .card-header {
   background-color: transparent;
   color: #000000;
@@ -92,6 +92,7 @@ h6 {
   border:none;
       font-size: 22px;
     line-height: 30px;
+	    width: 79%;
 }
 
 .sub-card .card-header h5 {
@@ -126,6 +127,7 @@ h6 {
     font-weight: 300;
     position: relative;  
 	float:right;
+	    margin-top: 15px;
 }
 .timer-text span{
         font-weight: 700;
@@ -445,7 +447,7 @@ h6 {
 }
 
 .customRadio label {
-  padding:12px 60px 12px 45px;
+  padding:12px 40px 12px 10px;
   width: 100%;
   display: block;
   text-align: left;
@@ -476,6 +478,7 @@ h6 {
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   z-index: -1;
+  display:none;
 }
 
 .customRadio input:checked~label:after {
@@ -500,11 +503,17 @@ h6 {
   transform: translateY(-50%);
   cursor: pointer;
   transition: all 200ms ease-in;
+  display:none;
 }
 
-.sortable-chosen .customRadio{background-color: #224d5d; background-image: url(../img/updown-arrow.png); background-repeat: no-repeat; background-position: top 20px right 40px; box-shadow: 0px 0 30px rgba(2, 14, 34, 0.5);}
+.sortable-chosen .customRadio{background-color: #224d5d; background-image: url(../img/updown-arrow.png); background-repeat: no-repeat; background-position: top 20px right 25px; box-shadow: 0px 0 30px rgba(2, 14, 34, 0.5);}
 .sortable-chosen label{color:#ffffff; cursor:move;}
 .customRadio-l-tag{font-size:18px; color:#224D5D; font-weight:bold; float: left; width: 12%; margin-top: 25px;}
+.op-100{opacity:100%;}
+.op-80{opacity:80%;}
+.op-60{opacity:60%;}
+.op-40{opacity:40%;}
+.op-25{opacity:25%;}
 .customRadio-sec{width:100%; float:left;}
 .login-bg .card {
   overflow: hidden;

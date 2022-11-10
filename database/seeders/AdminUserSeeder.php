@@ -24,7 +24,7 @@ class AdminUserSeeder extends Seeder
             'email'=>'savaji.dkt@gmail.com',
             'email_verified_at' => Carbon::now(),
             'password'=>Hash::make('123456'),
-            'user_type'=>1,
+            'user_type'=>2,
             'user_status'=>1,
             'is_first_time_login'=>1,
             'created_at'=>Carbon::now(),

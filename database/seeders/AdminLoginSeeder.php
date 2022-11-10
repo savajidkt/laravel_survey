@@ -21,7 +21,7 @@ class AdminLoginSeeder extends Seeder
             'name'=>'Savji Rathod',
             'email'=>'admin@admin.com',
             'password'=>Hash::make('123456'),
-            'type'=>1,
+            'type'=>2,
             'status'=>1,
             'created_at'=>Carbon::now(),
             'updated_at'=>Carbon::now(),
