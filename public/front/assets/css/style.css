@@ -425,7 +425,7 @@ h6 {
   position: relative;
   padding-left: 15px;
   border-radius: 50px;
-      width: 88%;
+      width: 100%;
     float: right;
 }
 
@@ -457,7 +457,7 @@ h6 {
   transition: color 200ms ease-in;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: #242021;
   line-height: 20px;
 }
@@ -508,7 +508,12 @@ h6 {
 
 .sortable-chosen .customRadio{background-color: #224d5d; background-image: url(../img/updown-arrow.png); background-repeat: no-repeat; background-position: top 20px right 25px; box-shadow: 0px 0 30px rgba(2, 14, 34, 0.5);}
 .sortable-chosen label{color:#ffffff; cursor:move;}
-.customRadio-l-tag{font-size:18px; color:#224D5D; font-weight:bold; float: left; width: 12%; margin-top: 25px;}
+.customRadio-l-tag{font-size:18px; color:#224D5D; font-weight:bold; float: left; width: 100%; text-align: right;}
+.cr-t-m1{margin-top:25px;}
+.cr-t-m2{margin-top:58px;}
+.cr-t-m3{margin-top:58px;}
+.cr-t-m4{margin-top:55px;}
+.cr-t-m5{margin-top:58px;}
 .op-100{opacity:100%;}
 .op-80{opacity:80%;}
 .op-60{opacity:60%;}
