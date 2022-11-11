@@ -138,12 +138,12 @@ class QuestionRepository
         $userId         = auth()->user()->id;
 
         // delete user attempted question
-        $userSurveyAttempted = UserSurveyAnswer::where('user_id', $userId)->where('user_survey_id', $userSurvey->id);
+        //$userSurveyAttempted = UserSurveyAnswer::where('user_id', $userId)->where('user_survey_id', $userSurvey->id);
 
-        if( isset($question->id) )
-        {
-            $userSurveyAttempted->where('question_id',$question->id)->delete();
-        }
+        // if( isset($question->id) )
+        // {
+        //     $userSurveyAttempted->where('question_id',$question->id)->delete();
+        // }
         //$userSurveyAttempted->delete();
         // create user survey questions
 
@@ -172,7 +172,7 @@ class QuestionRepository
             }
              $riPoints = $mostLikePoint + $leasttLikePoint;
 
-             //Other Report Login
+             //Other Report Logic
              $establishingSum=0;
              $understandingSum=0;
              $embracingSum=0;
@@ -183,6 +183,7 @@ class QuestionRepository
              $self_servingSum=0;
              $breakingSum=0;
              $poor_managementSum=0;
+             
              $index = 5;
              foreach($options as $key => $opt){
                 $QuestionOption = QuestionOption::find($opt);
@@ -218,19 +219,13 @@ class QuestionRepository
             ]);
 
             // save question options
-            if( $question->options->count() )
-            {
-                // delete user  question options
-                $userSurveyAnswerOption = UserSurveyAnswerOption::where('user_survey_answer_id',$userSurveyQuestion->id)->delete();
-
-                foreach($options as $option )
+            foreach($options as $option )
                 {
                     $UserSurveyAnswerOption = UserSurveyAnswerOption::create([
                         'user_survey_answer_id'     => $userSurveyQuestion->id,
                         'question_option_id'        =>$option
                     ]);
                 }
-            }
 
             // update finish status of user survey
             if( isset( $userSurvey->id ) )
