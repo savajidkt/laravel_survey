@@ -77,18 +77,18 @@ class User extends Authenticatable
     public function getActionAttribute(): string
     {
         $viewAction = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-        $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit btn btn-primary btn-sm" data-toggle="tooltip" data-original-title="User Edit" data-animation="false">Edit</a>';
+        $editAction = '<a href="'. route('users.edit', $this->id).'" class="edit" data-toggle="tooltip" data-original-title="User Edit" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-edit-64.png").'" width="30"></a>';
         
         $ResendAction ='';
         if( isset($this->survey->id) && in_array($this->survey->status, [UserSurvey::INPROGRESS, UserSurvey::PENDING]))
         {
-            $ResendAction = '<a href="javascript:void(0)" class="resend btn btn-primary btn-sm" data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Survey Time Reset" data-animation="false">Reset</a>';
+            $ResendAction = '<a href="javascript:void(0)" class="resend" data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Survey Time Reset" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-available-updates-50.png").'" width="30"></a>';
         }
         
         $downloadAction = '';
         if( isset($this->survey->id) && $this->survey->status == UserSurvey::COMPLETED)
         {
-            $downloadAction = '<a href="javascript:void(0)" class="download btn btn-primary btn-sm" data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Download Survey" data-animation="false">Download</a>';
+            $downloadAction = '<a href="javascript:void(0)" class="download " data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Download Survey" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-pdf-50.png").'" width="30"></a>';
         }
 
         return $editAction.' '.$this->getDeleteButtonAttribute().' '.$ResendAction.' '.$downloadAction;
@@ -102,7 +102,7 @@ class User extends Authenticatable
      */
     public function getDeleteButtonAttribute($class = '')
     {
-        return '<a href="'.route('users.destroy', $this).'" class="btn btn-primary btn-sm delete_action" data-method="delete" data-toggle="tooltip" data-original-title="Delete" data-animation="false">Delete</a>';
+        return '<a href="'.route('users.destroy', $this).'" class="delete_action" data-method="delete" data-toggle="tooltip" data-original-title="Delete" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-remove-48.png").'" width="30"></a>';
     }
 
     /**

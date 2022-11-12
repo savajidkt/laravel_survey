@@ -50,20 +50,22 @@ class UserRepository
      */
     public function update(array $data, User $user): User
     {
+        $password = $data['password'];
         $data = [
             'company_id'    => $data['company'],
             'project_id'     => $data['project'],
-            'last_name'     => $data['last_name'],
+            'first_name'     => $data['first_name'],
             'last_name'     => $data['last_name'],
             'address'       => $data['address'],
             'email'         => $data['email']
         ];
-
-        if( isset($data['password']) )
+        
+        if( isset($password) )
         {
-            $data['password'] = Hash::make($data['password']);
+            
+            $data['password'] = Hash::make($password);
+           
         }
-
         if( $user->update($data) )
         {
             return $user;

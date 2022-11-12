@@ -18,7 +18,6 @@
                         <th></th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Address</th>
                         <th>Status</th>
                         <th>Survey</th>
                         <th>Actions</th>
@@ -55,12 +54,6 @@
                 {
                     data: 'email',
                     name: 'email'
-                },
-                {
-                    data: 'address',
-                    name: 'address',
-                    orderable: false,
-                    searchable: false,
                 },
                 {
                     data: 'user_status',

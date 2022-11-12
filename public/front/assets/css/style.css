@@ -1402,6 +1402,12 @@ h6 {
 .card-title{font-size: 28px;}
 .inner-pad{padding: 1rem;}
 .header h1{font-size: 28px;}
+.timer-text{float:left; margin-top: 0;}
+.question-card .question-listing { margin-top: 20px;}
+.sub-card .card-header{width:100%;}
+.customRadio-l-tag{width:auto; margin-top:0; margin-right: 15px;}
+.sub-card .card-body .col-lg-2{width:100%;}
+.sub-card .card-body .col-lg-10{width:100%;}
 }
 
 @media (max-width: 768px) {
@@ -1417,5 +1423,13 @@ h6 {
 .general-card .card .card-title{    font-size: 18px;    padding: 0 10px;}
 .general-card .card .card-text{line-height: 18px;}
 .general-card .card img{    min-height: 364px;}
+.question-card .card {    padding: 30px;}
+.sub-card .card-header{    font-size: 18px;line-height: 24px;}
+.customRadio-l-tag{font-size: 10px;     margin-right: 5px;}
+.customRadio{border-radius: 18px;     padding: 10px;}
+.customRadio label{    padding: 6px 12px; font-size: 14px;     line-height: 18px;}
+.progress {    width: 100%!important;}
+.c-t-s .col-sm-6{    flex: 0 0 auto; width: 50%;}
+.login-bg .card-body .small{margin-bottom:0; font-size: 13px;}
 
 }

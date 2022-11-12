@@ -46,7 +46,7 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <div class="col-sm-12">
+                                                <div class="col-sm-12 c-t-s">
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="form-check">
