@@ -31,6 +31,12 @@
 
     @if(Route::is('dashboard'))
     <!-- <script src="{{asset('app-assets/js/scripts/pages/dashboard-ecommerce.js')}}"></script> -->
+    <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/pickers/pickadate/legacy.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+    <script src="{{asset('app-assets/js/scripts/forms/pickers/form-pickers.js')}}"></script>
     @endif
     <!-- END: Page JS-->
     <script src="{{asset('js/survey.common.js')}}"></script>

@@ -4,7 +4,60 @@
 <!-- Dashboard Ecommerce Starts -->
 <div>Welcome to {{auth()->user()->name}}</div>
 <!-- Dashboard Ecommerce ends -->
-
+<form action="" method="get">
+<div class="row mt-2">
+  
+    <div class="col-lg-2 col-md-2 col-12">
+    <label>Company</label>
+    <select name="company" class="form-control" id="company">
+        <option value="">Select Company</option>
+        @if ($companies->count())
+            @foreach ($companies as $company)
+            @php
+                if(isset($model->company_id) && $model->company_id == $company->id){
+                    $selectedCom ='selected';
+                }else{
+                  $selectedCom = $company->id == old('company') ? 'selected' : ''; 
+                }
+            @endphp
+                <option value="{{ $company->id }}" {{ $selectedCom }} > {{ $company->name }}</option>
+            @endforeach
+        @endif
+   </select>
+  </div>
+  <div class="col-lg-2 col-md-2 col-12">
+    <label>Project</label>
+    <select name="project" class="form-control" id="project">
+        <option value="">Select Project</option>
+        @if ($projects->count())
+            @foreach ($projects as $project)
+            @php
+                if(isset($model->project_id) && $model->project_id == $project->id){
+                    $selectedPro ='selected';
+                }else{
+                  $selectedPro = $project->id == old('project') ? 'selected' : '';
+                }
+            @endphp
+                <option value="{{ $project->id }}" {{ $selectedPro }} > {{ $project->name }}</option>
+            @endforeach
+        @endif
+    </select>
+  </div>
+  <div class="col-lg-2 col-md-3 col-12">
+    <label>From Date</label>
+    <input type="text" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+  </div>
+  <div class="col-lg-2 col-md-3 col-12">
+    <label>To Date</label>
+    <input type="text" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+  </div>
+  <div class="col-lg-2 col-md-3 col-12">
+  <label>&nbsp;</label>
+  <button type="button" class="mt-2 btn btn-primary mr-1 waves-effect waves-float waves-light">Filter</button>
+  </div>
+  
+</div>
+</form>
 <div class="row mt-2">
     <div class="col-lg-6 col-md-6 col-12">
       <div class="card">
