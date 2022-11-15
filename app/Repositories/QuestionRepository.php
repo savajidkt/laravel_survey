@@ -382,12 +382,12 @@ class QuestionRepository
             {
                 if( $company != '' )
                 {
-                    $query->orWhere('company_id', $company);
+                    $query->where('company_id', $company);
                 }
 
                 if( $project != '' )
                 {
-                    $query->orWhere('project_id',$project);
+                    $query->where('project_id',$project);
                 }
                 return $query;
             });
@@ -449,12 +449,12 @@ class QuestionRepository
             {
                 if( $company != '' )
                 {
-                    $query->orWhere('company_id', $company);
+                    $query->where('company_id', $company);
                 }
 
                 if( $project != '' )
                 {
-                    $query->orWhere('project_id',$project);
+                    $query->where('project_id',$project);
                 }
                 return $query;
             });
