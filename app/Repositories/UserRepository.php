@@ -84,7 +84,7 @@ class UserRepository
      */
     public function delete(User $user): bool
     {
-        if( $user->delete() )
+        if( $user->forceDelete() )
         {
             return true;
         }
