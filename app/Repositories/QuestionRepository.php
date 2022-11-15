@@ -360,9 +360,40 @@ class QuestionRepository
      *
      * @return int
      */
-    public function getTotalCompletedSurveys(): int
+    public function getTotalCompletedSurveys(array $data): int
     {
-        return UserSurvey::whereHas('user', function($query){})->where('status', UserSurvey::COMPLETED)->count();
+        $company    = isset($data['company']) ? $data['company'] : null;
+        $project    = isset($data['project']) ? $data['project'] : null;
+        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
+        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+        $query      = UserSurvey::query()->where('status', UserSurvey::COMPLETED);
+
+        if( $fromDate && $toDate )
+        {
+            // date condition
+            //$query->whereBetween('updated_at', [$fromDate, $toDate]);
+            $query->whereDate('updated_at','>=',$fromDate)->whereDate('updated_at','<=',$toDate);
+        }
+
+        if( $company || $project )
+        {
+            // company condition
+            $query->whereHas('user', function($query) use($company,$project)
+            {
+                if( $company != '' )
+                {
+                    $query->orWhere('company_id', $company);
+                }
+
+                if( $project != '' )
+                {
+                    $query->orWhere('project_id',$project);
+                }
+                return $query;
+            });
+        }
+        //echo common()->formatSql($query);die;
+       return $query->count();
     }
 
     /**
@@ -370,25 +401,67 @@ class QuestionRepository
      *
      * @return int
      */
-    public function getTotalPendingSurveys(): int
+    public function getTotalPendingSurveys(array $data): int
     {
         //DB::enableQueryLog();
-        $user = User::query()
-                    ->where('user_type', User::USER)
-                    ->whereHas('survey', function(Builder $query){
-                        return $query->whereIn('status', [UserSurvey::INPROGRESS, UserSurvey::PENDING, 0]);
-                    })
-                    ->orDoesntHave('survey')
-                    ->count();
-        //dd(DB::getQueryLog());
-        return $user;
+        $company    = isset($data['company']) ? $data['company'] : null;
+        $project    = isset($data['project']) ? $data['project'] : null;
+        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
+        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+
+        $query = User::query();
+        $query->doesntHave('survey');
+        $query->orWhereHas('survey', function(Builder $query) use($fromDate, $toDate){
+            return $query->whereIn('status', [UserSurvey::INPROGRESS, UserSurvey::PENDING, 0]);
+        });
+
+        if( $company || $project )
+        {
+            // company condition
+            $query->where('company_id', $company);
+            $query->where('project_id', $project);
+        }
+        //echo common()->formatSql($query);die;
+        return $query->count();
+
+
     }
 
-    public function getSubmitedSurveys()
+    public function getSubmitedSurveys(array $data)
     {
-        //DB::enableQueryLog();
-       return UserSurvey::whereHas('user', function($query){})->whereIn('status', [UserSurvey::COMPLETED])->get();
-        //dd(DB::getQueryLog());
+        $company    = isset($data['company']) ? $data['company'] : null;
+        $project    = isset($data['project']) ? $data['project'] : null;
+        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
+        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+        $query      = UserSurvey::whereIn('status', [UserSurvey::COMPLETED]);
+
+        if( $fromDate && $toDate )
+        {
+            // date condition
+            //$query->whereBetween('updated_at', [$fromDate, $toDate]);
+            $query->whereDate('updated_at','>=',$fromDate)->whereDate('updated_at','<=',$toDate);
+        }
+
+        if( $company || $project )
+        {
+            // company condition
+            $query->whereHas('user', function($query) use($company,$project)
+            {
+                if( $company != '' )
+                {
+                    $query->orWhere('company_id', $company);
+                }
+
+                if( $project != '' )
+                {
+                    $query->orWhere('project_id',$project);
+                }
+                return $query;
+            });
+        }
+
+       return $query->orderBy('updated_at', 'DESC')->limit(10)->get();
+
     }
 
 }

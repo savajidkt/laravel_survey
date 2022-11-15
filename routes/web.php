@@ -42,6 +42,7 @@ Route::get('admin/logout', [AdminAuthController::class, 'logout'])->name('adminL
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('get-dashboard', [DashboardController::class, 'getDashboardData'])->name('get-dashboard');
     Route::resource('/users', UsersController::class);
     Route::post('/user/change-status', [UsersController::class, 'changeStatus'])->name('change-user-status');
     Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');

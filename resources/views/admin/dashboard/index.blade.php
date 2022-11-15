@@ -5,190 +5,215 @@
 <div>Welcome to {{auth()->user()->name}}</div>
 <!-- Dashboard Ecommerce ends -->
 <form action="" method="get">
-<div class="row mt-2">
-  
+  <div class="row mt-2">
+
     <div class="col-lg-2 col-md-2 col-12">
-    <label>Company</label>
-    <select name="company" class="form-control" id="company">
+      <label>Company</label>
+      <select name="company" class="form-control" id="company">
         <option value="">Select Company</option>
         @if ($companies->count())
-            @foreach ($companies as $company)
-            @php
-                if(isset($model->company_id) && $model->company_id == $company->id){
-                    $selectedCom ='selected';
-                }else{
-                  $selectedCom = $company->id == old('company') ? 'selected' : ''; 
-                }
-            @endphp
-                <option value="{{ $company->id }}" {{ $selectedCom }} > {{ $company->name }}</option>
-            @endforeach
+        @foreach ($companies as $company)
+        @php
+        if(isset($model->company_id) && $model->company_id == $company->id){
+        $selectedCom ='selected';
+        }else{
+        $selectedCom = $company->id == old('company') ? 'selected' : '';
+        }
+        @endphp
+        <option value="{{ $company->id }}" {{ $selectedCom }}> {{ $company->name }}</option>
+        @endforeach
         @endif
-   </select>
-  </div>
-  <div class="col-lg-2 col-md-2 col-12">
-    <label>Project</label>
-    <select name="project" class="form-control" id="project">
+      </select>
+    </div>
+    <div class="col-lg-2 col-md-2 col-12">
+      <label>Project</label>
+      <select name="project" class="form-control" id="project">
         <option value="">Select Project</option>
         @if ($projects->count())
-            @foreach ($projects as $project)
-            @php
-                if(isset($model->project_id) && $model->project_id == $project->id){
-                    $selectedPro ='selected';
-                }else{
-                  $selectedPro = $project->id == old('project') ? 'selected' : '';
-                }
-            @endphp
-                <option value="{{ $project->id }}" {{ $selectedPro }} > {{ $project->name }}</option>
-            @endforeach
+        @foreach ($projects as $project)
+        @php
+        if(isset($model->project_id) && $model->project_id == $project->id){
+        $selectedPro ='selected';
+        }else{
+        $selectedPro = $project->id == old('project') ? 'selected' : '';
+        }
+        @endphp
+        <option value="{{ $project->id }}" {{ $selectedPro }}> {{ $project->name }}</option>
+        @endforeach
         @endif
-    </select>
+      </select>
+    </div>
+    <div class="col-lg-2 col-md-3 col-12">
+      <label>From Date</label>
+      <input type="text" id="from_date" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+    </div>
+    <div class="col-lg-2 col-md-3 col-12">
+      <label>To Date</label>
+      <input type="text" id="to_date" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+    </div>
+    <div class="col-lg-2 col-md-3 col-12">
+      <label>&nbsp;</label>
+      <button type="button" class="mt-2 btn btn-primary mr-1 waves-effect waves-float waves-light filter">Filter</button>
+    </div>
+
   </div>
-  <div class="col-lg-2 col-md-3 col-12">
-    <label>From Date</label>
-    <input type="text" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
-  </div>
-  <div class="col-lg-2 col-md-3 col-12">
-    <label>To Date</label>
-    <input type="text" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
-  </div>
-  <div class="col-lg-2 col-md-3 col-12">
-  <label>&nbsp;</label>
-  <button type="button" class="mt-2 btn btn-primary mr-1 waves-effect waves-float waves-light">Filter</button>
-  </div>
-  
-</div>
 </form>
 <div class="row mt-2">
-    <div class="col-lg-6 col-md-6 col-12">
-      <div class="card">
-          <div class="card-header d-flex justify-content-between align-items-center">
-              <h4 class="card-title">Survey Results</h4>
-          </div>
-          <div class="card-body p-0">
-              <div id="survey-results" class="my-2"></div>
-              <div class="row border-top text-center mx-0">
-                  <div class="col-6 border-right py-1">
-                      <p class="card-text mb-0">Have taken the Survey</p>
-                      <h1 class="font-weight-bolder mb-0">{{$survey_results['completed']}}</h1>
-                  </div>
-                  <div class="col-6 py-1">
-                      <p class="card-text mb-0">Have Not taken the Survey</p>
-                      <h1 class="font-weight-bolder mb-0">{{$survey_results['pending']}}</h1>
-                  </div>
-              </div>
-          </div>
+  <div class="col-lg-6 col-md-6 col-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="card-title">Survey Results</h4>
       </div>
+      <div class="card-body p-0">
+        <div id="result-chart">
+          @include('admin.dashboard.chart')
+        </div>
+      </div>
+    </div>
   </div>
-    
-    <!-- Timeline Card -->
-                        <div class="col-lg-6 col-12">
-                            <div class="card card-user-timeline">
-                                <div class="card-header">
-                                    <div class="d-flex align-items-center">
-                                        <i data-feather="list" class="user-timeline-title-icon"></i>
-                                        <h4 class="card-title">Recent Activity</h4>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="timeline ml-50">
-                                        @foreach($recent_activity as $key=>$activity)
-                                        <li class="timeline-item">
-                                            <span class="timeline-point timeline-point-indicator"></span>
-                                            <div class="timeline-event">
-                                                <h6>{{$activity->user->full_name}} submitted a survey </h6>
-                                                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>  {{ \Carbon\Carbon::parse($activity->updated_at)->format('d/m/Y  g:i A')}}</p>
 
-                                            </div>
-                                        </li>
-                                        @endforeach
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
+  <!-- Timeline Card -->
+  <div class="col-lg-6 col-12">
+    <div class="card card-user-timeline">
+      <div class="card-header">
+        <div class="d-flex align-items-center">
+          <i data-feather="list" class="user-timeline-title-icon"></i>
+          <h4 class="card-title">Recent Activity</h4>
+        </div>
+      </div>
+      <div class="card-body" id="recent-activity">
+        @include('admin.dashboard.recent-activity')
+      </div>
+    </div>
   </div>
+
+</div>
 
 @endsection
 
 @section('extra-script')
 <script>
-    //------------ Goal Overview Chart ------------
+  var goalOverviewChart = null;
+  //------------ Goal Overview Chart ------------
   //---------------------------------------------
-  var $barColor = '#f3f3f3';
-  var $trackBgColor = '#EBEBEB';
-  var $textMutedColor = '#b9b9c3';
-  var $budgetStrokeColor2 = '#dcdae3';
-  var $goalStrokeColor2 = '#51e5a8';
-  var $strokeColor = '#ebe9f1';
-  var $textHeadingColor = '#5e5873';
-  var $earningsStrokeColor2 = '#28c76f66';
-  var $earningsStrokeColor3 = '#28c76f33';
-  var $goalOverviewChart = document.querySelector('#survey-results');
-  goalOverviewChartOptions = {
-    chart: {
-      height: 245,
-      type: 'radialBar',
-      sparkline: {
-        enabled: true
+  function chartView(percentage){
+    var $barColor = '#f3f3f3';
+    var $trackBgColor = '#EBEBEB';
+    var $textMutedColor = '#b9b9c3';
+    var $budgetStrokeColor2 = '#dcdae3';
+    var $goalStrokeColor2 = '#51e5a8';
+    var $strokeColor = '#ebe9f1';
+    var $textHeadingColor = '#5e5873';
+    var $earningsStrokeColor2 = '#28c76f66';
+    var $earningsStrokeColor3 = '#28c76f33';
+    var $goalOverviewChart = document.querySelector('#survey-results');
+    goalOverviewChartOptions = {
+      chart: {
+        height: 245,
+        type: 'radialBar',
+        sparkline: {
+          enabled: true
+        },
+        dropShadow: {
+          enabled: true,
+          blur: 3,
+          left: 1,
+          top: 1,
+          opacity: 0.1
+        }
       },
-      dropShadow: {
-        enabled: true,
-        blur: 3,
-        left: 1,
-        top: 1,
-        opacity: 0.1
-      }
-    },
-    colors: [$goalStrokeColor2],
-    plotOptions: {
-      radialBar: {
-        offsetY: -10,
-        startAngle: -150,
-        endAngle: 150,
-        hollow: {
-          size: '77%'
-        },
-        track: {
-          background: $strokeColor,
-          strokeWidth: '50%'
-        },
-        dataLabels: {
-          name: {
-            show: false
+      colors: [$goalStrokeColor2],
+      plotOptions: {
+        radialBar: {
+          offsetY: -10,
+          startAngle: -150,
+          endAngle: 150,
+          hollow: {
+            size: '77%'
           },
-          value: {
-            color: $textHeadingColor,
-            fontSize: '2.86rem',
-            fontWeight: '600'
+          track: {
+            background: $strokeColor,
+            strokeWidth: '50%'
+          },
+          dataLabels: {
+            name: {
+              show: false
+            },
+            value: {
+              color: $textHeadingColor,
+              fontSize: '2.86rem',
+              fontWeight: '600'
+            }
           }
         }
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: 'horizontal',
+          shadeIntensity: 0.5,
+          gradientToColors: [window.colors.solid.success],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      series: [percentage],
+      stroke: {
+        lineCap: 'round'
+      },
+      grid: {
+        padding: {
+          bottom: 30
+        }
       }
-    },
-    fill: {
-      type: 'gradient',
-      gradient: {
-        shade: 'dark',
-        type: 'horizontal',
-        shadeIntensity: 0.5,
-        gradientToColors: [window.colors.solid.success],
-        inverseColors: true,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 100]
-      }
-    },
-    series: ["{{$survey_results['percentage']}}"],
-    stroke: {
-      lineCap: 'round'
-    },
-    grid: {
-      padding: {
-        bottom: 30
-      }
-    }
-  };
-  goalOverviewChart = new ApexCharts($goalOverviewChart, goalOverviewChartOptions);
-  goalOverviewChart.render();
+    };
+
+    goalOverviewChart = new ApexCharts($goalOverviewChart, goalOverviewChartOptions);
+    goalOverviewChart.render();
+  }
+  chartView("{{$survey_results['percentage']}}");
+
+
+  $(document).ready(function() {
+    $(".filter").click(function() {
+      var company = $('#company').val();
+      var project = $('#project').val();
+      var fromDate = $('#from_date').val();
+      var toDate = $('#to_date').val();
+      var data = {
+          company: company,
+          project: project,
+          fromDate: fromDate,
+          toDate: toDate
+        };
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      $.ajax({
+        type: 'POST',
+        url: "{{route('get-dashboard')}}",
+        dataType: 'json',
+        data: data,
+        success: function(data) {
+          if (data.status) {
+
+            goalOverviewChart.destroy();
+            chartView(data.survey_results.percentage);
+            $('#completed').text(data.survey_results.completed);
+            $('#pending').text(data.survey_results.pending);
+            $('#recent-activity').html(data.dataActivity);
+            
+          }
+        }
+      });
+    });
+
+
+  });
 </script>
 @endsection('extra-script')
