@@ -58,6 +58,7 @@ class DashboardController extends Controller
     {
 
         $data = $request->all();
+        
         $completed = $this->questionRepository->getTotalCompletedSurveys($data);
         $pending = $this->questionRepository->getTotalPendingSurveys($data);
         $percentage = (int) (100 * $completed) / ($completed + $pending);
