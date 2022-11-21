@@ -15,7 +15,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\Snappy\Facades\SnappyPdf;
 
 class UsersController extends Controller
 {
@@ -191,15 +191,28 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function generatePDF()
+    public function generatePDF1()
     {
 
         $data = [
             'title' => 'Welcome to ItSolutionStuff.com',
             'date' => date('m/d/Y')
         ];
-       //return view('admin.pdf-reports.front-page');
-        $pdf = PDF::loadView('admin.pdf-reports.front-page', $data);
-        return $pdf->download('itsolutionstuff.pdf');
+       return view('admin.pdf-reports.front-page');
+        // $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4', 'landscape');
+        // return $pdf->download('itsolutionstuff.pdf');
+    }
+
+    // function to generate PDF
+    public function generatePDF()
+    {
+        $html = view('admin.pdf-reports.front-page')->render();
+        $pdf = SnappyPdf::loadHTML($html);
+        // $pdf = SnappyPdf::loadView('admin.pdf-reports.front-page');
+        $pdf->setOption('enable-javascript', true);
+        $pdf->setOption('javascript-delay', 5000);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('no-stop-slow-scripts', true);
+        return $pdf->download('test.pdf');
     }
 }
