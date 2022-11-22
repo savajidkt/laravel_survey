@@ -5,17 +5,20 @@ namespace App\Http\Controllers\Admin\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\CreateRequest;
 use App\Http\Requests\User\EditRequest;
+use App\Http\Requests\User\PDFRequest;
 use App\Models\User;
 use App\Models\UserSurvey;
 use App\Repositories\CompanyRepository;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
-use Barryvdh\DomPDF\PDF as DomPDFPDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Barryvdh\Snappy\Facades\SnappyPdf;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 
 class UsersController extends Controller
 {
@@ -191,28 +194,52 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function generatePDF1()
+    public function generatePDF(int $id, PDFRequest $request)
     {
+        $userSurvey  = UserSurvey::where('user_id', $id)->first();
+        //$userSurvey->questions->establishing_report_point;
+
+        dd($userSurvey->questions()->max('establishing_report_point'));
 
         $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
-            'date' => date('m/d/Y')
+            'survey_id' => $userSurvey->id,
+            'full_name' => $userSurvey->user->full_name,
+            'date' => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
+            'ri_points' => $userSurvey->questions->ri_points,
+            'establishing_report_point' => $userSurvey->user->full_name,
+            'understanding_others_point' => $userSurvey->user->full_name,
+            'embracing_individual_differences_point' => $userSurvey->user->full_name,
+            'developing_trust_point' => $userSurvey->user->full_name,
+            'cultivating_influence_point' => $userSurvey->user->full_name,
+            'lacking_self_awareness_point' => $userSurvey->user->full_name,
+            'lacking_social_awareness_point' => $userSurvey->user->full_name,
+            'self_serving_point' => $userSurvey->user->full_name,
+            'breaking_trust_point' => $userSurvey->user->full_name,
+            'poor_management_of_emotions_point' => $userSurvey->user->full_name
         ];
-       return view('admin.pdf-reports.front-page');
-        // $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4', 'landscape');
-        // return $pdf->download('itsolutionstuff.pdf');
+       //return view('admin.pdf-reports.front-page');
+         $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4');
+         return $pdf->download('itsolutionstuff.pdf');
+        //  $pdf = App::make('dompdf.wrapper');
+        //  $html = view('admin.pdf-reports.front-page')->render();
+        //  $pdf->loadHTML($html);
+        // return $pdf->stream();
     }
 
     // function to generate PDF
-    public function generatePDF()
+    public function generatePDF1(int $id, PDFRequest $request)
     {
-        $html = view('admin.pdf-reports.front-page')->render();
+        
+        $userSurvey  = UserSurvey::where('user_id', $id)->first();
+        $html = view('admin.pdf-reports.front-page',['userSurvey' => $userSurvey])->render();
+        $html .= view('admin.pdf-reports.introduction')->render();
         $pdf = SnappyPdf::loadHTML($html);
         // $pdf = SnappyPdf::loadView('admin.pdf-reports.front-page');
         $pdf->setOption('enable-javascript', true);
         $pdf->setOption('javascript-delay', 5000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
-        return $pdf->download('test.pdf');
+        return $pdf->stream();
+        //return $pdf->download('test.pdf');
     }
 }
