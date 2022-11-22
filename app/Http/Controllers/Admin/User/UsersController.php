@@ -8,6 +8,7 @@ use App\Http\Requests\User\EditRequest;
 use App\Http\Requests\User\PDFRequest;
 use App\Models\User;
 use App\Models\UserSurvey;
+use App\Models\UserSurveyAnswer;
 use App\Repositories\CompanyRepository;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
@@ -19,6 +20,7 @@ use Yajra\DataTables\DataTables;
 use Barryvdh\Snappy\Facades\SnappyPdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -187,59 +189,111 @@ class UsersController extends Controller
 
         throw new Exception('User status does not change. Please check sometime later.');
     }
-
+    
     /**
-     * Display a listing of the resource.
+     * Method generatePDF
      *
-     * @return \Illuminate\Http\Response
+     * @param int $id [explicite description]
+     * @param PDFRequest $request [explicite description]
+     *
+     * @return void
      */
-
     public function generatePDF(int $id, PDFRequest $request)
     {
         $userSurvey  = UserSurvey::where('user_id', $id)->first();
-        //$userSurvey->questions->establishing_report_point;
+        $userSurveyAnswer = UserSurveyAnswer::select([
+            DB::raw("SUM(establishing_report_point) AS esMax"),
+            DB::raw("SUM(understanding_others_point) AS undMax"),
+            DB::raw("SUM(embracing_individual_differences_point) AS embracingMax"),
+            DB::raw("SUM(developing_trust_point) AS developingMax"),
+            DB::raw("SUM(cultivating_influence_point) AS cultiInfluMax"),
+            DB::raw("SUM(lacking_self_awareness_point) AS lackingSelfMax"),
+            DB::raw("SUM(lacking_social_awareness_point) AS lackingSocialMax"),
+            DB::raw("SUM(self_serving_point) AS selfServingMax"),
+            DB::raw("SUM(breaking_trust_point) AS breakingTrustMax"),
+            DB::raw("SUM(poor_management_of_emotions_point) AS poorMax"),
+            'user_survey_id'
+        ])->groupBy('user_survey_id');
 
-        dd($userSurvey->questions()->max('establishing_report_point'));
+        $survey = UserSurvey::select([
+            'esMax',
+            'undMax',
+            'embracingMax',
+            'developingMax',
+            'cultiInfluMax',
+            'lackingSelfMax',
+            'lackingSocialMax',
+            'selfServingMax',
+            'breakingTrustMax',
+            'poorMax',
+            'id',
+            'user_id',
+            'status'
+        ])->leftJoinSub($userSurveyAnswer, 'calculation', function ($join) {
+            $join->on('calculation.user_survey_id', '=', 'user_surveys.id');
+        })->where('status', UserSurvey::COMPLETED)->get();
 
+        // get max value from all users
+        $esMax = $survey->max('esMax');
+        $undMax = $survey->max('undMax');
+        $embracingMax = $survey->max('embracingMax');
+        $developingMax = $survey->max('developingMax');
+        $cultiInfluMax = $survey->max('cultiInfluMax');
+        $lackingSelfMax = $survey->max('lackingSelfMax');
+        $lackingSocialMax = $survey->max('lackingSocialMax');
+        $selfServingMax = $survey->max('selfServingMax');
+        $breakingTrustMax = $survey->max('breakingTrustMax');
+        $poorMax = $survey->max('poorMax');
+
+
+        //selected user get total
+        $ri_points            =  $userSurvey->questions->sum('ri_points');
+        $esTotal            =  $userSurvey->questions->sum('establishing_report_point');
+        $undTotal           = $userSurvey->questions->sum('understanding_others_point');
+        $embracingTotal     = $userSurvey->questions->sum('embracing_individual_differences_point');
+        $developingTotal    = $userSurvey->questions->sum('developing_trust_point');
+        $cultiInfluTotal    = $userSurvey->questions->sum('cultivating_influence_point');
+        $lackingSelfTotal   = $userSurvey->questions->sum('lacking_self_awareness_point');
+        $lackingSocialTotal = $userSurvey->questions->sum('lacking_social_awareness_point');
+        $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
+        $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
+        $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
+
+        // percentage calculation
+        $esPer              =  $esTotal == $esMax ? 100 : $esTotal * 100 / $esMax;
+        $undPer             =  $undTotal == $undMax ? 100 : $undTotal * 100 / $undMax;
+        $embracingPer       =  $embracingTotal == $embracingMax ? 100 : $embracingTotal * 100 / $embracingMax;
+        $developingPer      =  $developingTotal == $developingMax ? 100 : $developingTotal * 100 / $developingMax;
+        $cultiInfluPer      =  $cultiInfluTotal == $cultiInfluMax ? 100 : $cultiInfluTotal * 100 / $cultiInfluMax;
+        $lackingSelfPer     =  $lackingSelfTotal == $lackingSelfMax ? 100 : $lackingSelfTotal * 100 / $lackingSelfMax;
+        $lackingSocialPer   =  $lackingSocialTotal == $lackingSocialMax ? 100 : $lackingSocialTotal * 100 / $lackingSocialMax;
+        $selfServingPer     =  $selfServingTotal == $selfServingMax ? 100 : $selfServingTotal * 100 / $selfServingMax;
+        $breakingTrustPer   =  $breakingTrustTotal == $breakingTrustMax ? 100 : $breakingTrustTotal * 100 / $breakingTrustMax;
+        $poorPer            =  $poorTotal == $poorMax ? 100 : $poorTotal * 100 / $poorMax;
+
+        //echo common()->formatSql($latestPosts);die;
         $data = [
-            'survey_id' => $userSurvey->id,
-            'full_name' => $userSurvey->user->full_name,
-            'date' => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
-            'ri_points' => $userSurvey->questions->ri_points,
-            'establishing_report_point' => $userSurvey->user->full_name,
-            'understanding_others_point' => $userSurvey->user->full_name,
-            'embracing_individual_differences_point' => $userSurvey->user->full_name,
-            'developing_trust_point' => $userSurvey->user->full_name,
-            'cultivating_influence_point' => $userSurvey->user->full_name,
-            'lacking_self_awareness_point' => $userSurvey->user->full_name,
-            'lacking_social_awareness_point' => $userSurvey->user->full_name,
-            'self_serving_point' => $userSurvey->user->full_name,
-            'breaking_trust_point' => $userSurvey->user->full_name,
-            'poor_management_of_emotions_point' => $userSurvey->user->full_name
+            'survey_id'                             => $userSurvey->id,
+            'full_name'                             => $userSurvey->user->full_name,
+            'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
+            'ri_points'                             => $ri_points,
+            'establishing_report_per'               => $esPer,
+            'understanding_others_per'              => $undPer,
+            'embracing_individual_differences_per'  => $embracingPer,
+            'developing_trust_per'                  => $developingPer,
+            'cultivating_influence_per'             => $cultiInfluPer,
+            'lacking_self_awareness_per'            => $lackingSelfPer,
+            'lacking_social_awareness_per'          => $lackingSocialPer,
+            'self_serving_per'                      => $selfServingPer,
+            'breaking_trust_per'                    => $breakingTrustPer,
+            'poor_management_of_emotions_per'       => $poorPer
         ];
-       //return view('admin.pdf-reports.front-page');
-         $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4');
-         return $pdf->download('itsolutionstuff.pdf');
+        //return view('admin.pdf-reports.front-page');
+        $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4');
+        return $pdf->download('itsolutionstuff.pdf');
         //  $pdf = App::make('dompdf.wrapper');
         //  $html = view('admin.pdf-reports.front-page')->render();
         //  $pdf->loadHTML($html);
         // return $pdf->stream();
-    }
-
-    // function to generate PDF
-    public function generatePDF1(int $id, PDFRequest $request)
-    {
-        
-        $userSurvey  = UserSurvey::where('user_id', $id)->first();
-        $html = view('admin.pdf-reports.front-page',['userSurvey' => $userSurvey])->render();
-        $html .= view('admin.pdf-reports.introduction')->render();
-        $pdf = SnappyPdf::loadHTML($html);
-        // $pdf = SnappyPdf::loadView('admin.pdf-reports.front-page');
-        $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 5000);
-        $pdf->setOption('enable-smart-shrinking', true);
-        $pdf->setOption('no-stop-slow-scripts', true);
-        return $pdf->stream();
-        //return $pdf->download('test.pdf');
     }
 }
