@@ -288,12 +288,27 @@ class UsersController extends Controller
             'breaking_trust_per'                    => $breakingTrustPer,
             'poor_management_of_emotions_per'       => $poorPer
         ];
-        //return view('admin.pdf-reports.front-page');
-        $pdf = PDF::loadView('admin.pdf-reports.front-page', $data)->setPaper('a4');
-        return $pdf->download('itsolutionstuff.pdf');
+        return view('admin.pdf-reports.chart');
+        //$pdf = PDF::loadView('admin.pdf-reports.chart', $data)->setPaper('a4');
+        //return $pdf->download('itsolutionstuff.pdf');
         //  $pdf = App::make('dompdf.wrapper');
-        //  $html = view('admin.pdf-reports.front-page')->render();
+        //  $html = view('admin.pdf-reports.chart')->render();
         //  $pdf->loadHTML($html);
         // return $pdf->stream();
+    }
+    public function generatePDF1(int $id, PDFRequest $request)
+    {
+        
+        $userSurvey  = UserSurvey::where('user_id', $id)->first();
+        $html = view('admin.pdf-reports.chart',['userSurvey' => $userSurvey])->render();
+        //$html .= view('admin.pdf-reports.introduction')->render();
+        $pdf = SnappyPdf::loadHTML($html);
+        // $pdf = SnappyPdf::loadView('admin.pdf-reports.front-page');
+        $pdf->setOption('enable-javascript', true);
+        $pdf->setOption('javascript-delay', 5000);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('no-stop-slow-scripts', true);
+        return $pdf->stream();
+        //return $pdf->download('test.pdf');
     }
 }
