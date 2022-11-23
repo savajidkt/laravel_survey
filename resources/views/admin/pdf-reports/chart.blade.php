@@ -1,69 +1,46 @@
-<!doctype html>
-<html lang="en">
- <head>
-
-  <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-  <link href="https://cdn.anychart.com/releases/8.11.0/css/anychart-ui.min.css?hcode=a0c21fc77e1449cc86299c5faa067dc4" rel="stylesheet" type="text/css">
-  <style>html, body, #container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-</style>
-<script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-sunburst.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
- </head>
- <body>
- <img src="{{route('chart-image',$data['user_id'])}}" alt="Image created by a PHP script" width="200" height="80">
- <div id="container1"></div>
-  <script type="text/javascript">
-  anychart.onDocumentReady(function () {
-    // create data
-    var data = [
-      {name: "Italian", children: [
-        {name: "Consonants", children: [
-          {name: "m"}, {name: "n"}, {name: "ɲ"},
-          {name: "p"}, {name: "b"}, {name: "t"},
-          {name: "d"}, {name: "k"}, {name: "g"},
-          {name: "t͡s"}, {name: "d͡z"}, {name: "t͡ʃ"},
-          {name: "d͡ʒ"}, {name: "f"}, {name: "v"},
-          {name: "s"}, {name: "z"}, {name: "ʃ"},
-          {name: "j"}, {name: "w"}, {name: "l"},
-          {name: "ʎ"}, {name: "r"}, {name: "ɾ"}
-        ]},
-        {name: "Vowels", children: [
-          {name: "i"}, {name: "u"}, {name: "e"},
-          {name: "o"}, {name: "ɛ"}, {name: "ɔ"},
-          {name: "a"}
-        ]}
-      ]}
-    ];
-
-    // create a chart and set the data
-    var chart = anychart.sunburst(data, "as-tree");
-
-    // set the calculation mode
-    chart.calculationMode("ordinal-from-leaves");
-
-    // set the chart title
-    chart.title().useHtml(true);
-    // chart.title("Sunburst: Calculation Mode (ordinal-from-leaves)<br><br>" +
-    //     "<span style='font-size:12; font-style:italic'>" +
-    //     "Phonemic System</span>");
-
-    // set the container id
-    chart.container("container");
-
-    // initiate drawing the chart
-    chart.draw();
-});
-</script>
-
- </body>
+<html>
+   <head> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> 
+   </head> 
+   <body> 
+      <canvas id="myChart" width="400" height="400"></canvas> 
+      <script>
+      // Get the context of the canvas element we want to select
+var data = [// w  w w  . j  a  v  a  2s . c  om
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    },
+    {
+        value: 40,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Grey"
+    },
+    {
+        value: 120,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Dark Grey"
+    }
+];
+var ctx = document.getElementById("myChart").getContext("2d");
+var myNewChart = new Chart(ctx).PolarArea(data);
+    
+      </script>  
+   </body>
 </html>
