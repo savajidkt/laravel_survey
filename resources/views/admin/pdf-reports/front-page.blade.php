@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
@@ -22,7 +23,7 @@
   }
 
   p {
-    font-family: 'Work Sans', sans-serif, Arial; font-size:13px; line-height:18px;
+    font-family: 'Work Sans', sans-serif, Arial; font-size:18px; line-height:23px;
   }
 
   .Bandelli-Associates-Logo {
@@ -246,13 +247,13 @@
       </tr>
       <tr>
         <td style="width: 250px;">
-        John Doe
+        {{$full_name}}
         </td>
         <td style="width: 250px;">
-        0000007
+        {{$survey_id}}
         </td>
         <td>
-        MM/DD/YYYY
+        {{$date}}
         </td>
       </tr>
     </table>
@@ -373,7 +374,7 @@
 
 <h2 class="page_head">Dimensions</h2>
 
-<p style="font-size:11px;">Through his research and practice over the last 20 years, Dr. Bandelli has identified the five essential skills of Relational Intelligence. Each of these five skills plays an important role in how a leader builds relationships with their people. Mastering these skills has been found to empower leaders to create positive, long-lasting impact on their teams and at their organizations.</p>
+<p>Through his research and practice over the last 20 years, Dr. Bandelli has identified the five essential skills of Relational Intelligence. Each of these five skills plays an important role in how a leader builds relationships with their people. Mastering these skills has been found to empower leaders to create positive, long-lasting impact on their teams and at their organizations.</p>
 
 
 
@@ -383,7 +384,7 @@
         <div class="page4_head" style="border-bottom:2px solid #FFCC01;">
           Establishing Rapport
         </div>
-        <p style="font-size:11px;">The ability to use <b>ENERGY</b> to create a positive initial connection when meeting someone for the first time. A person’s ability to effectively establish rapport with others often determines how well their relationships begin. Energy sits at the center of this skill — people who can consistently give positive energy are often more successful at easing into conversations and set great foundations for building sustainable, long-term relationships. Your energy speaks even before your words do.</p>
+        <p style="font-size:15px;">The ability to use <b>ENERGY</b> to create a positive initial connection when meeting someone for the first time. A person’s ability to effectively establish rapport with others often determines how well their relationships begin. Energy sits at the center of this skill — people who can consistently give positive energy are often more successful at easing into conversations and set great foundations for building sustainable, long-term relationships. Your energy speaks even before your words do.</p>
       </td>
       <td style="width:140px;" valign="top">
           <img style="max-width:100%; height:auto;"
@@ -398,7 +399,7 @@
         <div class="page4_head" style="border-bottom:2px solid #7FB936;">
         Understanding Others
         </div>
-        <p style="font-size:11px;">The ability to be <b>INTENTIONAL</b> about putting in the time and effort needed to get to know someone on a deep level. This skill often determines the depth of a relationship. Distinguishing factors that determine how a leader gets to know their people include emotional intelligence, strong active listening skills, curiosity and inquisitiveness, and empathy toward others. Taking time to learn about others does not happen overnight. It is an ever-evolving process that takes place over time.</p>
+        <p style="font-size:15px;">The ability to be <b>INTENTIONAL</b> about putting in the time and effort needed to get to know someone on a deep level. This skill often determines the depth of a relationship. Distinguishing factors that determine how a leader gets to know their people include emotional intelligence, strong active listening skills, curiosity and inquisitiveness, and empathy toward others. Taking time to learn about others does not happen overnight. It is an ever-evolving process that takes place over time.</p>
       </td>
       <td style="width:140px;" valign="top">
           <img style="max-width:100%; height:auto;"
@@ -413,7 +414,7 @@
         <div class="page4_head" style="border-bottom:2px solid #A75FD3;">
         Embracing Individual Differences
         </div>
-        <p style="font-size:11px;">The ability to be <b>AUTHENTIC</b> in acknowledging and accepting that everyone comes from different backgrounds and experiences. Embracing Individual Differences means being receptive to people who think, act, and behave differently than you do. It is about creating cultures of inclusivity where your employees can bring their true authentic selves to work. This leads to diversity of thought, which helps companies drive innovation, creativity, and collective problem solving.</p>
+        <p style="font-size:15px;">The ability to be <b>AUTHENTIC</b> in acknowledging and accepting that everyone comes from different backgrounds and experiences. Embracing Individual Differences means being receptive to people who think, act, and behave differently than you do. It is about creating cultures of inclusivity where your employees can bring their true authentic selves to work. This leads to diversity of thought, which helps companies drive innovation, creativity, and collective problem solving.</p>
       </td>
       <td style="width:140px;" valign="top">
           <img style="max-width:100%; height:auto;"
@@ -429,7 +430,7 @@
         <div class="page4_head" style="border-bottom:2px solid #2D63ED;">
         Developing Trust
         </div>
-        <p style="font-size:11px;">The ability to be <b>VULNERABLE</b> and risk being exposed to the actions and behaviors of others. Often, leaders observe and evaluate their teams to identify those who are “trustworthy,” while neglecting the fact that genuine trust must be given, not earned. Leaders who truly develop trust with others are willing to be vulnerable. When vulnerability is practiced consistently, it helps establish a psychologically safe environment for relationships to flourish and grow.</p>
+        <p style="font-size:15px;">The ability to be <b>VULNERABLE</b> and risk being exposed to the actions and behaviors of others. Often, leaders observe and evaluate their teams to identify those who are “trustworthy,” while neglecting the fact that genuine trust must be given, not earned. Leaders who truly develop trust with others are willing to be vulnerable. When vulnerability is practiced consistently, it helps establish a psychologically safe environment for relationships to flourish and grow.</p>
       </td>
       <td style="width:140px;" valign="top">
           <img style="max-width:100%; height:auto;"
@@ -444,7 +445,7 @@
         <div class="page4_head" style="border-bottom:2px solid #FF8E3A;">
         Cultivating Influence
         </div>
-        <p style="font-size:11px;">The ability to have a positive and meaningful <b>IMPACT</b> the lives of others. As the most powerful skill of Relational Intelligence, Cultivating Influence is about putting people and culture first before driving results. It’s about helping your employees become the best versions of themselves. Distinguishing factors that determine how a leader cultivates influence include serving others, providing consistent mentoring and coaching, and giving candid and honest feedback.</p>
+        <p style="font-size:15px;">The ability to have a positive and meaningful <b>IMPACT</b> the lives of others. As the most powerful skill of Relational Intelligence, Cultivating Influence is about putting people and culture first before driving results. It’s about helping your employees become the best versions of themselves. Distinguishing factors that determine how a leader cultivates influence include serving others, providing consistent mentoring and coaching, and giving candid and honest feedback.</p>
       </td>
       <td style="width:140px;" valign="top">
           <img style="max-width:100%; height:auto;"
@@ -501,10 +502,12 @@
 
 <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
     <tr>
-      <td> <img style="max-width:100%; height:auto;"
+      <td style="text-align:center ;"> 
+      <canvas style="max-width:100%; width:400px; height:400px;" id="myChart"></canvas>
+      <!-- <img style="max-width:100%; height:auto;"
             src="{{asset('pdf/img/P5OverviewResults.png')}}"
             alt="Bandelli-Associates-Logo 1"
-          /> </td>
+          /> </td> -->
     </tr>
 </table>
 
@@ -533,6 +536,7 @@
     <tr>
       <td style="width:140px;"> 
         <div class="flogo">
+        
           <img
             class="Bandelli-Associates-Logo"
             src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
@@ -558,4 +562,102 @@
 <!-- page 5 End -->
 
   </body>
+  <script>
+      // Get the context of the canvas element we want to select
+var data = [// w  w w  . j  a  v  a  2s . c  om
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    },
+    {
+        value: 40,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Grey"
+    },
+    {
+        value: 120,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Dark Grey"
+    }
+    
+];
+
+//var ctx = document.getElementById("myChart1").getContext("2d");
+//var myNewChart = new Chart(ctx).PolarArea(data1);
+    
+      </script>
+
+
+		<script>
+function DrawTheChart(ChartData,ChartOptions,ChartId,ChartType){
+  var ctx = document.getElementById(ChartId).getContext("2d");
+
+  
+  var myLine = new Chart(ctx).PolarArea(ChartData,ChartOptions);
+}
+		</script>
+	
+	<body>
+		<script> 
+   
+    var ChartData = [{
+      value :65,
+      color:'rgba(52,152,219,1)',
+      title:'enero'
+      },
+      {
+        value :8,
+        color:'rgba(46,204,113,1)',
+        title:'febrero'
+      },
+      {
+        value :90,
+        color:'rgba(166,107,190,1)',
+        title:'marzo'
+      },
+      {
+        value :81,
+        color:'rgba(241,196,15,1)',
+        title:'abril'
+      },
+        {
+          value :56,
+          color:'rgba(230,126,34,1)',
+          title:'mayo'
+        }];
+
+          ChartOptions= {
+            scaleLabel:"<%=value+''%>",
+            scaleShowLabels:false,
+            scaleShowLine:true,
+            scaleLineStyle:"dotted",
+            scaleLineWidth:2,
+            scaleLineColor:"rgba(255,255,255,0.6)",
+            scaleOverlay :false,
+            scaleOverride :false,
+            backgroundColor: "rgba(179,181,198,0.2)",
+           
+
+            };
+
+          DrawTheChart(ChartData,ChartOptions,"myChart","PolarArea");
+
+ </script>
+
 </html>

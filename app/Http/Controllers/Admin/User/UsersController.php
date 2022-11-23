@@ -295,8 +295,10 @@ class UsersController extends Controller
         $pdf->setOption('javascript-delay', 1000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
-        return $pdf->download('abc.pdf');
-        // return view('admin.pdf-reports.front-page',$data);
+        return $pdf->download('survey-report-'.$userSurvey->user_id.'.pdf');
+
+        
+         //return view('admin.pdf-reports.front-page',$data);
         //$pdf = PDF::loadView('admin.pdf-reports.chart', $data)->setPaper('a4');
         //return $pdf->download('itsolutionstuff.pdf');
         //  $pdf = App::make('dompdf.wrapper');
