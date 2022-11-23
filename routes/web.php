@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('get-dashboard', [DashboardController::class, 'getDashboardData'])->name('get-dashboard');
     Route::resource('/users', UsersController::class);
     Route::get('/generate-pdf/{id}', [UsersController::class, 'generatePDF'])->name('generate-pdf');
+    Route::get('/chart-image/{id}', [UsersController::class, 'generateChartImage'])->name('chart-image');
     Route::post('/user/change-status', [UsersController::class, 'changeStatus'])->name('change-user-status');
     Route::post('/user/reset-survey-time', [UsersController::class, 'resetSurveyTime'])->name('reset-survey-time');
     Route::resource('/question', SurveyQuestionController::class);

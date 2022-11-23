@@ -20,8 +20,7 @@
   <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
  </head>
  <body>
- <img src="{{route('chart-image',$data['user_id'])}}" alt="Image created by a PHP script" width="200" height="80">
- <div id="container1"></div>
+ <div id="container"></div>  
   <script type="text/javascript">
   anychart.onDocumentReady(function () {
     // create data

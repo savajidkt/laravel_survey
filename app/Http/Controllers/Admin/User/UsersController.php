@@ -273,6 +273,7 @@ class UsersController extends Controller
 
         //echo common()->formatSql($latestPosts);die;
         $data = [
+            'user_id'                             => $userSurvey->user_id,
             'survey_id'                             => $userSurvey->id,
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
@@ -288,7 +289,7 @@ class UsersController extends Controller
             'breaking_trust_per'                    => $breakingTrustPer,
             'poor_management_of_emotions_per'       => $poorPer
         ];
-        return view('admin.pdf-reports.chart');
+        return view('admin.pdf-reports.chart',['data'=>$data]);
         //$pdf = PDF::loadView('admin.pdf-reports.chart', $data)->setPaper('a4');
         //return $pdf->download('itsolutionstuff.pdf');
         //  $pdf = App::make('dompdf.wrapper');
@@ -310,5 +311,11 @@ class UsersController extends Controller
         $pdf->setOption('no-stop-slow-scripts', true);
         return $pdf->stream();
         //return $pdf->download('test.pdf');
+    }
+
+    public function generateChartImage(int $id, PDFRequest $request)
+    {
+        echo view('admin.pdf-reports.chat-image')->render();
+        header("Content-Type: image/png");
     }
 }
