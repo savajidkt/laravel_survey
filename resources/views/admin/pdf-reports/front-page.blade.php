@@ -3,9 +3,9 @@
   <head>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('http://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800;900&display=swap');
+@import url('http://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -158,6 +158,67 @@
     font-size: 15px;
     padding-bottom:10px;
     margin-bottom:20px;
+  }
+
+  .relating_box {
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+    background: #FFFFFF;
+    padding: 5px 15px;
+    font-family: 'Work Sans', sans-serif, Arial;
+  }
+  .relating_box .headbox {
+    font-size: 19px;
+    line-height: 19px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .relating_box .ratbig {
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .rat_lines {
+    margin-bottom:10px;
+    font-size: 12px;
+  }
+  .rat_lines .number {
+    color:#6F6F71;
+    font-size: 12px;
+    text-align:right;
+  }
+  .text {
+    color:#6F6F71;
+  }
+
+  .subhead_top {
+    color:#3D3F42;
+    font-size: 18px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .head_top {
+    color:#000000;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 44px;
+    margin:0; padding:0;
+  }
+
+  .topgraybox {
+    background: #FFFFFF;
+    border: 1px solid #E7E8F2;
+    border-radius: 3px;
+    padding:5px 20px 7px 20px;
+    margin:30px 0 40px 0;
+    font-family: 'Work Sans', sans-serif, Arial;
+  }
+  .report_head {
+    margin:0; padding:0; font-size:30px; color:#000000;
+  }
+
+  ul {
+    margin:0;
+    padding:0 0 0 10px;
+    font-family: 'Work Sans', sans-serif, Arial; font-size:14px; color:#3D3F42;
+  }
+  p.report_p {
+    font-size:14px; color:#3D3F42;
   }
 </style>
 
@@ -476,7 +537,7 @@
         </div> 
       </td>
       <td> &nbsp; </td>
-      <td> <div class="pagenumber">3</div> </td>
+      <td> <div class="pagenumber">4</div> </td>
 
     </tr>
 </table>
@@ -499,63 +560,649 @@
 <div class="page5">
 
 
-<table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
-    <tr>
-      <td> <img style="max-width:100%; height:auto;"
-            src="{{asset('pdf/img/P5OverviewResults.png')}}"
-            alt="Bandelli-Associates-Logo 1"
-          /> </td>
-    </tr>
-</table>
+  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td> <img style="max-width:100%; height:auto;"
+              src="{{asset('pdf/img/P5OverviewResults.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            /> </td>
+      </tr>
+  </table>
 
-<p> &nbsp; </p>
-<p> &nbsp; </p>
-
-<table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
-    <tr>
-      <td style="width: 50%;"> 
-      <div style="background:#F2F2F2; padding:20px 30px 30px 50px; margin-left: -44px;">
-<p>“The five essential skills of Relational Intelligence can be developed and improved over time. Our research has found that when leaders start to consistently practice these skills, they see dramatic improvements in the quality of their relationships with others.”</p>
-<b style="font-family: 'Work Sans', sans-serif, Arial; font-size:14px;">—Dr. Adam C. Bandelli</b>
-</div>
-    </td>
-      <td> &nbsp; </td>
-    </tr>
-</table>
-  
-</div>
-
-
-
-<div class="footerblock">
+  <p> &nbsp; </p>
+  <p> &nbsp; </p>
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
-    <tr>
-      <td style="width:140px;"> 
-        <div class="flogo">
-          <img
-            class="Bandelli-Associates-Logo"
-            src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
-            alt="Bandelli-Associates-Logo 1"
-          />
-        </div> 
-      </td>
-      <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
-            <div class="textname">
-        Bandelli Relational Intelligence Assessment
-        </div> 
-      </td>
-      <td> &nbsp; </td>
-      <td> <div class="pagenumber">3</div> </td>
+      <tr>
+        <td style="width: 50%;"> 
+          <div style="background:#F2F2F2; padding:21px 30px 31px 50px; margin-left: -44px;">
+            <p style="font-size:18px; color:#3D3F42; line-height:20px;">“The five essential skills of Relational Intelligence can be developed and improved over time. Our research has found that when leaders start to consistently practice these skills, they see dramatic improvements in the quality of their relationships with others.”</p>
+            <b style="font-family: 'Work Sans', sans-serif, Arial; font-size:16px;">—Dr. Adam C. Bandelli</b>
+          </div>
+        </td>
+        <td style="padding-left:30px;">
 
-    </tr>
-</table>
+          <div class="relating_box">
+            <div class="top_box">
+            <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>
+                  <h3 class="headbox">
+                  Relational <br>Intelligence
+                  </h3>
+                </td>
+                <td style="text-align:right;">
+                  <span style="font-size:13px;">Overall Score:</span><br>
+                  <b class="ratbig" style="font-size:30px;">41%</b>
+                </td>
+              </tr>
+            </table>
+            </div>
+
+            <div class="rat_lines">
+              
+              <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="text">Establishing Rapport</div>
+                  </td>
+                  <td>
+                    <div class="number">50%</div>
+                  </td>
+                </tr>
+              </table>
+              
+              <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+                <div style="background:#FFCC01; border-radius: 25px; width:50%; height:3px;"></div>
+              </div>
+              
+            </div>
+
+            <div class="rat_lines">
+              
+              <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="text">Understanding Others</div>
+                  </td>
+                  <td>
+                    <div class="number">30%</div>
+                  </td>
+                </tr>
+              </table>
+              
+              <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+                <div style="background:#7FB936; border-radius: 25px; width:30%; height:3px;"></div>
+              </div>
+              
+            </div>
+
+
+            <div class="rat_lines">
+              
+              <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="text">Embracing Individual Differences</div>
+                  </td>
+                  <td>
+                    <div class="number">25%</div>
+                  </td>
+                </tr>
+              </table>
+              
+              <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+                <div style="background:#A75FD3; border-radius: 25px; width:25%; height:3px;"></div>
+              </div>
+              
+            </div>
+
+            <div class="rat_lines">
+              
+              <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="text">Developing Trust</div>
+                  </td>
+                  <td>
+                    <div class="number">58%</div>
+                  </td>
+                </tr>
+              </table>
+              
+              <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+                <div style="background:#2D63ED; border-radius: 25px; width:58%; height:3px;"></div>
+              </div>
+              
+            </div>
+
+            <div class="rat_lines">
+              
+              <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div class="text">Cultivating Influence</div>
+                  </td>
+                  <td>
+                    <div class="number">42%</div>
+                  </td>
+                </tr>
+              </table>
+              
+              <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+                <div style="background:#FF8E3A; border-radius: 25px; width:42%; height:3px;"></div>
+              </div>
+              
+            </div>
+
+          </div>
+
+        </td>
+      </tr>
+  </table>
+    
+  </div>
+
+
+
+  <div class="footerblock">
+
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:140px;"> 
+          <div class="flogo">
+            <img
+              class="Bandelli-Associates-Logo"
+              src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            />
+          </div> 
+        </td>
+        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+              <div class="textname">
+          Bandelli Relational Intelligence Assessment
+          </div> 
+        </td>
+        <td> &nbsp; </td>
+        <td> <div class="pagenumber">5</div> </td>
+
+      </tr>
+  </table>
 
 </div>
 
 <div style="page-break-after: always;"></div>
 
 <!-- page 5 End -->
+
+
+
+
+
+
+
+
+<!-- page 6 Start -->
+
+
+<div class="page6">
+
+  <div class="subhead_top">Individual Scores & Implications</div>
+  <h2 class="head_top">Establishing Rapport</h2>
+
+
+  <div class="topgraybox">
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="width:50px;"> <img style="max-width:100%; height:auto;"
+                src="{{asset('pdf/img/handIcon.png')}}"
+                alt="Bandelli-Associates-Logo 1"
+              /> </td>
+
+          <td style="padding-left:14px;">
+            <div style="color:#FFCC01; font-size:40px;"><b>80%</b></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+              <div style="background:#FFCC01; border-radius: 25px; width:80%; height:3px;"></div>
+            </div>
+
+            <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width: 50%; font-size:11px; color:#3D3F42">Low</td>
+                  <td style="width: 30%; font-size:11px; color:#3D3F42">Average</td>
+                  <td style="text-align:right; font-size:11px; color:#3D3F42">High</td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+  <h3 class="report_head">Relational implications</h3>
+  <p class="report_p">Leaders with similar scores tend to:</p>
+
+  <ul>
+      <li>
+      Make a strong first impression when they first meet colleagues </li>
+      <li>Understand that it matters how they say things, not just what they say </li>
+      <li>Find common ground quickly with new coworkers</li>
+      <li>Maintain good eye contact throughout conversations to build credibility and convey interest</li>
+      <li>Use nonverbal cues and body language to show interest in what coworkers are communicating</li>
+      <li>Use humor appropriately to engage others in a conversation
+      </li>
+  </ul>
+
+  <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Leadership implications</h3>
+  <p class="report_p">Compared to other leaders, your scores suggest that you understand how to build rapport with both internal and external stakeholders of your organization. The motto “you never get a second chance to make a good first impression,” resonates with you. You have an innate ability to pick the appropriate energy needed for a given audience and tailor your interpersonal style to the people with whom you are interacting. When communicating with new employees, you make them feel valued and appreciated. You ask questions to draw others into a conversation and connect on shared experiences or interests. From the first day someone joins your team, you look to create opportunities for enjoyable interactions and personal connections.</p>
+
+  <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Work-Life Implications</h3>
+  <p class="report_p">People with similar scores tend to:</p>
+  <ul>
+  <li>Excel in social interactions and project positive energy to others</li>
+  <li>Be enthusiastic about connecting with new people</li>
+  <li>Easily identify similarities and differences with others</li>
+  <li>Strike a healthy balance between listening and talking when meeting others</li>
+  <li>Be playful, fun, and engaging in social settings</li>
+  </ul>
+
+</div>
+
+
+
+  <div class="footerblock">
+  <div style="position:relative; width:100%;">  
+    <div style="width:190px; position:absolute; top:-120px; right:-15px;"> 
+      <img style="max-width:100%; height:auto;"
+        src="{{asset('pdf/img/yellow_graphics.png')}}"
+        alt="Bandelli-Associates-Logo 1"
+      /> 
+    </div>
+  </div>
+
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:140px;"> 
+          <div class="flogo">
+            <img
+              class="Bandelli-Associates-Logo"
+              src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            />
+          </div> 
+        </td>
+        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+              <div class="textname">
+          Bandelli Relational Intelligence Assessment
+          </div> 
+        </td>
+        <td> &nbsp; </td>
+        <td> <div class="pagenumber">6</div> </td>
+
+      </tr>
+  </table>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
+<!-- page 6 End -->
+
+
+
+
+
+
+<!-- page 7 Start -->
+
+
+<div class="page7">
+
+  <div class="subhead_top">Individual Scores & Implications</div>
+  <h2 class="head_top">Understanding Others</h2>
+
+
+  <div class="topgraybox">
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="width:50px;"> <img style="max-width:100%; height:auto;"
+                src="{{asset('pdf/img/ChatIcon.png')}}"
+                alt="Bandelli-Associates-Logo 1"
+              /> </td>
+
+          <td style="padding-left:14px;">
+            <div style="color:#7FB936; font-size:40px;"><b>75%</b></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+              <div style="background:#7FB936; border-radius: 25px; width:75%; height:3px;"></div>
+            </div>
+
+            <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width: 50%; font-size:11px; color:#3D3F42">Low</td>
+                  <td style="width: 30%; font-size:11px; color:#3D3F42">Average</td>
+                  <td style="text-align:right; font-size:11px; color:#3D3F42">High</td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+  <h3 class="report_head">Relational implications</h3>
+  <p class="report_p">Leaders with similar scores tend to:</p>
+
+ 
+  <ul>
+    <li>Have strong self-awareness and understand how their emotions impact coworkers</li>
+    <li>Be easy to get along with and socially appropriate in different team settings</li>
+    <li>Understand the emotions of colleagues and empathize with their experiences</li>
+    <li>Be active listeners when communicating with people</li>
+    <li>Show compassion toward the experiences, beliefs, and attitudes of colleagues</li>
+    <li>Be curious and inquisitive when asking questions to get to know others</li>
+  </ul>
+
+  <div style="background:#7FB936; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Leadership implications</h3>
+  <p class="report_p">Compared to other leaders, your scores suggest that you understand your own emotions, the emotions of others, and how to manage emotions effectively. You actively listen to your team members when they are speaking, which creates the psychological safety needed for your people to believe that their thoughts, opinions, and perspectives matter. You have a genuine desire to learn about the backgrounds, history, and lived experiences of your employees. This shows up in how you communicate with others and the frequency in which you do so. You are thoughtful and considerate towards people and your colleagues appreciate the positive impact of your actions on your organization’s culture.</p>
+
+  <div style="background:#7FB936; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Work-Life Implications</h3>
+  <p class="report_p">People with similar scores tend to:</p>
+  <ul>
+  <li>Know how to use their emotions to strengthen connections with loved ones</li>
+  <li>Understand the importance of taking time to get to know new acquaintances</li>
+  <li>Prioritize listening to friends when they have problems</li>
+  <li>Have a good sense of how to put themselves in others’ shoes</li>
+  <li>Create a comfortable and welcoming environment for friends to feel understood</li>
+  </ul>
+
+</div>
+
+
+
+  <div class="footerblock">
+  <div style="position:relative; width:100%;">  
+    <div style="width:180px; position:absolute; top:-170px; right:-15px;"> 
+      <img style="max-width:100%; height:auto;"
+        src="{{asset('pdf/img/green_graphics.png')}}"
+        alt="Bandelli-Associates-Logo 1"
+      /> 
+    </div>
+  </div>
+
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:140px;"> 
+          <div class="flogo">
+            <img
+              class="Bandelli-Associates-Logo"
+              src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            />
+          </div> 
+        </td>
+        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+              <div class="textname">
+          Bandelli Relational Intelligence Assessment
+          </div> 
+        </td>
+        <td> &nbsp; </td>
+        <td> <div class="pagenumber">7</div> </td>
+
+      </tr>
+  </table>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
+<!-- page 7 End -->
+
+
+
+
+
+<!-- page 8 Start -->
+
+
+<div class="page8">
+
+  <div class="subhead_top">Individual Scores & Implications</div>
+  <h2 class="head_top">Embracing Individual Differences</h2>
+
+
+  <div class="topgraybox">
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="width:50px;"> <img style="max-width:100%; height:auto;"
+                src="{{asset('pdf/img/DiffIcon.png')}}"
+                alt="Bandelli-Associates-Logo 1"
+              /> </td>
+
+          <td style="padding-left:14px;">
+            <div style="color:#6700AD; font-size:40px;"><b>95%</b></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+              <div style="background:#6700AD; border-radius: 25px; width:95%; height:3px;"></div>
+            </div>
+
+            <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width: 50%; font-size:11px; color:#3D3F42">Low</td>
+                  <td style="width: 30%; font-size:11px; color:#3D3F42">Average</td>
+                  <td style="text-align:right; font-size:11px; color:#3D3F42">High</td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+  <h3 class="report_head">Relational implications</h3>
+  <p class="report_p">Leaders with similar scores tend to:</p>
+
+ 
+  <ul>
+    <li>Have a genuine and authentic communication style when interacting with coworkers</li>
+    <li>React favorably to employees who think, act, and behave differently than they do</li>
+    <li>Build talented diverse teams with people from various backgrounds and experiences</li>
+    <li>Create inclusive cultures where all employees can bring their true selves to work</li>
+    <li>Want people to have a positive employee experience while ensuring everyone feels respected and valued</li>
+    <li>Believe that a team made up of different types of people leads to diversity of thought</li>
+  </ul>
+
+
+  <div style="background:#6700AD; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Leadership implications</h3>
+  <p class="report_p">Compared to other leaders, your scores suggest that you consistently model authenticity for your people and teams. This creates the conditions through which your employees feel comfortable being themselves at work. You regularly maintain a positive attitude, remain patient when challenges surface, and handle adversity with optimism and hope. You are thoughtful and considerate towards people, and your colleagues appreciate the positive impact your actions have on your organization’s culture. You actively encourage people to bring creative and innovative ideas to problems facing the business. This inspires others to think outside the box and work together to find collaborative solutions. </p>
+
+  <div style="background:#6700AD; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Work-Life Implications</h3>
+  <p class="report_p">People with similar scores tend to:</p>
+  <ul>
+  <li>Find themselves surrounded by a diverse group of friends often</li>
+  <li>Enjoy learning about the cultures and customs of different types of people</li>
+  <li>Be comfortable being themselves around their family and circle of friends</li>
+  <li>Take initiative to try new hobbies and activities with others</li>
+  <li>Challenge their friends and loved ones to be consistent life-long learners</li>
+  </ul>
+
+</div>
+
+
+
+  <div class="footerblock">
+  <div style="position:relative; width:100%;">  
+    <div style="width:130px; position:absolute; top:-144px; right:-15px;"> 
+      <img style="max-width:100%; height:auto;"
+        src="{{asset('pdf/img/purple_graphics.png')}}"
+        alt="Bandelli-Associates-Logo 1"
+      /> 
+    </div>
+  </div>
+
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:140px;"> 
+          <div class="flogo">
+            <img
+              class="Bandelli-Associates-Logo"
+              src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            />
+          </div> 
+        </td>
+        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+              <div class="textname">
+          Bandelli Relational Intelligence Assessment
+          </div> 
+        </td>
+        <td> &nbsp; </td>
+        <td> <div class="pagenumber">7</div> </td>
+
+      </tr>
+  </table>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
+<!-- page 8 End -->
+
+
+
+<!-- page 9 Start -->
+
+
+<div class="page9">
+
+  <div class="subhead_top">Individual Scores & Implications</div>
+  <h2 class="head_top">Developing Trust</h2>
+
+
+  <div class="topgraybox">
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="width:50px;"> <img style="max-width:100%; height:auto;"
+                src="{{asset('pdf/img/DevelIcon.png')}}"
+                alt="DevelIcon"
+              /> </td>
+
+          <td style="padding-left:14px;">
+            <div style="color:#2D63ED; font-size:40px;"><b>70%</b></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
+              <div style="background:#2D63ED; border-radius: 25px; width:70%; height:3px;"></div>
+            </div>
+
+            <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width: 50%; font-size:11px; color:#3D3F42">Low</td>
+                  <td style="width: 30%; font-size:11px; color:#3D3F42">Average</td>
+                  <td style="text-align:right; font-size:11px; color:#3D3F42">High</td>
+                </tr>
+            </table>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+  <h3 class="report_head">Relational implications</h3>
+  <p class="report_p">Leaders with similar scores tend to:</p>
+
+ 
+  <ul>
+    <li>Have a deep understanding of how their values, strengths, and blind spots impact the ways they work with colleagues</li>
+    <li>Be comfortable sharing the lessons they have learned along their career journey openly and with vulnerability</li>
+    <li>Honor their commitments to coworkers at all levels of the organization</li>
+    <li>Have strong morals and operate with a high level of integrity</li>
+    <li>Be consistently intentional about investing in their relationships with others</li>
+    <li>Believe that building trust with their employees leads to higher levels of communication, collaboration, and teamwork</li>
+  </ul>
+
+  
+
+
+ 
+
+
+
+
+  <div style="background:#2D63ED; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Leadership implications</h3>
+  <p class="report_p">Compared to other leaders, your scores suggest that you are honest with yourself about your strengths and development areas and regularly take action to make improvements. Your employees believe that you have their best interests at heart, and this cultivates their loyalty and commitment to the team. You are consistent in your words and actions on a daily basis regardless of what’s going on around you. This inspires others to work hard and strive to exceed performance expectations. The quality and depth of your relationships at work is a testament to your intentional generosity toward others.</p>
+
+  <div style="background:#2D63ED; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+
+
+  <h3 class="report_head">Work-Life Implications</h3>
+  <p class="report_p">People with similar scores tend to:</p>
+  <ul>
+  <li>Have the courage to be vulnerable and share their struggles with friends or family</li>
+  <li>Be consistent in how they show up for people in their social circles</li>
+  <li>Have friends who often confide in them during difficult times</li>
+  <li>TakdfjeBe comfortable having difficult conversations with friends when needed rs</li>
+  <li>Take ownership and accountability when they let someone close to them down</li>
+  </ul>
+
+</div>
+
+
+
+
+
+
+
+
+  <div class="footerblock">
+  <div style="position:relative; width:100%;">  
+    <div style="width:174px; position:absolute; top:-149px; right:-22px;"> 
+      <img style="max-width:100%; height:auto;"
+        src="{{asset('pdf/img/Blue_graphics.png')}}"
+        alt="Bandelli-Associates-Logo 1"
+      /> 
+    </div>
+  </div>
+
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:140px;"> 
+          <div class="flogo">
+            <img
+              class="Bandelli-Associates-Logo"
+              src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+              alt="Bandelli-Associates-Logo 1"
+            />
+          </div> 
+        </td>
+        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+              <div class="textname">
+          Bandelli Relational Intelligence Assessment
+          </div> 
+        </td>
+        <td> &nbsp; </td>
+        <td> <div class="pagenumber">7</div> </td>
+
+      </tr>
+  </table>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
+<!-- page 8 End -->
 
   </body>
 </html>
