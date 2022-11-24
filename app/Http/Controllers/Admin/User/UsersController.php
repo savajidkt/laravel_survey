@@ -258,7 +258,6 @@ class UsersController extends Controller
         $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
         $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
         $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
-
         // percentage calculation
         $esPer              =  $esTotal == $esMax ? 100 : $esTotal * 100 / $esMax;
         $undPer             =  $undTotal == $undMax ? 100 : $undTotal * 100 / $undMax;
@@ -270,27 +269,30 @@ class UsersController extends Controller
         $selfServingPer     =  $selfServingTotal == $selfServingMax ? 100 : $selfServingTotal * 100 / $selfServingMax;
         $breakingTrustPer   =  $breakingTrustTotal == $breakingTrustMax ? 100 : $breakingTrustTotal * 100 / $breakingTrustMax;
         $poorPer            =  $poorTotal == $poorMax ? 100 : $poorTotal * 100 / $poorMax;
-
+        
         //echo common()->formatSql($latestPosts);die;
         $data = [
             'user_id'                             => $userSurvey->user_id,
             'survey_id'                             => $userSurvey->id,
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
-            'ri_points'                             => $ri_points,
-            'establishing_report_per'               => $esPer,
-            'understanding_others_per'              => $undPer,
-            'embracing_individual_differences_per'  => $embracingPer,
-            'developing_trust_per'                  => $developingPer,
-            'cultivating_influence_per'             => $cultiInfluPer,
-            'lacking_self_awareness_per'            => $lackingSelfPer,
-            'lacking_social_awareness_per'          => $lackingSocialPer,
-            'self_serving_per'                      => $selfServingPer,
-            'breaking_trust_per'                    => $breakingTrustPer,
-            'poor_management_of_emotions_per'       => $poorPer
+            'ri_points'                             => number_format($ri_points,2),
+            'establishing_report_per'               => number_format($esPer,2),
+            'understanding_others_per'              => number_format($undPer,2),
+            'embracing_individual_differences_per'  => number_format($embracingPer,2),
+            'developing_trust_per'                  => number_format($developingPer,2),
+            'cultivating_influence_per'             => number_format($cultiInfluPer>100 ? 100 : $cultiInfluPer,2),
+            'lacking_self_awareness_per'            => number_format($lackingSelfPer,2),
+            'lacking_social_awareness_per'          => number_format($lackingSocialPer,2),
+            'self_serving_per'                      => number_format($selfServingPer,2),
+            'breaking_trust_per'                    => number_format($breakingTrustPer,2),
+            'poor_management_of_emotions_per'       => number_format($poorPer,2)
         ];
+       
         $html = view('admin.pdf-reports.front-page',$data)->render();
+        //echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
+        $pdf->setOption('encoding','UTF-8');
         $pdf->setOption('enable-javascript', true);
         $pdf->setOption('javascript-delay', 1000);
         $pdf->setOption('enable-smart-shrinking', true);
