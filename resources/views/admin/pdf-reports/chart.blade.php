@@ -1,46 +1,51 @@
 <html>
-   <head> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script> 
-   </head> 
-   <body> 
-      <canvas id="myChart" width="400" height="400"></canvas> 
-      <script>
-      // Get the context of the canvas element we want to select
-var data = [// w  w w  . j  a  v  a  2s . c  om
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    },
-    {
-        value: 40,
-        color: "#949FB1",
-        highlight: "#A8B3C5",
-        label: "Grey"
-    },
-    {
-        value: 120,
-        color: "#4D5360",
-        highlight: "#616774",
-        label: "Dark Grey"
-    }
-];
-var ctx = document.getElementById("myChart").getContext("2d");
-var myNewChart = new Chart(ctx).PolarArea(data);
+
+<head>
+  <meta charset="utf-8" />
+  <title>Chart.js demo</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+<body>
+
+  <h1>Chart.js Sample</h1>
+
+  <canvas id="myChart" width="600" height="400"></canvas>
+  <script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var chart = new Chart(ctx, {
+      // The type of chart we want to create
+      type: "polarArea",
     
-      </script>  
-   </body>
+      // The data for our dataset
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "My First dataset",
+            backgroundColor: "rgb(255, 99, 132)",
+            borderColor: "rgb(255, 99, 132)",
+            data: [0, 10, 5, 2, 20, 30, 45]
+          }
+        ]
+      },
+    
+      // Configuration options go here
+      options: {
+        responsive:false,
+        maintainAspectRatio: false,
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(255, 99, 132)',
+                // generateLabels: function(chart)
+                // {
+                //     console.log(chart);
+                //     return `<p>Milan Soni</p>`;
+                // }
+            }
+        }
+      }
+    });
+  </script>
+</body>
 </html>
