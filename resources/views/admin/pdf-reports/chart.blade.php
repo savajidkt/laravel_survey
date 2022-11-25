@@ -52,190 +52,74 @@
 <script src="{{asset('modules/exporting.js')}}"></script>
 <script src="{{asset('modules/export-data.js')}}"></script>
 <script src="{{asset('modules/accessibility.js')}}"></script>
-
 <figure class="highcharts-figure">
     <div id="container"></div>
 </figure>
 <script>
-    var colors = Highcharts.getOptions().colors,
-    categories = [
-        'Establishing Rapport',
-        'Understanding Others',
-        'Embracing Individual Differences',
-        'Developing Trust',
-        'Cultivating Influence'
-    ],
-    data = [
-        {
-            y: 61.04,
-            color: colors[2],
-            drilldown: {
-                name: 'Establishing Rapport',
-                categories: [
-                    'Establishing Rapport v97.0',
-                    'Establishing Rapport v96.0',
-                    'Establishing Rapport v95.0'
-                ],
-                data: [
-                    36.89,
-                    18.16,
-                    0.54
-                ]
-            }
-        },
-        {
-            y: 9.47,
-            color: colors[3],
-            drilldown: {
-                name: 'Understanding Others',
-                categories: [
-                    'Understanding Others v15.3',
-                    'Understanding Others v15.2'
-                ],
-                data: [
-                    0.1,
-                    2.01
-                ]
-            }
-        },
-        {
-            y: 9.32,
-            color: colors[5],
-            drilldown: {
-                name: 'Embracing Individual Differences',
-                categories: [
-                    'Embracing Individual Differences v97',
-                    'Embracing Individual Differences v96',
-                    'Embracing Individual Differences v95'
-                ],
-                data: [
-                    6.62,
-                    2.55,
-                    0.15
-                ]
-            }
-        },
-        {
-            y: 8.15,
-            color: colors[1],
-            drilldown: {
-                name: 'Developing Trust',
-                categories: [
-                    'Developing Trust'
-                ],
-                data: [
-                    4.17
-                ]
-            }
-        },
-        {
-            y: 11.02,
-            color: colors[6],
-            drilldown: {
-                name: 'Cultivating Influence',
-                categories: [
-                    'Cultivating Influence'
-                ],
-                data: [
-                    11.02
-                ]
-            }
-        }
-    ],
-    browserData = [],
-    versionsData = [],
-    i,
-    j,
-    dataLen = data.length,
-    drillDataLen,
-    brightness;
+var pieColors = (function () {
+    var colors = [],
+        base = Highcharts.getOptions().colors[0],
+        i;
 
-
-// Build the data arrays
-for (i = 0; i < dataLen; i += 1) {
-
-    // add browser data
-    browserData.push({
-        name: categories[i],
-        y: data[i].y,
-        color: data[i].color
-    });
-
-    // add version data
-    drillDataLen = data[i].drilldown.data.length;
-    for (j = 0; j < drillDataLen; j += 1) {
-        brightness = 0.2 - (j / drillDataLen) / 5;
-        versionsData.push({
-            name: data[i].drilldown.categories[j],
-            y: data[i].drilldown.data[j],
-            color: Highcharts.color(data[i].color).brighten(brightness).get()
-        });
+    for (i = 0; i < 10; i += 1) {
+        // Start out with a darkened base color (negative brighten), and end
+        // up with a much brighter color
+        colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
     }
-}
+    return colors;
+}());
 
-// Create the chart
+// Build the chart
 Highcharts.chart('container', {
     chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
         type: 'pie'
     },
     title: {
-        text: 'Browser market share, January, 2022'
+        text: 'Browser market shares in February, 2022'
     },
-    subtitle: {
-        text: 'Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
     },
     plotOptions: {
         pie: {
-            shadow: false,
-            center: ['50%', '50%']
+            allowPointSelect: true,
+            cursor: 'pointer',
+            colors: pieColors,
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                distance: -50,
+                filter: {
+                    property: 'percentage',
+                    operator: '>',
+                    value: 4
+                }
+            }
         }
-    },
-    tooltip: {
-        valueSuffix: '%'
     },
     series: [{
-        name: 'Browsers',
-        data: browserData,
-        size: '60%',
-        dataLabels: {
-            formatter: function () {
-                return this.y > 5 ? this.point.name : null;
-            },
-            color: '#ffffff',
-            distance: -30
-        }
-    }, {
-        name: 'Versions',
-        data: versionsData,
-        size: '80%',
-        innerSize: '60%',
-        dataLabels: {
-            formatter: function () {
-                // display only if larger than 1
-                return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
-                    this.y + '%' : null;
-            }
-        },
-        id: 'versions'
-    }],
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 400
-            },
-            chartOptions: {
-                series: [{
-                }, {
-                    id: 'versions',
-                    dataLabels: {
-                        enabled: false
-                    }
-                }]
-            }
-        }]
-    }
+        name: 'Share',
+        data: [
+            { name: 'Chrome', y: 74.03 },
+            { name: 'Edge', y: 12.66 },
+            { name: 'Firefox', y: 4.96 },
+            { name: 'Safari', y: 2.49 },
+            { name: 'Internet Explorer', y: 2.31 },
+            { name: 'Other', y: 3.398 }
+        ]
+    }]
 });
 
+document.querySelector('.highcharts-credits').style.display = 'none';
+document.querySelector('.highcharts-exporting-group').style.display = 'none';
 </script>
 	</body>
 </html>

@@ -289,8 +289,8 @@ class UsersController extends Controller
             'poor_management_of_emotions_per'       => number_format($poorPer,2)
         ];
        
-        $html = view('admin.pdf-reports.front-page',$data)->render();
-        //echo $html; die;
+        $html = view('admin.pdf-reports.chart',$data)->render();
+        // echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
         $pdf->setOption('encoding','UTF-8');
         $pdf->setOption('enable-javascript', true);
