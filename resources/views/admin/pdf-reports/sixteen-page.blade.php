@@ -1,27 +1,34 @@
 <div class="pagestart page11">
 
-  <h2 class="page_head">Derailers Overview</h2>
+  <h2 class="page_head">Contact Information</h2>
 
 
 
-  <p>Building relationships is a process that evolves over time. When leaders begin to develop relationships with employees, they must be mindful of relational derailers that can prevent them from creating deep connections with others. Understanding and avoiding these blind spots enables you to be successful when partnering with your coworkers. </p>
+  <p>Thank you for taking the time to review your results from the <b>Bandelli Relational Intelligence Assessment®</b>. We hope this experience was informative and insightful as you think about your development as a leader. If you would like to discuss next steps to further your career journey, please see our contact information below. For more information on Relational Intelligence or other consulting services offerings from Bandelli & Associates, visit our <br> website at: <span style="color:#DB0707; text-transform:none;">bandelliandassociates.com.</span></p>
 
-  <p>On the next page, you will find your scores for each of the derailers listed below. Scores between the 80th and 100th percentile are in the High Risk Zone, scores between the 50th and 79th percentiles are in the Moderate Risk Zone, and scores between the 0 to 49th percentile are in the No Risk Zone. </p>
+  <p> &nbsp; </p>
 
-  <p><b style="color:#DB0707">Lacking Self-Awareness</b>
-  The inability to understand how one’s actions or behaviors can have a negative impact on others. If an individual does not know how they are wired as a leader, they will not be able to connect with others and form solid, lasting relationships.</p>
 
-  <p><b style="color:#DB0707">Lacking Social Awareness</b>
-  The inability to understand how to read social cues and subtle nuances when communicating with others. If an individual cannot read a room or process social cues in the moment, they will not be able to effectively work with colleagues.</p>
+  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <h3 style="color:#DB0707; font-size: 36px;">Adam C. Bandelli, Ph.D.</h3>
+      <b>Founder & Managing Director</b><br>
+      Bandelli & Associates<br>
+      Mobile: (732) 547-0391<br>
+      Email: <span style="color:#DB0707; text-transform:none;">abandelli@bandelliandassociates.com</span><br>
+    </td>
+    <td style="width:50px;"> &nbsp; </td>
+    <td>
+    <h3 style="color:#DB0707; font-size: 36px;">Yichen (Tony) Cao</h3>
+      <b>Head of Assessment & Test Development</b><br>
+      Bandelli & Associates<br>
+      Mobile:  (201) 600-9704<br>
+      Email: <span style="color:#DB0707; text-transform:none;">tcao@bandelliandassociates.com</span><br>
+    </td>
+  </tr>
 
-  <p><b style="color:#DB0707">Self-Serving</b>
-  The inability to show interest in the objectives of others when they do not align with one’s personal agenda. If an individual is manipulative and does not consider other peoples’ needs, interests, or perspectives, they might achieve short-term priorities, but will not be successful in the long run.</p>
-
-  <p><b style="color:#DB0707">Breaking Trust</b>
-  The inability to be open, honest, and transparent with others. If an individual violates their coworkers’ trust — whether it’s not honoring commitments, being deceitful and lying, or betraying someone’s trust — relationships end quickly. </p>
-
-  <p><b style="color:#DB0707">Poor Management of Emotions</b>
-  The inability to manage emotions when interacting with others. If an individual has difficulty managing their frustration, anger, or resentment, their actions can intimidate others and prevent people from wanting to work with them. </p>
+  </table>
 
 
   <div class="footerblock">
@@ -43,7 +50,7 @@
           </div> 
         </td>
         <td> &nbsp; </td>
-        <td> <div class="pagenumber">11</div> </td>
+        <td> <div class="pagenumber">16</div> </td>
 
       </tr>
   </table>

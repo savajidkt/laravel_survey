@@ -64,7 +64,7 @@
 
   <div class="footerblock">
     <div style="position:relative; width:100%;">  
-      <div style="width:174px; position:absolute; top:-149px; right:-22px;"> 
+      <div style="width:174px; position:absolute; top:-140px; right:-22px;"> 
         <img style="max-width:100%; height:auto;"
           src="{{asset('pdf/img/Blue_graphics.png')}}"
           alt="Bandelli-Associates-Logo 1"

@@ -170,7 +170,7 @@
 
   .pagestart {
     position:relative;
-    min-height:1300px;
+    min-height:1296px;
   }
   .footerblock {
     background: #EAEBED;
@@ -272,12 +272,12 @@
   .left_right_table {
     border-bottom: 1px solid #E6E6E6;
     padding-bottom:15px;
-    margin-bottom:15px;
+    margin-bottom:13px;
   }
   .left_right_table td, .left_right_table th {
     padding-bottom:4px; vertical-align:top;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 19px;
   }
   .left_right_table th { width:300px; padding-right:10px; text-align:right; }
   

@@ -13,9 +13,9 @@
               /> </td>
 
           <td style="padding-left:14px;">
-            <div style="color:#7FB936; font-size:40px;"><b>75%</b></div>
+            <div style="color:#7FB936; font-size:40px;"><b>{{$understanding_others_per}}%</b></div>
             <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
-              <div style="background:#7FB936; border-radius: 25px; width:75%; height:3px;"></div>
+              <div style="background:#7FB936; border-radius: 25px; width:{{$understanding_others_per}}%; height:3px;"></div>
             </div>
 
             <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -32,9 +32,61 @@
 
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
-
- 
+  @if($understanding_others_per < 49) 
   <ul>
+  <li>Be independent and prefer to work alone rather than collaborate with colleagues</li>
+  <li>Lack the self-awareness to understand how their emotions impact coworkers</li>
+  <li>Be more concerned about making sure tasks are completed than getting to know employees</li>
+  <li>Be direct and assertive in getting their ideas heard by colleagues</li>
+  <li>Prefer providing direction to employees rather than soliciting their input</li>
+  <li>Lack the ability to put themselves in other peoples’ shoes</li>
+
+    </ul>
+
+    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <h3 class="report_head">Leadership implications</h3>
+    <p class="report_p"> Compared to other leaders, your scores suggest that you prefer to build teams where performance takes precedence over the connections that people have with one another. You don’t mind taking unpopular positions, enforcing standards, or pushing people for results. It’s more important for you to ensure employees understand their roles, duties, and responsibilities than it is to learn about their backgrounds and personal experiences. Because you are not afraid to hold people accountable, others may feel that you lack empathy when it comes to situational circumstances that could interfere with their work. </p>
+    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <h3 class="report_head">Work-Life Implications</h3>
+    <p class="report_p">People with similar scores tend to:</p>
+    <ul>
+    <li>Take and maintain unpopular positions without understanding the emotions of others</li>
+    <li>Have the tendency to be difficult for friends to communicate with when conflicts arise</li>
+    <li>Assume that people in their social circles share similar values and beliefs</li>
+    <li>Prefer being direct and confrontational when friends let them down</li>
+    <li>Have little empathy for friends who make mistakes and don’t learn from them</li>
+
+    </ul>
+    @endif
+
+    @if($understanding_others_per > 49 && $understanding_others_per < 74) 
+  <ul>
+  <li>Have strong self-awareness and understand how their emotions impact coworkers</li>
+  <li>Be easy to get along with and socially appropriate in different team settings</li>
+  <li>Understand the emotions of colleagues and empathize with their experiences</li>
+  <li>Be active listeners when communicating with people</li>
+  <li>Show compassion toward the experiences, beliefs, and attitudes of colleagues</li>
+  <li>Be curious and inquisitive when asking questions to get to know others</li>
+</ul>
+
+    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <h3 class="report_head">Leadership implications</h3>
+    <p class="report_p">Compared to other leaders, your scores suggest that you strike a nice balance between driving performance expectations and getting to know your people. This allows you to maximize the productivity of your team. You pay attention to your team’s work environment and let employees know that you strive to create a climate of engagement and collaboration. You demonstrate this skill when you take time to learn about the talents and capabilities of team members and then find projects or initiatives for them to work on where they will succeed. You’re less concerned with learning about your peoples’ personal lives and prefer to keep boundaries between work and non-work-related activities.</p>
+    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <h3 class="report_head">Work-Life Implications</h3>
+    <p class="report_p">People with similar scores tend to:</p>
+    <ul>
+    <li>Sometimes have difficulty knowing how their emotions may impact loved ones</li>
+    <li>Have no problem playing devil's advocate when friends are discussing problems</li>
+    <li>Understand people can think differently and still enjoy the time they spend together</li>
+    <li>Look for ways to resolve conflicts with friends before things get out of hand</li>
+    <li>Be known for giving honest candid feedback when friends let them down</li>
+
+    </ul>
+    @endif
+
+    @if($understanding_others_per > 74 && $understanding_others_per <=100)
+    <ul>
     <li>Have strong self-awareness and understand how their emotions impact coworkers</li>
     <li>Be easy to get along with and socially appropriate in different team settings</li>
     <li>Understand the emotions of colleagues and empathize with their experiences</li>
@@ -61,11 +113,8 @@
   <li>Have a good sense of how to put themselves in others’ shoes</li>
   <li>Create a comfortable and welcoming environment for friends to feel understood</li>
   </ul>
-
-
-
-
-
+    @endif
+ 
   <div class="footerblock">
     <div style="position:relative; width:100%;">  
       <div style="width:180px; position:absolute; top:-170px; right:-15px;"> 

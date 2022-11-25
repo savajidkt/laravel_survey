@@ -1,7 +1,7 @@
-<script src="{{asset('highcharts.js')}}"></script>
+<!-- <script src="{{asset('highcharts.js')}}"></script>
 <script src="{{asset('modules/exporting.js')}}"></script>
 <script src="{{asset('modules/export-data.js')}}"></script>
-<script src="{{asset('modules/accessibility.js')}}"></script>
+<script src="{{asset('modules/accessibility.js')}}"></script> -->
 <div class="pagestart page5">
   <h2 class="page_head">Overview of Your Results</h2>
 
