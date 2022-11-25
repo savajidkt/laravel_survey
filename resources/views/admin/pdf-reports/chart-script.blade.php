@@ -3,33 +3,33 @@
 var data = [// w  w w  . j  a  v  a  2s . c  om
     {
         value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
+        color:"#FFCC01",
+        highlight: "#FFCC01",
+        label: "Establishing Rapport"
     },
     {
         value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
+        color: "#7FB936",
+        highlight: "#7FB936",
+        label: "Understanding Others"
     },
     {
         value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
+        color: "#A75FD3",
+        highlight: "#A75FD3",
+        label: "Embracing Individual Differences"
     },
     {
         value: 40,
-        color: "#949FB1",
-        highlight: "#A8B3C5",
-        label: "Grey"
+        color: "#2D63ED",
+        highlight: "#2D63ED",
+        label: "Developing Trust"
     },
     {
         value: 120,
-        color: "#4D5360",
-        highlight: "#616774",
-        label: "Dark Grey"
+        color: "#FF8E3A",
+        highlight: "#FF8E3A",
+        label: "Cultivating Influence"
     }
     
 ];
@@ -52,31 +52,37 @@ var data = [// w  w w  . j  a  v  a  2s . c  om
 	<body>
 		<script> 
    
-    var ChartData = [{
-      value :65,
-      color:'rgba(52,152,219,1)',
-      title:'enero'
-      },
+    var ChartData = [
       {
-        value :8,
-        color:'rgba(46,204,113,1)',
-        title:'febrero'
-      },
-      {
-        value :90,
-        color:'rgba(166,107,190,1)',
-        title:'marzo'
-      },
-      {
-        value :81,
-        color:'rgba(241,196,15,1)',
-        title:'abril'
-      },
-        {
-          value :56,
-          color:'rgba(230,126,34,1)',
-          title:'mayo'
-        }];
+        value: 300,
+        color:"#FFCC01",
+        highlight: "#FFCC01",
+        label: "Establishing Rapport"
+    },
+    {
+        value: 50,
+        color: "#7FB936",
+        highlight: "#7FB936",
+        label: "Understanding Others"
+    },
+    {
+        value: 100,
+        color: "#A75FD3",
+        highlight: "#A75FD3",
+        label: "Embracing Individual Differences"
+    },
+    {
+        value: 40,
+        color: "#2D63ED",
+        highlight: "#2D63ED",
+        label: "Developing Trust"
+    },
+    {
+        value: 120,
+        color: "#FF8E3A",
+        highlight: "#FF8E3A",
+        label: "Cultivating Influence"
+    }];
 
           ChartOptions= {
             scaleLabel:"<%=value+''%>",

@@ -1,33 +1,37 @@
 <div class="pagestart page1">
-  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
-    <tr>
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
+      <tr>
       <td> &nbsp; </td>
-      <td class="Bandelli-Associates-Logo">
-        <img class="Bandelli-Associates-Logo" src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}" alt="Bandelli-Associates-Logo 1" />
-      </td>
-    </tr>
-  </table>
+        <td class="Bandelli-Associates-Logo">
+        <img
+            class="Bandelli-Associates-Logo"
+            src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
+            alt="Bandelli-Associates-Logo 1"
+          />
+        </td>
+      </tr>
+    </table>
 
-  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
-    <tr>
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
+      <tr>
       <td>
 
-        <div class="page1-intro-red">
-          Relational Intelligence Assessment
-        </div>
+      <div class="page1-intro-red">
+      Relational Intelligence Assessment
+    </div>
 
-        <div class="page1-subhead">
-          5 Essenital Skills to Build Life-Changing Relationships
-        </div>
+    <div class="page1-subhead">
+    5 Essenital Skills to Build Life-Changing Relationships
+    </div>
 
       </td>
+        
+      </tr>
+    </table>
 
-    </tr>
-  </table>
 
-
-  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
-    <tr>
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0" >
+      <tr>
       <td class="page1_box_yellow">
       </td>
 
@@ -54,45 +58,51 @@
       <td> &nbsp;
       </td>
 
+      
+        
+      </tr>
+    </table>
 
+    <div style="height:5px; border-top: 2px solid #DB0707; margin-top:100px;"> &nbsp; </div>
 
-    </tr>
-  </table>
-
-  <div style="height:5px; border-top: 2px solid #DB0707; margin-top:100px;"> &nbsp; </div>
-
-  <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0" class="page1_table">
-    <tr>
-      <th style="width: 250px;">
+    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0" class="page1_table">
+      <tr>
+        <th style="width: 350px;">
         Report for
-      </th>
-      <th style="width: 250px;">
+        </th>
+        <th style="width: 350px;">
         ID
-      </th>
-      <th>
+        </th>
+        <th>
         Date taken
-      </th>
-    </tr>
-    <tr>
-      <td style="width: 250px;">
+        </th>
+      </tr>
+      <tr>
+        <td style="width: 350px;">
         {{$full_name}}
-      </td>
-      <td style="width: 250px;">
-      {{$survey_id}}
-      </td>
-      <td>
+        </td>
+        <td style="width: 350px;">
+        {{$survey_id}}
+        </td>
+        <td>
        {{$date}}
-      </td>
-    </tr>
-  </table>
-  <div style="height:5px; margin-top:180px;"> &nbsp; </div>
-  <div class="copyright">
-    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0"><tr>
-        <td class="page1_copyrite">
-          © 2022 Bandelli & Associates. All rights reserved.
         </td>
       </tr>
     </table>
-  </div>
+
+
+    <div style="height:5px; margin-top:180px;"> &nbsp; </div>
+
+    <div class="copyright">
+      <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
+        
+        <tr>
+          <td class="page1_copyrite">
+          © 2022 Bandelli & Associates. All rights reserved.
+          </td>
+          
+        </tr>
+      </table>
+    </div>
 </div>
 <div style="page-break-after: always;"></div>

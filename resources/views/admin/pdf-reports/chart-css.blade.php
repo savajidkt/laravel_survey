@@ -1,5 +1,4 @@
 <style>
-
 @import url('http://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
 @import url('http://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800;900&display=swap');
@@ -19,7 +18,7 @@
   }
 
   p {
-    font-family: 'Work Sans', sans-serif, Arial; font-size:16px; line-height:22px;
+    font-family: 'Work Sans', sans-serif, Arial; font-size:13px; line-height:18px;
   }
 
   .Bandelli-Associates-Logo {
@@ -31,8 +30,8 @@
   font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 94px;
-  line-height: 84px;
+  font-size: 120px;
+  line-height: 114px;
   color: #DB0707;
   margin-top:100px;
   }
@@ -41,7 +40,7 @@
   font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 20px;
   color: #000000;
   letter-spacing: 0.09em;
@@ -54,7 +53,7 @@
 
   .page1_box_yellow {
     width: 50px;
-    height: 48px;
+    height: 44px;
     background: linear-gradient(69.06deg, #FFE580 18.25%, #FFCC01 90.57%);
     border-radius: 10.9413px;
     background:#FFCC01;
@@ -65,7 +64,7 @@
 
   .page1_box_green {
     width: 50px;
-    height: 48px;
+    height: 44px;
     background: linear-gradient(90deg, #A9EB57 0%, #7FB936 100%);
     border-radius: 10.9413px;
     background:#7FB936;
@@ -76,7 +75,7 @@
 
   .page1_box_purple {
     width: 50px;
-    height: 48px;
+    height: 44px;
     background: linear-gradient(252.33deg, #6700AD 12.08%, #A75FD3 87.92%);
     border-radius: 10.9413px;
     background:#A75FD3;
@@ -87,7 +86,7 @@
 
   .page1_box_blue {
     width: 50px;
-    height: 48px;
+    height: 44px;
     background: linear-gradient(97.5deg, #B4C9FF 5.24%, #2D63ED 93.61%);
     border-radius: 10.9413px;
     background:#2D63ED;
@@ -98,7 +97,7 @@
 
   .page1_box_orange {
     width: 50px;
-    height: 48px;
+    height: 44px;
     background: linear-gradient(108.83deg, #FFB782 22.51%, #FF8E3A 97.08%);
     border-radius: 10.9413px;
     background:#FF8E3A;
@@ -124,10 +123,10 @@
 
   .page_head {
     font-family: 'Roboto Condensed', sans-serif;
-    font-size:40px;
+    font-size:60px;
     padding: 0;
     padding-bottom:10px;
-    margin:0 0 30px 0;
+    margin:0 0 40px 0;
     border-bottom:2px solid red;
   }
 
@@ -160,9 +159,9 @@
   }
   .page4_head {
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 15px;
-    padding-bottom:10px;
-    margin-bottom:20px;
+    font-size: 20px;
+    padding-bottom:7px;
+    margin-bottom:15px;
   }
 
   .relating_box {
@@ -218,16 +217,30 @@
   }
 
   ul {
-    margin:0;
-    padding:0 0 0 10px; list-style-type: disc;
+    /* margin:0;
+    padding:0 0 0 10px;  */
+    list-style-type: disc;
+    list-style-position: inside;
     font-family: 'Work Sans', sans-serif, Arial; font-size:14px; color:#3D3F42;
   }
-  ul li { list-style-type: disc; font-size:16px; line-height:22px; }
+  ul li { list-style-type: disc; font-size:18px; line-height:24px; margin-bottom:4px; }
   p.report_p {
-    font-size:14px; color:#3D3F42;
+    font-size:18px; line-height:26px; color:#3D3F42;
   }
   p {
-    margin-bottom:20px; font-size:16px; line-height:22px; color:#3D3F42;
+    margin-bottom:20px; font-size:18px; line-height:26px; color:#3D3F42;
   }
+
+  .left_right_table {
+    border-bottom: 1px solid #E6E6E6;
+    padding-bottom:15px;
+    margin-bottom:15px;
+  }
+  .left_right_table td, .left_right_table th {
+    padding-bottom:4px; vertical-align:top;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .left_right_table th { width:300px; padding-right:10px; text-align:right; }
   
 </style>

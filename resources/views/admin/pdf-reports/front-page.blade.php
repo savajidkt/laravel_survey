@@ -55,6 +55,75 @@
   @include('admin.pdf-reports.eleven-page')
   <!-- page 11 End -->
 
+  <!-- page 12 Start -->
+  @include('admin.pdf-reports.twelve-page')
+  <!-- page 12 End -->
+
+  <!-- page 13 Start -->
+  @include('admin.pdf-reports.thirteen-page')
+  <!-- page 13 End -->
+
+  <!-- page 14 Start -->
+  @include('admin.pdf-reports.fourteen-page')
+  <!-- page 14 End -->
+
+  <!-- page 15 Start -->
+  @include('admin.pdf-reports.fifteen-page')
+  <!-- page 15 End -->
+
+  <!-- page 16 Start -->
+  @include('admin.pdf-reports.sixteen-page')
+  <!-- page 16 End -->
+
+  <!-- page 17 Start -->
+  @include('admin.pdf-reports.seventeen-page')
+  <!-- page 17 End -->
+
+  <!-- page 18 Start -->
+  @include('admin.pdf-reports.eighteen-page')
+  <!-- page 18 End -->
+
+  <!-- page 19 Start -->
+  @include('admin.pdf-reports.nineteen-page')
+  <!-- page 19 End -->
+
+  <!-- page 20 Start -->
+  @include('admin.pdf-reports.twenty-page')
+  <!-- page 20 End -->
+
+  <!-- page 21 Start -->
+  @include('admin.pdf-reports.twenty-one-page')
+  <!-- page 21 End -->
+
+  <!-- page 22 Start -->
+  @include('admin.pdf-reports.twenty-two-page')
+  <!-- page 22 End -->
+
+  <!-- page 23 Start -->
+  @include('admin.pdf-reports.twenty-three-page')
+  <!-- page 23 End -->
+
+  <!-- page 24 Start -->
+  @include('admin.pdf-reports.twenty-four-page')
+  <!-- page 24 End -->
+
+  <!-- page 25 Start -->
+  @include('admin.pdf-reports.twenty-five-page')
+  <!-- page 25 End -->
+
+  <!-- page 26 Start -->
+  @include('admin.pdf-reports.twenty-six-page')
+  <!-- page 26 End -->
+
+  <!-- page 27 Start -->
+  @include('admin.pdf-reports.twenty-seven-page')
+  <!-- page 27 End -->
+
+  <!-- page 28 Start -->
+  @include('admin.pdf-reports.twenty-eight-page')
+  <!-- page 28 End -->
+
+
 </body>
 @include('admin.pdf-reports.chart-script')
 

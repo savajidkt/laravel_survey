@@ -11,9 +11,11 @@
   <p> &nbsp; </p>
   <p> &nbsp; </p>
 
-  <div style="background:#F2F2F2; padding:20px 30px 30px 50px; margin-left: -44px;">
-    <p>“When your relationships are strong, they serve as a gateway to your professional and personal growth. Our lives are changed by the people around us. With Relational Intelligence, you can be intentional and authentic about how you build connections with others. If you are purposeful about how you build relationships, your life will be transformed.” </p>
-    <b style="font-family: 'Work Sans', sans-serif, Arial; font-size:14px;">—Dr. Adam C. Bandelli</b>
+  <div style="position:relative;">
+    <div style="background:#F2F2F2; padding:20px 30px 30px 50px; width:80%; position:absolute;">
+      <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px;">“When your relationships are strong, they serve as a gateway to your professional and personal growth. Our lives are changed by the people around us. With Relational Intelligence, you can be intentional and authentic about how you build connections with others. If you are purposeful about how you build relationships, your life will be transformed.” </p>
+      <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px;">—Dr. Adam C. Bandelli</b>
+    </div>
   </div>
 
   <div class="footerblock">
