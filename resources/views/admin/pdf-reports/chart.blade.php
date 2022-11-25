@@ -47,88 +47,195 @@
 		</style>
 	</head>
 	<body>
+
 <script src="{{asset('highcharts.js')}}"></script>
 <script src="{{asset('modules/exporting.js')}}"></script>
-<script src="{{asset('modules/export-data.js"></script>
-<script src="{{asset('modules/accessibility.js"></script>
+<script src="{{asset('modules/export-data.js')}}"></script>
+<script src="{{asset('modules/accessibility.js')}}"></script>
 
 <figure class="highcharts-figure">
     <div id="container"></div>
-    <p class="highcharts-description">
-        Bar chart showing horizontal columns. This chart type is often
-        beneficial for smaller screens, as the user can scroll through the data
-        vertically, and axis labels are easy to read.
-    </p>
 </figure>
+<script>
+    var colors = Highcharts.getOptions().colors,
+    categories = [
+        'Establishing Rapport',
+        'Understanding Others',
+        'Embracing Individual Differences',
+        'Developing Trust',
+        'Cultivating Influence'
+    ],
+    data = [
+        {
+            y: 61.04,
+            color: colors[2],
+            drilldown: {
+                name: 'Establishing Rapport',
+                categories: [
+                    'Establishing Rapport v97.0',
+                    'Establishing Rapport v96.0',
+                    'Establishing Rapport v95.0'
+                ],
+                data: [
+                    36.89,
+                    18.16,
+                    0.54
+                ]
+            }
+        },
+        {
+            y: 9.47,
+            color: colors[3],
+            drilldown: {
+                name: 'Understanding Others',
+                categories: [
+                    'Understanding Others v15.3',
+                    'Understanding Others v15.2'
+                ],
+                data: [
+                    0.1,
+                    2.01
+                ]
+            }
+        },
+        {
+            y: 9.32,
+            color: colors[5],
+            drilldown: {
+                name: 'Embracing Individual Differences',
+                categories: [
+                    'Embracing Individual Differences v97',
+                    'Embracing Individual Differences v96',
+                    'Embracing Individual Differences v95'
+                ],
+                data: [
+                    6.62,
+                    2.55,
+                    0.15
+                ]
+            }
+        },
+        {
+            y: 8.15,
+            color: colors[1],
+            drilldown: {
+                name: 'Developing Trust',
+                categories: [
+                    'Developing Trust'
+                ],
+                data: [
+                    4.17
+                ]
+            }
+        },
+        {
+            y: 11.02,
+            color: colors[6],
+            drilldown: {
+                name: 'Cultivating Influence',
+                categories: [
+                    'Cultivating Influence'
+                ],
+                data: [
+                    11.02
+                ]
+            }
+        }
+    ],
+    browserData = [],
+    versionsData = [],
+    i,
+    j,
+    dataLen = data.length,
+    drillDataLen,
+    brightness;
 
 
+// Build the data arrays
+for (i = 0; i < dataLen; i += 1) {
 
-		<script type="text/javascript">
+    // add browser data
+    browserData.push({
+        name: categories[i],
+        y: data[i].y,
+        color: data[i].color
+    });
+
+    // add version data
+    drillDataLen = data[i].drilldown.data.length;
+    for (j = 0; j < drillDataLen; j += 1) {
+        brightness = 0.2 - (j / drillDataLen) / 5;
+        versionsData.push({
+            name: data[i].drilldown.categories[j],
+            y: data[i].drilldown.data[j],
+            color: Highcharts.color(data[i].color).brighten(brightness).get()
+        });
+    }
+}
+
+// Create the chart
 Highcharts.chart('container', {
     chart: {
-        type: 'bar'
+        type: 'pie'
     },
     title: {
-        text: 'Historic World Population by Region'
+        text: 'Browser market share, January, 2022'
     },
     subtitle: {
-        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        text: 'Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
     },
-    xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-        title: {
-            text: null
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Population (millions)',
-            align: 'high'
-        },
-        labels: {
-            overflow: 'justify'
+    plotOptions: {
+        pie: {
+            shadow: false,
+            center: ['50%', '50%']
         }
     },
     tooltip: {
-        valueSuffix: ' millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-    },
-    credits: {
-        enabled: false
+        valueSuffix: '%'
     },
     series: [{
-        name: 'Year 1800',
-        data: [107, 31, 635, 203, 2]
+        name: 'Browsers',
+        data: browserData,
+        size: '60%',
+        dataLabels: {
+            formatter: function () {
+                return this.y > 5 ? this.point.name : null;
+            },
+            color: '#ffffff',
+            distance: -30
+        }
     }, {
-        name: 'Year 1900',
-        data: [133, 156, 947, 408, 6]
-    }, {
-        name: 'Year 2000',
-        data: [814, 841, 3714, 727, 31]
-    }, {
-        name: 'Year 2016',
-        data: [1216, 1001, 4436, 738, 40]
-    }]
+        name: 'Versions',
+        data: versionsData,
+        size: '80%',
+        innerSize: '60%',
+        dataLabels: {
+            formatter: function () {
+                // display only if larger than 1
+                return this.y > 1 ? '<b>' + this.point.name + ':</b> ' +
+                    this.y + '%' : null;
+            }
+        },
+        id: 'versions'
+    }],
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 400
+            },
+            chartOptions: {
+                series: [{
+                }, {
+                    id: 'versions',
+                    dataLabels: {
+                        enabled: false
+                    }
+                }]
+            }
+        }]
+    }
 });
-		</script>
+
+</script>
 	</body>
 </html>
