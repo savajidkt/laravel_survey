@@ -56,19 +56,19 @@
     <div id="container"></div>
 </figure>
 <script>
-var pieColors = (function () {
-    var colors = [],
-        base = Highcharts.getOptions().colors[0],
-        i;
+// var pieColors = (function () {
+//     var colors = [],
+//         base = Highcharts.getOptions().colors[0],
+//         i;
 
-    for (i = 0; i < 10; i += 1) {
-        // Start out with a darkened base color (negative brighten), and end
-        // up with a much brighter color
-        colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
-    }
-    return colors;
-}());
-
+//     for (i = 0; i < 10; i += 1) {
+//         // Start out with a darkened base color (negative brighten), and end
+//         // up with a much brighter color
+//         colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
+//     }
+//     return colors;
+// }());
+var colorsA = ['#FF530D', '#E82C0C', '#FF0000', '#E80C7A', '#E80C7A','#E80CBB'];
 // Build the chart
 Highcharts.chart('container', {
     chart: {
@@ -92,7 +92,7 @@ Highcharts.chart('container', {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
-            colors: pieColors,
+            colors: colorsA,
             dataLabels: {
                 enabled: true,
                 format: '<b>{point.name}</b><br>{point.percentage:.1f} %',

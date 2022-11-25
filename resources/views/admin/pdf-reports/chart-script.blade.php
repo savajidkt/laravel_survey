@@ -1,101 +1,65 @@
 <script>
-      // Get the context of the canvas element we want to select
-var data = [// w  w w  . j  a  v  a  2s . c  om
-    {
-        value: 300,
-        color:"#FFCC01",
-        highlight: "#FFCC01",
-        label: "Establishing Rapport"
-    },
-    {
-        value: 50,
-        color: "#7FB936",
-        highlight: "#7FB936",
-        label: "Understanding Others"
-    },
-    {
-        value: 100,
-        color: "#A75FD3",
-        highlight: "#A75FD3",
-        label: "Embracing Individual Differences"
-    },
-    {
-        value: 40,
-        color: "#2D63ED",
-        highlight: "#2D63ED",
-        label: "Developing Trust"
-    },
-    {
-        value: 120,
-        color: "#FF8E3A",
-        highlight: "#FF8E3A",
-        label: "Cultivating Influence"
+  var pieColors = (function () {
+    var colors = [],
+        base = Highcharts.getOptions().colors[0],
+        i;
+
+    for (i = 0; i < 10; i += 1) {
+        // Start out with a darkened base color (negative brighten), and end
+        // up with a much brighter color
+        colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
     }
-    
-];
-
-//var ctx = document.getElementById("myChart1").getContext("2d");
-//var myNewChart = new Chart(ctx).PolarArea(data1);
-    
-      </script>
-
-
-		<script>
-    function DrawTheChart(ChartData,ChartOptions,ChartId,ChartType){
-      var ctx = document.getElementById(ChartId).getContext("2d");
-
-      
-      var myLine = new Chart(ctx).PolarArea(ChartData,ChartOptions);
-    }
-		</script>
-	
-	<body>
-		<script> 
-   
-    var ChartData = [
-      {
-        value: 300,
-        color:"#FFCC01",
-        highlight: "#FFCC01",
-        label: "Establishing Rapport"
+    return colors;
+}());
+// Build the chart
+Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
     },
-    {
-        value: 50,
-        color: "#7FB936",
-        highlight: "#7FB936",
-        label: "Understanding Others"
+    title: {
+        text: ''
     },
-    {
-        value: 100,
-        color: "#A75FD3",
-        highlight: "#A75FD3",
-        label: "Embracing Individual Differences"
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
-    {
-        value: 40,
-        color: "#2D63ED",
-        highlight: "#2D63ED",
-        label: "Developing Trust"
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
     },
-    {
-        value: 120,
-        color: "#FF8E3A",
-        highlight: "#FF8E3A",
-        label: "Cultivating Influence"
-    }];
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            colors: pieColors,
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                distance: -50,
+                filter: {
+                    property: 'percentage',
+                    operator: '>',
+                    value: 4
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Share',
+        data: [
+            { name: 'Establishing Rapport', y: 74.03 },
+            { name: 'Understanding Others', y: 12.66 },
+            { name: 'Embracing Individual Differences', y: 4.96 },
+            { name: 'Developing Trust', y: 2.49 },
+            { name: 'Internet Explorer', y: 2.31 },
+            { name: 'Cultivating Influence', y: 3.398 }
+        ]
+    }]
+});
 
-          ChartOptions= {
-            scaleLabel:"<%=value+''%>",
-            scaleShowLabels:false,
-            scaleShowLine:true,
-            scaleLineStyle:"dotted",
-            scaleLineWidth:2,
-            scaleLineColor:"rgba(255,255,255,0.6)",
-            scaleOverlay :false,
-            scaleOverride :false,
-            backgroundColor: "rgba(179,181,198,0.2)",
-            };
-
-          DrawTheChart(ChartData,ChartOptions,"myChart","PolarArea");
-
+document.querySelector('.highcharts-credits').style.display = 'none';
+document.querySelector('.highcharts-exporting-group').style.display = 'none';
  </script>

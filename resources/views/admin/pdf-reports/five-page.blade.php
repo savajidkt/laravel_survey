@@ -1,11 +1,16 @@
+<script src="{{asset('highcharts.js')}}"></script>
+<script src="{{asset('modules/exporting.js')}}"></script>
+<script src="{{asset('modules/export-data.js')}}"></script>
+<script src="{{asset('modules/accessibility.js')}}"></script>
 <div class="pagestart page5">
   <h2 class="page_head">Overview of Your Results</h2>
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td> 
-        <canvas style="max-width:100%; width:400px; height:400px; background-color:#EAEBED; border-radius:50%;" id="myChart"></canvas> 
-       
+        <td>
+        <figure class="highcharts-figure">
+          <div id="container"></div>
+      </figure>
         </td>
       </tr>
   </table>
@@ -178,3 +183,4 @@
 </div>
 
 <div style="page-break-after: always;"></div>
+
