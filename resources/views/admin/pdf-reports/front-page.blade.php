@@ -123,8 +123,8 @@
   @include('admin.pdf-reports.twenty-eight-page')
   <!-- page 28 End -->
 
-
+  @include('admin.pdf-reports.chart-script')
 </body>
-@include('admin.pdf-reports.chart-script')
+
 
 </html>
