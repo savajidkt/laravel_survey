@@ -258,6 +258,7 @@ class UsersController extends Controller
         $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
         $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
         $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
+        
         // percentage calculation
         $esPer              =  $esTotal == $esMax ? 100 : $esTotal * 100 / $esMax;
         $undPer             =  $undTotal == $undMax ? 100 : $undTotal * 100 / $undMax;
@@ -292,11 +293,12 @@ class UsersController extends Controller
         $html = view('admin.pdf-reports.front-page',$data)->render();
         //echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
-        $pdf->setOption('encoding','UTF-8');
+        
         $pdf->setOption('enable-javascript', true);
         $pdf->setOption('javascript-delay', 1000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
+        $pdf->setOption('encoding','UTF-8');
         return $pdf->download('survey-report-'.$userSurvey->user_id.'.pdf');
 
         

@@ -1,16 +1,16 @@
 <!-- <script src="{{asset('highcharts.js')}}"></script>
-<script src="{{asset('modules/exporting.js')}}"></script>
-<script src="{{asset('modules/export-data.js')}}"></script>
 <script src="{{asset('modules/accessibility.js')}}"></script> -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
 <div class="pagestart page5">
   <h2 class="page_head">Overview of Your Results</h2>
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td>
-        <figure class="highcharts-figure">
+        <td style="text-align:center">
+        <canvas id="myChart" width="400" height="400" style="background-color:#EAEBED; border-radius:50%;"></canvas> 
+        <!-- <figure class="highcharts-figure">
           <div id="container"></div>
-      </figure>
+        </figure> -->
         </td>
       </tr>
   </table>

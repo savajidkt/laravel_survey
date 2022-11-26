@@ -99,9 +99,15 @@
                                         </div>
                                     </div>
                                     <button class="btn btn-primary btn-block" tabindex="4">Sign in</button>
+									
+									
                                 </form>
-
+<div class="admin-logo">
+								<img src="http://18.218.17.73/survey/public/app-assets/images/pages/admin-logo.png" alt="Login V2">
+							</div>
                             </div>
+							
+							
                         </div>
                         <!-- /Login-->
                     </div>

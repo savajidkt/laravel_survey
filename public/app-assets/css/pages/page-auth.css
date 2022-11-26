@@ -16,6 +16,9 @@
   position : relative;
 }
 
+.admin-logo{margin-top: 25px; text-align: center;}
+.admin-logo img{height: 70px;}
+
 .auth-wrapper.auth-v1 {
   -webkit-box-align : center;
   -webkit-align-items : center;
