@@ -189,14 +189,14 @@ class UsersController extends Controller
 
         throw new Exception('User status does not change. Please check sometime later.');
     }
-    
+
     /**
      * Method generatePDF
      *
      * @param int $id [explicite description]
      * @param PDFRequest $request [explicite description]
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function generatePDF(int $id, PDFRequest $request)
     {
@@ -258,7 +258,7 @@ class UsersController extends Controller
         $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
         $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
         $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
-        
+
         // percentage calculation
         $esPer              =  $esTotal == $esMax ? 100 : $esTotal * 100 / $esMax;
         $undPer             =  $undTotal == $undMax ? 100 : $undTotal * 100 / $undMax;
@@ -270,10 +270,10 @@ class UsersController extends Controller
         $selfServingPer     =  $selfServingTotal == $selfServingMax ? 100 : $selfServingTotal * 100 / $selfServingMax;
         $breakingTrustPer   =  $breakingTrustTotal == $breakingTrustMax ? 100 : $breakingTrustTotal * 100 / $breakingTrustMax;
         $poorPer            =  $poorTotal == $poorMax ? 100 : $poorTotal * 100 / $poorMax;
-        
+
         //echo common()->formatSql($latestPosts);die;
         $data = [
-            'user_id'                             => $userSurvey->user_id,
+            'user_id'                               => $userSurvey->user_id,
             'survey_id'                             => $userSurvey->id,
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
@@ -289,50 +289,16 @@ class UsersController extends Controller
             'breaking_trust_per'                    => number_format($breakingTrustPer,2),
             'poor_management_of_emotions_per'       => number_format($poorPer,2)
         ];
-       
+
         $html = view('admin.pdf-reports.front-page',$data)->render();
-        //echo $html; die;
+        // echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
-        
+
         $pdf->setOption('enable-javascript', true);
         $pdf->setOption('javascript-delay', 1000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding','UTF-8');
         return $pdf->download('survey-report-'.$userSurvey->user_id.'.pdf');
-
-        
-         //return view('admin.pdf-reports.front-page',$data);
-        //$pdf = PDF::loadView('admin.pdf-reports.chart', $data)->setPaper('a4');
-        //return $pdf->download('itsolutionstuff.pdf');
-        //  $pdf = App::make('dompdf.wrapper');
-        //  $html = view('admin.pdf-reports.chart')->render();
-        //  $pdf->loadHTML($html);
-        // return $pdf->stream();
-    }
-    public function exampleGeneratePDF(int $id, PDFRequest $request)
-    {
-        $userSurvey  = UserSurvey::where('user_id', $id)->first();
-        $html = view('admin.pdf-reports.front-page')->render();
-        // echo $html;die;
-        //$html .= view('admin.pdf-reports.introduction')->render();
-        $pdf = SnappyPdf::loadHTML($html);
-        // $pdf = SnappyPdf::loadView('admin.pdf-reports.front-page');
-        // $pdf->setOption('enable-javascript', true);
-        // $pdf->setOption('javascript-delay', 5000);
-        // $pdf->setOption('enable-smart-shrinking', true);
-        // $pdf->setOption('no-stop-slow-scripts', true);
-
-        $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 1000);
-        $pdf->setOption('enable-smart-shrinking', true);
-        $pdf->setOption('no-stop-slow-scripts', true);
-        return $pdf->download();
-    }
-
-    public function generateChartImage(int $id, PDFRequest $request)
-    {
-        echo view('admin.pdf-reports.chat-image')->render();
-        header("Content-Type: image/png");
     }
 }
