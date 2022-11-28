@@ -105,10 +105,11 @@ var data = [// w  w w  . j  a  v  a  2s . c  om
     },
     {
         value: '{{$cultivating_influence_per}}',
-        color: "#FF8E3A",
+        color:"#FF8E3A",
         highlight: "#FF8E3A",
-        label: "Cultivating Influence"
+        label: "Cultivating Influence",
     }
+    
 ];
 
 ChartOptions= {
@@ -119,8 +120,8 @@ ChartOptions= {
             scaleLineWidth:2,
             scaleLineColor:"rgba(255,255,255,0.6)",
             scaleOverlay :false,
-            scaleOverride :false,
-            backgroundColor: "rgba(179,181,198,0.2)",
+            scaleOverride :false
+            
            /*onAnimationProgress: function()
            {
                 this.scale.steps = 3;
@@ -129,7 +130,14 @@ ChartOptions= {
             };
 var ctx = document.getElementById("myChart").getContext("2d");
 var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
-myNewChart.scale.steps = 3
+myNewChart.scale.steps = 3;
+
+
+var gradient = ctx.createLinearGradient(10, 10, 10, 400);
+    gradient.addColorStop(0, 'rgba(250,200,50,1)');
+    gradient.addColorStop(1, 'rgba(255,204,1,0)');
+    myNewChart.segments[0].fillColor =gradient
+
 console.log(myNewChart);
 </script>
 </body>

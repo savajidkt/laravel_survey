@@ -10,7 +10,7 @@
         <td style="text-align:right; width:270px;">
           <div class="bar" style="width:270px;">
           <img style="width:270px; height:5px;"
-              src="{{asset('pdf/img/Bar.png')}}"
+              src="{{asset('pdf/img/ModerateRisk.png')}}"
               alt="Bar"
             />
           </div>

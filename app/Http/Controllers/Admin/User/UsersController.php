@@ -291,7 +291,7 @@ class UsersController extends Controller
         ];
 
         $html = view('admin.pdf-reports.front-page',$data)->render();
-        // echo $html; die;
+        echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);

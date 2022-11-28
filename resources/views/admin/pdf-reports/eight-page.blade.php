@@ -33,7 +33,7 @@
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
 
-  @if($embracing_individual_differences_per < 49) 
+  @if($embracing_individual_differences_per < 49)
   <ul>
   <li>Be more guarded and hold back from being their true selves at work</li>
   <li>Build teams with people who share similar values and beliefs</li>
@@ -116,37 +116,32 @@
   <li>Challenge their friends and loved ones to be consistent life-long learners</li>
   </ul>
     @endif
-  
-
-
-
-
 
   <div class="footerblock">
-    <div style="position:relative; width:100%;">  
-      <div style="width:130px; position:absolute; top:-144px; right:-15px;"> 
+    <div style="position:relative; width:100%;">
+      <div style="width:130px; position:absolute; top:-144px; right:-15px;">
         <img style="max-width:100%; height:auto;"
           src="{{asset('pdf/img/purple_graphics.png')}}"
           alt="Bandelli-Associates-Logo 1"
-        /> 
+        />
       </div>
     </div>
 
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td style="width:140px;"> 
+        <td style="width:140px;">
           <div class="flogo">
             <img
               class="Bandelli-Associates-Logo"
               src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
               alt="Bandelli-Associates-Logo 1"
             />
-          </div> 
+          </div>
         </td>
-        <td style="border-left:2px solid #ccc; padding-left: 20px;"> 
+        <td style="border-left:2px solid #ccc; padding-left: 20px;">
               <div class="textname">
           Bandelli Relational Intelligence Assessment
-          </div> 
+          </div>
         </td>
         <td> &nbsp; </td>
         <td> <div class="pagenumber">8</div> </td>
