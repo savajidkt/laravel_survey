@@ -116,7 +116,7 @@ ChartOptions= {
             scaleLabel:"<%=value+''%>",
             scaleShowLabels:false,
             scaleShowLine:true,
-            scaleLineStyle:"border-dahsed",
+            scaleLineStyle:"dahsed",
             scaleLineWidth:2,
             scaleLineColor:"rgba(255,255,255,0.6)",
             scaleOverlay :false,

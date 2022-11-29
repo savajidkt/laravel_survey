@@ -295,7 +295,7 @@ class UsersController extends Controller
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 1000);
+        $pdf->setOption('javascript-delay', 2000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding','UTF-8');
