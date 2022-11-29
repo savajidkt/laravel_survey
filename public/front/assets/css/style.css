@@ -1448,3 +1448,10 @@ h6 {
 .login-bg .card-body .small{margin-bottom:0; font-size: 13px;}
 
 }
+
+.demographic-card .card{    padding: 0;}
+.demographic-card .card-header{background-color: #224D5D; color: #ffffff; padding: 24px; font-family: 'Plus Jakarta Sans', sans-serif; border-radius: 25px 25px 0 0;}
+.demographic-card .card-body{padding:35px;}
+.demographic-card .form-check-input:checked { background-color: #224d5d; border-color: #224d5d; }
+.demographic-card .form-check-input{width: 20px; height: 20px; margin-top: 0; margin-right: 8px;}
+.demographic-card .form-control{padding: 0.425rem;}

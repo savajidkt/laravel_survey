@@ -70,6 +70,7 @@ Route::group(['authGrouping' => 'users.auth'], function () {
     Route::get('/take-survey', [App\Http\Controllers\SurveyController::class, 'index'])->name('take-survey')->middleware('checkSurveyStatus');
     Route::post('/take-survey/store', [App\Http\Controllers\SurveyController::class, 'store'])->name('take-survey-store');
     Route::post('/get-question', [App\Http\Controllers\SurveyController::class, 'getQuestion'])->name('get-question');
+    Route::get('/demographic', [App\Http\Controllers\SurveyController::class, 'demographic'])->name('demographic');
 
     Route::post('/update-survey-time', [App\Http\Controllers\SurveyController::class, 'updateSurveyTime'])->name('update-survey-time');
 });

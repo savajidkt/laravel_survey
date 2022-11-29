@@ -62,7 +62,10 @@ class SurveyController extends Controller
 
         return view('survey.take-survey', ['survey' => $survey,'survey_time'=>$survey_time,'questions'=>$questions,'percentage'=>$percentage]);
     }
-
+    public function demographic()
+    {
+        return view('survey.demographic');
+    }
     /**
      * Method thankYou
      *

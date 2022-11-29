@@ -133,10 +133,10 @@ var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
 myNewChart.scale.steps = 3;
 
 
-var gradient = ctx.createLinearGradient(10, 10, 10, 400);
-    gradient.addColorStop(0, 'rgba(250,200,50,1)');
-    gradient.addColorStop(1, 'rgba(255,204,1,0)');
-    myNewChart.segments[0].fillColor =gradient
+// var gradient = ctx.createLinearGradient(10, 10, 10, 400);
+//     gradient.addColorStop(0, 'rgba(250,200,50,1)');
+//     gradient.addColorStop(1, 'rgba(255,204,1,0)');
+//     myNewChart.segments[0].fillColor =gradient
 
 console.log(myNewChart);
 </script>
