@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page_title', 'Login')
+@section('page_title', 'Assessment Login')
 @section('content')
 <main class="login-bg">
     <div class="container">
@@ -14,7 +14,7 @@
                                         <div class="inner-pad">
                                             <form class="row g-3 needs-validation p-3" method="POST" action="{{ route('login') }}">
                                                 @csrf
-                                                <h1 class="card-title pt-0 pb-0 mb-0">Survey Login</h1>
+                                                <h1 class="card-title pt-0 pb-0 mb-0">Assessment Login</h1>
                                                 @if ($errors->any())
                                                     @foreach ($errors->all() as $error)
                                                         <div class="alert alert-danger" role="alert">

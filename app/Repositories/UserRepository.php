@@ -169,4 +169,34 @@ class UserRepository
     {
         return $userSurvey->delete();
     }
+
+   /**
+     * Method demoformcreate
+     *
+     * @param array $data [explicite description]
+     * @param User $user [explicite description]
+     *
+     * @return User
+     * @throws Exception
+     */
+    public function demoformcreate(array $data): User
+    {
+        $user = auth()->user();
+        $data = [
+            'gender'    => $data['gender'],
+            'other_text'    => $data['other_text']??null,
+            'age'     => $data['age'],
+            'ethnicity'     => $data['ethnicity'],
+            'job_level'     => $data['job_level'],
+            'years'       => $data['years']
+        ];
+        
+       
+        if( $user->update($data) )
+        {
+            return $user;
+        }
+
+        throw new Exception('User update failed.');
+    }
 }

@@ -64,6 +64,10 @@ class SurveyController extends Controller
     }
     public function demographic()
     {
+        $user = auth()->user();
+        if($user->gender){
+            return redirect()->route('take-survey');
+        }
         return view('survey.demographic');
     }
     /**

@@ -20,6 +20,9 @@ class CheckSurveyStatus
     {
         $user   = auth()->user();
         $survey = $user->survey;
+        if(empty($user->gender) || !$user->gender){
+            return redirect()->route('demographic');
+        }
         if (isset($survey))
         {
             if(in_array($survey->status, [UserSurvey::COMPLETED]))

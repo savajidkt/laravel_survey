@@ -42,6 +42,12 @@ class User extends Authenticatable
         'is_first_time_login',
         'email',
         'password',
+        'gender',
+        'age',
+        'ethnicity',
+        'job_level',
+        'years',
+        'other_text'
     ];
 
     /**

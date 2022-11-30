@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\DemofromCreateRequest;
 use App\Http\Requests\User\PasswordRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
@@ -36,6 +37,20 @@ class UserController extends Controller
         $this->userRepository->changePassword($user, $request->except(['_token', '_method']));
 
         return redirect()->route('home')->with('success','Your password changed successfully!');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function demoGraphicSave(DemofromCreateRequest $request)
+    {
+        
+        $this->userRepository->demoformcreate($request->all());
+
+        return redirect()->route('take-survey')->with('success', "User update successfully!");
     }
 
 }

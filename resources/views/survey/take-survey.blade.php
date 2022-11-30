@@ -124,9 +124,9 @@ function checkSecond(sec) {
   if (sec < 0) {sec = "59"};
   return sec;
 }
-window.addEventListener('beforeunload', (event) => {
-  event.preventDefault();
-  event.returnValue = '';
-});
+// window.addEventListener('beforeunload', (event) => {
+//   event.preventDefault();
+//   event.returnValue = '';
+// });
 </script>
 @endsection
