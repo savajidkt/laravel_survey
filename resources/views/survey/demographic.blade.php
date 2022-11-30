@@ -254,12 +254,27 @@
     </div>
 </section>
 
+
+
+@endsection
+
+@section('page-script')
 <script>
 $(function () {
-    $('.t-com').on('click', function () {
-        $('#other-opt').slideToggle();
-    });
+	$('input[name=gender]').change(function(){
+	var value = $( 'input[name=gender]:checked' ).val();
+
+	if(value == 'other'){
+		$('#other-opt').slideToggle();
+	}else{
+		$('#other-opt').hide();
+	}
+
+	});
+
+    // $('.t-com').on('click', function () {
+    //     $('#other-opt').slideToggle();
+    // });
 });
 </script>
-
 @endsection
