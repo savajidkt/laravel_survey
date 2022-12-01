@@ -1455,3 +1455,7 @@ h6 {
 .demographic-card .form-check-input:checked { background-color: #224d5d; border-color: #224d5d; }
 .demographic-card .form-check-input{width: 20px; height: 20px; margin-top: 0; margin-right: 8px;}
 .demographic-card .form-control{padding: 0.425rem;}
+
+@media (max-width: 767px) {
+.logout{right: 0; top: unset; bottom: 22px; width: 100%;}
+}

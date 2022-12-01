@@ -9,7 +9,7 @@
                     <img src="{{asset('front/assets/img/card.jpg')}}" class="card-img-top" alt="...">
                     <div class="card-img-overlay">
                         <h5 class="card-title">Thank you for completing the survey</h5>
-                        <p class="card-text">We appeciate your time and your answers.</p>                        
+                        <p class="card-text">Thank you for completing the assessment. One of our team members will reach out to you shortly to schedule your debrief.</p>                        
                     </div>
                 </div>
             </div>

@@ -133,23 +133,23 @@ ChartOptions= {
            }*/
 
             };
+            console.log(data);
     var ctx = document.getElementById("myChart").getContext("2d");
     var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
     myNewChart.scale.steps = 2;
 
     //gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
 
-    data.forEach(function(value,index){
-        //var gradient = ctx.createRadialGradient(180,180,0,200,200,200);
-        var gradient = ctx.createLinearGradient(0,0,200,0);
+    // data.forEach(function(value,index){
+    //     var gradient = ctx.createLinearGradient(0,0,200,0);
         
-        var light_rgb = hexToRgb(value.light_color);
-        var rgb = hexToRgb(value.color);
-        gradient.addColorStop(0, `rgba(${light_rgb.r}, ${light_rgb.g}, ${light_rgb.b}, 1)`);
-        gradient.addColorStop(1, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.9)`);
+    //     var light_rgb = hexToRgb(value.light_color);
+    //     var rgb = hexToRgb(value.color);
+    //     gradient.addColorStop(0, `rgba(${light_rgb.r}, ${light_rgb.g}, ${light_rgb.b}, 1)`);
+    //     gradient.addColorStop(1, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.9)`);
 
-        myNewChart.segments[index].fillColor = gradient;
-    });
+    //     myNewChart.segments[index].fillColor = gradient;
+    // });
 
 
 console.log(myNewChart);
