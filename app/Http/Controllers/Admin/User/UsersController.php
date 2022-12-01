@@ -279,9 +279,9 @@ class UsersController extends Controller
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
             'ri_points'                             => number_format($ri_points,2),
             'establishing_report_per'               => number_format($esPer,2),
-            'understanding_others_per'              => number_format($undPer*-1,2),
+            'understanding_others_per'              => number_format($undPer,2),
             'embracing_individual_differences_per'  => number_format($embracingPer,2),
-            'developing_trust_per'                  => number_format($developingPer*-1,2),
+            'developing_trust_per'                  => number_format($developingPer,2),
             'cultivating_influence_per'             => number_format($cultiInfluPer>100 ? 100 : $cultiInfluPer,2),
             'lacking_self_awareness_per'            => number_format($lackingSelfPer,2),
             'lacking_social_awareness_per'          => number_format($lackingSocialPer,2),
@@ -295,7 +295,7 @@ class UsersController extends Controller
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 2000);
+        $pdf->setOption('javascript-delay', 5000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding','UTF-8');

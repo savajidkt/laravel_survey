@@ -82,30 +82,35 @@ var data = [// w  w w  . j  a  v  a  2s . c  om
     {
         value:'{{$establishing_report_per}}',
         color:"#FFCC01",
+        light_color:"#ffff66",
         highlight: "#FFCC01",
         label: "Establishing Rapport"
     },
     {
         value: '{{$understanding_others_per}}',
         color: "#7FB936",
+        light_color: "#66ff33",
         highlight: "#7FB936",
         label: "Understanding Others"
     },
     {
         value: '{{$embracing_individual_differences_per}}',
         color: "#A75FD3",
+        light_color: "#cc99ff",
         highlight: "#A75FD3",
         label: "Embracing Individual Differences"
     },
     {
         value: '{{$developing_trust_per}}',
         color: "#2D63ED",
+        light_color: "#66ccff",
         highlight: "#2D63ED",
         label: "Developing Trust"
     },
     {
         value: '{{$cultivating_influence_per}}',
         color:"#FF8E3A",
+        light_color:"#ffcc99",
         highlight: "#FF8E3A",
         label: "Cultivating Influence",
     }
@@ -121,24 +126,49 @@ ChartOptions= {
             scaleLineColor:"rgba(255,255,255,0.6)",
             scaleOverlay :false,
             scaleOverride :false
-            
+
            /*onAnimationProgress: function()
            {
                 this.scale.steps = 3;
            }*/
 
             };
-var ctx = document.getElementById("myChart").getContext("2d");
-var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
-myNewChart.scale.steps = 3;
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
+    myNewChart.scale.steps = 2;
 
+    //gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
 
-// var gradient = ctx.createLinearGradient(10, 10, 10, 400);
-//     gradient.addColorStop(0, 'rgba(250,200,50,1)');
-//     gradient.addColorStop(1, 'rgba(255,204,1,0)');
-//     myNewChart.segments[0].fillColor =gradient
+    data.forEach(function(value,index){
+        //var gradient = ctx.createRadialGradient(180,180,0,200,200,200);
+        var gradient = ctx.createLinearGradient(0,0,200,0);
+        
+        var light_rgb = hexToRgb(value.light_color);
+        var rgb = hexToRgb(value.color);
+        gradient.addColorStop(0, `rgba(${light_rgb.r}, ${light_rgb.g}, ${light_rgb.b}, 1)`);
+        gradient.addColorStop(1, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.9)`);
+
+        myNewChart.segments[index].fillColor = gradient;
+    });
+
 
 console.log(myNewChart);
+
+function hexToRgb(hex) {
+  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+    return r + r + g + g + b + b;
+  });
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
 </script>
 </body>
 
