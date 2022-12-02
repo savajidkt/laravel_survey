@@ -12,6 +12,7 @@
 #container {
     height: 400px;
 }
+@page { margin: 0; }
 
 .highcharts-data-table table {
 	font-family: Verdana, sans-serif;
@@ -238,7 +239,7 @@
   .head_top {
     color:#000000;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 44px;
+    font-size: 52px;
     margin:0; padding:0;
   }
 
@@ -251,22 +252,44 @@
     font-family: 'Work Sans', sans-serif, Arial;
   }
   .report_head {
-    margin:0; padding:0; font-size:30px; color:#000000;
+    margin:0 0 15px 0; padding:0; font-size:30px; color:#000000; text-transform:uppercase;
   }
 
-  ul {
-    /* margin:0;
-    padding:0 0 0 10px;  */
+  /* ul {
+    /* margin:0;*
+    padding:0 0 0 10px;  
     list-style-type: disc;
     list-style-position: inside;
     font-family: 'Work Sans', sans-serif, Arial; font-size:14px; color:#3D3F42;
   }
-  ul li { list-style-type: disc; font-size:18px; line-height:24px; margin-bottom:4px; }
+  ul li { list-style-type: disc; font-size:18px; line-height:24px; margin-bottom:4px; } */
+
+  ul {
+     margin:0;
+    padding:0 0 0 10px; 
+  }
+  li {
+        list-style: none;
+      
+        padding:3px 0 3px 14px;
+        position: relative;
+        font-family: 'Work Sans', sans-serif, Arial; font-size:17px; color:#3D3F42;
+    }
+    
+    li:before {
+        content:"·";
+        font-size:30px;
+        vertical-align:middle;
+        line-height:23px;
+        position:absolute;
+        left:0;
+    }
+
   p.report_p {
-    font-size:18px; line-height:26px; color:#3D3F42;
+    font-size:17px; line-height:26px; color:#3D3F42;
   }
   p {
-    margin-bottom:20px; font-size:18px; line-height:26px; color:#3D3F42;
+    margin-bottom:20px; font-size:17px; line-height:26px; color:#3D3F42;
   }
 
   .left_right_table {

@@ -29,7 +29,7 @@
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td style="width: 50%;">
+        <td style="width: 50%;"> 
           <div style="background:#F2F2F2; padding:21px 30px 31px 30px;">
           <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px;">“The five essential skills of Relational Intelligence can be developed and improved over time. Our research has found that when leaders start to consistently practice these skills, they see dramatic improvements in the quality of their relationships with others.”</p>
     <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px;">—Dr. Adam C. Bandelli</b>

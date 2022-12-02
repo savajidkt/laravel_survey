@@ -274,7 +274,7 @@ class UsersController extends Controller
         //echo common()->formatSql($latestPosts);die;
         $data = [
             'user_id'                               => $userSurvey->user_id,
-            'survey_id'                             => $userSurvey->id,
+            'survey_id'                             => $this->invoice_num($userSurvey->id, 7, strtoupper(substr($userSurvey->user->company->name, 0,2))),
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
             'ri_points'                             => number_format($ri_points,2),
@@ -291,7 +291,7 @@ class UsersController extends Controller
         ];
 
         $html = view('admin.pdf-reports.front-page',$data)->render();
-        echo $html; die;
+        //echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
@@ -300,5 +300,15 @@ class UsersController extends Controller
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding','UTF-8');
         return $pdf->download('survey-report-'.$userSurvey->user_id.'.pdf');
+    }
+
+    function invoice_num ($input, $pad_len = 7, $prefix = null) {
+        if ($pad_len <= strlen($input))
+            trigger_error('<strong>$pad_len</strong> cannot be less than or equal to the length of <strong>$input</strong> to generate invoice number', E_USER_ERROR);
+    
+        if (is_string($prefix))
+            return sprintf("%s%s", $prefix, str_pad($input, $pad_len, "0", STR_PAD_LEFT));
+    
+        return str_pad($input, $pad_len, "0", STR_PAD_LEFT);
     }
 }

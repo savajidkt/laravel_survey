@@ -163,7 +163,7 @@ class User extends Authenticatable
      */
     public function project(): HasOne
     {
-        return $this->hasOne(Project::class, 'project_id', 'id');
+        return $this->hasOne(Project::class, 'id', 'project_id');
     }
     
     /**
@@ -173,7 +173,7 @@ class User extends Authenticatable
      */
     public function company(): HasOne
     {
-        return $this->hasOne(Company::class, 'company_id', 'id');
+        return $this->hasOne(Company::class, 'id', 'company_id');
     }
 
 }

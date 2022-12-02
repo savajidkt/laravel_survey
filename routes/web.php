@@ -74,7 +74,6 @@ Route::group(['authGrouping' => 'users.auth'], function () {
 
     Route::post('/update-survey-time', [App\Http\Controllers\SurveyController::class, 'updateSurveyTime'])->name('update-survey-time');
     Route::post('/demographic-save', [App\Http\Controllers\UserController::class, 'demoGraphicSave'])->name('demographic-save');
-    
 });
 
 
