@@ -1,177 +1,200 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<!doctype html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="x-apple-disable-message-reformatting">
-	<title>Bandelli Survey - Forgot Password Template</title>
-	
+	<title>Welcome to the Relational Intelligence Assessment!</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 	<style>
-		html, body { margin:0 auto !important; padding:0 !important; height:100% !important; width:100% !important; background:#f9f9f9; }
-		* { -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; }
-		h1,h2,h3,h4,h5,h6{ font-family:'Gibson-SemiBold'; color:#283845; margin-top:0; }
-		body{ font-family:'Gibson-Regular'; font-size:15px; line-height:1.8; color:rgba(0,0,0,1); } 
-		a{ color:#283845; } 
-		p{ margin-top:0; }
+		* {
 
-		@font-face {
-			font-family:'Gibson-Light';
-			src:url('fonts/Gibson-Light.eot');
-			src:url('fonts/Gibson-Light.eot?#iefix') format('embedded-opentype'),
-			url('fonts/Gibson-Light.woff2') format('woff2'),
-			url('fonts/Gibson-Light.woff') format('woff'),
-			url('fonts/Gibson-Light.ttf')  format('truetype'),
-			url('fonts/Gibson-Light.svg#svgGibson-Light') format('svg');
-		}
-		@font-face {
-			font-family:'Gibson-Regular';
-			src:url('fonts/Gibson-Regular.eot');
-			src:url('fonts/Gibson-Regular.eot?#iefix') format('embedded-opentype'),
-			url('fonts/Gibson-Regular.woff2') format('woff2'),
-			url('fonts/Gibson-Regular.woff') format('woff'),
-			url('fonts/Gibson-Regular.ttf')  format('truetype'),
-			url('fonts/Gibson-Regular.svg#svgGibson-Regular') format('svg');
-		}
-		@font-face {
-			font-family:'Gibson-SemiBold';
-			src:url('fonts/Gibson-SemiBold.eot');
-			src:url('fonts/Gibson-SemiBold.eot?#iefix') format('embedded-opentype'),
-			url('fonts/Gibson-SemiBold.woff2') format('woff2'),
-			url('fonts/Gibson-SemiBold.woff') format('woff'),
-			url('fonts/Gibson-SemiBold.ttf')  format('truetype'),
-			url('fonts/Gibson-SemiBold.svg#svgGibson-SemiBold') format('svg');
-		}
-		@font-face {
-			font-family:'Gibson-Bold';
-			src:url('fonts/Gibson-Bold.eot');
-			src:url('fonts/Gibson-Bold.eot?#iefix') format('embedded-opentype'),
-			url('fonts/Gibson-Bold.woff2') format('woff2'),
-			url('fonts/Gibson-Bold.woff') format('woff'),
-			url('fonts/Gibson-Bold.ttf')  format('truetype'),
-			url('fonts/Gibson-Bold.svg#svgGibson-Bold') format('svg');
-		}
-		@font-face {
-			font-family:'Gibson-Italic';
-			src:url('fonts/Gibson-Italic.eot');
-			src:url('fonts/Gibson-Italic.eot?#iefix') format('embedded-opentype'),
-			url('fonts/Gibson-Italic.woff2') format('woff2'),
-			url('fonts/Gibson-Italic.woff') format('woff'),
-			url('fonts/Gibson-Italic.ttf')  format('truetype'),
-			url('fonts/Gibson-Italic.svg#svgGibson-Italic') format('svg');
+			box-sizing: border-box;
+			padding: 0;
+			border-spacing: 0px;
+			margin: 0;
+			padding: 0;
+			font-family: 'Montserrat', sans-serif;
 		}
 
-		table, td { mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; }
-		table { border-spacing:0 !important; border-collapse:collapse !important; table-layout:fixed !important; margin:0 auto !important; }
-		img { -ms-interpolation-mode:bicubic; }
-		a { text-decoration:none; }
+		p {
+			font-family: 'Montserrat', sans-serif;
+			margin: 0;
+			margin-top: 10px;
+			font-size: 14px;
+			line-height: 18px;
+			color: #183D49;
+			font-weight: 400;
 
-		.btn_custom { display:inline-block; font-size:18px; font-family:'Gibson-SemiBold'; color:#283845; text-transform:uppercase; background:#43DBAD; padding:10px 40px; border-radius:12px; border:2px solid #43DBAD; transition:2s; -webkit-transition:background 2s; transition:background 2s; text-align:center; margin:15px 0; }
-		.btn_custom:focus, .btn_custom:hover { color:#283845; transition:0.9s; -webkit-transition:background 0.9s; transition:background 0.9s; }
-
-		.main_title { padding:0 4em; }
-		.main_title h2 { font-size:40px; color:#283845; margin:0; }
-		.main_title img { margin:20px auto; }
-		.main_title p { font-size:20px; line-height:30px; }
-
-		.stay_touch_title {}
-		.stay_touch_title h3 { font-size:28px; color:#283845; margin:0; }
-
-		.stay_touchtab { margin:20px 0; }
-		.stay_touchtab img { margin:0 auto; }
-		.stay_touchtab p { margin:0; }
-
-		@media (max-width:420px) {
-			.main_title { padding:0 15px; }
-			.main_title h2 { font-size:32px; }
-			.stay_touch_title h3 { font-size:24px; }
-			.main_title img { margin:10px auto; width:100%; }
 		}
 
-		/* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
-		@media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-			u ~ div .email-container { min-width: 320px !important;}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: 'Montserrat', sans-serif;
+			color: #183D49;
+
 		}
-		/* iPhone 6, 6S, 7, 8, and X */
-		@media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
-			u ~ div .email-container { min-width: 375px !important;}
+
+		@media only screen and (max-width:450px) {
+			.w100 {
+				width: 100% !important;
+				max-width: 100% !important;
+
+			}
+
+			.w40 {
+				width: 100% !important;
+				max-width: 100% !important;
+				display: block !important;
+				text-align: center !important;
+			}
+
+			.w60 {
+				width: 100% !important;
+				max-width: 100% !important;
+				display: block !important;
+				text-align: center !important;
+				padding-top: 15px !important;
+			}
 		}
-		/* iPhone 6+, 7+, and 8+ */
-		@media only screen and (min-device-width: 414px) {
-			u ~ div .email-container { min-width: 414px !important; }
-		}
-	
 	</style>
-	
 </head>
-<body width="100%" style="margin:0; padding:0 !important; background-color:#f2f2f2;">
-	<center style="width:100%; background-color:#f2f2f2;">
-	
-		<div style="max-width:600px; margin:0 auto;" class="email-container">
-			<table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto;">
-				<tr>
-					<td>
-						<table align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto; background:#FFFFFF;">
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td style="text-align:center;"><img style="height:80px;" src="{{ asset('front/assets/img/logo.png') }}" alt=""/></td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<table align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto; background:#FFFFFF;">
-							<tr>
-								<td>
-									
-									<div class="main_title" style="text-align:center;">
-										<h2>Welcome to Bandelli Survey</h2>
-										<img src="{{ asset('images/graphic2.png') }}" alt=""/>
-										<p style="color:#7E888F;">Welcome, {{$user->first_name}} {{$user->last_name}}</p>
-										<p style="color:#7E888F;">For reference here's your login information:</p>
-										<p style="color:#7E888F;">Uername: {{$user->email}}</p>
-										<p style="color:#7E888F;">Password: {{$password}}</p>
 
-										<a href="{{ $url }}" class="btn_custom">Login</a>
-										
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<table align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto; background:#F8F9F9;">
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="stay_touch_title" style="text-align:center;">
-										<h3>Stay in touch </h3>
-									</div>
-								</td>
-							</tr>
-							<!-- @include('emails.partials.socials') -->
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				@include('emails.partials.template-footer')
-			</table>
-		</div>
-	</center>
+<body style="margin:0;background-color: #fff;">
+	<table style="width: 100%;background-color: #fff;" cellpadding="0" cellspacing="0" border="0" align="center">
+		<tr>
+			<td>
+
+
+
+				<center>
+					<table style="border: none;padding: 0;margin:auto;" align="center" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td style="padding: 0;max-width: 600px; min-width: 200px; line-height: 1.4; color: #183D49;padding: 0;border-spacing: 0;border-spacing: 0;padding: 0;margin: 0;box-sizing: border-box;width: 600px;background-color: #ffffff;padding-top: 0px;" width="600" class="w100">
+
+								<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+									<tr>
+										<td style="box-sizing: border-box;background-color: #183D49;padding: 20px;padding-bottom: 0;" class="w100">
+											<table style="width: 560px;" border="0" cellpadding="0" cellspacing="0" width="560" class="w100">
+												<tr>
+													<td style="width: 260px;box-sizing: border-box;" width="260" class="w40">
+														<img src="{{ asset('assets/img/email-logo.png') }}" alt="" style="width: 220px;" width="220">
+													</td>
+													<td style="width: 300px;box-sizing: border-box;text-align: right;" width="300" class="w60">
+														<h2 style="margin: 0;color: #fff;">Relational Intelligence Assesment</h2>
+													</td>
+
+												</tr>
+											</table>
+
+										</td>
+
+									</tr>
+								</table>
+								<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+									<tr>
+										<td class="w100">
+											<img src="{{ asset('assets/img/Header-01.png') }}" alt="" style="width: 600px;display: block;" width="600" class="w100">
+										</td>
+
+									</tr>
+								</table>
+								<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+									<tr>
+										<td style="background-image: url({{ asset('assets/img/email-Background-Image.png') }}); background-size: cover;background-position: center;" class="w100">
+											<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+												<tr>
+													<td style="padding: 40px;padding-bottom: 10px;box-sizing: border-box;" class="w100">
+														<h2 style="text-align: center;color: #183D49;">Welcome to the Relational Intelligence Assessment!</h2>
+														<p style="margin: 0;margin-top: 20px;">
+															This assessment
+															will explore your ability to work through real-life business scenarios that
+															focus on relational skills in the workplace. There will be <b>22 scenarios</b>
+															where you must rank order your responses for solving each problem based
+															on what you think is most appropriate. You will be given <b>40 minutes</b> to
+															complete the assessment.<b> Your responses are confidential and
+																anonymous.</b> You will be the only one to receive feedback after you
+															complete the assessment. No other leaders or key stakeholders at your
+															organization will see the results.
+														</p>
+														<p style="margin: 0;margin-top: 20px;">
+															Your log-in credentials are below. You have been given a temporary
+															password that you will get to change once you have entered the Bandelli &
+															Associates assessment portal.
+														</p>
+														<p style="margin: 0;margin-top: 30px;text-align: center;">
+															<a href="{{ $url }}" target="_blank" style="text-decoration: none;color: #183D49;border:1px solid #4ACAF6;display: inline-block;font-weight: bold;padding: 6px 8px;">
+																<span style="font-style: italic;background-color: #4ACAF6;padding: 12px 30px;display: inline-block;color: #183D49;">LINK TO PORTAL HERE</span>
+															</a>
+														</p>
+														<p style="margin: 0;margin-top: 30px;">
+															Username: <b>{{$user->email}}</b>
+														</p>
+														<p style="margin: 0;margin-top: 5px;">
+															Password: <b>{{$password}}</b>
+														</p>
+														<p style="margin: 0;margin-top: 20px;">
+															If you have any technical difficulties completing the assessment, please
+															contact us at <a href="mailto:riassessmentadmin@bandelliandassociates.com" target="_blank">riassessmentadmin@bandelliandassociates.com.</a>
+														</p>
+													</td>
+												</tr>
+											</table>
+
+											<img src="{{ asset('assets/img/email-Footer-Image.png') }}" alt="" style="width: 600px;display: block;" width="600" class="w100">
+											<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+												<tr>
+													<td style="background-color: #193C4A;box-sizing: border-box;padding-right: 30px;padding-left: 30px;padding-bottom: 10px;" align="right" class="w100">
+														<table>
+															<tr>
+																<td>
+																	<a href="" target="_blank">
+																		<img src="{{ asset('assets/img/email-facebook.png') }}" alt="" style="width: 35px;" width="35">
+																	</a>
+																</td>
+																<td style="padding-left: 10px;">
+																	<a href="" target="_blank">
+																		<img src="{{ asset('assets/img/email-insta.png') }}" alt="" style="width: 35px;" width="35">
+																	</a>
+																</td>
+																<td style="padding-left: 10px;">
+																	<a href="" target="_blank">
+																		<img src="{{ asset('assets/img/email-youtube.png') }}" alt="" style="width: 35px;" width="35">
+																	</a>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+
+									</tr>
+								</table>
+
+
+
+							</td>
+						</tr>
+					</table>
+
+
+
+
+				</center>
+
+
+			</td>
+		</tr>
+	</table>
 </body>
+
 </html>

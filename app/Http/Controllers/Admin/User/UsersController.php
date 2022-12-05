@@ -295,10 +295,14 @@ class UsersController extends Controller
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 5000);
+        $pdf->setOption('javascript-delay', 4000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding','UTF-8');
+        $pdf->setOption('margin-top', 0);
+        $pdf->setOption('margin-right', 0);
+        $pdf->setOption('margin-left', 0);
+        $pdf->setOption('margin-bottom', 0);
         return $pdf->download('survey-report-'.$userSurvey->user_id.'.pdf');
     }
 

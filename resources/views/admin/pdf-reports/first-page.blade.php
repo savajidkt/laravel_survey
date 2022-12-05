@@ -2,7 +2,7 @@
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
       <td> &nbsp; </td>
-        <td class="Bandelli-Associates-Logo">
+        <td class="Bandelli-Associates-Logo" style="padding-top:30px;">
         <img
             class="Bandelli-Associates-Logo"
             src="{{asset('pdf/img/bandelli-associates-logo-1-1@2x.png')}}"
@@ -12,7 +12,7 @@
       </tr>
     </table>
 
-    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
+    <table style="width: 100%; margin: 0 auto; padding: 20px 0 0 110px; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
       <tr>
       <td>
 
@@ -30,7 +30,7 @@
     </table>
 
 
-    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0" >
+    <table style="width: 100%; margin: 0 auto; padding: 0 0 0 110px; vertical-align: top" cellpadding="0" cellspacing="0" >
       <tr>
       <td class="page1_box_yellow">
       </td>
@@ -63,14 +63,14 @@
       </tr>
     </table>
 
-    <div style="height:5px; border-top: 2px solid #DB0707; margin-top:100px;"> &nbsp; </div>
+    <div style="height:5px; border-top: 2px solid #DB0707; margin-top:160px; margin-left:110px;"> &nbsp; </div>
 
-    <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0" class="page1_table">
+    <table style="width: 100%; margin: 0 auto; padding: 15px 0 0 110px; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0" class="page1_table">
       <tr>
-        <th style="width: 350px;">
+        <th style="width: 300px;">
         Report for
         </th>
-        <th style="width: 350px;">
+        <th style="width: 300px;">
         ID
         </th>
         <th>
@@ -78,10 +78,10 @@
         </th>
       </tr>
       <tr>
-        <td style="width: 350px;">
+        <td style="width: 300px;">
         {{$full_name}}
         </td>
-        <td style="width: 350px;">
+        <td style="width: 300px;">
         {{$survey_id}}
         </td>
         <td>
@@ -94,7 +94,7 @@
     <div style="height:5px; margin-top:180px;"> &nbsp; </div>
 
     <div class="copyright">
-      <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
+      <table style="width: 100%; margin: 0 auto; padding: 0 0 50px 110px;; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0">
         
         <tr>
           <td class="page1_copyrite">

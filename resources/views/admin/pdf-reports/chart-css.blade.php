@@ -61,8 +61,9 @@
   }
 
   .Bandelli-Associates-Logo {
-  width: 473px;
-  height: 141px;
+  width: 423px;
+  height: 91x;
+  margin:0 30px 0 0;
   }
 
   .page1-intro-red {
@@ -84,9 +85,9 @@
   color: #000000;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  margin-top:20px;
+  margin-top:30px;
 
-  margin-bottom:30px;
+  margin-bottom:40px;
   }
 
 
@@ -153,6 +154,7 @@
   .page1_table {
     font-family: 'Roboto Condensed', sans-serif;
   }
+  
 
   .page1_copyrite {
     font-size:12px;
@@ -181,7 +183,7 @@
     font-family: 'Work Sans', sans-serif, Arial;
     position: absolute;
     bottom: 0;
-    width:100%;
+    width:86%;
   }
   .copyright {
     position: absolute;
@@ -207,19 +209,21 @@
     border-radius: 3px;
     border: 1px solid #cccccc;
     background: #FFFFFF;
-    padding: 5px 15px;
+    padding: 25px;
     font-family: 'Work Sans', sans-serif, Arial;
+	margin:0;
   }
   .relating_box .headbox {
-    font-size: 19px;
-    line-height: 19px;
+    font-size: 24px;
+    line-height: 24px;
     font-family: 'Roboto Condensed', sans-serif;
+	font-weight:400;
   }
   .relating_box .ratbig {
     font-family: 'Roboto Condensed', sans-serif;
   }
   .rat_lines {
-    margin-bottom:10px;
+    margin-bottom:20px;
     font-size: 12px;
   }
   .rat_lines .number {
@@ -303,5 +307,27 @@
     line-height: 19px;
   }
   .left_right_table th { width:300px; padding-right:10px; text-align:right; }
-  
+ 
+ 
+ .p-7{padding:70px;} 
+ .custom-p-7{padding:40px 70px 40px 70px;} 
+ .page1{border: 25px solid red; min-height:1392px;}
+ .page1_table th{font-weight:400; font-size:19px;}
+ .page1_table td{font-weight:400; font-size:15px; font-family: 'Work Sans', sans-serif, Arial;}
+ .f-p-logo{margin-top:30px;}
+ .page2{min-height:1360px;}
+ .page3{min-height:1360px;}
+ .relating_box .top_box{padding-bottom:30px;}
+ .page6{min-height:1360px;}
+ .page7{min-height:1360px;}
+ .page8{min-height:1360px;}
+ .page9{min-height:1360px;}
+ .page10{min-height:1360px;}
+ .page11{min-height:1360px;}
+ .page12 .page_head {font-size:54px;}
+ .page13{min-height:1360px;}
+ .page14{min-height:1360px;}
+ .page15{min-height:1360px;}
+ .page16{min-height:1360px;}
+ 
 </style>

@@ -1,4 +1,4 @@
-<div class="pagestart page9">
+<div class="pagestart page9 p-7">
 
   <div class="subhead_top">Individual Scores & Implications</div>
   <h2 class="head_top">Developing Trust</h2>
@@ -114,7 +114,7 @@
 
   <h3 class="report_head">Work-Life Implications</h3>
   <p class="report_p">People with similar scores tend to:</p>
-  <ul>
+  <ul style="padding-right:30px;">
   <li>Have the courage to be vulnerable and share their struggles with friends or family</li>
   <li>Be consistent in how they show up for people in their social circles</li>
   <li>Have friends who often confide in them during difficult times</li>

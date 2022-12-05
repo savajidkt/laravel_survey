@@ -1,4 +1,4 @@
-<div class="pagestart page6">
+<div class="pagestart page6 p-7">
 
   <div class="subhead_top">Individual Scores & Implications</div>
   <h2 class="head_top">Establishing Rapport</h2>

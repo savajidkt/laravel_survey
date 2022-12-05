@@ -2,6 +2,8 @@
 <script src="{{asset('modules/accessibility.js')}}"></script> -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
 <div class="pagestart page5">
+
+<div class="page-inner p-7">
   <h2 class="page_head">Overview of Your Results</h2>
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -26,16 +28,20 @@
       <span style="width:20px; height:20px; background:#FF8E3A; display:inline-block; margin-left:10px;">&nbsp;</span> <span style="width:20px; height:20px;"> Cultivating Influence </span>
   </div>
   <p> &nbsp; </p>
+  
+  
+  </div>
+  
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
         <td style="width: 50%;"> 
-          <div style="background:#F2F2F2; padding:21px 30px 31px 30px;">
+          <div style="background:#F2F2F2; padding:70px 70px 70px 70px;">
           <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px;">“The five essential skills of Relational Intelligence can be developed and improved over time. Our research has found that when leaders start to consistently practice these skills, they see dramatic improvements in the quality of their relationships with others.”</p>
-    <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px;">—Dr. Adam C. Bandelli</b>
+    <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; margin-top:15px;">—Dr. Adam C. Bandelli</b>
           </div>
         </td>
-        <td style="padding-left:30px;">
+        <td style="padding-left:30px; padding-right:50px; vertical-align: top" valign="top">
 
           <div class="relating_box">
             <div class="top_box">
@@ -155,6 +161,9 @@
         </td>
       </tr>
   </table>
+  
+  
+  <div class="p-7">
    <div class="footerblock">
 
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -180,6 +189,13 @@
   </table>
 
   </div>
+  </div>
+  
+  
+  
+  
+  
+  
 </div>
 
 <div style="page-break-after: always;"></div>

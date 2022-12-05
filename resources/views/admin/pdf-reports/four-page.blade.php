@@ -1,4 +1,4 @@
-<div class="pagestart page4">
+<div class="pagestart page4 p-7">
 
   <h2 class="page_head">Dimensions</h2>
 
@@ -90,7 +90,7 @@
 
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td style="width:140px;"> 
+        <td style="width:140px;" valign="middle"> 
           <div class="flogo">
             <img
               class="Bandelli-Associates-Logo"

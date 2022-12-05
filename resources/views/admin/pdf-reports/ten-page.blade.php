@@ -1,4 +1,4 @@
-<div class="pagestart page9">
+<div class="pagestart page10 p-7">
 
   <div class="subhead_top">Individual Scores & Implications</div>
   <h2 class="head_top">Cultivating Influence</h2>

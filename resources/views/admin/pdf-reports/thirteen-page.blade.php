@@ -1,4 +1,4 @@
-<div class="pagestart page13">
+<div class="pagestart page13 p-7">
 
   <h2 class="page_head">Recommendations</h2>
 

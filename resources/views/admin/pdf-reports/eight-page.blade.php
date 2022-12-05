@@ -1,4 +1,4 @@
-<div class="pagestart page8">
+<div class="pagestart page8 p-7">
 
   <div class="subhead_top">Individual Scores & Implications</div>
   <h2 class="head_top">Embracing Individual Differences</h2>

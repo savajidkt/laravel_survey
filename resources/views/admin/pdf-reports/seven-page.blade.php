@@ -1,4 +1,4 @@
-<div class="pagestart page7">
+<div class="pagestart page7 p-7">
 
   <div class="subhead_top">Individual Scores & Implications</div>
   <h2 class="head_top">Understanding Others</h2>
@@ -106,7 +106,7 @@
 
   <h3 class="report_head">Work-Life Implications</h3>
   <p class="report_p">People with similar scores tend to:</p>
-  <ul>
+  <ul style="padding-right:10px;">
   <li>Know how to use their emotions to strengthen connections with loved ones</li>
   <li>Understand the importance of taking time to get to know new acquaintances</li>
   <li>Prioritize listening to friends when they have problems</li>
@@ -117,7 +117,7 @@
  
   <div class="footerblock">
     <div style="position:relative; width:100%;">  
-      <div style="width:180px; position:absolute; top:-170px; right:-15px;"> 
+      <div style="width:180px; position:absolute; top:-170px; right:-30px;"> 
         <img style="max-width:100%; height:auto;"
           src="{{asset('pdf/img/green_graphics.png')}}"
           alt="Bandelli-Associates-Logo 1"
