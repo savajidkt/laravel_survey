@@ -1,6 +1,6 @@
 <div class="pagestart page3">
 
-<div class="page-inner p-7">
+<div class="page-inner p-7 page-font">
   <h2 class="page_head">How to Use this Report</h2>
 
   <p>There are some important points to keep in mind as you read this report. First, Relational Intelligence is a skill set that can be learned and developed over time. Just because you score within a specific range does not mean you cannot make improvements in that area. The Bandelli Relational Intelligence Assessment® was designed to raise your self-awareness and give you insights about your relationship-building skills as a leader today. Your results are a data point that can be used in conjunction with other leadership development activities (e.g., development planning, coaching, goal setting, mentoring) to help you grow.</p>
@@ -13,8 +13,8 @@
 
   <div style="position:relative;">
     <div style="background:#F2F2F2; padding:70px 70px 70px 70px; width:80%; position:absolute;">
-      <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px;">“When your relationships are strong, they serve as a gateway to your professional and personal growth. Our lives are changed by the people around us. With Relational Intelligence, you can be intentional and authentic about how you build connections with others. If you are purposeful about how you build relationships, your life will be transformed.” </p>
-      <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; padding-top:10px;">—Dr. Adam C. Bandelli</b>
+      <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px; color:#3D3F42;">“When your relationships are strong, they serve as a gateway to your professional and personal growth. Our lives are changed by the people around us. With Relational Intelligence, you can be intentional and authentic about how you build connections with others. If you are purposeful about how you build relationships, your life will be transformed.” </p>
+      <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; padding-top:10px; color:#3D3F42;">—Dr. Adam C. Bandelli</b>
     </div>
   </div>
 

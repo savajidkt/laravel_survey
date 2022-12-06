@@ -86,7 +86,7 @@
   <li>Be consistent in how they show up for people in their social circles</li>
   <li>Have friends who often confide in them during difficult times</li>
   <li>TakdfjeBe comfortable having difficult conversations with friends when needed rs</li>
-  <li>Take ownership and accountability when they let someone close to them down</li>
+  <li>Take ownership and accountability when they let someone close to<br> them down</li>
   </ul>
     @endif
 

@@ -1,12 +1,12 @@
-<div class="pagestart page11 p-7">
+<div class="pagestart page11 p-7 page-font">
 
   <h2 class="page_head">Derailers Overview</h2>
 
 
 
-  <p>Building relationships is a process that evolves over time. When leaders begin to develop relationships with employees, they must be mindful of relational derailers that can prevent them from creating deep connections with others. Understanding and avoiding these blind spots enables you to be successful when partnering with your coworkers. </p>
+  <p>Building relationships is a process that evolves over time. When leaders begin to develop relationships with employees, they must be mindful of <b>relational derailers</b> that can prevent them from creating deep connections with others. Understanding and avoiding these blind spots enables you to be successful when partnering with your coworkers. </p>
 
-  <p>On the next page, you will find your scores for each of the derailers listed below. Scores between the 80th and 100th percentile are in the High Risk Zone, scores between the 50th and 79th percentiles are in the Moderate Risk Zone, and scores between the 0 to 49th percentile are in the No Risk Zone. </p>
+  <p>On the next page, you will find your scores for each of the derailers listed below. Scores between the <b>80th and 100th</b> percentile are in the <b>High Risk Zone,</b> scores between the <b>50th and 79th</b> percentiles are in the <b>Moderate Risk Zone,</b> and scores between the <b>0 to 49th</b> percentile are in the <b>No Risk Zone</b>. </p>
 
   <p><b style="color:#DB0707">Lacking Self-Awareness</b>
   The inability to understand how one’s actions or behaviors can have a negative impact on others. If an individual does not know how they are wired as a leader, they will not be able to connect with others and form solid, lasting relationships.</p>
