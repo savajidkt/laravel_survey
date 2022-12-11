@@ -67,24 +67,24 @@
 
     <table style="width: 100%; margin: 0 auto; padding: 15px 0 0 110px; vertical-align: top; font-family: 'Roboto Condensed', sans-serif;" cellpadding="0" cellspacing="0" class="page1_table">
       <tr>
-        <th style="width: 300px;">
+        <th style="width:33%;">
         Report for
         </th>
-        <th style="width: 300px;">
+        <th style="width:33%;">
         ID
         </th>
-        <th>
+        <th style="width:33%;">
         Date taken
         </th>
       </tr>
       <tr>
-        <td style="width: 300px;">
+        <td style="width:33%;">
         {{$full_name}}
         </td>
-        <td style="width: 300px;">
+        <td style="width:33%;">
         {{$survey_id}}
         </td>
-        <td>
+        <td style="width:33%;">
        {{$date}}
         </td>
       </tr>

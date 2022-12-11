@@ -36,12 +36,12 @@
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
         <td style="width: 50%;"> 
-          <div style="background:#F2F2F2; padding:70px 70px 70px 70px;">
+          <div style="background:#F2F2F2; padding:100px 50px 100px 70px;">
           <p style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; line-height:30px; margin-bottom:4px;">“The five essential skills of Relational Intelligence can be developed and improved over time. Our research has found that when leaders start to consistently practice these skills, they see dramatic improvements in the quality of their relationships with others.”</p>
     <b style="font-family: 'Roboto Condensed', sans-serif; font-size:20px; margin-top:15px;">—Dr. Adam C. Bandelli</b>
           </div>
         </td>
-        <td style="padding-left:30px; padding-right:50px; vertical-align: top" valign="top">
+        <td style="padding-left:20px; padding-right:50px; vertical-align: top" valign="top">
 
           <div class="relating_box">
             <div class="top_box">
@@ -54,7 +54,7 @@
                 </td>
                 <td style="text-align:right;">
                   <span style="font-size:13px;">Overall Score:</span><br>
-                  <b class="ratbig" style="font-size:30px;">{{$ri_points}}%</b>
+                  <b class="ratbig" style="font-size:36px;">{{$ri_points}}%</b>
                 </td>
               </tr>
             </table>

@@ -9,6 +9,8 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Exports\StudentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -53,4 +55,9 @@ class UserController extends Controller
         return redirect()->route('take-survey')->with('success', "User update successfully!");
     }
 
+
+    public function unSubscribe()
+    {
+        return view('unsubscribe');
+    }
 }

@@ -200,7 +200,7 @@ class QuestionRepository
                 
                 $index--;
              }
-
+            
             $userSurveyQuestion = UserSurveyAnswer::create([
                 'user_survey_id'                        => $userSurvey->id,
                 'user_id'                               => $userId,
@@ -212,7 +212,7 @@ class QuestionRepository
                 'developing_trust_point'                => $developingSum,
                 'cultivating_influence_point'           => $cultivatingSum,
                 'lacking_self_awareness_point'          => $lacking_selfSum,
-                ' lacking_social_awareness_point'         => $lacking_socialSum,
+                'lacking_social_awareness_point'         => $lacking_socialSum,
                 'self_serving_point'         => $self_servingSum,
                 'breaking_trust_point'         => $breakingSum,
                 'poor_management_of_emotions_point'         => $poor_managementSum

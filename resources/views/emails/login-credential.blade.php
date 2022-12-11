@@ -109,7 +109,8 @@
 								</table>
 								<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
 									<tr>
-										<td style="background-image: url({{ asset('assets/img/email-Background-Image.png') }}); background-size: cover;background-position: center;" class="w100">
+										<!-- background-image: url({{ asset('assets/img/email-Background-Image.png') }}); background-size: cover;background-position: center; -->
+										<td style="background-color: #e7e7e7;" class="w100">
 											<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
 												<tr>
 													<td style="padding: 40px;padding-bottom: 10px;box-sizing: border-box;" class="w100">
@@ -132,7 +133,7 @@
 														</p>
 														<p style="margin: 0;margin-top: 30px;text-align: center;">
 															<a href="{{ $url }}" target="_blank" style="text-decoration: none;color: #183D49;border:1px solid #4ACAF6;display: inline-block;font-weight: bold;padding: 6px 8px;">
-																<span style="font-style: italic;background-color: #4ACAF6;padding: 12px 30px;display: inline-block;color: #183D49;">LINK TO PORTAL HERE</span>
+																<span style="font-style: italic;background-color: #4ACAF6;padding: 12px 30px;display: inline-block;color: #183D49;">Log In</span>
 															</a>
 														</p>
 														<p style="margin: 0;margin-top: 30px;">
@@ -150,23 +151,24 @@
 											</table>
 
 											<img src="{{ asset('assets/img/email-Footer-Image.png') }}" alt="" style="width: 600px;display: block;" width="600" class="w100">
-											<table style="width: 600px;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
+											<table style="width: 600px; background-image: url({{ asset('assets/img/footer-bg.png') }}); background-size: cover;background-position: center;" border="0" cellpadding="0" cellspacing="0" width="600" class="w100">
 												<tr>
-													<td style="background-color: #193C4A;box-sizing: border-box;padding-right: 30px;padding-left: 30px;padding-bottom: 10px;" align="right" class="w100">
+													<td style="box-sizing: border-box;padding-right: 0px;padding-left: 10px;padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #fff;"><a href="{{route('unsubscribe')}}">Unsubscribe</a> from lists</td>
+													<td style="box-sizing: border-box;padding-right: 30px;padding-left: 30px;padding-bottom: 10px; padding-top: 10px;" align="right" class="w100">
 														<table>
 															<tr>
 																<td>
-																	<a href="" target="_blank">
+																	<a href="https://www.facebook.com/officialbandelliassociates" target="_blank">
 																		<img src="{{ asset('assets/img/email-facebook.png') }}" alt="" style="width: 35px;" width="35">
 																	</a>
 																</td>
 																<td style="padding-left: 10px;">
-																	<a href="" target="_blank">
+																	<a href="https://www.instagram.com/adambandelli/" target="_blank">
 																		<img src="{{ asset('assets/img/email-insta.png') }}" alt="" style="width: 35px;" width="35">
 																	</a>
 																</td>
 																<td style="padding-left: 10px;">
-																	<a href="" target="_blank">
+																	<a href="https://www.youtube.com/channel/UCDhhamF26lfFqe8UAsEFv4g" target="_blank">
 																		<img src="{{ asset('assets/img/email-youtube.png') }}" alt="" style="width: 35px;" width="35">
 																	</a>
 																</td>

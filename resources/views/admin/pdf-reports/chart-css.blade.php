@@ -175,6 +175,8 @@
     position:relative;
     min-height:1296px;
   }
+  .page2 p{font-size:16px;}
+  .page-font p{font-size:16px;}
   .footerblock {
     background: #EAEBED;
     padding: 5px 20px;
@@ -198,6 +200,8 @@
   .footerblock .textname, .footerblock .pagename {
     font-family: 'Work Sans', sans-serif, Arial;
   }
+  .footerblock .textname{font-size:13px;}
+  .footerblock .pagenumber{font-size:13px;}
   .page4_head {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
@@ -209,13 +213,13 @@
     border-radius: 3px;
     border: 1px solid #cccccc;
     background: #FFFFFF;
-    padding: 25px;
+    padding: 22px 25px;
     font-family: 'Work Sans', sans-serif, Arial;
 	margin:0;
   }
   .relating_box .headbox {
     font-size: 24px;
-    line-height: 24px;
+    line-height: 28px;
     font-family: 'Roboto Condensed', sans-serif;
 	font-weight:400;
   }
@@ -231,6 +235,7 @@
     font-size: 12px;
     text-align:right;
   }
+  .rat_lines td{padding-bottom:15px;}
   .text {
     color:#6F6F71;
   }
@@ -256,7 +261,7 @@
     font-family: 'Work Sans', sans-serif, Arial;
   }
   .report_head {
-    margin:0 0 15px 0; padding:0; font-size:30px; color:#000000; text-transform:uppercase;
+    margin:0 0 8px 0; padding:0; font-size:30px; color:#000000; text-transform:uppercase;
   }
 
   /* ul {
@@ -311,13 +316,13 @@
  
  .p-7{padding:70px;} 
  .custom-p-7{padding:40px 70px 40px 70px;} 
- .page1{border: 25px solid red; min-height:1392px;}
- .page1_table th{font-weight:400; font-size:19px;}
+ .page1{border: 25px solid #db0707; min-height:1402px;}
+ .page1_table th{font-weight:400; font-size:19px; padding-bottom:10px;}
  .page1_table td{font-weight:400; font-size:15px; font-family: 'Work Sans', sans-serif, Arial;}
  .f-p-logo{margin-top:30px;}
  .page2{min-height:1360px;}
  .page3{min-height:1360px;}
- .relating_box .top_box{padding-bottom:30px;}
+ .relating_box .top_box{padding-bottom:10px;}
  .page6{min-height:1360px;}
  .page7{min-height:1360px;}
  .page8{min-height:1360px;}

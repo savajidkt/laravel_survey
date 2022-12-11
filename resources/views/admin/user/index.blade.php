@@ -39,7 +39,7 @@
         var table = $('.user-list-table').DataTable({
             processing: true,
             serverSide: true,
-            searching: false,
+            searching: true,
             ajax: "{{ route('users.index') }}",
             columns: [{
                     data: 'DT_RowIndex',
@@ -57,11 +57,13 @@
                 },
                 {
                     data: 'user_status',
-                    name: 'user_status'
+                    name: 'user_status',
+                    searchable: false
                 },
                 {
                     data: 'survey_status',
-                    name: 'survey_status'
+                    name: 'survey_status',
+                    searchable: false
                 },
                 {
                     data: 'action',

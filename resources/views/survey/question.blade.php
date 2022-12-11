@@ -7,11 +7,11 @@
 	   <div class="row">
 	   
 	   <div class="col-lg-2">
-	   <div class="customRadio-l-tag op-100 cr-t-m1">Most Likely</div>
-	   <div class="customRadio-l-tag op-80 cr-t-m2">Likely</div>
-	   <div class="customRadio-l-tag op-60 cr-t-m3">Neutral</div>
-	   <div class="customRadio-l-tag op-40 cr-t-m4">Unlikely </div>
-	   <div class="customRadio-l-tag op-25 cr-t-m5">Least likely</div>
+	   <div class="customRadio-l-tag cr-t-m1">Most Likely</div>
+	   <div class="customRadio-l-tag cr-t-m2">Likely</div>
+	   <div class="customRadio-l-tag cr-t-m3">Neutral</div>
+	   <div class="customRadio-l-tag cr-t-m4">Unlikely </div>
+	   <div class="customRadio-l-tag cr-t-m5">Least likely</div>
 	   </div>
 	   
 	   <div class="col-lg-10">

@@ -33,7 +33,10 @@ Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 Route::post('first-password-change', [UserController::class, 'changePassword'])->name('first.password.change');
 
+Route::get('unsubscribe', [UserController::class, 'unSubscribe'])->name('unsubscribe');
+
 #Admin Routes
+Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::get('admin', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin')->middleware('guest:admin');
 Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
@@ -52,6 +55,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::resource('/survey', SurveyController::class);
     Route::resource('/company', CompanyController::class);
     Route::resource('/project', ProjectController::class);
+
+    Route::get('users/export/{id}',[UsersController::class, 'reportExcelExport']);
 
 });
 
@@ -74,6 +79,8 @@ Route::group(['authGrouping' => 'users.auth'], function () {
 
     Route::post('/update-survey-time', [App\Http\Controllers\SurveyController::class, 'updateSurveyTime'])->name('update-survey-time');
     Route::post('/demographic-save', [App\Http\Controllers\UserController::class, 'demoGraphicSave'])->name('demographic-save');
+
+    
 });
 
 

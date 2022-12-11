@@ -31,7 +31,7 @@ class ForgotPasswordMail extends Mailable
     public function __construct(User $user)
     {
         $this->user     = $user;
-        $this->title    = 'Reset Password Notification - Bundelli Survey';
+        $this->title    = 'Reset Password Notification - Bandelli Survey';
     }
 
     /**
