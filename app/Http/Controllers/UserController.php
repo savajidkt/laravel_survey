@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ReportsExport;
 use App\Http\Requests\User\DemofromCreateRequest;
 use App\Http\Requests\User\PasswordRequest;
 use App\Models\User;
@@ -59,5 +60,10 @@ class UserController extends Controller
     public function unSubscribe()
     {
         return view('unsubscribe');
+    }
+    public function reportExcelExport($id)
+    {
+        
+        return Excel::download(new ReportsExport($id), 'survey-reports-'.$id.'.xlsx');
     }
 }
