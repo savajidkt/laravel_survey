@@ -460,6 +460,9 @@ h6 {
   font-size: 16px;
   color: #242021;
   line-height: 20px;
+  min-height: 63px;
+    display: flex;
+    align-items: center;
 }
 
 .customRadio input:checked~label:before {
@@ -1378,7 +1381,7 @@ h6 {
 }
 
 .login-form-img {
-  background: url(../img/login-form-bg.png) no-repeat left top;
+  background: url(../img/login-banner.webp) no-repeat left top;
   background-size: cover;
 }
 

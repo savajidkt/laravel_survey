@@ -33,7 +33,7 @@ class RegisterdMail extends Mailable
     {
         $this->user         = $user;
         $this->password     = $password;
-        $this->title        = 'Your Login Credentials - Bundelli Survey';
+        $this->title        = 'Your Login Credentials - Bandelli Survey';
     }
 
     /**

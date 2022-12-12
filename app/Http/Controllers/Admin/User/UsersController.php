@@ -21,6 +21,8 @@ use Barryvdh\Snappy\Facades\SnappyPdf;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ReportsExport;
 
 class UsersController extends Controller
 {
@@ -274,7 +276,7 @@ class UsersController extends Controller
         //echo common()->formatSql($latestPosts);die;
         $data = [
             'user_id'                               => $userSurvey->user_id,
-            'survey_id'                             => $this->invoice_num($userSurvey->id, 7, strtoupper(substr($userSurvey->user->company->name, 0,2))),
+            'survey_id'                             => $this->invoice_num($userSurvey->id,6,''),
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
             'ri_points'                             => number_format($ri_points,2),
@@ -315,4 +317,11 @@ class UsersController extends Controller
     
         return str_pad($input, $pad_len, "0", STR_PAD_LEFT);
     }
+
+    public function reportExcelExport($id)
+    {
+        
+        return Excel::download(new ReportsExport($id), 'survey-reports-'.$id.'.xlsx');
+    }
+    
 }

@@ -53,4 +53,9 @@ class UserController extends Controller
         return redirect()->route('take-survey')->with('success', "User update successfully!");
     }
 
+
+    public function unSubscribe()
+    {
+        return view('unsubscribe');
+    }
 }
