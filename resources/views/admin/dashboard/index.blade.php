@@ -74,7 +74,7 @@
 
   <!-- Timeline Card -->
   <div class="col-lg-6 col-12">
-    <div class="card card-user-timeline">
+    <div class="card card-user-timeline timeline-cus-height">
       <div class="card-header">
         <div class="d-flex align-items-center">
           <i data-feather="list" class="user-timeline-title-icon"></i>

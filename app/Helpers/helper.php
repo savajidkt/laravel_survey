@@ -35,3 +35,13 @@ if (! function_exists('common')) {
     }
 }
 
+if (! function_exists('report_multiple_by_100')) {
+    /**
+     * Access (lol) the Access:: facade as a simple function.
+     */
+    function report_multiple_by_100($value, $isNotRound = 1)
+    {
+        return $isNotRound ? $value*100 : round($value*100);
+    }
+}
+

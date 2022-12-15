@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Exception;
 use Faker\Provider\UserAgent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class QuestionRepository
@@ -112,7 +113,24 @@ class QuestionRepository
         }
 
          //DB::enableQueryLog();
-        $question = Question::with('options')->skip($page)->take(1)->get();
+        //$question = Question::with('options')->skip($page)->take(1)->get();       
+        $user = Auth::user();
+        $questionAnswer = $user->survey_answers()->pluck('question_id')->toArray();
+        $existId ='';
+        //$questionAnswer = UserSurveyAnswer::where('user_id',$user_id)->get();
+        
+        if(count($questionAnswer) > 0){
+            $existId  = $questionAnswer;
+            //dd($existId);
+
+        }
+        
+        $question = Question::with('options');
+        if($existId){
+            $question->whereNotIn('id',$existId);
+        }
+        $question = $question->orderBy(DB::raw('RAND()'))->get();
+
         //dd(DB::getQueryLog());
         //dd($question);
         if(isset($question[0])){
@@ -232,12 +250,88 @@ class QuestionRepository
             {
                 $surveyCount        = $userSurvey->questions()->count();
                 $allQuestionCount   = $this->getQuestionCount();
-
+                
                 if( $surveyCount === $allQuestionCount )        // todo need to replace 4 with $allQuestionCount
                 {
+                    $firstArray =[];
+                    $lastValue='';
+                    $userSurveyAttemptedArray = UserSurveyAnswer::where('user_id', $userId)->get();
+                    $riPoints = [];
+                    $establishingReportPoint = [];
+                    $understandingOthersPoint = [];
+                    $embracingIndividualDifferencesPoint = [];
+                    $developingTrustPoint = [];
+                    $cultivatingInfluencePoint = [];
+                    $lackingSelfAwarenessPoint = [];
+                    $lackingSocialAwarenessPoint = [];
+                    $selfServingPoint = [];
+                    $breakingTrustPoint = [];
+                    $poorManagementOfEmotionsPoint = [];
+
+                    foreach($userSurveyAttemptedArray as $userServeyAnswer){
+                        $riPoints[] = $userServeyAnswer->ri_points;
+                        $establishingReportPoint[] = $userServeyAnswer->establishing_report_point;
+                        $understandingOthersPoint[] = $userServeyAnswer->understanding_others_point;
+                        $embracingIndividualDifferencesPoint[] = $userServeyAnswer->embracing_individual_differences_point;
+                        $developingTrustPoint[] = $userServeyAnswer->developing_trust_point;
+                        $cultivatingInfluencePoint[] = $userServeyAnswer->cultivating_influence_point;
+                        $lackingSelfAwarenessPoint[] = $userServeyAnswer->lacking_self_awareness_point;
+                        $lackingSocialAwarenessPoint[] = $userServeyAnswer->lacking_social_awareness_point;
+                        $selfServingPoint[] = $userServeyAnswer->self_serving_point;
+                        $breakingTrustPoint[] = $userServeyAnswer->breaking_trust_point;
+                        $poorManagementOfEmotionsPoint[] = $userServeyAnswer->poor_management_of_emotions_point;
+                    }
+                    //dd(end($establishingReportPoint));
+                    //$userSurveyAttemptedLast = UserSurveyAnswer::where('user_id', $userId)->last();
+                    //$firstArray = $userSurveyAttemptedArray->establishing_report_point;
+                    $ri_points_last = $userSurveyAttemptedArray->last()->ri_points;
+                    $ri_points = $this->percentagerankCalculate($riPoints,$ri_points_last);
+
+                    $establishing_report_last = $userSurveyAttemptedArray->last()->establishing_report_point;
+                    $establishing_report = $this->percentagerankCalculate($establishingReportPoint,$establishing_report_last);
+
+                    $understanding_others_last = $userSurveyAttemptedArray->last()->understanding_others_point;
+                    $understanding_others = $this->percentagerankCalculate($understandingOthersPoint,$understanding_others_last);
+
+                    $embracing_individual_differences_last = $userSurveyAttemptedArray->last()->embracing_individual_differences_point;
+                    $embracing_individual_differences = $this->percentagerankCalculate($embracingIndividualDifferencesPoint,$embracing_individual_differences_last);
+
+                    $developing_trust_last = $userSurveyAttemptedArray->last()->developing_trust_point;
+                    $developing_trust = $this->percentagerankCalculate($developingTrustPoint,$developing_trust_last);
+
+                    $cultivating_influence_last = $userSurveyAttemptedArray->last()->cultivating_influence_point;
+                    $cultivating_influence = $this->percentagerankCalculate($cultivatingInfluencePoint,$cultivating_influence_last);
+
+                    $lacking_self_awareness_last = $userSurveyAttemptedArray->last()->lacking_self_awareness_point;
+                    $lacking_self_awareness = $this->percentagerankCalculate($lackingSelfAwarenessPoint,$lacking_self_awareness_last);
+
+                    $lacking_social_awareness_last = $userSurveyAttemptedArray->last()->lacking_social_awareness_point;
+                    $lacking_social_awareness = $this->percentagerankCalculate($lackingSocialAwarenessPoint,$lacking_social_awareness_last);
+
+                    $self_serving_last = $userSurveyAttemptedArray->last()->self_serving_point;
+                    $self_serving = $this->percentagerankCalculate($selfServingPoint,$self_serving_last);
+
+                    $breaking_trust_point_last = $userSurveyAttemptedArray->last()->breaking_trust_point;
+                    $breaking_trust = $this->percentagerankCalculate($breakingTrustPoint,$breaking_trust_point_last);
+
+                    $poor_management_of_emotions_point_last = $userSurveyAttemptedArray->last()->poor_management_of_emotions_point;
+                    $poor_management_of_emotions = $this->percentagerankCalculate($poorManagementOfEmotionsPoint,$poor_management_of_emotions_point_last);
+
+                    $userSurvey->ri_points = $ri_points;
+                    $userSurvey->establishing_report = $establishing_report;
+                    $userSurvey->understanding_others = $understanding_others;
+                    $userSurvey->embracing_individual_differences = $embracing_individual_differences;
+                    $userSurvey->developing_trust = $developing_trust;
+                    $userSurvey->cultivating_influence = $cultivating_influence;
+                    $userSurvey->lacking_self_awareness = $lacking_self_awareness;
+                    $userSurvey->lacking_social_awareness = $lacking_social_awareness;
+                    $userSurvey->self_serving = $self_serving;
+                    $userSurvey->breaking_trust = $breaking_trust;
+                    $userSurvey->poor_management_of_emotions = $poor_management_of_emotions;
                     $userSurvey->status = UserSurvey::COMPLETED;
                     $userSurvey->updated_at = Carbon::now();
                     $userSurvey->save();
+                    
                 }
             }
         }
@@ -462,6 +556,42 @@ class QuestionRepository
 
        return $query->orderBy('updated_at', 'DESC')->limit(10)->get();
 
+    }
+
+public function percentagerankCalculate($valueArray,$lastValue){
+
+        $valueSet	= $valueArray;
+        $value		= $lastValue;
+		$significance	= 3;
+
+		foreach($valueSet as $key => $valueEntry) {
+			if (!is_numeric($valueEntry)) {
+				unset($valueSet[$key]);
+			}
+		}
+		sort($valueSet,SORT_NUMERIC);
+		$valueCount = count($valueSet);
+		if ($valueCount == 0) {
+			return 0;
+		}
+
+		$valueAdjustor = $valueCount - 1;
+		if (($value < $valueSet[0]) || ($value > $valueSet[$valueAdjustor])) {
+			return 0;
+		}
+
+		$pos = array_search($value,$valueSet);
+		if ($pos === False) {
+			$pos = 0;
+			$testValue = $valueSet[0];
+			while ($testValue < $value) {
+				$testValue = $valueSet[++$pos];
+			}
+			--$pos;
+			$pos += (($value - $valueSet[$pos]) / ($testValue - $valueSet[$pos]));
+		}
+
+		return  round($pos / $valueAdjustor,$significance);
     }
 
 }

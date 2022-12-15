@@ -4,7 +4,7 @@
 
 
 
-  <p>Thank you for taking the time to review your results from the &nbsp<b>Bandelli Relational Intelligence Assessment®</b>. We hope this experience was informative and insightful as you think about your development as a leader. If you would like to discuss next steps to further your career journey, please see our contact information below. For more information on Relational Intelligence or other consulting services offerings from Bandelli & Associates, visit our <br> website at: <span style="color:#DB0707; text-transform:none;">bandelliandassociates.com.</span></p>
+  <p>Thank you for taking the time to review your results from the &nbsp<b>Bandelli Relational Intelligence Assessment®</b>. We hope this experience was informative and insightful as you think about your development as a leader. If you would like to discuss next steps to further your career journey, please see our contact information below. For more information on Relational Intelligence or other consulting services offerings from Bandelli & Associates, visit our website at: <a href="http://bandelliandassociates.com/" style="color:#DB0707; text-transform:none; text-decoration: none;">bandelliandassociates.com.</a></p>
 
   <p> &nbsp; </p>
 

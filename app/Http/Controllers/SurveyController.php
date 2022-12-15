@@ -133,11 +133,11 @@ class SurveyController extends Controller
         $allQuestionsCnt    = $this->questionRepository->getQuestionCount();
         $questions          = $userSurvey->questions()->count();
         if( $questions < ( $allQuestionsCnt+1 ) )
-        {   
+        {
             $percentage = $this->questionRepository->getProgressBar($questions, $allQuestionsCnt);
             return response()->json([
                 'status'        => $questions === $allQuestionsCnt ? false : true,
-                'finish_button' => $questions === ($allQuestionsCnt - 1) ? true : false,//$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
+                'finish_button' => $questions === ($allQuestionsCnt - 1) ? true : false, //$questions === ($allQuestionsCnt - 1) ? true : false, // Need to uncomment this condition with static 4
                 'message'       => 'Request created successfully.',
                 'page'          => $page + 1,
                 'redirect_uri'  => route('thank-you'),

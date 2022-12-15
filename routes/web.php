@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::resource('/company', CompanyController::class);
     Route::resource('/project', ProjectController::class);
 
-    Route::get('users/export/{id}',[UsersController::class, 'reportExcelExport']);
+    Route::get('/export/{user}',[UsersController::class, 'reportExcelExport'])->name('export');
 
 });
 

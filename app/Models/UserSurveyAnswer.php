@@ -47,4 +47,8 @@ class UserSurveyAnswer extends Model
     {
         return $this->hasMany(UserSurveyAnswerOption::class, 'user_survey_answer_id', 'id');
     }
+    public function getAttemptIdAttribute()
+    {
+        return implode(',', optional($this->pluck('question_id'))->toArray());
+    }
 }

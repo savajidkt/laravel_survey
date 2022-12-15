@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -95,7 +96,9 @@ class User extends Authenticatable
         if( isset($this->survey->id) && $this->survey->status == UserSurvey::COMPLETED)
         {
             $downloadAction = '<a href="'. route('generate-pdf', $this->id).'" class="download " data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Download Survey" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-pdf-50.png").'" width="20"></a>';
+            $downloadAction .= ' <a href="'. route('export', $this->id).'" class="download " data-user_id="'.$this->id.'" data-toggle="tooltip" data-original-title="Download Raw Data" data-animation="false"><img src="'.asset("app-assets/images/icons/icons8-microsoft-excel-50.png").'" width="20"></a>';
         }
+        
 
         return $editAction.' '.$this->getDeleteButtonAttribute().' '.$ResendAction.' '.$downloadAction;
     }
@@ -155,7 +158,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserSurvey::class, 'user_id', 'id');
     }
-    
+
+    public function survey_answers(): HasMany
+    {
+        return $this->hasMany(UserSurveyAnswer::class, 'user_id', 'id');
+    }
+
     /**
      * Method project
      *

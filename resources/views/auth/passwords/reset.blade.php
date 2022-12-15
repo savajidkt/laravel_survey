@@ -7,7 +7,7 @@
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                <div class="container">
                   <div class="row justify-content-center">
-                     <div class="col-md-9 d-flex flex-column align-items-center justify-content-center">
+                     <div class="col-md-9 col-md-12 d-flex flex-column align-items-center justify-content-center">
                         <div class="card">
                            <div class="card-body">
                               <div class="row">
