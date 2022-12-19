@@ -30,7 +30,7 @@
 
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
-  @if($establishing_report_per < 49) 
+  @if($establishing_report_per <= 33) 
   <ul>
   <li>Focus on the task at hand rather than the impression they make on coworkers</li>
   <li>Seem direct and usually focus on getting their message across to colleagues</li>
@@ -54,7 +54,7 @@
     <li>Be more formal and serious when they first interact with others</li>
     </ul>
     @endif
-    @if($establishing_report_per > 49 && $establishing_report_per < 74) 
+    @if($establishing_report_per >=34 && $establishing_report_per < 67) 
   <ul>
   <li>
       Make a strong first impression when they first meet colleagues </li>
@@ -81,7 +81,7 @@
       <li>Be playful, fun, and engaging in social settings</li>
     </ul>
     @endif
-    @if($establishing_report_per > 74 && $establishing_report_per <=100)
+    @if($establishing_report_per >=68 && $establishing_report_per <=100)
   <ul>
     <li>
       Make a strong first impression when they first meet colleagues </li>

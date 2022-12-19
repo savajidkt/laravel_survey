@@ -5,64 +5,64 @@
 
 
 
-      @if($lacking_self_awareness_per < 49)
+      @if($lacking_self_awareness_per <=49)
         @include('admin.pdf-reports.content.lacking-self-awareness-low')
       @endif
 
-      @if($lacking_self_awareness_per > 49 && $lacking_self_awareness_per < 74)
+      @if($lacking_self_awareness_per >=50 && $lacking_self_awareness_per <= 79)
         @include('admin.pdf-reports.content.lacking-self-awareness-moderate')
       @endif
 
-      @if($lacking_self_awareness_per > 74 && $lacking_self_awareness_per <=100)
+      @if($lacking_self_awareness_per >=80  && $lacking_self_awareness_per <=100)
           @include('admin.pdf-reports.content.lacking-self-awareness-high')
       @endif
 
 
-      @if($lacking_social_awareness_per < 49)
+      @if($lacking_social_awareness_per <=49)
        @include('admin.pdf-reports.content.lacking-social-awareness-low')
       @endif
 
-      @if($lacking_social_awareness_per > 49 && $lacking_social_awareness_per < 74)
+      @if($lacking_social_awareness_per >=50 && $lacking_social_awareness_per <=79)
         @include('admin.pdf-reports.content.lacking-social-awareness-moderate')
       @endif
 
-      @if($lacking_social_awareness_per > 74 && $lacking_social_awareness_per <=100)
+      @if($lacking_social_awareness_per >=80 && $lacking_social_awareness_per <=100)
         @include('admin.pdf-reports.content.lacking-social-awareness-high')
       @endif
 
-      @if($self_serving_per < 49)
+      @if($self_serving_per <=49)
        @include('admin.pdf-reports.content.self-serving-low')
       @endif
 
-      @if($self_serving_per > 49 && $self_serving_per < 74)
+      @if($self_serving_per >=50 && $self_serving_per <=79)
         @include('admin.pdf-reports.content.self-serving-moderate')
       @endif
 
-      @if($self_serving_per > 74 && $self_serving_per <=100)
+      @if($self_serving_per >=80 && $self_serving_per <=100)
         @include('admin.pdf-reports.content.self-serving-high')
       @endif
 
-      @if($breaking_trust_per < 49)
+      @if($breaking_trust_per <=49)
        @include('admin.pdf-reports.content.breaking-trust-low')
       @endif
 
-      @if($breaking_trust_per > 49 && $breaking_trust_per < 74)
+      @if($breaking_trust_per >=50 && $breaking_trust_per <= 79)
         @include('admin.pdf-reports.content.breaking-trust-moderate')
       @endif
 
-      @if($breaking_trust_per > 74 && $breaking_trust_per <=100)
+      @if($breaking_trust_per >=80 && $breaking_trust_per <=100)
         @include('admin.pdf-reports.content.breaking-trust-high')
       @endif
 
-      @if($poor_management_of_emotions_per < 49)
+      @if($poor_management_of_emotions_per <=49)
        @include('admin.pdf-reports.content.poor-management-low')
       @endif
 
-      @if($poor_management_of_emotions_per > 49 && $poor_management_of_emotions_per < 74)
+      @if($poor_management_of_emotions_per >=50 && $poor_management_of_emotions_per <=79)
         @include('admin.pdf-reports.content.poor-management-moderate')
       @endif
 
-      @if($poor_management_of_emotions_per > 74 && $poor_management_of_emotions_per <=100)
+      @if($poor_management_of_emotions_per >=80 && $poor_management_of_emotions_per <=100)
         @include('admin.pdf-reports.content.poor-management-high')
       @endif
 

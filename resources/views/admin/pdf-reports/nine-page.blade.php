@@ -32,7 +32,7 @@
 
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
-  @if($developing_trust_per < 49)
+  @if($developing_trust_per <= 33)
   <ul>
   <li>Have difficulty setting aside time to focus on their individual growth and professional development</li>
   <li>Avoid situations where they might be vulnerable in front of colleagues</li>
@@ -60,7 +60,7 @@
     </ul>
     @endif
 
-    @if($developing_trust_per > 49 && $developing_trust_per < 74) 
+    @if($developing_trust_per >= 34 && $developing_trust_per <= 67) 
     <ul>
     <li>Have a deep understanding of how their values, strengths, and blind spots impact the ways they work with colleagues</li>
     <li>Be comfortable sharing the lessons they have learned along their career journey openly and with vulnerability</li>
@@ -90,7 +90,7 @@
   </ul>
     @endif
 
-    @if($developing_trust_per > 74 && $developing_trust_per <=100)
+    @if($developing_trust_per >=68 && $developing_trust_per <=100)
     <ul>
 
     <li>Have a deep understanding of how their values, strengths, and blind spots impact the ways they work with colleagues</li>

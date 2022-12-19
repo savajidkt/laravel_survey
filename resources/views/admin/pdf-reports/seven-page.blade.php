@@ -32,7 +32,7 @@
 
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
-  @if($understanding_others_per < 49) 
+  @if($understanding_others_per <=33) 
   <ul>
   <li>Be independent and prefer to work alone rather than collaborate with colleagues</li>
   <li>Lack the self-awareness to understand how their emotions impact coworkers</li>
@@ -59,7 +59,7 @@
     </ul>
     @endif
 
-    @if($understanding_others_per > 49 && $understanding_others_per < 74) 
+    @if($understanding_others_per >= 34 && $understanding_others_per <= 67) 
   <ul>
   <li>Have strong self-awareness and understand how their emotions impact coworkers</li>
   <li>Be easy to get along with and socially appropriate in different team settings</li>
@@ -85,7 +85,7 @@
     </ul>
     @endif
 
-    @if($understanding_others_per > 74 && $understanding_others_per <=100)
+    @if($understanding_others_per >= 68 && $understanding_others_per <=100)
     <ul>
     <li>Have strong self-awareness and understand how their emotions impact coworkers</li>
     <li>Be easy to get along with and socially appropriate in different team settings</li>

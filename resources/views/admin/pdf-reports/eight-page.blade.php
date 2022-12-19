@@ -33,7 +33,7 @@
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
 
-  @if($embracing_individual_differences_per < 49) 
+  @if($embracing_individual_differences_per <= 33) 
   <ul>
   <li>Be more guarded and hold back from being their true selves at work</li>
   <li>Build teams with people who share similar values and beliefs</li>
@@ -60,7 +60,7 @@
     </ul>
     @endif
 
-    @if($embracing_individual_differences_per > 49 && $embracing_individual_differences_per < 74) 
+    @if($embracing_individual_differences_per >= 34 && $embracing_individual_differences_per <= 67) 
   <ul>
   <li>Sometimes adjust their communication style to meet the needs of different stakeholders</li>
   <li>Understand the importance of making coworkers feel valued regardless of their backgrounds</li>
@@ -86,7 +86,7 @@
     </ul>
     @endif
 
-    @if($embracing_individual_differences_per > 74 && $embracing_individual_differences_per <=100)
+    @if($embracing_individual_differences_per >= 68 && $embracing_individual_differences_per <=100)
     <ul>
     <li>Have a genuine and authentic communication style when interacting with coworkers</li>
     <li>React favorably to employees who think, act, and behave differently than they do</li>

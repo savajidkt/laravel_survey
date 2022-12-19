@@ -32,7 +32,7 @@
 
   <h3 class="report_head">Relational implications</h3>
   <p class="report_p">Leaders with similar scores tend to:</p>
-  @if($cultivating_influence_per < 49)
+  @if($cultivating_influence_per <= 33)
   <ul>
   <li>Believe employees are responsible for their own professional development</li>
   <li>Enjoy giving negative feedback for poor performance</li>
@@ -59,7 +59,7 @@
     </ul>
     @endif
 
-    @if($cultivating_influence_per > 49 && $cultivating_influence_per < 74) 
+    @if($cultivating_influence_per >=34 && $cultivating_influence_per <= 67) 
     <ul>
     <li>Balance meeting the needs of the business with supporting the growth of their people</li>
     <li>Provide real-time feedback to employees to improve productivity</li>
@@ -90,7 +90,7 @@
   </ul>
     @endif
 
-    @if($cultivating_influence_per > 74 && $cultivating_influence_per <=100)
+    @if($cultivating_influence_per >= 68 && $cultivating_influence_per <=100)
     <ul>
     <li>Have a strong desire to see their employees become the best versions of themselves</li>
     <li>Intentionally take time to mentor and coach others</li>

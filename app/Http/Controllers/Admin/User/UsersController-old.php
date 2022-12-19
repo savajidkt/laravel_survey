@@ -202,78 +202,76 @@ class UsersController extends Controller
      */
     public function generatePDF(int $id, PDFRequest $request)
     {
-        $userSurvey  = UserSurvey::where('user_id', $id)->where('status', UserSurvey::COMPLETED)->first();
-        // $userSurveyAnswer = UserSurveyAnswer::select([
-        //     DB::raw("SUM(establishing_report_point) AS esMax"),
-        //     DB::raw("SUM(understanding_others_point) AS undMax"),
-        //     DB::raw("SUM(embracing_individual_differences_point) AS embracingMax"),
-        //     DB::raw("SUM(developing_trust_point) AS developingMax"),
-        //     DB::raw("SUM(cultivating_influence_point) AS cultiInfluMax"),
-        //     DB::raw("SUM(lacking_self_awareness_point) AS lackingSelfMax"),
-        //     DB::raw("SUM(lacking_social_awareness_point) AS lackingSocialMax"),
-        //     DB::raw("SUM(self_serving_point) AS selfServingMax"),
-        //     DB::raw("SUM(breaking_trust_point) AS breakingTrustMax"),
-        //     DB::raw("SUM(poor_management_of_emotions_point) AS poorMax"),
-        //     'user_survey_id'
-        // ])->groupBy('user_survey_id');
+        $userSurvey  = UserSurvey::where('user_id', $id)->first();
+        $userSurveyAnswer = UserSurveyAnswer::select([
+            DB::raw("SUM(establishing_report_point) AS esMax"),
+            DB::raw("SUM(understanding_others_point) AS undMax"),
+            DB::raw("SUM(embracing_individual_differences_point) AS embracingMax"),
+            DB::raw("SUM(developing_trust_point) AS developingMax"),
+            DB::raw("SUM(cultivating_influence_point) AS cultiInfluMax"),
+            DB::raw("SUM(lacking_self_awareness_point) AS lackingSelfMax"),
+            DB::raw("SUM(lacking_social_awareness_point) AS lackingSocialMax"),
+            DB::raw("SUM(self_serving_point) AS selfServingMax"),
+            DB::raw("SUM(breaking_trust_point) AS breakingTrustMax"),
+            DB::raw("SUM(poor_management_of_emotions_point) AS poorMax"),
+            'user_survey_id'
+        ])->groupBy('user_survey_id');
 
-        // $survey = UserSurvey::select([
-        //     'esMax',
-        //     'undMax',
-        //     'embracingMax',
-        //     'developingMax',
-        //     'cultiInfluMax',
-        //     'lackingSelfMax',
-        //     'lackingSocialMax',
-        //     'selfServingMax',
-        //     'breakingTrustMax',
-        //     'poorMax',
-        //     'id',
-        //     'user_id',
-        //     'status'
-        // ])->leftJoinSub($userSurveyAnswer, 'calculation', function ($join) {
-        //     $join->on('calculation.user_survey_id', '=', 'user_surveys.id');
-        // })->where('status', UserSurvey::COMPLETED)->get();
+        $survey = UserSurvey::select([
+            'esMax',
+            'undMax',
+            'embracingMax',
+            'developingMax',
+            'cultiInfluMax',
+            'lackingSelfMax',
+            'lackingSocialMax',
+            'selfServingMax',
+            'breakingTrustMax',
+            'poorMax',
+            'id',
+            'user_id',
+            'status'
+        ])->leftJoinSub($userSurveyAnswer, 'calculation', function ($join) {
+            $join->on('calculation.user_survey_id', '=', 'user_surveys.id');
+        })->where('status', UserSurvey::COMPLETED)->get();
 
         // get max value from all users
+        $esMax = $survey->max('esMax');
+        $undMax = $survey->max('undMax');
+        $embracingMax = $survey->max('embracingMax');
+        $developingMax = $survey->max('developingMax');
+        $cultiInfluMax = $survey->max('cultiInfluMax');
+        $lackingSelfMax = $survey->max('lackingSelfMax');
+        $lackingSocialMax = $survey->max('lackingSocialMax');
+        $selfServingMax = $survey->max('selfServingMax');
+        $breakingTrustMax = $survey->max('breakingTrustMax');
+        $poorMax = $survey->max('poorMax');
 
-        // $esMax = $survey->max('esMax');
-        // $undMax = $survey->max('undMax');
-        // $embracingMax = $survey->max('embracingMax');
-        // $developingMax = $survey->max('developingMax');
-        // $cultiInfluMax = $survey->max('cultiInfluMax');
-        // $lackingSelfMax = $survey->max('lackingSelfMax');
-        // $lackingSocialMax = $survey->max('lackingSocialMax');
-        // $selfServingMax = $survey->max('selfServingMax');
-        // $breakingTrustMax = $survey->max('breakingTrustMax');
-        // $poorMax = $survey->max('poorMax');
 
         //selected user get total
-        // $ri_points            =  $userSurvey->questions->sum('ri_points');
-        // $esTotal            =  $userSurvey->questions->sum('establishing_report_point');
-        // $undTotal           = $userSurvey->questions->sum('understanding_others_point');
-        // $embracingTotal     = $userSurvey->questions->sum('embracing_individual_differences_point');
-        // $developingTotal    = $userSurvey->questions->sum('developing_trust_point');
-        // $cultiInfluTotal    = $userSurvey->questions->sum('cultivating_influence_point');
-        // $lackingSelfTotal   = $userSurvey->questions->sum('lacking_self_awareness_point');
-        // $lackingSocialTotal = $userSurvey->questions->sum('lacking_social_awareness_point');
-        // $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
-        // $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
-        // $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
+        $ri_points            =  $userSurvey->questions->sum('ri_points');
+        $esTotal            =  $userSurvey->questions->sum('establishing_report_point');
+        $undTotal           = $userSurvey->questions->sum('understanding_others_point');
+        $embracingTotal     = $userSurvey->questions->sum('embracing_individual_differences_point');
+        $developingTotal    = $userSurvey->questions->sum('developing_trust_point');
+        $cultiInfluTotal    = $userSurvey->questions->sum('cultivating_influence_point');
+        $lackingSelfTotal   = $userSurvey->questions->sum('lacking_self_awareness_point');
+        $lackingSocialTotal = $userSurvey->questions->sum('lacking_social_awareness_point');
+        $selfServingTotal   = $userSurvey->questions->sum('self_serving_point');
+        $breakingTrustTotal = $userSurvey->questions->sum('breaking_trust_point');
+        $poorTotal          = $userSurvey->questions->sum('poor_management_of_emotions_point');
 
         // percentage calculation
-        
-        $ri_points          =  round($userSurvey->ri_points * 100,0);
-        $esPer              =  round($userSurvey->establishing_report * 100,0);
-        $undPer             =  round($userSurvey->understanding_others * 100,0);
-        $embracingPer       =  round($userSurvey->embracing_individual_differences * 100,0);
-        $developingPer      =  round($userSurvey->developing_trust * 100,0);
-        $cultiInfluPer      =  round($userSurvey->cultivating_influence * 100,0);
-        $lackingSelfPer     =  round($userSurvey->lacking_self_awareness * 100,0);
-        $lackingSocialPer   =  round($userSurvey->lacking_social_awareness * 100,0);
-        $selfServingPer     =  round($userSurvey->self_serving * 100,0);
-        $breakingTrustPer   =  round($userSurvey->breaking_trust * 100,0);
-        $poorPer            =  round($userSurvey->poor_management_of_emotions * 100,0);
+        $esPer              =  $esTotal == $esMax ? 100 : $esTotal * 100 / $esMax;
+        $undPer             =  $undTotal == $undMax ? 100 : $undTotal * 100 / $undMax;
+        $embracingPer       =  $embracingTotal == $embracingMax ? 100 : $embracingTotal * 100 / $embracingMax;
+        $developingPer      =  $developingTotal == $developingMax ? 100 : $developingTotal * 100 / $developingMax;
+        $cultiInfluPer      =  $cultiInfluTotal == $cultiInfluMax ? 100 : $cultiInfluTotal * 100 / $cultiInfluMax;
+        $lackingSelfPer     =  $lackingSelfTotal == $lackingSelfMax ? 100 : $lackingSelfTotal * 100 / $lackingSelfMax;
+        $lackingSocialPer   =  $lackingSocialTotal == $lackingSocialMax ? 100 : $lackingSocialTotal * 100 / $lackingSocialMax;
+        $selfServingPer     =  $selfServingTotal == $selfServingMax ? 100 : $selfServingTotal * 100 / $selfServingMax;
+        $breakingTrustPer   =  $breakingTrustTotal == $breakingTrustMax ? 100 : $breakingTrustTotal * 100 / $breakingTrustMax;
+        $poorPer            =  $poorTotal == $poorMax ? 100 : $poorTotal * 100 / $poorMax;
 
         //echo common()->formatSql($latestPosts);die;
         $data = [
@@ -281,17 +279,17 @@ class UsersController extends Controller
             'survey_id'                             => $this->invoice_num($userSurvey->id, 6, ''),
             'full_name'                             => $userSurvey->user->full_name,
             'date'                                  => Carbon::parse($userSurvey->updated_at)->format('m/d/Y'),
-            'ri_points'                             => $ri_points,
-            'establishing_report_per'               => $esPer,
-            'understanding_others_per'              => $undPer,
-            'embracing_individual_differences_per'  => $embracingPer,
-            'developing_trust_per'                  => $developingPer,
-            'cultivating_influence_per'             => $cultiInfluPer,
-            'lacking_self_awareness_per'            => $lackingSelfPer,
-            'lacking_social_awareness_per'          => $lackingSocialPer,
-            'self_serving_per'                      => $selfServingPer,
-            'breaking_trust_per'                    => $breakingTrustPer,
-            'poor_management_of_emotions_per'       => $poorPer
+            'ri_points'                             => number_format($ri_points, 2),
+            'establishing_report_per'               => number_format($esPer, 2),
+            'understanding_others_per'              => number_format($undPer, 2),
+            'embracing_individual_differences_per'  => number_format($embracingPer, 2),
+            'developing_trust_per'                  => number_format($developingPer, 2),
+            'cultivating_influence_per'             => number_format($cultiInfluPer > 100 ? 100 : $cultiInfluPer, 2),
+            'lacking_self_awareness_per'            => number_format($lackingSelfPer, 2),
+            'lacking_social_awareness_per'          => number_format($lackingSocialPer, 2),
+            'self_serving_per'                      => number_format($selfServingPer, 2),
+            'breaking_trust_per'                    => number_format($breakingTrustPer, 2),
+            'poor_management_of_emotions_per'       => number_format($poorPer, 2)
         ];
 
         $html = view('admin.pdf-reports.front-page', $data)->render();
