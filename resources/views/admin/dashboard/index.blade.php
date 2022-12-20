@@ -45,11 +45,11 @@
     </div>
     <div class="col-lg-2 col-md-3 col-12">
       <label>From Date</label>
-      <input type="text" id="from_date" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+      <input type="text" id="from_date" class="form-control flatpickr-disabled-range" placeholder="MM-DD-YYYY" />
     </div>
     <div class="col-lg-2 col-md-3 col-12">
       <label>To Date</label>
-      <input type="text" id="to_date" class="form-control flatpickr-disabled-range" placeholder="YYYY-MM-DD" />
+      <input type="text" id="to_date" class="form-control flatpickr-disabled-range" placeholder="MM-DD-YYYY" />
     </div>
     <div class="col-lg-2 col-md-3 col-12">
       <label>&nbsp;</label>
@@ -93,6 +93,17 @@
 
 @section('extra-script')
 <script>
+  var disabledRangePickr = $('.flatpickr-disabled-range');
+  disabledRangePickr.flatpickr({
+      dateFormat: 'm-d-Y',
+      disable: [
+        {
+          from: new Date().fp_incr(2),
+          to: new Date().fp_incr(7)
+        }
+      ]
+    });
+ 
   var goalOverviewChart = null;
   //------------ Goal Overview Chart ------------
   //---------------------------------------------

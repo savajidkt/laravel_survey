@@ -3,7 +3,7 @@
         <td>
           <div>
             <div style="font-family: 'Roboto Condensed', sans-serif; font-size:24px; color:#3D3F42; display:inline-block;">Lacking Self-Awareness</div> 
-            <div style="font-family: 'Roboto Condensed', sans-serif; font-size:24px; color:#DB0707; display:inline-block;">(High Risk)</div>
+            <div style="font-family: 'Roboto Condensed', sans-serif; font-size:24px; color:#DB0707; display:inline-block;">(No Risk)</div>
           </div>
           <div style="font-size:16px; padding-bottom:5px;">People with similar scores tend to:</div>
         </td>

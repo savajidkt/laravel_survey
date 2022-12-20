@@ -455,11 +455,12 @@ class QuestionRepository
      * @return int
      */
     public function getTotalCompletedSurveys(array $data): int
-    {
+    {   
         $company    = isset($data['company']) ? $data['company'] : null;
         $project    = isset($data['project']) ? $data['project'] : null;
-        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
-        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+        $fromDate   = isset($data['fromDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['fromDate']))) : null;        
+        $toDate     = isset($data['toDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['toDate']))) : null;
+      
         $query      = UserSurvey::query()->where('status', UserSurvey::COMPLETED);
 
         if( $fromDate && $toDate )
@@ -500,8 +501,8 @@ class QuestionRepository
         //DB::enableQueryLog();
         $company    = isset($data['company']) ? $data['company'] : null;
         $project    = isset($data['project']) ? $data['project'] : null;
-        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
-        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+        $fromDate   = isset($data['fromDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['fromDate']))) : null;        
+        $toDate     = isset($data['toDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['toDate']))) : null;
 
         $query = User::query();
         $query->doesntHave('survey');
@@ -525,8 +526,8 @@ class QuestionRepository
     {
         $company    = isset($data['company']) ? $data['company'] : null;
         $project    = isset($data['project']) ? $data['project'] : null;
-        $fromDate   = isset($data['fromDate']) ? $data['fromDate'] : null;
-        $toDate     = isset($data['toDate']) ? $data['toDate'] : null;
+        $fromDate   = isset($data['fromDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['fromDate']))) : null;        
+        $toDate     = isset($data['toDate']) ? date('Y-m-d', strtotime(str_replace('-','/', $data['toDate']))) : null;
         $query      = UserSurvey::whereIn('status', [UserSurvey::COMPLETED]);
 
         if( $fromDate && $toDate )
