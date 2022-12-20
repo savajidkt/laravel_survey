@@ -16,6 +16,7 @@
                 <thead class="thead-light">
                     <tr>
                         <th></th>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Status</th>
@@ -40,12 +41,17 @@
             processing: true,
             serverSide: true,
             searching: true,
+            order: [[1, 'desc']],
             ajax: "{{ route('users.index') }}",
             columns: [{
                     data: 'DT_RowIndex',
                     name: 'id',
                     orderable: false,
                     searchable: false
+                },
+                {
+                    data: 'id',
+                    visible: false,
                 },
                 {
                     data: 'full_name',

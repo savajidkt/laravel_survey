@@ -117,7 +117,7 @@ class QuestionRepository
         $user = Auth::user();
         $questionAnswer = $user->survey_answers()->pluck('question_id')->toArray();
         $existId ='';
-        //$questionAnswer = UserSurveyAnswer::where('user_id',$user_id)->get();
+        //$questionAnswer = UserSurveyAnswer::where('user_id',$user_id)->get()->pluck('question_id')->toArray();
         
         if(count($questionAnswer) > 0){
             $existId  = $questionAnswer;
@@ -131,6 +131,7 @@ class QuestionRepository
         }
         $question = $question->orderBy(DB::raw('RAND()'))->get();
 
+        // echo common()->formatSql($question);die;
         //dd(DB::getQueryLog());
         //dd($question);
         if(isset($question[0])){
@@ -151,9 +152,10 @@ class QuestionRepository
     public function questionAttempt(array $data): UserSurvey
     {
         $question       = isset($data['question_id']) ? Question::find($data['question_id']) : null;
-        $options         = isset($data['options']) ? $data['options'] : null;
+        $options        = isset($data['options']) ? $data['options'] : null;
         $userSurvey     = isset($data['survey_id']) ? UserSurvey::find($data['survey_id']) : null;
-        $userId         = auth()->user()->id;
+        $user           = auth()->user();
+        $userId         = $user->id;
 
         // delete user attempted question
         //$userSurveyAttempted = UserSurveyAnswer::where('user_id', $userId)->where('user_survey_id', $userSurvey->id);
@@ -166,6 +168,12 @@ class QuestionRepository
         // create user survey questions
 
         if(isset($question->id)){
+            // check if already attempted
+            if( $user->survey_answers()->where('question_id', $question->id)->count() )
+            {
+                return $userSurvey;
+            }
+
             $preQuestionOption = QuestionOption::whereIn('order_sorting',[1,2])->where('question_id',$question->id)->orderBy('order_sorting', 'asc')->get();
             foreach ($preQuestionOption as $optio){
                 $prequestOption[] =$optio->id;
