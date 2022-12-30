@@ -147,13 +147,27 @@ ChartOptions= {
     myNewChart.scale.yLabels=[0,33,66,100];
     myNewChart.scale.drawingArea =100;
 
-    const myTimeout = setTimeout(function(){
+    /*const myTimeout = setTimeout(function(){
       const canvas = document.getElementById('myChart');
       const img    = canvas.toDataURL('image/png');
       console.log(img);
       //document.write('<img src="'+img+'"/>');
     }, 5000);
+*/
 
+setTimeout(function(){
+  const canvas = document.getElementById('myChart');
+  const img    = canvas.toDataURL('image/png');
+
+  //document.write('<img src="'+img+'"/>');
+  canvas.style.display = 'none';
+
+  const imgElem = document.createElement("img");
+  imgElem.setAttribute('src', img);
+  imgElem.style.backgroundColor = '#ddd';
+  imgElem.style.borderRadius = '50%';
+  canvas.after(imgElem);
+}, 2000)
 
     
     // var can = document.getElementById('myChart');

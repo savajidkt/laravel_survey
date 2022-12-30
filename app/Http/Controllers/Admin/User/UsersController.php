@@ -299,11 +299,11 @@ class UsersController extends Controller
 
         $html = view('admin.pdf-reports.front-page', $data)->render();
         //$html = view('admin.pdf-reports.chart', $data)->render();
-        echo $html; die;
+        // echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 4000);
+        $pdf->setOption('javascript-delay', 5000);
         $pdf->setOption('enable-smart-shrinking', true);
         $pdf->setOption('no-stop-slow-scripts', true);
         $pdf->setOption('encoding', 'UTF-8');
