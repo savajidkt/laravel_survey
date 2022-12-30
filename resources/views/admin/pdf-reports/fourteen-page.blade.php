@@ -2,7 +2,7 @@
 
   <h2 class="page_head">Recommendations <span style="font-size: 24px; color: #3D3F42; font-family: 'Roboto Condensed', sans-serif;">(Continued)</span></h2>
 
-  <div class="page4_head" style="border-bottom:2px solid #A75FD3; font-size:24px;">
+  <div class="page4_head" style="border-bottom:3px solid #A75FD3; font-size:24px;">
     Embracing Individual Differences
   </div>
   <ul>
@@ -15,7 +15,7 @@
 
   <p> &nbsp; </p>
 
-  <div class="page4_head" style="border-bottom:2px solid #7FB936; font-size:24px;">
+  <div class="page4_head" style="border-bottom:3px solid #2D63ED; font-size:24px;">
   Developing Trust
   </div>
   <ul>
@@ -28,7 +28,7 @@
 
   <p> &nbsp; </p>
 
-  <div class="page4_head" style="border-bottom:2px solid #7FB936; font-size:24px;">
+  <div class="page4_head" style="border-bottom:3px solid #FF8E3A; font-size:24px;">
   Cultivating Influence
   </div>
   <ul>

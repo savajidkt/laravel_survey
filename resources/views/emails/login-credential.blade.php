@@ -144,7 +144,7 @@
 														</p>
 														<p style="margin: 0;margin-top: 20px;">
 															If you have any technical difficulties completing the assessment, please
-															contact us at <a href="mailto:riassessmentadmin@bandelliandassociates.com" target="_blank">riassessmentadmin@bandelliandassociates.com.</a>
+															contact us at <a href="mailto:admin@bandelliandassociates.com" target="_blank">admin@bandelliandassociates.com</a>
 														</p>
 													</td>
 												</tr>

@@ -70,6 +70,13 @@ class SurveyController extends Controller
         }
         return view('survey.demographic');
     }
+
+    public function demoSurvey()
+    {
+        return view('survey.demo-survey');
+        //return redirect()->route('demo-survey');
+    }
+
     /**
      * Method thankYou
      *

@@ -23,7 +23,7 @@
           <th>
           Relational Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Overestimate their skills and abilities, which prevents them from seeking the support of colleagues.
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <th>
           Leadership Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Assume they have all the right answers and rarely seek  input from their team members.
           </td>
         </tr>
@@ -39,7 +39,7 @@
           <th>
           Organizational Culture Implication:
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Be unaware of the impact they have on others, which can create a culture of miscommunication, lack of alignment, and poor engagement.
           </td>
         </tr>

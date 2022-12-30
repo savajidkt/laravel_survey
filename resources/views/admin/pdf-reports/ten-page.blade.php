@@ -8,14 +8,14 @@
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
         <tr>
           <td style="width:50px;"> <img style="max-width:100%; height:auto;"
-                src="{{asset('pdf/img/CulIcon.png')}}"
+                src="{{asset('pdf/img/CulIcon.jpg')}}"
                 alt="DevelIcon"
               /> </td>
 
           <td style="padding-left:14px;">
             <div style="color:#FF8E3A; font-size:40px;"><b>{{$cultivating_influence_per}}%</b></div>
-            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
-              <div style="background:#FF8E3A; border-radius: 25px; width:{{$cultivating_influence_per}}%; height:3px;"></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:6px; width:100%;">
+              <div style="background:#FF8E3A; border-radius: 25px; width:{{$cultivating_influence_per}}%; height:6px;"></div>
             </div>
 
             <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -43,10 +43,10 @@
 
   </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#FF8E3A; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p"> Compared to other leaders, your scores suggest that you are competitive and eager to get ahead. You like to take on visible roles in projects and enjoy being in charge. If you are frustrated by a team member’s poor performance, you are not afraid address it with them. Because you don’t have trouble giving negative feedback, it can be intimidating for some of your people, especially if they are new to the team. You understand that helping your people grow is important, but this usually takes a back seat to ensuring performance goals are accomplished. </p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#FF8E3A; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -126,7 +126,7 @@
     <div style="position:relative; width:100%;">  
       <div style="width:174px; position:absolute; top:-110px; right:-15px;"> 
         <img style="max-width:100%; height:auto;"
-          src="{{asset('pdf/img/orange_graphics.png')}}"
+          src="{{asset('pdf/img/orange_graphics.jpg')}}"
           alt="Bandelli-Associates-Logo 1"
         /> 
       </div>

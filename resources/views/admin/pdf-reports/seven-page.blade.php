@@ -8,14 +8,14 @@
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
         <tr>
           <td style="width:50px;"> <img style="max-width:100%; height:auto;"
-                src="{{asset('pdf/img/ChatIcon.png')}}"
+                src="{{asset('pdf/img/ChatIcon.jpg')}}"
                 alt="Bandelli-Associates-Logo 1"
               /> </td>
 
           <td style="padding-left:14px;">
             <div style="color:#7FB936; font-size:40px;"><b>{{$understanding_others_per}}%</b></div>
-            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
-              <div style="background:#7FB936; border-radius: 25px; width:{{$understanding_others_per}}%; height:3px;"></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:6px; width:100%;">
+              <div style="background:#7FB936; border-radius: 25px; width:{{$understanding_others_per}}%; height:6px;"></div>
             </div>
 
             <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -43,10 +43,10 @@
 
     </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#7FB936; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p"> Compared to other leaders, your scores suggest that you prefer to build teams where performance takes precedence over the connections that people have with one another. You don’t mind taking unpopular positions, enforcing standards, or pushing people for results. It’s more important for you to ensure employees understand their roles, duties, and responsibilities than it is to learn about their backgrounds and personal experiences. Because you are not afraid to hold people accountable, others may feel that you lack empathy when it comes to situational circumstances that could interfere with their work. </p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#7FB936; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -69,10 +69,10 @@
   <li>Be curious and inquisitive when asking questions to get to know others</li>
 </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#7FB936; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p">Compared to other leaders, your scores suggest that you strike a nice balance between driving performance expectations and getting to know your people. This allows you to maximize the productivity of your team. You pay attention to your team’s work environment and let employees know that you strive to create a climate of engagement and collaboration. You demonstrate this skill when you take time to learn about the talents and capabilities of team members and then find projects or initiatives for them to work on where they will succeed. You’re less concerned with learning about your peoples’ personal lives and prefer to keep boundaries between work and non-work-related activities.</p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#7FB936; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -117,9 +117,9 @@
  
   <div class="footerblock">
     <div style="position:relative; width:100%;">  
-      <div style="width:180px; position:absolute; top:-170px; right:-30px;"> 
-        <img style="max-width:100%; height:auto;"
-          src="{{asset('pdf/img/green_graphics.png')}}"
+      <div class="r-img1" style="position:absolute; top:-168px; right:-100px;"> 
+        <img
+          src="{{asset('pdf/img/green_graphics.svg')}}"
           alt="Bandelli-Associates-Logo 1"
         /> 
       </div>

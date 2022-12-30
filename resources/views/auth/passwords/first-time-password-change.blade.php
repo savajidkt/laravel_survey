@@ -15,7 +15,12 @@
                                     <div class="p-4">
                                        <form class="row g-3 needs-validation p-3" method="POST" action="{{ route('first.password.change') }}">
                                             @csrf
-                                          <h1 class="card-title pt-0 pb-0 mb-0">{{ __('Change Password') }}</h1>
+                                          <h1 class="card-title pt-0 pb-0 mb-0">{{ __('Change Password') }}
+                                             
+                                             <span style="font-size: 30px;"  data-bs-toggle="tooltip" data-bs-placement="bottom"
+        data-bs-custom-class="custom-tooltip"
+        data-bs-title="Your password must be more than 8 characters long, should contain at-least 1 Uppercase, 1 Lowercase, 1 Numeric and 1 special character."><i class="bi bi-info-circle"></i>
+</span></h1>
                                           <!-- <div class="col-12">
                                           <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required autocomplete="current_password" placeholder="Current Password">
                                             @error('current_password')

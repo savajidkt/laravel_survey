@@ -168,7 +168,7 @@
     padding: 0;
     padding-bottom:10px;
     margin:0 0 40px 0;
-    border-bottom:2px solid red;
+    border-bottom:3px solid #DB0707;
   }
 
   .pagestart {
@@ -334,5 +334,12 @@
  .page14{min-height:1360px;}
  .page15{min-height:1360px;}
  .page16{min-height:1360px;}
+ 
+ .r-img1 img{width:370px; height:163px;}
+ .r-img2 img{width:290px; height:150px;}
+ .Bandelli-Associates-Logo img{width:473px; height:141px;}
+ .c-l-r{position:relative;}
+ .er-label-r{position:absolute;right:0; top:10px; border:solid 2px red;}
+ .er-label-r-text{width:100%; text-align:right; padding-bottom:10px; float:right;}
  
 </style>

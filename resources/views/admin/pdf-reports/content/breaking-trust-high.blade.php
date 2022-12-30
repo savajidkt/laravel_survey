@@ -23,7 +23,7 @@
           <th>
           Relational Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Sometimes test limits and boundaries of their commitments to others.
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <th>
           Leadership Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Be spontaneous and impulsive, which can cause them to forget about projects they have assigned to their team members.
           </td>
         </tr>
@@ -39,7 +39,7 @@
           <th>
           Organizational Culture Implication:
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Procrastinate or avoid a person or task when they disagree with a course of action that has been set by other leaders in the organization.
           </td>
         </tr>

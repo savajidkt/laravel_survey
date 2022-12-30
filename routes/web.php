@@ -67,7 +67,7 @@ Auth::routes();
 // ]);
 # Front Routes
 Route::group(['authGrouping' => 'users.auth'], function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('checkSurveyStatus');
     Route::get('/change-password', [ResetPasswordController::class, 'firstTimePasswordChange'])->name('change-password');
     //Route::resource('/survey', SurveyController::class);
     Route::get('/thank-you', [App\Http\Controllers\SurveyController::class, 'thankYou'])->name('thank-you')->middleware('checkSurveyStatus');
@@ -82,7 +82,7 @@ Route::group(['authGrouping' => 'users.auth'], function () {
 
     //Route::get('/export/{id}',[UsersController::class, 'reportExcelExport'])->name('survey-export');
     Route::get('/user/survey-export/{id}', [App\Http\Controllers\UserController::class, 'reportExcelExport'])->name('survey-export');
-    
+    Route::get('/demo-survey', [App\Http\Controllers\SurveyController::class, 'demoSurvey'])->name('demo-survey');
 });
 
 

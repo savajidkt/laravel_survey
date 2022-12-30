@@ -39,7 +39,7 @@ class UserController extends Controller
         $user = auth()->user();
         $this->userRepository->changePassword($user, $request->except(['_token', '_method']));
 
-        return redirect()->route('home')->with('success','Your password changed successfully!');
+        return redirect()->route('demographic')->with('success','Your password changed successfully!');
     }
 
     /**
@@ -53,7 +53,7 @@ class UserController extends Controller
         
         $this->userRepository->demoformcreate($request->all());
 
-        return redirect()->route('take-survey')->with('success', "User update successfully!");
+        return redirect()->route('home')->with('success', "User update successfully!");
     }
 
 

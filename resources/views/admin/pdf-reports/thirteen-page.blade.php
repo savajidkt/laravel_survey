@@ -5,7 +5,7 @@
   <p>Now that you have reviewed your results, it is important to think about how you want to further develop your Relational Intelligence. The following recommendations should be viewed as <b>thought starters</b> as you begin working with your executive coach or leadership advisor to build your personal development plan. You may practice some of these behaviors already, so use these recommendations as guidelines for whichever skill(s) you want to improve. </p>
 
 
-  <div class="page4_head" style="border-bottom:2px solid #FFCC01; font-size:24px;">
+  <div class="page4_head" style="border-bottom:3px solid #FFCC01; font-size:24px;">
   Establishing Rapport
   </div>
   <ul>
@@ -18,7 +18,7 @@
 
   <p> &nbsp; </p>
 
-  <div class="page4_head" style="border-bottom:2px solid #7FB936; font-size:24px;">
+  <div class="page4_head" style="border-bottom:3px solid #7FB936; font-size:24px;">
   Understanding Others
   </div>
   <ul>

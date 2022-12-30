@@ -23,7 +23,7 @@
           <th>
           Relational Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Be easily offended, argumentative, and retaliate when they feel wronged.
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <th>
           Leadership Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Have a tendency toward emotional displays in front of team members, which can frighten or intimidate their people.
           </td>
         </tr>
@@ -39,7 +39,7 @@
           <th>
           Organizational Culture Implication:
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Become visibly upset with unexpected problems to enterprise-wide initiatives and may say things to colleagues they regret later.
           </td>
         </tr>

@@ -8,14 +8,14 @@
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
         <tr>
           <td style="width:50px;"> <img style="max-width:100%; height:auto;"
-                src="{{asset('pdf/img/DevelIcon.png')}}"
+                src="{{asset('pdf/img/DevelIcon.jpg')}}"
                 alt="DevelIcon"
               /> </td>
 
           <td style="padding-left:14px;">
             <div style="color:#2D63ED; font-size:40px;"><b>{{$developing_trust_per}}%</b></div>
-            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
-              <div style="background:#2D63ED; border-radius: 25px; width:{{$developing_trust_per}}%; height:3px;"></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:6px; width:100%;">
+              <div style="background:#2D63ED; border-radius: 25px; width:{{$developing_trust_per}}%; height:6px;"></div>
             </div>
 
             <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -44,10 +44,10 @@
 
     </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#2D63ED; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p"> Compared to other leaders, your scores suggest that you are action-oriented, and others can rely on you to get things done. You have no problem making decisions for your team and you expect your employees to agree with the goals and priorities you set. You are not comfortable showing signs of weakness or asking others for help. This creates a culture where people may be hesitant to take calculated risks for  fear that they will not be able to ask for guidance or support. Once you lose trust in people, it is hard for you to work with them again. </p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#2D63ED; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -128,7 +128,7 @@
     <div style="position:relative; width:100%;">  
       <div style="width:174px; position:absolute; top:-140px; right:-22px;"> 
         <img style="max-width:100%; height:auto;"
-          src="{{asset('pdf/img/Blue_graphics.png')}}"
+          src="{{asset('pdf/img/Blue_graphics.jpg')}}"
           alt="Bandelli-Associates-Logo 1"
         /> 
       </div>

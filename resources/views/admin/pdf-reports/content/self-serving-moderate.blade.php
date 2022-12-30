@@ -23,7 +23,7 @@
           <th>
           Relational Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Prioritize their own work regardless of the importance of requests from coworkers.
           </td>
         </tr>
@@ -31,7 +31,7 @@
           <th>
           Leadership Implication: 
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
            Avoid leading projects or initiatives that do not align with their personal objectives. 
           </td>
         </tr>
@@ -39,7 +39,7 @@
           <th>
           Organizational Culture Implication:
           </th>
-          <td >
+          <td style="padding-left:25px; color:#3D3F42; font-size: 15px;">
           Create a climate on their teams where employees are not encouraged to get involved in work outside their areas of responsibility.
           </td>
         </tr>

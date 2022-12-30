@@ -1,125 +1,125 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Highcharts Example</title>
+<!-- Styles -->
+<style>
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+</style>
 
-		<style type="text/css">
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 310px; 
-    max-width: 800px;
-    margin: 1em auto;
-}
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-#container {
-    height: 400px;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-		</style>
-	</head>
-	<body>
-
-<script src="{{asset('highcharts.js')}}"></script>
-<script src="{{asset('modules/exporting.js')}}"></script>
-<script src="{{asset('modules/export-data.js')}}"></script>
-<script src="{{asset('modules/accessibility.js')}}"></script>
-<figure class="highcharts-figure">
-    <div id="container"></div>
-</figure>
+<!-- Chart code -->
 <script>
-// var pieColors = (function () {
-//     var colors = [],
-//         base = Highcharts.getOptions().colors[0],
-//         i;
+am5.ready(function() {
 
-//     for (i = 0; i < 10; i += 1) {
-//         // Start out with a darkened base color (negative brighten), and end
-//         // up with a much brighter color
-//         colors.push(Highcharts.color(base).brighten((i - 3) / 7).get());
-//     }
-//     return colors;
-// }());
-var colorsA = ['#FF530D', '#E82C0C', '#FF0000', '#E80C7A', '#E80C7A','#E80CBB'];
-// Build the chart
-Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Browser market shares in February, 2022'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            colors: colorsA,
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
-                distance: -50,
-                filter: {
-                    property: 'percentage',
-                    operator: '>',
-                    value: 4
-                }
-            }
-        }
-    },
-    series: [{
-        name: 'Share',
-        data: [
-            { name: 'Chrome', y: 74.03 },
-            { name: 'Edge', y: 12.66 },
-            { name: 'Firefox', y: 4.96 },
-            { name: 'Safari', y: 2.49 },
-            { name: 'Internet Explorer', y: 2.31 },
-            { name: 'Other', y: 3.398 }
-        ]
-    }]
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+// Generate and set data
+// https://www.amcharts.com/docs/v5/charts/radar-chart/#Setting_data
+var cat = -1;
+var value = 10;
+
+function generateData() {
+  value = Math.round(Math.random() * 10);
+  cat++;
+  return {
+    category: "cat" + cat,
+    value: value
+  };
+}
+
+function generateDatas(count) {
+  cat = -1;
+  var data = [];
+  for (var i = 0; i < count; ++i) {
+    data.push(generateData());
+  }
+  return data;
+}
+
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/radar-chart/
+var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "panX",
+  wheelY: "zoomX"
+}));
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/radar-chart/#Cursor
+var cursor = chart.set("cursor", am5radar.RadarCursor.new(root, {
+  behavior: "zoomX"
+}));
+
+cursor.lineY.set("visible", false);
+
+// Create axes and their renderers
+// https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_axes
+var xRenderer = am5radar.AxisRendererCircular.new(root, {});
+xRenderer.labels.template.setAll({
+  radius: 10
 });
 
-document.querySelector('.highcharts-credits').style.display = 'none';
-document.querySelector('.highcharts-exporting-group').style.display = 'none';
+var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+  maxDeviation: 0,
+  categoryField: "category",
+  renderer: xRenderer,
+  tooltip: am5.Tooltip.new(root, {})
+}));
+
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5radar.AxisRendererRadial.new(root, {})
+}));
+
+// Create series
+// https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_series
+for (var i = 0; i < 5; i++) {
+  var series = chart.series.push(am5radar.RadarColumnSeries.new(root, {
+    stacked: true,
+    name: "Series " + i,
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "value",
+    categoryXField: "category"
+  }));
+
+  series.set("stroke", root.interfaceColors.get("background"));
+  series.columns.template.setAll({
+    width: am5.p100,
+    strokeOpacity: 0.1,
+    tooltipText: "{name}: {valueY}"
+  });
+
+  series.data.setAll(generateDatas(12));
+  series.appear(1000);
+}
+
+// Add scrollbars
+chart.set("scrollbarX", am5.Scrollbar.new(root, { orientation: "horizontal", exportable: false }));
+chart.set("scrollbarY", am5.Scrollbar.new(root, { orientation: "vertical", exportable: false }));
+
+var data = generateDatas(12);
+xAxis.data.setAll(data);
+
+// Animate chart
+// https://www.amcharts.com/docs/v5/concepts/animations/#Initial_animation
+chart.appear(1000, 100);
+
+}); // end am5.ready()
 </script>
-	</body>
-</html>
+
+<!-- HTML -->
+<div id="chartdiv"></div>

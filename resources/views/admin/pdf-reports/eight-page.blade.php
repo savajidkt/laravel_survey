@@ -8,14 +8,14 @@
     <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
         <tr>
           <td style="width:50px;"> <img style="max-width:100%; height:auto;"
-                src="{{asset('pdf/img/DiffIcon.png')}}"
+                src="{{asset('pdf/img/DiffIcon.jpg')}}"
                 alt="Bandelli-Associates-Logo 1"
               /> </td>
 
           <td style="padding-left:14px;">
             <div style="color:#6700AD; font-size:40px;"><b>{{$embracing_individual_differences_per}}%</b></div>
-            <div style="background:#EAEBED; border-radius: 25px; height:3px; width:100%;">
-              <div style="background:#6700AD; border-radius: 25px; width:{{$embracing_individual_differences_per}}%; height:3px;"></div>
+            <div style="background:#EAEBED; border-radius: 25px; height:6px; width:100%;">
+              <div style="background:#6700AD; border-radius: 25px; width:{{$embracing_individual_differences_per}}%; height:6px;"></div>
             </div>
 
             <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
@@ -44,10 +44,10 @@
 
     </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#6700AD; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p"> Compared to other leaders, your scores suggest that you look to build teams where employees are in alignment and agreement with your approach to doing work. You understand that diversity is important, but it should always be in service of the needs of the business. You prefer working with people who share similar values, opinions, and beliefs. This prevents conflicts from occurring and ensures work is completed in the most efficient manner possible. Your employees value the autonomy you give them, but it can sometimes prevent the team from working together collaboratively. </p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#6700AD; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -71,10 +71,10 @@
 
 </ul>
 
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#6700AD; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Leadership implications</h3>
     <p class="report_p"> Compared to other leaders, your scores suggest that you understand the importance of diversity of thought for a team to be successful. You also believe people need to feel comfortable sharing their perspectives in an environment where everyone’s input will be heard. Your steady and predictable demeanor make it rewarding for others to work with you. People can count on you to pay attention to their concerns and look for ways to make the workplace an engaging environment for everyone. </p>
-    <div style="background:#FFCC01; border-radius: 25px; width:100%; height:2px; margin:30px 0;"></div>
+    <div style="background:#6700AD; border-radius: 25px; width:100%; height:3px; margin:30px 0;"></div>
     <h3 class="report_head">Work-Life Implications</h3>
     <p class="report_p">People with similar scores tend to:</p>
     <ul>
@@ -126,7 +126,7 @@
     <div style="position:relative; width:100%;">  
       <div style="width:130px; position:absolute; top:-144px; right:-15px;"> 
         <img style="max-width:100%; height:auto;"
-          src="{{asset('pdf/img/purple_graphics.png')}}"
+          src="{{asset('pdf/img/purple_graphics.jpg')}}"
           alt="Bandelli-Associates-Logo 1"
         /> 
       </div>

@@ -2,7 +2,9 @@
 <html>
 
 <head>
-
+<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @include('admin.pdf-reports.chart-css')
 </head>
 
@@ -80,35 +82,40 @@
 
 var data = [// w  w w  . j  a  v  a  2s . c  om
     {
-        value:'{{$establishing_report_per}}',
+        // value:'{{$establishing_report_per}}',
+        value:100,
         color:"#FFCC01",
         light_color:"#ffff66",
         highlight: "#FFCC01",
         label: "Establishing Rapport"
     },
     {
-        value: '{{$understanding_others_per}}',
+        // value: '{{$understanding_others_per}}',
+        value:60,
         color: "#7FB936",
         light_color: "#66ff33",
         highlight: "#7FB936",
         label: "Understanding Others"
     },
     {
-        value: '{{$embracing_individual_differences_per}}',
+        // value: '{{$embracing_individual_differences_per}}',
+        value: 10,
         color: "#A75FD3",
         light_color: "#cc99ff",
         highlight: "#A75FD3",
         label: "Embracing Individual Differences"
     },
     {
-        value: '{{$developing_trust_per}}',
+        // value: '{{$developing_trust_per}}',
+        value:15,
         color: "#2D63ED",
         light_color: "#66ccff",
         highlight: "#2D63ED",
         label: "Developing Trust"
     },
     {
-        value: '{{$cultivating_influence_per}}',
+        // value: '{{$cultivating_influence_per}}',
+        value: 4,
         color:"#FF8E3A",
         light_color:"#ffcc99",
         highlight: "#FF8E3A",
@@ -119,14 +126,14 @@ var data = [// w  w w  . j  a  v  a  2s . c  om
 
 ChartOptions= {
             scaleLabel:"<%=value+''%>",
-            scaleShowLabels:false,
+            scaleShowLabels:true,
             scaleShowLine:true,
-            scaleLineStyle:"dahsed",
+            // scaleLineStyle:"dahsed",
             scaleLineWidth:2,
             scaleLineColor:"rgba(255,255,255,0.6)",
             scaleOverlay :false,
-            scaleOverride :false
-
+            scaleOverride :false,
+           
            /*onAnimationProgress: function()
            {
                 this.scale.steps = 3;
@@ -137,7 +144,31 @@ ChartOptions= {
     var ctx = document.getElementById("myChart").getContext("2d");
     var myNewChart = new Chart(ctx).PolarArea(data,ChartOptions);
     myNewChart.scale.steps = 2;
+    myNewChart.scale.yLabels=[0,33,66,100];
+    myNewChart.scale.drawingArea =100;
 
+    const myTimeout = setTimeout(function(){
+      const canvas = document.getElementById('myChart');
+      const img    = canvas.toDataURL('image/png');
+      console.log(img);
+      //document.write('<img src="'+img+'"/>');
+    }, 5000);
+
+
+    
+    // var can = document.getElementById('myChart');
+    // var ctx = can.getContext('2d');
+    // ctx.fillRect(50,50,50,50);
+    // var img = new Image();
+    // console.log(can.toDataURL());
+    // img.src = can.toDataURL();
+    // document.body.appendChild(img);
+
+    //myNewChart.scale.xCenter =100;
+    //myNewChart.scale.yCenter =100;
+    
+    
+    //myNewChart.scale.max =100;
     //gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, r);
 
     // data.forEach(function(value,index){

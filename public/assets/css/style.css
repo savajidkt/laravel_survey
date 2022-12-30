@@ -36,3 +36,4 @@ div.dataTables_wrapper .dataTables_info{
 .header-navbar.floating-nav{
 	margin: 0;width: 100%;
 }
+.timeline-cus-height{max-height: 395px; overflow-y: auto;}

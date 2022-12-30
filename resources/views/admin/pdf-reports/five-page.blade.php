@@ -8,8 +8,13 @@
 
   <table style="width: 100%; margin: 0 auto; padding: 0; vertical-align: top" cellpadding="0" cellspacing="0">
       <tr>
-        <td style="text-align:center">
-        <canvas id="myChart" width="400" height="400" style="background-color:#EAEBED; border-radius:50%;"></canvas> 
+        <td style="text-align:center" class="c-l-r">
+		<div class="er-label-r" style="display:none;">
+		<span class="er-label-r-text">Establishing Rapport</span>
+		<span class="er-label-r-img"><img width="270" height="140" src="http://18.218.17.73/survey/public/pdf/img/yellow-line.svg"></span>
+		</div>
+        <canvas id="myChart" width="400" height="400" style="background-color:#EAEBED; border-radius:50%;"></canvas>
+         
         <!-- <figure class="highcharts-figure">
           <div id="container"></div>
         </figure> -->

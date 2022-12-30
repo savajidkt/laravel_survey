@@ -275,6 +275,7 @@ class UsersController extends Controller
         $breakingTrustPer   =  round($userSurvey->breaking_trust * 100,0);
         $poorPer            =  round($userSurvey->poor_management_of_emotions * 100,0);
 
+        $hightArrayPer =max($esPer,$undPer,$embracingPer,$developingPer,$cultiInfluPer);
         //echo common()->formatSql($latestPosts);die;
         $data = [
             'user_id'                               => $userSurvey->user_id,
@@ -291,11 +292,14 @@ class UsersController extends Controller
             'lacking_social_awareness_per'          => $lackingSocialPer,
             'self_serving_per'                      => $selfServingPer,
             'breaking_trust_per'                    => $breakingTrustPer,
-            'poor_management_of_emotions_per'       => $poorPer
+            'poor_management_of_emotions_per'       => $poorPer,
+            'hightArrayPer'                        =>$hightArrayPer
+
         ];
 
         $html = view('admin.pdf-reports.front-page', $data)->render();
-        //echo $html; die;
+        //$html = view('admin.pdf-reports.chart', $data)->render();
+        echo $html; die;
         $pdf = SnappyPdf::loadHTML($html);
 
         $pdf->setOption('enable-javascript', true);
@@ -307,6 +311,8 @@ class UsersController extends Controller
         $pdf->setOption('margin-right', 0);
         $pdf->setOption('margin-left', 0);
         $pdf->setOption('margin-bottom', 0);
+        $pdf->setOption('lowquality', false);
+        $pdf->setOption('debug-javascript', true);
         return $pdf->download('survey-report-' . $userSurvey->user_id . '.pdf');
     }
 

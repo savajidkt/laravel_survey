@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Question;
 use App\Models\QuestionOption;
+use App\Models\SurveyReportMaster;
 use App\Models\User;
 use App\Models\UserSurvey;
 use App\Models\UserSurveyAnswer;
@@ -263,7 +264,8 @@ class QuestionRepository
                 {
                     $firstArray =[];
                     $lastValue='';
-                    $userSurveyAttemptedArray = UserSurveyAnswer::where('user_id', $userId)->get();
+                    $userSurveyAttemptedArray = SurveyReportMaster::all();
+                    //$userSurveyAttemptedArray = UserSurveyAnswer::where('user_id', $userId)->get();
                     $riPoints = [];
                     $establishingReportPoint = [];
                     $understandingOthersPoint = [];
@@ -278,51 +280,51 @@ class QuestionRepository
 
                     foreach($userSurveyAttemptedArray as $userServeyAnswer){
                         $riPoints[] = $userServeyAnswer->ri_points;
-                        $establishingReportPoint[] = $userServeyAnswer->establishing_report_point;
-                        $understandingOthersPoint[] = $userServeyAnswer->understanding_others_point;
-                        $embracingIndividualDifferencesPoint[] = $userServeyAnswer->embracing_individual_differences_point;
-                        $developingTrustPoint[] = $userServeyAnswer->developing_trust_point;
-                        $cultivatingInfluencePoint[] = $userServeyAnswer->cultivating_influence_point;
-                        $lackingSelfAwarenessPoint[] = $userServeyAnswer->lacking_self_awareness_point;
-                        $lackingSocialAwarenessPoint[] = $userServeyAnswer->lacking_social_awareness_point;
-                        $selfServingPoint[] = $userServeyAnswer->self_serving_point;
-                        $breakingTrustPoint[] = $userServeyAnswer->breaking_trust_point;
-                        $poorManagementOfEmotionsPoint[] = $userServeyAnswer->poor_management_of_emotions_point;
+                        $establishingReportPoint[] = $userServeyAnswer->establishing_report;
+                        $understandingOthersPoint[] = $userServeyAnswer->understanding_others;
+                        $embracingIndividualDifferencesPoint[] = $userServeyAnswer->embracing_individual_differences;
+                        $developingTrustPoint[] = $userServeyAnswer->developing_trust;
+                        $cultivatingInfluencePoint[] = $userServeyAnswer->cultivating_influence;
+                        $lackingSelfAwarenessPoint[] = $userServeyAnswer->lacking_self_awareness;
+                        $lackingSocialAwarenessPoint[] = $userServeyAnswer->lacking_social_awareness;
+                        $selfServingPoint[] = $userServeyAnswer->self_serving;
+                        $breakingTrustPoint[] = $userServeyAnswer->breaking_trust;
+                        $poorManagementOfEmotionsPoint[] = $userServeyAnswer->poor_management_of_emotions;
                     }
                     //dd(end($establishingReportPoint));
                     //$userSurveyAttemptedLast = UserSurveyAnswer::where('user_id', $userId)->last();
                     //$firstArray = $userSurveyAttemptedArray->establishing_report_point;
-                    $ri_points_last = $userSurveyAttemptedArray->last()->ri_points;
+                    $ri_points_last = $user->survey_answers->sum('ri_points');
                     $ri_points = $this->percentagerankCalculate($riPoints,$ri_points_last);
 
-                    $establishing_report_last = $userSurveyAttemptedArray->last()->establishing_report_point;
+                    $establishing_report_last = $user->survey_answers->sum('establishing_report_point');
                     $establishing_report = $this->percentagerankCalculate($establishingReportPoint,$establishing_report_last);
 
-                    $understanding_others_last = $userSurveyAttemptedArray->last()->understanding_others_point;
+                    $understanding_others_last = $user->survey_answers->sum('understanding_others_point');
                     $understanding_others = $this->percentagerankCalculate($understandingOthersPoint,$understanding_others_last);
 
-                    $embracing_individual_differences_last = $userSurveyAttemptedArray->last()->embracing_individual_differences_point;
+                    $embracing_individual_differences_last = $user->survey_answers->sum('embracing_individual_differences_point');
                     $embracing_individual_differences = $this->percentagerankCalculate($embracingIndividualDifferencesPoint,$embracing_individual_differences_last);
 
-                    $developing_trust_last = $userSurveyAttemptedArray->last()->developing_trust_point;
+                    $developing_trust_last = $user->survey_answers->sum('developing_trust_point');
                     $developing_trust = $this->percentagerankCalculate($developingTrustPoint,$developing_trust_last);
 
-                    $cultivating_influence_last = $userSurveyAttemptedArray->last()->cultivating_influence_point;
+                    $cultivating_influence_last = $user->survey_answers->sum('cultivating_influence_point');
                     $cultivating_influence = $this->percentagerankCalculate($cultivatingInfluencePoint,$cultivating_influence_last);
 
-                    $lacking_self_awareness_last = $userSurveyAttemptedArray->last()->lacking_self_awareness_point;
+                    $lacking_self_awareness_last = $user->survey_answers->sum('lacking_self_awareness_point');
                     $lacking_self_awareness = $this->percentagerankCalculate($lackingSelfAwarenessPoint,$lacking_self_awareness_last);
 
-                    $lacking_social_awareness_last = $userSurveyAttemptedArray->last()->lacking_social_awareness_point;
+                    $lacking_social_awareness_last = $user->survey_answers->sum('lacking_social_awareness_point');
                     $lacking_social_awareness = $this->percentagerankCalculate($lackingSocialAwarenessPoint,$lacking_social_awareness_last);
 
-                    $self_serving_last = $userSurveyAttemptedArray->last()->self_serving_point;
+                    $self_serving_last = $user->survey_answers->sum('self_serving_point');
                     $self_serving = $this->percentagerankCalculate($selfServingPoint,$self_serving_last);
 
-                    $breaking_trust_point_last = $userSurveyAttemptedArray->last()->breaking_trust_point;
+                    $breaking_trust_point_last = $user->survey_answers->sum('breaking_trust_point');
                     $breaking_trust = $this->percentagerankCalculate($breakingTrustPoint,$breaking_trust_point_last);
 
-                    $poor_management_of_emotions_point_last = $userSurveyAttemptedArray->last()->poor_management_of_emotions_point;
+                    $poor_management_of_emotions_point_last = $user->survey_answers->sum('poor_management_of_emotions_point');
                     $poor_management_of_emotions = $this->percentagerankCalculate($poorManagementOfEmotionsPoint,$poor_management_of_emotions_point_last);
 
                     $userSurvey->ri_points = $ri_points;

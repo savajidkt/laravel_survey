@@ -1,6 +1,6 @@
 <div class="multisteps_form_panel step sub-card">
-    <h5 class="card-header animate__animated animate__fadeInRight animate_25ms">{{$model->question}}</h5>
-	<div class="text-primary mt-3"><strong>Change the order from which you are most likely to do and least likely by dragging the answers.</strong></div>
+    <h5 class="card-header">{{$model->question}}</h5>
+	<div class="text-primary mt-3"><strong>Change the order from what you would "Most Likely" do to what you would "Least Likely" do in this scenario.</strong></div>
     <div class="card-body">
         <input type="hidden" name="question_id" id="question_id" value="{{$model->id}}">
        

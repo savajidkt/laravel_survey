@@ -539,7 +539,8 @@ h6 {
 }
 
 .card-img-overlay {
-  background-color: rgb(49 85 97 / 30%);
+  /* background-color: rgb(49 85 97 / 30%); */
+  background-color: #1b4352;
 }
 
 .btn-light {
@@ -742,13 +743,24 @@ h6 {
   font-size: 14px;
 }
 
+.general-card .thank-you .card-text, 
+.general-card .time-out .card-text {
+  font-size: 18px;
+}
+.general-card .thank-you p a{
+  color: #0d6efd;
+}
 .general-card .card .card-img-overlay {
   padding: 30px 25px;
 }
 
-.general-card .card .card-img-overlay{position: unset;}
+.instruction-page .card .card-text{
+  font-size: 16px;
+}
 
-.general-card .card .card-img-overlay ul li{font-size:14px;     text-align: left;}
+.general-card .card .card-img-overlay{position: unset;}
+.general-card .card .card-img-overlay ul { margin-top: 10px;  }
+.general-card .card .card-img-overlay ul li{font-size:16px; text-align: left; margin-top: 6px;}
 
 .general-card .card .card-text .btn {
   
